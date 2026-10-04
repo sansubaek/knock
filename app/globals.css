@@ -2043,3 +2043,42 @@ button:disabled {
     transition: none !important;
   }
 }
+
+/* 예시 페이지 상단 바 */
+.demo-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  overflow-x: auto;
+  padding: 8px 12px;
+  background: #121318;
+  color: #fff;
+  font-family: var(--body);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.demo-bar span {
+  font-weight: 700;
+}
+.demo-bar nav {
+  display: flex;
+  gap: 6px;
+}
+.demo-bar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.demo-bar a[aria-current='page'] {
+  background: #fff;
+  color: #121318;
+}
+.t-black .d-act.ghost {
+  color: var(--ink);
+  background: transparent;
+}

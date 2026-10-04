@@ -173,4 +173,33 @@ do $$ begin
   end if;
 end $$;
 
+-- ─────────────────────────────────────────
+-- 6. 베타 지표용: 페이지를 언제 고쳤는지 기록 (가설 1 "계속 업데이트하나" 측정)
+--    같은 페이지는 10분에 한 번만 남긴다
+-- ─────────────────────────────────────────
+create table if not exists public.page_edits (
+  id         bigint generated always as identity primary key,
+  page_id    uuid not null references public.pages(id) on delete cascade,
+  edited_at  timestamptz not null default now()
+);
+create index if not exists page_edits_page_idx on public.page_edits (page_id, edited_at desc);
+alter table public.page_edits enable row level security;
+drop policy if exists admin_all on public.page_edits;
+create policy admin_all on public.page_edits for all using (public.is_admin()) with check (public.is_admin());
+drop policy if exists own_select on public.page_edits;
+create policy own_select on public.page_edits for select using (public.owns_page(page_id));
+
+create or replace function public.log_page_edit() returns trigger
+language plpgsql security definer set search_path = public as $$
+begin
+  if not exists (select 1 from public.page_edits where page_id = new.id and edited_at > now() - interval '10 minutes') then
+    insert into public.page_edits (page_id) values (new.id);
+  end if;
+  return new;
+end;
+$$;
+drop trigger if exists pages_log_edit on public.pages;
+create trigger pages_log_edit after update on public.pages
+  for each row execute function public.log_page_edit();
+
 create index if not exists scan_logs_scanned_idx on public.scan_logs (scanned_at desc);
