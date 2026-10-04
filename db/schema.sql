@@ -169,17 +169,17 @@ create index on public.inquiries (status, created_at desc);
 -- ─────────────────────────────────────────
 
 create or replace function public.is_admin() returns boolean
-language sql stable security definer set search_path = public as $$
+language sql stable security definer set search_path = public, extensions as $$
   select exists (select 1 from public.profiles where id = auth.uid() and role = 'admin');
 $$;
 
 create or replace function public.owns_page(p_page_id uuid) returns boolean
-language sql stable security definer set search_path = public as $$
+language sql stable security definer set search_path = public, extensions as $$
   select exists (select 1 from public.pages where id = p_page_id and owner_id = auth.uid());
 $$;
 
 create or replace function public.handle_new_user() returns trigger
-language plpgsql security definer set search_path = public as $$
+language plpgsql security definer set search_path = public, extensions as $$
 begin
   insert into public.profiles (id) values (new.id);
   return new;
@@ -203,7 +203,7 @@ create trigger pages_touch before update on public.pages
 
 -- 암호 잠금 PIN 설정 (주인만)
 create or replace function public.set_page_pin(p_page_id uuid, p_pin text) returns void
-language plpgsql security definer set search_path = public as $$
+language plpgsql security definer set search_path = public, extensions as $$
 begin
   if not public.owns_page(p_page_id) then
     raise exception 'not owner';
@@ -221,7 +221,7 @@ $$;
 -- PIN 시도 횟수 제한은 이 함수를 부르는 서버 라우트에서 한다.
 create or replace function public.get_public_page(p_qr_id text, p_pin text default null)
 returns jsonb
-language plpgsql stable security definer set search_path = public as $$
+language plpgsql stable security definer set search_path = public, extensions as $$
 declare
   q public.qr_codes%rowtype;
   p public.pages%rowtype;

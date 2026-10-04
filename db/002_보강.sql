@@ -27,7 +27,7 @@ revoke all on public.rate_limits from anon, authenticated;
 -- 허용 범위 안이면 true, 넘으면 false
 create or replace function public.hit_rate_limit(p_key text, p_limit int, p_window_seconds int)
 returns boolean
-language plpgsql security definer set search_path = public as $$
+language plpgsql security definer set search_path = public, extensions as $$
 declare c int;
 begin
   insert into public.rate_limits as r (key, count, reset_at)
@@ -44,7 +44,7 @@ grant execute on function public.hit_rate_limit(text, int, int) to service_role;
 
 -- 오래된 기록 정리 (가끔 SQL Editor에서 실행하거나 cron으로)
 create or replace function public.cleanup_rate_limits() returns void
-language sql security definer set search_path = public as $$
+language sql security definer set search_path = public, extensions as $$
   delete from public.rate_limits where reset_at < now() - interval '1 day';
 $$;
 revoke execute on function public.cleanup_rate_limits() from public, anon, authenticated;
@@ -109,7 +109,7 @@ create trigger decor_limit before insert on public.decor_items
 -- p_unlocked: 서버가 이미 암호를 확인한 방문자(서명된 쿠키)면 true
 create or replace function public.get_public_page(p_qr_id text, p_pin text default null, p_unlocked boolean default false)
 returns jsonb
-language plpgsql stable security definer set search_path = public as $$
+language plpgsql stable security definer set search_path = public, extensions as $$
 declare
   q public.qr_codes%rowtype;
   p public.pages%rowtype;
@@ -196,7 +196,7 @@ drop policy if exists own_select on public.page_edits;
 create policy own_select on public.page_edits for select using (public.owns_page(page_id));
 
 create or replace function public.log_page_edit() returns trigger
-language plpgsql security definer set search_path = public as $$
+language plpgsql security definer set search_path = public, extensions as $$
 begin
   if not exists (select 1 from public.page_edits where page_id = new.id and edited_at > now() - interval '10 minutes') then
     insert into public.page_edits (page_id) values (new.id);
@@ -213,7 +213,7 @@ create trigger pages_log_edit after update on public.pages
 -- ─────────────────────────────────────────
 -- 시도 횟수를 늘리지 않고 지금 몇 번인지만 보기
 create or replace function public.rate_limit_count(p_key text) returns int
-language sql stable security definer set search_path = public as $$
+language sql stable security definer set search_path = public, extensions as $$
   select coalesce((select count from public.rate_limits where key = p_key and reset_at >= now()), 0);
 $$;
 revoke execute on function public.rate_limit_count(text) from public, anon, authenticated;
@@ -221,7 +221,7 @@ grant execute on function public.rate_limit_count(text) to service_role;
 
 -- 코드 틀린 횟수를 한 번에 +1 (관리자 화면 표시용)
 create or replace function public.bump_failed_attempts(p_id text) returns void
-language sql security definer set search_path = public as $$
+language sql security definer set search_path = public, extensions as $$
   update public.qr_codes set failed_attempts = failed_attempts + 1 where id = p_id;
 $$;
 revoke execute on function public.bump_failed_attempts(text) from public, anon, authenticated;
@@ -255,7 +255,7 @@ create policy media_insert on storage.objects for insert to authenticated
 -- security invoker: 호출한 사람 권한(RLS)으로 실행되므로 남의 페이지는 못 고친다
 create or replace function public.save_page(p_page_id uuid, p_blocks jsonb, p_removed uuid[], p_page jsonb, p_decor jsonb)
 returns void
-language plpgsql security invoker set search_path = public as $$
+language plpgsql security invoker set search_path = public, extensions as $$
 declare
   b jsonb;
   d jsonb;
