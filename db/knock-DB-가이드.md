@@ -1,6 +1,15 @@
 # knock DB 구축 가이드
 
-Supabase(Postgres) 기준. 같이 있는 `schema.sql`을 Supabase SQL Editor에 붙여넣고 실행하면 테이블, 보안 규칙, 함수가 한 번에 만들어진다.
+Supabase(Postgres) 기준. Supabase SQL Editor에서 **`schema.sql` → `002_보강.sql` 순서로** 실행하면 테이블, 보안 규칙, 함수가 한 번에 만들어진다.
+
+`002_보강.sql` (10/4 추가)은 꼭 같이 실행할 것. 하는 일:
+- 방문자 페이지 조회 함수를 서버만 부를 수 있게 막음 (전에는 누구나 Supabase에 직접 요청해서 페이지 암호를 무한 대입할 수 있었음)
+- 시도 횟수 제한 표 (`rate_limits`), 분실 모드 한마디 (`qr_codes.lost_note`), 방명록 방식 (`pages.guestbook_mode`: 바로 공개 / 승인제 / 끄기)
+- 블록 40개·스티커 30개·데이터 크기 제한
+- 페이지 수정 기록 (`page_edits`, 베타 지표용)
+- 방문자 페이지에 오늘·전체 방문자 수 추가
+
+여러 번 실행해도 문제없다.
 로컬 Postgres 16에서 실행과 기본 동작을 테스트했다 (활성화 전 → 페이지, 암호 잠금, 분실 모드, 남의 데이터 차단, 권한 상승 차단).
 
 ---
@@ -165,6 +174,10 @@ update public.profiles set role = 'admin' where id = '내 계정 uuid';
 
 ---
 
-## 10. Claude Code에 줄 때
+## 10. 웹앱 코드
+
+이 가이드의 4번 서버 라우트는 knock 웹앱 코드(`app/`)에 전부 구현돼 있다. 로컬에서 Supabase와 같은 구조로 띄워 55개 항목을 시험했다. 설치 순서는 웹앱 README 참고.
+
+## 11. Claude Code에 줄 때 (참고)
 
 > 이 프로젝트는 Next.js(App Router) + Supabase야. `schema.sql`을 이미 Supabase에 적용했어. `knock-DB-가이드.md`의 4번 "서버 라우트에서 할 일" 순서대로 만들어줘. 먼저 ① `/c/[id]` 진입 분기와 스캔 기록, ② 활성화부터. service_role 키는 서버 코드에서만 쓰고, 활성화 코드는 `KNOCK_CODE_SECRET`으로 HMAC 비교해줘.
