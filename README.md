@@ -2,6 +2,11 @@
 
 케이스 QR → 개인 페이지(knock! / knock.), 로그인, 케이스 등록, 분실 모드, 관리자 페이지까지 들어 있는 Next.js + Supabase 코드입니다.
 
+## 지금 상태 (2026-10-04)
+- Supabase 프로젝트 `knock` (서울) 생성, `schema.sql`과 `002_보강.sql` 적용 완료. `003_save_page.sql`만 SQL Editor에서 직접 실행 필요
+- Vercel 프로젝트 `knock` 배포: https://knock-sansubaek.vercel.app (GitHub main에 올리면 자동 배포되려면 Vercel GitHub 앱 설치 필요)
+- 남은 설정: Vercel 환경변수 `SUPABASE_SERVICE_ROLE_KEY`, Supabase 로그인 주소·메일 템플릿 (아래 1-2, 1-3)
+
 ## 처음 한 번 하는 일 (순서대로)
 
 ### 1. Supabase

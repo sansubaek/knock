@@ -298,3 +298,14 @@ revoke execute on function public.save_page(uuid, jsonb, uuid[], jsonb, jsonb) f
 grant execute on function public.save_page(uuid, jsonb, uuid[], jsonb, jsonb) to authenticated;
 
 create index if not exists scan_logs_scanned_idx on public.scan_logs (scanned_at desc);
+
+-- ─────────────────────────────────────────
+-- 8. Supabase 보안 점검(Security Advisor) 반영
+-- ─────────────────────────────────────────
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
+revoke execute on function public.log_page_edit() from public, anon, authenticated;
+revoke execute on function public.set_page_pin(uuid, text) from public, anon;
+grant execute on function public.set_page_pin(uuid, text) to authenticated;
+alter function public.touch_updated_at() set search_path = public;
+alter function public.limit_blocks() set search_path = public;
+alter function public.limit_decor() set search_path = public;
