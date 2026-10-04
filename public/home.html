@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/favicon.svg">
+<meta name="description" content="케이스 QR을 찍으면 열리는 나만의 공간. knock! 와 knock.">
+<title>knock 홈페이지</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&family=Jua&family=Noto+Serif+KR:wght@500;700&display=swap">
+<style>
+/* Layout: 두 개의 문. 첫 화면에서 갈라지고, 문을 열면 knock!(크림·말랑) / knock.(모노·정제) 각자의 세계로 */
+:root{
+  --paper:#F5F6F2; --surface:#FFFFFF; --ink:#121318; --mute:#5C5F6B; --line:#DCDDD7;
+  --bang:#2547F4; --bang-ink:#FFFFFF; --bang-soft:#E8ECFE; --ok:#1F7A4D;
+  --display:"Bricolage Grotesque","Arial Black",system-ui,sans-serif;
+  --body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --round:"Jua","IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif;
+  --serif:"Noto Serif KR","AppleMyungjo","Batang",serif;
+  /* knock! 세계 (크림 고정) */
+  --b-cream:#FAF6EC; --b-cream2:#ECE5D4; --b-choco:#5A3A26; --b-pink:#E8738A; --b-blue:#2547F4; --b-mute:#8A6B55;
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F1014; --surface:#17181E; --ink:#ECEDF0; --mute:#9C9FAC; --line:#2B2D35;
+    --bang:#3D5BFF; --bang-ink:#FFFFFF; --bang-soft:#1C2347; --ok:#5CC98F; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F1014; --surface:#17181E; --ink:#ECEDF0; --mute:#9C9FAC; --line:#2B2D35;
+  --bang:#3D5BFF; --bang-ink:#FFFFFF; --bang-soft:#1C2347; --ok:#5CC98F; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{text-wrap:balance;margin:0;letter-spacing:-0.025em}
+p{margin:0}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:20px}
+:focus-visible{outline:2px solid var(--bang);outline-offset:3px;border-radius:6px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:-0.03em;text-decoration:none}
+.nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.nav a{text-decoration:none;font-size:14px;color:var(--mute);padding:10px 10px;border-radius:8px}
+.nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:700 14px/1 var(--body);cursor:pointer;text-decoration:none}
+.btn.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.blue{background:var(--bang);color:var(--bang-ink);border-color:var(--bang)}
+@media (max-width:640px){.nav a.hide-sm{display:none}}
+body.on-bang .top{background:var(--b-cream);border-color:var(--b-cream2);color:var(--b-choco)}
+body.on-bang .top .nav a{color:var(--b-mute)}
+body.on-bang .top .btn{background:#FFFFFF;color:var(--b-choco);border-color:var(--b-cream2)}
+
+.view[hidden]{display:none}
+
+/* ── home: doors ── */
+.doors{display:grid;grid-template-columns:1fr 1fr;transition:grid-template-columns .5s cubic-bezier(.2,.7,.2,1);border-bottom:1px solid var(--line)}
+.doors:has(.door.bang:hover){grid-template-columns:1.35fr 1fr}
+.doors:has(.door.dot:hover){grid-template-columns:1fr 1.35fr}
+.door{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:40px clamp(20px,4vw,56px) 44px;text-decoration:none;min-width:0}
+.door.bang{background:var(--b-cream);color:var(--b-choco)}
+.door.dot{background:#111113;color:#FFFFFF}
+.door-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.door-name{font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-0.03em}
+.door-who{font-size:13px;letter-spacing:0.04em;opacity:.85}
+.glyph{font-family:var(--display);font-weight:800;font-size:clamp(150px,22vw,280px);line-height:.82;letter-spacing:-0.05em;margin:0}
+.door h1,.door h2{font-size:clamp(30px,3.6vw,44px);font-weight:700;line-height:1.2}
+.door .sub{font-size:16px;max-width:30ch;margin-top:10px}
+.door.bang .sub{color:var(--b-mute)}
+.door.dot .sub{color:#B9BAC0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px}
+.door.bang .chip{background:#FFFFFF;border:1px solid var(--b-cream2)}
+.door.dot .chip{border:1px solid rgba(255,255,255,.32)}
+.go{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-weight:700;font-size:16px}
+.go svg{transition:transform .2s ease}
+.door:hover .go svg{transform:translateX(5px)}
+@media (max-width:720px){
+  .doors,.doors:has(.door:hover){grid-template-columns:1fr}
+  .door.bang{border-bottom:1px solid var(--b-cream2)}
+  .glyph{position:absolute;right:16px;top:84px;font-size:140px}
+  .door-who{display:none}
+  .door-copy{max-width:70%}
+}
+
+section{padding-block:72px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:0.12em;color:var(--mute);text-transform:uppercase}
+.sec-h{font-size:clamp(26px,3vw,36px);font-weight:700;line-height:1.25;margin-top:8px}
+.lead{color:var(--mute);margin-top:12px;max-width:58ch}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.step-n{font-family:var(--mono);font-size:13px;color:var(--bang)}
+.step h3{font-size:19px}
+.step p{color:var(--mute);font-size:15px}
+.code-demo{margin-top:6px;display:flex;flex-direction:column;gap:10px}
+.code-row{display:flex;gap:6px}
+.code-row input{width:100%;min-width:0;height:48px;text-align:center;font:500 20px var(--mono);border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.code-row input:focus{border-color:var(--bang);outline:none}
+.code-msg{font-size:13px;color:var(--mute);min-height:20px}
+.code-msg.ok{color:var(--ok);font-weight:700}
+.url{font-family:var(--mono);font-size:13px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:6px 10px;align-self:flex-start;word-break:break-all}
+@media (max-width:860px){.steps{grid-template-columns:1fr}}
+
+.lost{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center}
+.lost-points{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:10px;color:var(--mute)}
+.lost-points b{color:var(--ink)}
+.lost-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.lost-panel{margin-top:14px;font-size:14px;background:var(--bang-soft);border-radius:12px;padding:12px 14px}
+.phone{background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:22px;max-width:340px;justify-self:center;width:100%}
+.phone .badge{display:inline-block;background:var(--ink);color:var(--paper);font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:999px;padding:4px 10px}
+.phone h3{font-size:21px;margin-top:12px;line-height:1.35}
+.phone p{font-size:14px;color:var(--mute);margin-top:8px}
+.phone .fake-btn{margin-top:14px;border-radius:12px;padding:13px;text-align:center;font-weight:700;font-size:14px}
+.phone .fb1{background:var(--ink);color:var(--paper)}
+.phone .fb2{background:var(--paper);border:1px solid var(--line)}
+@media (max-width:860px){.lost{grid-template-columns:1fr}}
+
+.beta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:start}
+form{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label,.field legend{font-size:13px;font-weight:700}
+.field input,.field select{font:inherit;font-size:15px;min-height:46px;padding:0 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.field input:focus,.field select:focus{border-color:var(--bang);outline:none}
+fieldset{border:none;padding:0;margin:0}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+.seg label{display:flex;align-items:center;justify-content:center;min-height:46px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-family:var(--display);font-weight:800;font-size:17px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg input:checked+span{color:var(--bang)}
+.seg label:has(input:checked){border-color:var(--bang);background:var(--bang-soft)}
+.seg label:has(input:focus-visible){outline:2px solid var(--bang);outline-offset:2px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.note{font-size:12px;color:var(--mute)}
+.done{display:none;background:var(--bang-soft);border-radius:14px;padding:16px;font-size:15px}
+.done b{display:block;font-size:17px;margin-bottom:4px}
+@media (max-width:860px){.beta{grid-template-columns:1fr}}
+@media (max-width:420px){.row2{grid-template-columns:1fr}}
+
+/* ── knock! 세계 ── */
+.v-bang{background:var(--b-cream);color:var(--b-choco);font-family:var(--body)}
+.v-bang section{border-color:var(--b-cream2)}
+.b-hero{padding-block:56px 40px;overflow:hidden}
+.b-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:center}
+.b-tag{display:inline-block;font-family:var(--round);font-size:15px;background:#FFFFFF;border:2px solid var(--b-choco);border-radius:999px;padding:4px 14px;transform:rotate(-3deg)}
+.b-title{font-family:var(--round);font-weight:400;font-size:clamp(40px,6vw,68px);line-height:1.08;margin-top:18px;letter-spacing:-0.01em}
+.b-title em{font-style:normal;color:var(--b-pink)}
+.b-sub{font-size:17px;color:var(--b-mute);margin-top:16px;max-width:34ch}
+.b-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.b-btn{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 22px;border-radius:999px;font-family:var(--round);font-size:18px;text-decoration:none;border:2px solid var(--b-choco);background:var(--b-choco);color:var(--b-cream);box-shadow:0 4px 0 #3A2516;cursor:pointer}
+.b-btn.ghost{background:#FFFFFF;color:var(--b-choco);box-shadow:0 4px 0 var(--b-cream2)}
+.b-btn:active{transform:translateY(3px);box-shadow:0 1px 0 #3A2516}
+.collage{position:relative;height:440px}
+.polar{position:absolute;background:#FFFFFF;padding:10px 10px 36px;border-radius:6px;box-shadow:0 10px 24px rgba(90,58,38,.18);width:200px}
+.polar img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:3px}
+.polar span{position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:var(--round);font-size:15px}
+.p1{left:2%;top:40px;transform:rotate(-7deg)}
+.p2{left:34%;top:0;transform:rotate(3deg);z-index:2}
+.p3{right:0;top:70px;transform:rotate(8deg)}
+.tape{position:absolute;top:-10px;left:50%;width:70px;height:20px;margin-left:-35px;background:rgba(232,115,138,.45);transform:rotate(-4deg)}
+.marquee{background:var(--b-choco);color:var(--b-cream);overflow:hidden;white-space:nowrap;font-family:var(--round);font-size:20px;padding-block:12px}
+.marquee div{display:inline-block;animation:slide 28s linear infinite}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.b-h{font-family:var(--round);font-weight:400;font-size:clamp(28px,3.4vw,40px);line-height:1.2}
+.b-lead{color:var(--b-mute);margin-top:10px;max-width:52ch}
+.b-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:32px}
+.b-card{background:#FFFFFF;border:2px solid var(--b-choco);border-radius:20px;overflow:hidden;display:flex;flex-direction:row;align-items:stretch}
+.b-card img{width:120px;flex:0 0 120px;aspect-ratio:3/4;height:auto;object-fit:cover;border-right:2px solid var(--b-choco)}
+.b-card .in{padding:14px 16px;display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.b-card h3{font-family:var(--round);font-weight:400;font-size:20px}
+.b-card p{font-size:14px;color:var(--b-mute)}
+.b-card .pr{margin-top:auto;padding-top:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.b-card .pr b{font-size:18px;font-variant-numeric:tabular-nums}
+.b-pick{min-height:44px;padding:0 14px;border-radius:999px;border:2px solid var(--b-choco);background:var(--b-cream);color:var(--b-choco);font-family:var(--round);font-size:15px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.b-tabs{display:flex;gap:8px;margin-top:24px;flex-wrap:wrap}
+.b-tab{min-height:44px;padding:0 20px;border-radius:999px;border:2px solid var(--b-choco);background:#FFFFFF;color:var(--b-choco);font-family:var(--round);font-size:17px;cursor:pointer}
+.b-tab[aria-selected="true"]{background:var(--b-choco);color:var(--b-cream)}
+.b-panel-lead{margin-top:16px;color:var(--b-mute);font-size:15px}
+.b-panel .b-grid{margin-top:16px}
+.b-ph{width:120px;flex:0 0 120px;aspect-ratio:3/4;border-right:2px solid var(--b-choco);background:repeating-linear-gradient(45deg,var(--b-cream) 0 10px,var(--b-cream2) 10px 20px);display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--round);font-size:15px;line-height:1.3;color:var(--b-choco)}
+.b-ph.clear{background:linear-gradient(#FFFFFF,#FFFFFF) padding-box;background-color:#FFFFFF}
+.b-ph span{background:#FFFFFF;border:2px solid var(--b-choco);border-radius:10px;padding:6px 8px}
+.b-soon{font-size:13px;color:var(--b-mute)}
+.b-feats{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.b-feat{background:#FFFFFF;border:2px dashed var(--b-choco);border-radius:16px;padding:12px 16px;font-size:15px}
+.b-feat b{font-family:var(--round);font-weight:400;font-size:17px;display:block}
+.b-feat:nth-child(3n+1){transform:rotate(-1.5deg)}
+.b-feat:nth-child(3n+2){transform:rotate(1deg)}
+.b-cta{text-align:center}
+.b-cta .b-h{font-size:clamp(30px,4vw,48px)}
+@media (max-width:860px){
+  .b-hero .wrap{grid-template-columns:1fr}
+  .collage{height:360px}
+  .polar{width:150px}
+  .b-grid{grid-template-columns:1fr}
+}
+@media (max-width:420px){.polar{width:128px}.collage{height:300px}}
+
+/* ── knock. 세계 ── */
+.v-dot{background:var(--paper);color:var(--ink)}
+.d-hero{padding-block:64px;border-bottom:1px solid var(--line)}
+.d-hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.d-label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--mute)}
+.d-title{font-family:var(--serif);font-weight:700;font-size:clamp(34px,4.6vw,56px);line-height:1.22;margin-top:16px;letter-spacing:-0.035em}
+.d-sub{color:var(--mute);margin-top:18px;max-width:38ch;font-size:17px}
+.d-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.d-btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font:500 14px var(--body);letter-spacing:.02em;text-decoration:none;cursor:pointer;border-radius:2px}
+.d-btn.ghost{background:transparent;color:var(--ink)}
+.d-photo{position:relative;max-width:340px;justify-self:center;width:100%}
+.d-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px}
+.d-photo figcaption{font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:10px;display:flex;justify-content:space-between}
+.d-h{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3vw,34px);letter-spacing:-0.03em}
+.d-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink);margin-top:32px}
+.d-flow div{padding:22px 22px 6px 0;border-right:1px solid var(--line);min-width:0}
+.d-flow div+div{padding-left:22px}
+.d-flow div:last-child{border-right:none}
+.d-flow .k{font-family:var(--mono);font-size:12px;color:var(--mute)}
+.d-flow h3{font-family:var(--serif);font-size:20px;margin-top:8px}
+.d-flow p{font-size:14px;color:var(--mute);margin-top:6px}
+.d-spec{width:100%;border-collapse:collapse;margin-top:28px;font-size:15px}
+.d-spec th,.d-spec td{text-align:left;padding:14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.d-spec th{width:34%;font-weight:500;color:var(--mute);font-family:var(--mono);font-size:12px;letter-spacing:.06em;padding-top:17px}
+.d-spec td{font-variant-numeric:tabular-nums}
+.d-col{display:grid;grid-template-columns:repeat(4,minmax(0,200px));gap:14px;margin-top:28px}
+.d-item img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px}
+.d-soon{aspect-ratio:1/1;border:1px dashed var(--line);display:flex;align-items:flex-end;padding:12px;font-family:var(--mono);font-size:11px;color:var(--mute);border-radius:2px}
+.d-item p,.d-soonwrap p{font-size:14px;margin-top:10px}
+.d-item span,.d-soonwrap span{font-family:var(--mono);font-size:12px;color:var(--mute)}
+@media (max-width:860px){
+  .d-hero .wrap{grid-template-columns:1fr}
+  .d-flow{grid-template-columns:1fr}
+  .d-flow div,.d-flow div+div{padding:18px 0;border-right:none;border-bottom:1px solid var(--line)}
+  .d-col{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+footer{padding-block:40px 56px;color:var(--mute);font-size:14px;background:var(--paper)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.guarantee{color:var(--ink);font-weight:700}
+.flinks{display:flex;gap:16px;flex-wrap:wrap}
+
+dialog{border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--ink);padding:24px;max-width:360px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(10,10,14,.45)}
+dialog h3{font-size:20px}
+dialog p{color:var(--mute);font-size:14px;margin-top:8px}
+dialog .btn{margin-top:18px;width:100%}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" id="logo" href="#home">knock</a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="#home" class="hide-sm" id="navHome">처음으로</a>
+      <a href="#lost">분실</a>
+      <a href="#beta">베타 신청</a>
+      <a class="btn" href="/my" id="loginBtn">내 knock</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═════════ HOME ═════════ -->
+<main class="view" id="v-home">
+  <div class="doors">
+    <a class="door bang" href="#bang">
+      <div class="door-top"><span class="door-name">knock!</span><span class="door-who">10·20대 · 크리에이터</span></div>
+      <p class="glyph" aria-hidden="true">!</p>
+      <div class="door-copy">
+        <h1>나를 보여주는 공간</h1>
+        <p class="sub">케이스 QR을 찍으면 내가 꾸민 방이 열려요. 알고리즘도, 눈치도 없는 나만의 아지트.</p>
+        <div class="chips"><span class="chip">자유 꾸미기</span><span class="chip">익명 방명록</span><span class="chip">노크 반응</span></div>
+        <span class="go">knock! 들어가기 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+    <a class="door dot" href="#dot">
+      <div class="door-top"><span class="door-name">knock.</span><span class="door-who">직장인 · 프리랜서 · 1인 사업자</span></div>
+      <p class="glyph" aria-hidden="true">.</p>
+      <div class="door-copy">
+        <h2>종이 명함 대신</h2>
+        <p class="sub">케이스를 찍으면 연락처가 저장되고, 상대의 명함도 그 자리에서 받아요.</p>
+        <div class="chips"><span class="chip">연락처 저장</span><span class="chip">명함 교환</span><span class="chip">포트폴리오</span></div>
+        <span class="go">knock. 들어가기 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <p class="eyebrow">사용법</p>
+      <h2 class="sec-h">앱 설치 없이, 카메라로 찍으면 끝</h2>
+      <p class="lead">찍는 사람은 아무것도 깔 필요가 없어요. 케이스 주인만 처음에 한 번 문을 열면 돼요.</p>
+      <div class="steps">
+        <div class="step">
+          <span class="step-n">STEP 1</span>
+          <h3>케이스가 도착해요</h3>
+          <p>케이스마다 세상에 하나뿐인 QR 주소가 인쇄돼 있어요. 상자 안 카드에는 6자리 코드가 들어 있어요.</p>
+          <span class="url">knock.im/c/A7K2QX</span>
+        </div>
+        <div class="step">
+          <span class="step-n">STEP 2</span>
+          <h3>QR을 찍고 코드를 넣어요</h3>
+          <p>카드의 코드를 입력하면 이 케이스가 내 것이 돼요. 코드는 한 번 쓰면 사라져요.</p>
+          <div class="code-demo">
+            <div class="code-row" role="group" aria-label="6자리 코드 입력 미리보기">
+              <input id="c1" inputmode="numeric" maxlength="1" aria-label="첫째 자리">
+              <input id="c2" inputmode="numeric" maxlength="1" aria-label="둘째 자리">
+              <input id="c3" inputmode="numeric" maxlength="1" aria-label="셋째 자리">
+              <input id="c4" inputmode="numeric" maxlength="1" aria-label="넷째 자리">
+              <input id="c5" inputmode="numeric" maxlength="1" aria-label="다섯째 자리">
+              <input id="c6" inputmode="numeric" maxlength="1" aria-label="여섯째 자리">
+            </div>
+            <p class="code-msg" id="codeMsg">미리보기예요. 아무 숫자 6개를 넣어보세요.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-n">STEP 3</span>
+          <h3>내 공간이 열려요</h3>
+          <p>꾸미고, 공개 범위를 정하면 준비 끝. 이제 누가 내 케이스를 찍든 내가 만든 공간으로 들어와요.</p>
+          <p>공개 범위는 전체 공개, 링크 공개, 암호 잠금, 비공개 중에서 골라요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lost">
+    <div class="wrap lost">
+      <div>
+        <p class="eyebrow">분실</p>
+        <h2 class="sec-h">잃어버리면, 같은 QR이 주인을 찾아줘요</h2>
+        <ul class="lost-points">
+          <li><b>다른 기기에서 로그인</b>하고 분실 모드를 켜요.</li>
+          <li>그 순간부터 QR을 찍은 사람에게는 프로필 대신 <b>주인 찾기 화면</b>이 떠요.</li>
+          <li>번호는 공개되지 않아요. 습득한 사람은 <b>앱 설치 없이 메시지</b>만 남기면 돼요.</li>
+          <li>배터리가 꺼져도 QR은 그대로 작동해요.</li>
+        </ul>
+        <div class="lost-actions">
+          <a class="btn solid" href="/my">분실 모드 켜기</a>
+          <a class="btn" href="#beta">베타 신청하기</a>
+        </div>
+        <p class="lost-panel">분실 모드는 케이스 주인만 켤 수 있어요. 다른 폰이나 PC에서 로그인하면 돼요.</p>
+      </div>
+      <div class="phone" aria-label="분실 모드 화면 예시">
+        <span class="badge">분실 모드</span>
+        <h3>이 폰의 주인을 찾고 있어요</h3>
+        <p>찍어주셔서 감사해요. 아래에서 주인에게 메시지를 남겨주세요. 서로의 번호는 공개되지 않아요.</p>
+        <div class="fake-btn fb1">메시지 남기기</div>
+        <div class="fake-btn fb2">발견한 위치 알려주기</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beta">
+    <div class="wrap beta">
+      <div>
+        <p class="eyebrow">베타 테스터 모집</p>
+        <h2 class="sec-h">첫 knock을 두드려 줄 20명을 찾아요</h2>
+        <p class="lead">베타 테스터는 케이스를 받아 2주 동안 써보고 짧은 설문 두 번에 답해요. 정식 출시 소식도 가장 먼저 받아요.</p>
+      </div>
+      <form id="betaForm" novalidate>
+        <fieldset class="field">
+          <legend>어떤 라인이 끌려요?</legend>
+          <div class="seg">
+            <label><input type="radio" name="line" id="lineBang" value="bang" checked><span>knock!</span></label>
+            <label><input type="radio" name="line" id="lineDot" value="dot"><span>knock.</span></label>
+          </div>
+        </fieldset>
+        <div class="field"><label for="bDesign">원하는 디자인</label><input id="bDesign" placeholder="예: 깅엄 knock!"></div>
+        <div class="row2">
+          <div class="field"><label for="bName">이름 또는 닉네임</label><input id="bName" autocomplete="nickname" required></div>
+          <div class="field">
+            <label for="bPhone">폰 기종</label>
+            <select id="bPhone">
+              <option>아이폰 17 / 17 Pro</option><option>아이폰 16 / 16 Pro</option><option>아이폰 15 / 15 Pro</option><option>아이폰 14 이하</option>
+              <option>갤럭시 S25 / S26</option><option>갤럭시 Z 플립 / 폴드</option><option>기타</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="bContact">연락받을 곳 (이메일 또는 인스타)</label><input id="bContact" autocomplete="email" required maxlength="80"></div>
+        <label class="note" style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" id="bAgree" style="margin-top:3px"><span>베타 선정 연락과 케이스 발송을 위해 이름, 연락처, 폰 기종을 모으는 데 동의해요. 베타가 끝나면 3개월 안에 지워요. (<a href="/privacy">개인정보처리방침</a>)</span></label>
+        <input id="bWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+        <button class="btn blue" type="submit">베타 신청하기</button>
+        <p class="note" id="formErr" role="alert" hidden>이름과 연락받을 곳을 적어주세요.</p>
+        <div class="done" id="betaDone" role="status"><b>신청을 받았어요!</b>선정되면 남겨주신 연락처로 알려드릴게요.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ═════════ knock! ═════════ -->
+<main class="view v-bang" id="v-bang" hidden>
+  <div class="b-hero">
+    <div class="wrap">
+      <div>
+        <span class="b-tag">knock! knock!</span>
+        <h1 class="b-title">찍어봐!<br>내 방이 <em>열려.</em></h1>
+        <p class="b-sub">케이스 뒤 QR을 찍으면 내가 꾸민 작은 방으로 들어와요. 친구가 남긴 방명록, 오늘의 기분, 내 사진까지.</p>
+        <div class="b-actions">
+          <a class="b-btn" href="#beta" data-line="bang">베타로 먼저 받기</a>
+          <a class="b-btn ghost" href="#bang-col">케이스 구경하기</a>
+        </div>
+      </div>
+      <div class="collage" aria-label="knock! 케이스 사진">
+        <figure class="polar p1"><span class="tape"></span><img src="/img/sticker.jpg" alt="스티커가 붙은 크림색 knock! 케이스"><span>스티커</span></figure>
+        <figure class="polar p2"><span class="tape"></span><img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스"><span>깅엄</span></figure>
+        <figure class="polar p3"><span class="tape"></span><img src="/img/door.jpg" alt="문 모양 안에 QR이 들어간 knock! 케이스"><span>똑똑 문</span></figure>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true"><div>knock knock · 찍어봐! · 내 방에 놀러와 · 노크하고 가 · knock knock · 찍어봐! · 내 방에 놀러와 · 노크하고 가 · knock knock · 찍어봐! · 내 방에 놀러와 · 노크하고 가 · knock knock · 찍어봐! · 내 방에 놀러와 · 노크하고 가 ·&nbsp;</div></div>
+
+  <section id="bang-col">
+    <div class="wrap">
+      <h2 class="b-h">고르는 재미부터</h2>
+      <p class="b-lead">라인업을 고르고 디자인을 고르면, 주문할 때 하나씩 인쇄해요.</p>
+      <div class="b-tabs" role="tablist" aria-label="knock! 라인업">
+        <button class="b-tab" role="tab" id="tab-basic" aria-controls="panel-basic" aria-selected="true">기본</button>
+        <button class="b-tab" role="tab" id="tab-mz" aria-controls="panel-mz" aria-selected="false">MZ</button>
+        <button class="b-tab" role="tab" id="tab-clear" aria-controls="panel-clear" aria-selected="false">클리어</button>
+      </div>
+      <div class="b-panel" role="tabpanel" id="panel-basic" aria-labelledby="tab-basic">
+        <p class="b-panel-lead">귀엽고 무난한 knock!. 처음이라면 여기서.</p>
+        <div class="b-grid">
+        <article class="b-card"><img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스"><div class="in"><h3>깅엄 knock!</h3><p>분홍 체크에 레이스 프레임 QR. 제일 무난하게 귀여운 친구.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="깅엄 knock!">이걸로 신청</a></div></div></article>
+        <article class="b-card"><img src="/img/sticker.jpg" alt="스티커가 붙은 크림색 knock! 케이스"><div class="in"><h3>스티커 knock!</h3><p>말풍선, 발자국, 별 스티커를 흩뿌린 크림 케이스.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="스티커 knock!">이걸로 신청</a></div></div></article>
+        <article class="b-card"><img src="/img/door.jpg" alt="문 모양 안에 QR이 들어간 knock! 케이스"><div class="in"><h3>똑똑 문 knock!</h3><p>문 한가운데 QR. 두드려야 열리는 문, 이름 그대로.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="똑똑 문 knock!">이걸로 신청</a></div></div></article>
+        </div>
+      </div>
+      <div class="b-panel" role="tabpanel" id="panel-mz" aria-labelledby="tab-mz" hidden>
+        <p class="b-panel-lead">보는 순간 찍고 싶어지는 디자인. 케이스가 대신 "찍어봐"라고 말해요.</p>
+        <div class="b-grid">
+          <article class="b-card"><div class="b-ph" aria-hidden="true"><span>쟁반 위에<br>QR</span></div><div class="in"><h3>서빙 knock!</h3><p>QR을 쟁반에 받쳐 내미는 손. 정중하게 찍으라고 권해요.</p><div class="pr"><span class="b-soon">디자인 제작 중</span><a class="b-pick" href="#beta" data-line="bang" data-design="서빙 knock! (MZ)">이걸로 신청</a></div></div></article>
+          <article class="b-card"><div class="b-ph" aria-hidden="true"><span>QR 내미는<br>동물</span></div><div class="in"><h3>내밀기 knock!</h3><p>동그란 눈의 동물이 QR을 쓱 내밀어요. 거절하기 어려운 표정.</p><div class="pr"><span class="b-soon">디자인 제작 중</span><a class="b-pick" href="#beta" data-line="bang" data-design="내밀기 knock! (MZ)">이걸로 신청</a></div></div></article>
+          <article class="b-card"><div class="b-ph" aria-hidden="true"><span>찍어봐<br>캐릭터</span></div><div class="in"><h3>찍어봐 knock!</h3><p>knock 캐릭터가 손가락으로 QR을 가리켜요. 뭐가 나올지 궁금하게.</p><div class="pr"><span class="b-soon">디자인 제작 중</span><a class="b-pick" href="#beta" data-line="bang" data-design="찍어봐 knock! (MZ)">이걸로 신청</a></div></div></article>
+        </div>
+      </div>
+      <div class="b-panel" role="tabpanel" id="panel-clear" aria-labelledby="tab-clear" hidden>
+        <p class="b-panel-lead">내 폰 색 그대로, QR 플레이트만. 잃어버렸을 때 찾아주는 용도로도 좋아요.</p>
+        <div class="b-grid">
+          <article class="b-card"><div class="b-ph clear" aria-hidden="true"><span>투명 + QR</span></div><div class="in"><h3>클리어 knock!</h3><p>투명 케이스에 작은 QR 플레이트. 폰 색을 가리지 않아요.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="클리어 knock!">이걸로 신청</a></div></div></article>
+          <article class="b-card"><div class="b-ph clear" aria-hidden="true"><span>큰 QR</span></div><div class="in"><h3>빅 QR knock!</h3><p>QR을 크게 넣은 분실 방지형. 분실 모드와 함께 쓰면 주인 찾기가 쉬워요.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="빅 QR knock!">이걸로 신청</a></div></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="b-h">들어오면 이런 방이 있어요</h2>
+      <p class="b-lead">기본 기능은 전부 무료예요. 꾸미는 재료만 나중에 하나씩 더해져요.</p>
+      <div class="b-feats">
+        <div class="b-feat"><b>테마 & 스티커</b>케이스랑 같은 색으로 방을 맞춰요</div>
+        <div class="b-feat"><b>익명 방명록</b>찍은 사람이 로그인 없이 한마디</div>
+        <div class="b-feat"><b>노크 버튼</b>다녀간 흔적을 똑똑</div>
+        <div class="b-feat"><b>오늘의 기분</b>하루 한 줄 상태</div>
+        <div class="b-feat"><b>방문자 카운터</b>오늘 몇 명이 놀러 왔는지</div>
+        <div class="b-feat"><b>공개 범위</b>전체 · 링크 · 암호 · 비공개</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="b-cta">
+    <div class="wrap">
+      <h2 class="b-h">첫 노크를 기다리는 중</h2>
+      <p class="b-lead" style="margin-inline:auto">베타 테스터 20명에게 케이스를 먼저 보내드려요.</p>
+      <div class="b-actions" style="justify-content:center"><a class="b-btn" href="#beta" data-line="bang">knock! 베타 신청</a><a class="b-btn ghost" href="#dot">knock. 도 보기</a></div>
+    </div>
+  </section>
+</main>
+
+<!-- ═════════ knock. ═════════ -->
+<main class="view v-dot" id="v-dot" hidden>
+  <div class="d-hero">
+    <div class="wrap">
+      <div>
+        <p class="d-label">KNOCK. — BUSINESS LINE</p>
+        <h1 class="d-title">명함 대신,<br>케이스를 내미세요.</h1>
+        <p class="d-sub">상대가 케이스를 찍으면 연락처가 저장되고, 상대의 명함도 그 자리에서 내 '받은 명함'으로 들어옵니다.</p>
+        <div class="d-actions">
+          <a class="d-btn" href="#beta" data-line="dot">베타 신청</a>
+          <a class="d-btn ghost" href="#dot-how">작동 방식</a>
+        </div>
+      </div>
+      <figure class="d-photo">
+        <img src="/img/clear.jpg" alt="QR 플레이트가 붙은 투명 knock. 케이스">
+        <figcaption><span>CLEAR / QR PLATE</span><span>knock.im</span></figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section id="dot-how">
+    <div class="wrap">
+      <h2 class="d-h">세 번의 동작</h2>
+      <div class="d-flow">
+        <div><span class="k">01 — SCAN</span><h3>상대가 찍는다</h3><p>카메라만 있으면 됩니다. 앱도, NFC 설정도 필요 없습니다.</p></div>
+        <div><span class="k">02 — SAVE</span><h3>연락처가 저장된다</h3><p>이름, 직함, 소속, 이메일이 한 번에 연락처로 들어갑니다.</p></div>
+        <div><span class="k">03 — EXCHANGE</span><h3>상대 명함이 돌아온다</h3><p>상대가 남긴 연락처와 만난 곳이 대시보드의 '받은 명함'에 쌓입니다.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="d-h">컬렉션</h2>
+      <div class="d-col">
+        <div class="d-item"><img src="/img/clear.jpg" alt="투명 knock. 케이스"><p>Clear</p><span>19,900원</span></div>
+        <div class="d-soonwrap"><div class="d-soon">MONO WHITE</div><p>Mono White</p><span>준비 중</span></div>
+        <div class="d-soonwrap"><div class="d-soon">BLACK PLATE</div><p>Black Plate</p><span>준비 중</span></div>
+        <div class="d-soonwrap"><div class="d-soon">TWO-TONE</div><p>Two-tone</p><span>준비 중</span></div>
+      </div>
+      <table class="d-spec">
+        <tr><th>QR</th><td>오류 복원 최고 등급, 실물 약 2.5cm 이상. 출고 전 실기기 스캔 검수</td></tr>
+        <tr><th>연결 보장</th><td>구매일로부터 3년간 QR 연결 유지</td></tr>
+        <tr><th>페이지</th><td>명함 카드 · 연락처 저장 · 받은 명함 · 포트폴리오 · 경력 · 링크</td></tr>
+        <tr><th>공개 범위</th><td>전체 공개 / 링크 공개 / 암호 잠금 / 비공개</td></tr>
+        <tr><th>분실</th><td>다른 기기에서 분실 모드 전환, 번호 비공개 메시지</td></tr>
+      </table>
+      <div class="d-actions"><a class="d-btn" href="#beta" data-line="dot" data-design="Clear knock.">knock. 베타 신청</a><a class="d-btn ghost" href="#bang">knock! 도 보기</a></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="guarantee">구매일로부터 3년 동안 QR 연결을 보장해요.</p>
+      <p>knock · 인하대학교 창업 프로젝트</p>
+    </div>
+    <div class="flinks"><a href="/terms">이용약관</a><a href="/privacy"><b>개인정보처리방침</b></a><a href="/support">문의 · 신고</a></div>
+  </div>
+</footer>
+
+
+
+<script>
+(function(){
+  const views={home:document.getElementById('v-home'),bang:document.getElementById('v-bang'),dot:document.getElementById('v-dot')};
+  const logo=document.getElementById('logo');
+  function route(){
+    const h=location.hash.slice(1);
+    const el=h?document.getElementById(h):null;
+    let v='home';
+    if(h==='bang'||h==='dot'){v=h;}
+    else if(el&&el.closest('.view')){v=el.closest('.view').id.slice(2);}
+    Object.keys(views).forEach(k=>views[k].hidden=(k!==v));
+    document.body.classList.toggle('on-bang',v==='bang');
+    logo.textContent=v==='bang'?'knock!':v==='dot'?'knock.':'knock';
+    const target=(h&&h!=='home'&&h!=='bang'&&h!=='dot')?el:null;
+    if(target){target.scrollIntoView();}else{window.scrollTo(0,0);}
+  }
+  window.addEventListener('hashchange',route);
+  route();
+
+
+  const tabs=[...document.querySelectorAll('.b-tab')];
+  tabs.forEach(t=>t.addEventListener('click',()=>{
+    tabs.forEach(o=>{const on=o===t;o.setAttribute('aria-selected',on?'true':'false');document.getElementById(o.getAttribute('aria-controls')).hidden=!on;});
+  }));
+  document.querySelectorAll('[data-line]').forEach(a=>a.addEventListener('click',()=>{
+    document.getElementById(a.dataset.line==='dot'?'lineDot':'lineBang').checked=true;
+    if(a.dataset.design)document.getElementById('bDesign').value=a.dataset.design;
+  }));
+
+  const boxes=['c1','c2','c3','c4','c5','c6'].map(id=>document.getElementById(id));
+  const msg=document.getElementById('codeMsg');
+  function check(){
+    const v=boxes.map(b=>b.value).join('');
+    if(v.length===6){msg.textContent='문이 열렸어요. 이제 내 공간을 꾸며볼까요?';msg.classList.add('ok');}
+    else{msg.textContent='미리보기예요. 아무 숫자 6개를 넣어보세요.';msg.classList.remove('ok');}
+  }
+  boxes.forEach((b,i)=>{
+    b.addEventListener('input',()=>{b.value=b.value.replace(/\D/g,'').slice(0,1);if(b.value&&i<5)boxes[i+1].focus();check();});
+    b.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!b.value&&i>0)boxes[i-1].focus();});
+  });
+
+
+  const betaForm=document.getElementById('betaForm');
+  betaForm.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const err=document.getElementById('formErr');
+    const v=id=>document.getElementById(id).value.trim();
+    if(!v('bName')||!v('bContact')){err.textContent='이름과 연락받을 곳을 적어주세요.';err.hidden=false;return;}
+    if(!document.getElementById('bAgree').checked){err.textContent='개인정보 수집·이용에 동의해 주세요.';err.hidden=false;return;}
+    const btn=betaForm.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='보내는 중…';
+    try{
+      const r=await fetch('/api/beta',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+        line:document.getElementById('lineDot').checked?'dot':'bang',design:v('bDesign'),name:v('bName'),
+        phone:document.getElementById('bPhone').value,contact:v('bContact'),agree:true,website:v('bWebsite')})});
+      const j=await r.json();
+      if(j.ok){err.hidden=true;document.getElementById('betaDone').style.display='block';btn.textContent='신청 완료';return;}
+      err.textContent=j.message||'잠시 뒤에 다시 해주세요.';err.hidden=false;
+    }catch(_){err.textContent='보내지 못했어요. 인터넷 연결을 확인해 주세요.';err.hidden=false;}
+    btn.disabled=false;btn.textContent='베타 신청하기';
+  });
+})();
+</script>
+
+</body>
+</html>
