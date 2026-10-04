@@ -1,101 +1,164 @@
 import { requireAdmin } from '@/lib/auth'
+import { createAdminClient } from '@/lib/supabase/admin'
+import { kstDate, lineName, QR_STATUS, QR_TONE } from '@/lib/admin-format'
 import { BatchIssue, Reissue } from '../IssueForms'
 import { markPrinted, setQrStatus } from '../actions'
-import { createAdminClient } from '@/lib/supabase/admin'
+import { ConfirmButton } from '../AdminNav'
+import { Badge, Empty, PageHead, Tabs } from '../ui'
 
-const LABEL: Record<string, string> = { issued: '발급', printed: '인쇄 넘김', active: '사용 중', retired: '폐기' }
-
-export default async function AdminQr({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
+export default async function AdminQr({ searchParams }: { searchParams: Promise<{ status?: string; q?: string }> }) {
   await requireAdmin()
-  const { status } = await searchParams
+  const { status = 'all', q: rawQ } = await searchParams
+  const q = (rawQ ?? '').trim().toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8)
   const db = createAdminClient()
-  let q = db.from('qr_codes').select('id, line, status, lost_mode, owner_id, order_id, created_at, code_used_at, failed_attempts, locked_until').order('created_at', { ascending: false }).limit(300)
-  if (status === 'lost') q = q.eq('lost_mode', true)
-  else if (status && LABEL[status]) q = q.eq('status', status)
-  const { data: qrs } = await q
-  const issuedIds = (qrs ?? []).filter((r) => r.status === 'issued').map((r) => r.id)
+
+  const { data: all } = await db.from('qr_codes').select('status, lost_mode').limit(5000)
+  const cnt = (s: string) => (all ?? []).filter((r) => (s === 'lost' ? r.lost_mode : r.status === s)).length
+
+  let query = db
+    .from('qr_codes')
+    .select('id, line, status, lost_mode, owner_id, order_id, created_at, code_used_at, failed_attempts, locked_until')
+    .order('created_at', { ascending: false })
+    .limit(300)
+  if (status === 'lost') query = query.eq('lost_mode', true)
+  else if (QR_STATUS[status]) query = query.eq('status', status)
+  if (q) query = query.ilike('id', `%${q}%`)
+  const { data: qrs } = await query
+  const rows = qrs ?? []
+  const issuedIds = rows.filter((r) => r.status === 'issued').map((r) => r.id)
+  const now = new Date()
+
+  const tabHref = (s: string) => `/admin/qr${s === 'all' ? '' : `?status=${s}`}`
 
   return (
     <>
-      <h1 className="adm-h">QR 발급</h1>
-      <p className="mute no-print">
-        발급하면 QR 주소와 6자리 코드가 만들어져요. 코드는 DB에 암호화돼서 저장되고 원래 숫자는 <b>발급 화면에서 한 번만</b> 보여요. CSV를 받아 인쇄소·포장 작업에 쓰고, 다 쓰면 지워주세요.
-      </p>
-      <section className="adm-sec">
-        <h2 className="adm-h2 no-print">새로 발급</h2>
-        <BatchIssue />
-      </section>
-      <section className="adm-sec no-print">
-        <h2 className="adm-h2">코드 재발급 (카드 분실, 아직 등록 전인 케이스만)</h2>
-        <Reissue />
-      </section>
-      <section className="adm-sec no-print">
-        <div className="adm-row">
-          <h2 className="adm-h2">목록</h2>
-          <nav className="adm-filter">
-            <a href="/admin/qr">전체</a>
-            {Object.entries(LABEL).map(([k, v]) => (
-              <a key={k} href={`/admin/qr?status=${k}`}>
-                {v}
-              </a>
-            ))}
-            <a href="/admin/qr?status=lost">분실 모드</a>
-          </nav>
-        </div>
-        {issuedIds.length > 0 && (
-          <form action={markPrinted} className="adm-form">
-            <input type="hidden" name="ids" value={issuedIds.join(',')} />
-            <button className="btn-s" type="submit">
-              &lsquo;발급&rsquo; {issuedIds.length}개를 &lsquo;인쇄 넘김&rsquo;으로
-            </button>
-          </form>
-        )}
-        <table className="adm-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>라인</th>
-              <th>상태</th>
-              <th>등록일</th>
-              <th>틀린 횟수</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {(qrs ?? []).map((r) => (
-              <tr key={r.id}>
-                <td className="mono">
-                  <a href={`/c/${r.id}`} target="_blank" rel="noreferrer">
-                    {r.id}
-                  </a>
-                </td>
-                <td>{r.line === 'dot' ? 'knock.' : 'knock!'}</td>
-                <td>
-                  {LABEL[r.status]}
-                  {r.lost_mode && <span className="pill warn">분실</span>}
-                  {r.order_id && <span className="pill">주문</span>}
-                </td>
-                <td className="small">{r.code_used_at ? r.code_used_at.slice(0, 10) : '-'}</td>
-                <td className="small">
-                  {r.failed_attempts}
-                  {r.locked_until && new Date(r.locked_until) > new Date() ? ' (잠김)' : ''}
-                </td>
-                <td>
-                  {r.status !== 'active' && r.status !== 'retired' && (
-                    <form action={setQrStatus}>
-                      <input type="hidden" name="qr" value={r.id} />
-                      <input type="hidden" name="status" value="retired" />
-                      <button className="link-btn danger" type="submit">
-                        폐기
-                      </button>
-                    </form>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </section>
+      <PageHead title="QR 발급 · 관리" desc="케이스에 넣을 QR과 6자리 활성화 코드를 만들고, 만든 QR의 상태를 확인해요." />
+
+      <div className="ad-stack">
+        <section className="ad-card">
+          <h2 className="ad-card-h no-print">새로 발급하기</h2>
+          <ol className="ad-steps no-print">
+            <li>
+              <b>발급</b>라인과 개수를 고르고 버튼
+            </li>
+            <li>
+              <b>CSV 저장</b>코드는 이때 한 번만 보여요
+            </li>
+            <li>
+              <b>업체에 SVG</b>케이스에 인쇄할 QR 파일
+            </li>
+            <li>
+              <b>웰컴 카드 인쇄</b>포장할 때 케이스와 짝 맞춰 넣기
+            </li>
+          </ol>
+          <BatchIssue />
+        </section>
+
+        <section className="ad-card no-print">
+          <details className="ad-details">
+            <summary>고객이 코드 카드를 잃어버렸을 때 (코드 재발급)</summary>
+            <p className="ad-hint">아직 등록 전인 케이스만 가능해요. 새 코드를 만들면 이전 코드는 바로 못 쓰게 돼요.</p>
+            <Reissue />
+          </details>
+        </section>
+
+        <section className="no-print">
+          <div className="ad-listbar">
+            <Tabs
+              current={status}
+              items={[
+                { key: 'all', label: '전체', href: tabHref('all'), count: (all ?? []).length },
+                ...Object.entries(QR_STATUS).map(([k, v]) => ({ key: k, label: v, href: tabHref(k), count: cnt(k) })),
+                { key: 'lost', label: '분실 모드', href: tabHref('lost'), count: cnt('lost') },
+              ]}
+            />
+            <form className="ad-search" action="/admin/qr">
+              {status !== 'all' && <input type="hidden" name="status" value={status} />}
+              <input className="ad-input mono" name="q" defaultValue={q} placeholder="QR ID 검색" aria-label="QR ID 검색" />
+            </form>
+          </div>
+
+          {issuedIds.length > 0 && (
+            <form action={markPrinted} className="ad-bulk">
+              <input type="hidden" name="ids" value={issuedIds.join(',')} />
+              <span>
+                &lsquo;발급됨&rsquo; 상태 <b>{issuedIds.length}개</b>를 업체에 넘겼다면
+              </span>
+              <button className="ad-btn sm" type="submit">
+                인쇄 넘김으로 한 번에 바꾸기
+              </button>
+            </form>
+          )}
+
+          {rows.length === 0 ? (
+            <div className="ad-card">
+              <Empty title={q ? `'${q}'에 맞는 QR이 없어요` : '여기에 해당하는 QR이 없어요'} />
+            </div>
+          ) : (
+            <div className="ad-card flush">
+              <div className="ad-scroll">
+                <table className="ad-table">
+                  <thead>
+                    <tr>
+                      <th>QR ID</th>
+                      <th>라인</th>
+                      <th>상태</th>
+                      <th>발급일</th>
+                      <th>고객 등록일</th>
+                      <th>코드 틀린 횟수</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((r) => {
+                      const isLocked = r.locked_until && new Date(r.locked_until) > now
+                      return (
+                        <tr key={r.id}>
+                          <td>
+                            <a className="ad-id" href={`/c/${r.id}`} target="_blank" rel="noreferrer" title="QR 찍은 화면 열기">
+                              {r.id} ↗
+                            </a>
+                          </td>
+                          <td>{lineName(r.line)}</td>
+                          <td>
+                            <span className="ad-badges">
+                              <Badge tone={QR_TONE[r.status]}>{QR_STATUS[r.status]}</Badge>
+                              {r.lost_mode && <Badge tone="purple">분실 모드</Badge>}
+                              {r.order_id && <Badge tone="blue">주문 연결</Badge>}
+                            </span>
+                          </td>
+                          <td className="ad-sub">{kstDate(r.created_at)}</td>
+                          <td className="ad-sub">{kstDate(r.code_used_at)}</td>
+                          <td>
+                            {r.failed_attempts ? r.failed_attempts : <span className="ad-sub">0</span>}
+                            {isLocked && (
+                              <>
+                                {' '}
+                                <Badge tone="red">잠김</Badge>
+                              </>
+                            )}
+                          </td>
+                          <td className="ad-right">
+                            {r.status !== 'active' && r.status !== 'retired' && (
+                              <form action={setQrStatus}>
+                                <input type="hidden" name="qr" value={r.id} />
+                                <input type="hidden" name="status" value="retired" />
+                                <ConfirmButton className="ad-btn sm ghost-danger" message={`${r.id}를 폐기할까요? 폐기한 QR은 다시 쓸 수 없어요.`}>
+                                  폐기
+                                </ConfirmButton>
+                              </form>
+                            )}
+                          </td>
+                        </tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </section>
+      </div>
     </>
   )
 }

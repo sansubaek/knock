@@ -575,7 +575,6 @@ button:disabled {
   background: var(--paper);
 }
 .my-top,
-.adm-top,
 .ed-top {
   position: sticky;
   top: 0;
@@ -588,25 +587,29 @@ button:disabled {
   background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
-.my-logo,
-.adm-logo {
+.my-logo {
   font-family: var(--display);
   font-weight: 800;
   font-size: 22px;
   text-decoration: none;
 }
-.my-top nav,
-.adm-top nav {
+.my-top nav {
   display: flex;
   gap: 14px;
   align-items: center;
   font-size: 14px;
   flex-wrap: wrap;
 }
-.my-top nav a,
-.adm-top nav a {
+.my-top nav a {
   text-decoration: none;
   color: var(--mute);
+}
+.my-top nav a.my-admin {
+  color: #fff;
+  background: var(--ink);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
 }
 .my-main {
   max-width: 760px;
@@ -1205,155 +1208,6 @@ button:disabled {
 .toast.err {
   background: var(--warn);
   color: #fff;
-}
-
-/* ── 관리자 ── */
-.adm {
-  min-height: 100dvh;
-}
-.adm-main {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 20px 16px 80px;
-}
-.adm-h {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-.adm-h2 {
-  font-size: 16px;
-  margin: 20px 0 10px;
-}
-.adm-sec {
-  margin-top: 20px;
-}
-.adm-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.adm-filter {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  font-size: 13px;
-}
-.adm-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 10px;
-}
-.adm-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 14px;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-}
-.adm-card b {
-  font-size: 26px;
-  font-variant-numeric: tabular-nums;
-}
-.adm-card span {
-  color: var(--mute);
-  font-size: 13px;
-}
-.adm-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  overflow: hidden;
-  font-size: 14px;
-  margin-top: 10px;
-}
-.adm-table th,
-.adm-table td {
-  text-align: left;
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--line);
-  vertical-align: middle;
-}
-.adm-table th {
-  font-size: 12px;
-  color: var(--mute);
-  background: var(--paper);
-}
-.adm-form {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  margin-top: 8px;
-}
-.adm-form.col {
-  flex-direction: column;
-  align-items: stretch;
-}
-.adm-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 700;
-}
-.adm-form input,
-.adm-form select,
-.adm-form textarea {
-  min-height: 40px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 6px 10px;
-  background: var(--surface);
-  font-size: 14px;
-  min-width: 0;
-}
-.adm-form input[name='memo'] {
-  flex: 1 1 200px;
-}
-.order-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 12px;
-}
-.order {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.order-head {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.qr-thumb {
-  display: block;
-  width: 64px;
-  height: 64px;
-}
-.qr-thumb svg {
-  width: 100%;
-  height: 100%;
-}
-.issue {
-  margin-top: 14px;
-}
-.issue-acts {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 /* 웰컴 카드 (인쇄 전용) */

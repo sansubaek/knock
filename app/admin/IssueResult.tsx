@@ -20,48 +20,57 @@ export function IssueResult({ items }: { items: IssuedItem[] }) {
       'text/csv;charset=utf-8',
     )
   return (
-    <div className="issue">
-      <div className="issue-acts no-print">
-        <button type="button" className="btn-s solid" onClick={csv}>
-          CSV 받기 (코드 포함)
+    <div className="ad-issue">
+      <div className="ad-note warn no-print">
+        <b>활성화 코드는 지금 이 화면에서만 보여요.</b> 새로고침하면 다시 볼 수 없으니 CSV부터 받아두세요.
+      </div>
+      <div className="ad-issue-acts no-print">
+        <button type="button" className="ad-btn primary" onClick={csv}>
+          ① CSV 받기 (코드 포함)
         </button>
-        <button type="button" className="btn-s" onClick={() => window.print()}>
-          웰컴 카드 인쇄
+        <button type="button" className="ad-btn" onClick={() => window.print()}>
+          ② 웰컴 카드 인쇄
         </button>
-        <span className="mute small">인쇄 설정: A4, 배율 100%, 여백 없음 또는 기본</span>
+        <span className="ad-hint">인쇄 설정: A4, 배율 100%. 업체에는 아래 SVG 파일을 보내요.</span>
       </div>
 
-      <table className="adm-table no-print">
-        <thead>
-          <tr>
-            <th>QR</th>
-            <th>ID</th>
-            <th>라인</th>
-            <th>활성화 코드</th>
-            <th>인쇄소용 파일</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((i) => (
-            <tr key={i.id}>
-              <td>
-                <span className="qr-thumb" dangerouslySetInnerHTML={{ __html: i.svg }} />
-              </td>
-              <td className="mono">
-                {i.id}
-                {i.label && <div className="small mute">{i.label}</div>}
-              </td>
-              <td>{i.line === 'dot' ? 'knock.' : 'knock!'}</td>
-              <td className="mono big">{i.code}</td>
-              <td>
-                <button type="button" className="link-btn" onClick={() => download(`${i.id}.svg`, i.svg, 'image/svg+xml')}>
-                  SVG
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="ad-card flush no-print">
+        <div className="ad-scroll">
+          <table className="ad-table">
+            <thead>
+              <tr>
+                <th>QR</th>
+                <th>ID</th>
+                <th>라인</th>
+                <th>활성화 코드</th>
+                <th>업체용 파일</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((i) => (
+                <tr key={i.id}>
+                  <td>
+                    <span className="ad-qr" dangerouslySetInnerHTML={{ __html: i.svg }} />
+                  </td>
+                  <td>
+                    <b className="mono">{i.id}</b>
+                    {i.label && <div className="ad-sub">{i.label}</div>}
+                  </td>
+                  <td>{i.line === 'dot' ? 'knock.' : 'knock!'}</td>
+                  <td>
+                    <span className="ad-code">{i.code}</span>
+                  </td>
+                  <td>
+                    <button type="button" className="ad-btn sm" onClick={() => download(`${i.id}.svg`, i.svg, 'image/svg+xml')}>
+                      SVG 받기
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       {/* 인쇄할 때만 보이는 웰컴 카드 (90×55mm, A4 한 장에 10장) */}
       <div className="print-sheet">

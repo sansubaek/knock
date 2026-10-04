@@ -1,27 +1,45 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { requireAdmin } from '@/lib/auth'
+import { createAdminClient } from '@/lib/supabase/admin'
+import { AdminNav } from './AdminNav'
+import './admin.css'
 
 export const metadata: Metadata = { title: '관리자 · knock', robots: { index: false } }
 export const dynamic = 'force-dynamic'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  await requireAdmin()
+  const { user, profile } = await requireAdmin()
+  const db = createAdminClient()
+  const [{ count: newOrders }, { count: openInq }] = await Promise.all([
+    db.from('orders').select('id', { count: 'exact', head: true }).eq('status', 'received'),
+    db.from('inquiries').select('id', { count: 'exact', head: true }).eq('status', 'open'),
+  ])
+
   return (
-    <div className="adm">
-      <header className="adm-top">
-        <Link href="/admin" className="adm-logo">
-          knock 관리자
+    <div className="ad">
+      <aside className="ad-side">
+        <Link href="/admin" className="ad-brand">
+          knock<small>관리자</small>
         </Link>
-        <nav>
-          <Link href="/admin/orders">신청·주문</Link>
-          <Link href="/admin/qr">QR 발급</Link>
-          <Link href="/admin/inquiries">문의</Link>
-          <Link href="/admin/members">회원</Link>
-          <Link href="/my">내 knock</Link>
-        </nav>
-      </header>
-      <main className="adm-main">{children}</main>
+        <AdminNav
+          items={[
+            { href: '/admin', label: '홈' },
+            { href: '/admin/orders', label: '신청 · 주문', count: newOrders ?? 0 },
+            { href: '/admin/qr', label: 'QR 발급 · 관리' },
+            { href: '/admin/inquiries', label: '문의', count: openInq ?? 0 },
+            { href: '/admin/members', label: '회원' },
+          ]}
+        />
+        <div className="ad-side-foot">
+          <Link href="/my">← 내 knock으로</Link>
+          <a href="/" target="_blank" rel="noreferrer">
+            사이트 열기 ↗
+          </a>
+          <span title={user.email ?? ''}>{profile.nickname ?? user.email}</span>
+        </div>
+      </aside>
+      <main className="ad-main">{children}</main>
     </div>
   )
 }

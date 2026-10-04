@@ -54,7 +54,11 @@ export default async function MyPage() {
           knock
         </Link>
         <nav>
-          {profile.role === 'admin' && <Link href="/admin">관리자</Link>}
+          {profile.role === 'admin' && (
+            <Link href="/admin" className="my-admin">
+              관리자 페이지
+            </Link>
+          )}
           <Link href="/support">문의</Link>
           <form action="/auth/signout" method="post">
             <button type="submit" className="link-btn">
