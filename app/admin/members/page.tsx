@@ -1,6 +1,8 @@
+import { requireAdmin } from '@/lib/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
 
 export default async function AdminMembers({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  await requireAdmin()
   const page = Math.max(1, Number((await searchParams).page) || 1)
   const db = createAdminClient()
   const { data } = await db.auth.admin.listUsers({ page, perPage: 100 })

@@ -1,6 +1,6 @@
 import 'server-only'
 import { cookies } from 'next/headers'
-import { QR_ID_RE } from '@/lib/crypto'
+import { QR_ID_RE, verifyUnlock } from '@/lib/crypto'
 import { createAdminClient } from '@/lib/supabase/admin'
 import type { Block, Decor, Line } from '@/lib/content'
 
@@ -25,7 +25,7 @@ export type PublicResult =
   | { state: 'activate'; line: Line }
   | { state: 'lost'; line: Line; lost_note: string | null }
   | { state: 'private'; line: Line }
-  | { state: 'locked'; line: Line }
+  | { state: 'locked'; line: Line; page_id?: string }
   | ({ state: 'page' } & PageData)
 
 export function normalizeQrId(raw: unknown): string | null {
@@ -36,11 +36,29 @@ export function normalizeQrId(raw: unknown): string | null {
 
 export const pinCookieName = (id: string) => `kp_${id}`
 
-export async function loadPublic(id: string, pinOverride?: string): Promise<PublicResult> {
-  const jar = await cookies()
-  const pin = pinOverride ?? jar.get(pinCookieName(id))?.value ?? null
+/** 이 QR 페이지의 암호 해시 (잠금 해제 쿠키 서명에 쓴다) */
+export async function pinHashFor(id: string) {
   const db = createAdminClient()
-  const { data, error } = await db.rpc('get_public_page', { p_qr_id: id, p_pin: pin })
+  const { data: q } = await db.from('qr_codes').select('page_id').eq('id', id).maybeSingle()
+  if (!q?.page_id) return null
+  const { data: p } = await db.from('pages').select('lock_pin_hash').eq('id', q.page_id).maybeSingle()
+  return (p?.lock_pin_hash as string | null) ?? null
+}
+
+/**
+ * 방문자용 페이지 조회. pin은 암호 입력 직후 확인할 때만 넘긴다.
+ * 평소에는 서명된 쿠키가 맞는지 서버가 확인하고, 쿠키 값으로 암호를 대입해 볼 수는 없다.
+ */
+export async function loadPublic(id: string, pin?: string): Promise<PublicResult> {
+  const jar = await cookies()
+  let unlocked = false
+  const token = jar.get(pinCookieName(id))?.value
+  if (!pin && token) {
+    const hash = await pinHashFor(id)
+    unlocked = !!hash && verifyUnlock(token, id, hash)
+  }
+  const db = createAdminClient()
+  const { data, error } = await db.rpc('get_public_page', { p_qr_id: id, p_pin: pin ?? null, p_unlocked: unlocked })
   if (error) {
     console.error('get_public_page', error.message)
     throw new Error('페이지를 불러오지 못했어요')

@@ -133,39 +133,15 @@ export function Editor(props: Props) {
   async function save() {
     setSaving(true)
     try {
-      const rows = blocks.map((b, i) => ({
-        id: b.id,
-        page_id: page.id,
-        type: b.type,
-        position: i,
-        is_visible: b.is_visible !== false,
-        data: cleanBlockData(b.type, b.data),
-      }))
-      if (removed.length) {
-        const { error } = await supabase.from('blocks').delete().in('id', removed)
-        if (error) throw error
-      }
-      if (rows.length) {
-        const { error } = await supabase.from('blocks').upsert(rows)
-        if (error) throw error
-      }
-      const pageUpdate: Record<string, unknown> = {
-        template,
-        theme: accent ? { accent } : {},
-        guestbook_mode: gbMode,
-      }
-      if (visibility !== 'locked' || hasPin) pageUpdate.visibility = visibility
-      const { error: pe } = await supabase.from('pages').update(pageUpdate).eq('id', page.id)
-      if (pe) throw pe
-      // 데코는 통째로 다시 저장
-      const { error: de } = await supabase.from('decor_items').delete().eq('page_id', page.id)
-      if (de) throw de
-      if (decor.length) {
-        const { error } = await supabase.from('decor_items').insert(
-          decor.map((d, i) => ({ page_id: page.id, item_key: d.item, x: d.x, y: d.y, rotation: d.rotation, scale: d.scale, z: i })),
-        )
-        if (error) throw error
-      }
+      // 한 번에 저장 (중간에 실패하면 전부 취소돼서 내용이 날아가지 않는다)
+      const { error } = await supabase.rpc('save_page', {
+        p_page_id: page.id,
+        p_blocks: blocks.map((b) => ({ id: b.id, type: b.type, is_visible: b.is_visible !== false, data: cleanBlockData(b.type, b.data) })),
+        p_removed: removed,
+        p_page: { template, theme: accent ? { accent } : {}, guestbook_mode: gbMode, visibility: visibility !== 'locked' || hasPin ? visibility : null },
+        p_decor: decor.map((d) => ({ item: d.item, x: d.x, y: d.y, rotation: d.rotation, scale: d.scale })),
+      })
+      if (error) throw error
       setRemoved([])
       setDirty(false)
       flash(true, '저장했어요.')
@@ -227,7 +203,9 @@ export function Editor(props: Props) {
   }
   function downloadCardsCsv() {
     const head = '이름,소속,연락처,메모,받은 날짜'
-    const rows = cards.map((c) => [c.name, c.org ?? '', c.contact, c.memo ?? '', c.created_at.slice(0, 10)].map((v) => `"${v.replace(/"/g, '""')}"`).join(','))
+    // 엑셀 수식 주입 방지: =, +, -, @ 로 시작하면 앞에 ' 붙이기
+    const cell = (v: string) => `"${(/^[=+\-@\t\r]/.test(v) ? `'${v}` : v).replace(/"/g, '""')}"`
+    const rows = cards.map((c) => [c.name, c.org ?? '', c.contact, c.memo ?? '', c.created_at.slice(0, 10)].map(cell).join(','))
     const blob = new Blob(['﻿' + [head, ...rows].join('\n')], { type: 'text/csv;charset=utf-8' })
     const a = document.createElement('a')
     a.href = URL.createObjectURL(blob)

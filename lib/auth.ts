@@ -35,6 +35,13 @@ export async function requireAdmin() {
 
 /** 외부 주소로 튕겨 나가지 않게 next 값을 검사 */
 export function safeNext(next: string | null | undefined, fallback = '/my') {
-  if (!next || !next.startsWith('/') || next.startsWith('//') || next.includes('\\')) return fallback
-  return next
+  if (!next || !next.startsWith('/') || /[\x00-\x20\\]/.test(next)) return fallback
+  try {
+    const base = 'https://knock.invalid'
+    const u = new URL(next, base)
+    if (u.origin !== base) return fallback
+    return u.pathname + u.search
+  } catch {
+    return fallback
+  }
 }

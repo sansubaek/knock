@@ -5,7 +5,7 @@ import { loadPublic, normalizeQrId } from '@/lib/public-page'
 export const dynamic = 'force-dynamic'
 
 function esc(v: string) {
-  return v.replace(/\\/g, '\\\\').replace(/\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\;')
+  return v.replace(/\\/g, '\\\\').replace(/\r?\n|\r/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;')
 }
 
 export async function GET(_req: NextRequest, ctx: { params: Promise<{ id: string }> }) {

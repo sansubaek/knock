@@ -1,3 +1,4 @@
+import { requireAdmin } from '@/lib/auth'
 import { BatchIssue, Reissue } from '../IssueForms'
 import { markPrinted, setQrStatus } from '../actions'
 import { createAdminClient } from '@/lib/supabase/admin'
@@ -5,6 +6,7 @@ import { createAdminClient } from '@/lib/supabase/admin'
 const LABEL: Record<string, string> = { issued: '발급', printed: '인쇄 넘김', active: '사용 중', retired: '폐기' }
 
 export default async function AdminQr({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
+  await requireAdmin()
   const { status } = await searchParams
   const db = createAdminClient()
   let q = db.from('qr_codes').select('id, line, status, lost_mode, owner_id, order_id, created_at, code_used_at, failed_attempts, locked_until').order('created_at', { ascending: false }).limit(300)

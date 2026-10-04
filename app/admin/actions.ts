@@ -84,8 +84,8 @@ export async function setQrStatus(form: FormData) {
   const id = String(form.get('qr') ?? '')
   const status = String(form.get('status') ?? '')
   if (!['issued', 'printed', 'retired'].includes(status)) return
-  await db.from('qr_codes').update({ status }).eq('id', id).neq('status', 'active')
-  if (status === 'retired') await db.from('qr_codes').update({ status, lost_mode: false }).eq('id', id)
+  // 사용 중인 케이스는 여기서 폐기하지 않는다 (실수 방지)
+  await db.from('qr_codes').update(status === 'retired' ? { status, lost_mode: false } : { status }).eq('id', id).neq('status', 'active')
   await log(db, user.id, `qr.status.${status}`, id)
   revalidatePath('/admin/qr')
 }

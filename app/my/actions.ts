@@ -13,7 +13,8 @@ export async function setLostMode(form: FormData) {
   const { supabase, user } = await getSession()
   if (!user) redirect('/login?next=/my')
   // RLS와 컬럼 권한 때문에 내 QR의 lost_mode, lost_note만 바뀐다
-  await supabase.from('qr_codes').update({ lost_mode: on, lost_note: note || null }).eq('id', qr)
+  // 끌 때는 적어둔 한마디를 지우지 않는다
+  await supabase.from('qr_codes').update(on ? { lost_mode: true, lost_note: note || null } : { lost_mode: false }).eq('id', qr)
   revalidatePath('/my')
 }
 

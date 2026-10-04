@@ -1,3 +1,4 @@
+import { requireAdmin } from '@/lib/auth'
 import Link from 'next/link'
 import { createAdminClient } from '@/lib/supabase/admin'
 
@@ -10,6 +11,7 @@ async function count(table: string, filter?: (q: any) => any) {
 }
 
 export default async function AdminHome() {
+  await requireAdmin()
   const since = new Date(Date.now() - 7 * 86400_000).toISOString()
   const [members, beta, newOrders, active, issued, openInq, scans7, lost] = await Promise.all([
     count('profiles'),

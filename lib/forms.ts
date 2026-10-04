@@ -18,8 +18,9 @@ export async function submitBeta(form: { get(k: string): unknown }): Promise<For
   const agree = form.get('agree') === 'on'
   if (!name || !contact) return { ok: false, message: '이름과 연락받을 곳을 적어주세요.' }
   if (!agree) return { ok: false, message: '개인정보 수집·이용에 동의해 주세요.' }
-  const { visitor } = await requestInfo()
-  if (!(await hit(`beta:${visitor}`, 3, 3600))) return { ok: false, message: '잠시 뒤에 다시 신청해 주세요.' }
+  const { rl } = await requestInfo()
+  const day = new Date(Date.now() + 9 * 3600_000).toISOString().slice(0, 10)
+  if (!(await hit(`beta:${rl}`, 3, 3600)) || !(await hit(`betaall:${day}`, 500, 86400))) return { ok: false, message: '잠시 뒤에 다시 신청해 주세요.' }
   const { user } = await getSession()
   const db = createAdminClient()
   const { error } = await db.from('orders').insert({
@@ -46,8 +47,9 @@ export async function submitInquiry(form: { get(k: string): unknown }): Promise<
   const target = str(form.get('target'), 40).trim()
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return { ok: false, message: '답장 받을 이메일을 정확히 적어주세요.' }
   if (!body) return { ok: false, message: '내용을 적어주세요.' }
-  const { visitor } = await requestInfo()
-  if (!(await hit(`inq:${visitor}`, 5, 3600))) return { ok: false, message: '잠시 뒤에 다시 보내주세요.' }
+  const { rl } = await requestInfo()
+  const day = new Date(Date.now() + 9 * 3600_000).toISOString().slice(0, 10)
+  if (!(await hit(`inq:${rl}`, 5, 3600)) || !(await hit(`inqall:${day}`, 300, 86400))) return { ok: false, message: '잠시 뒤에 다시 보내주세요.' }
   const { user } = await getSession()
   const db = createAdminClient()
   const { error } = await db.from('inquiries').insert({

@@ -40,6 +40,28 @@ export function codeMatches(code: string, storedHmac: string) {
   return a.length === b.length && timingSafeEqual(a, b)
 }
 
+/** 암호 잠금 해제 쿠키: 암호 자체가 아니라 서명만 저장. 주인이 암호를 바꾸면 자동으로 무효 */
+export function signUnlock(qrId: string, pinHash: string, ttlSeconds = 3600) {
+  const exp = Math.floor(Date.now() / 1000) + ttlSeconds
+  const sig = createHmac('sha256', secret('KNOCK_CODE_SECRET')).update(`unlock|${qrId}|${exp}|${pinHash}`).digest('hex')
+  return `${exp}.${sig}`
+}
+
+export function verifyUnlock(token: string, qrId: string, pinHash: string) {
+  const [expStr, sig] = token.split('.')
+  const exp = Number(expStr)
+  if (!exp || !sig || exp < Date.now() / 1000) return false
+  const want = createHmac('sha256', secret('KNOCK_CODE_SECRET')).update(`unlock|${qrId}|${exp}|${pinHash}`).digest('hex')
+  const a = Buffer.from(sig, 'hex')
+  const b = Buffer.from(want, 'hex')
+  return a.length === b.length && timingSafeEqual(a, b)
+}
+
+/** 도배 방지용 키: IP만 쓴다 (브라우저 정보는 바꿔치기 쉬움) */
+export function ipKey(ip: string) {
+  return createHash('sha256').update(`${secret('VISITOR_HASH_SALT')}|ip|${ip}`).digest('hex').slice(0, 32)
+}
+
 /** 방문자 해시: 원본 IP는 저장하지 않는다 */
 export function visitorHash(ip: string, ua: string) {
   return createHash('sha256').update(`${secret('VISITOR_HASH_SALT')}|${ip}|${ua}`).digest('hex').slice(0, 32)

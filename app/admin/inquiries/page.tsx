@@ -1,9 +1,11 @@
+import { requireAdmin } from '@/lib/auth'
 import { replyInquiry } from '../actions'
 import { createAdminClient } from '@/lib/supabase/admin'
 
 const TYPE: Record<string, string> = { general: '일반', code: '코드 재발급', report: '신고', lost: '주운 케이스', other: '기타' }
 
 export default async function AdminInquiries({ searchParams }: { searchParams: Promise<{ all?: string }> }) {
+  await requireAdmin()
   const { all } = await searchParams
   const db = createAdminClient()
   let q = db.from('inquiries').select('*').order('created_at', { ascending: false }).limit(200)

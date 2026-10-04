@@ -101,12 +101,15 @@ export function safeHref(raw: unknown): string | null {
   }
 }
 
-/** 이미지 주소는 https만 */
+/** 이미지는 우리 Supabase 저장소에 올린 것만 (외부 이미지로 방문자 IP를 모으지 못하게) */
 export function safeImage(raw: unknown): string | null {
   if (typeof raw !== 'string') return null
   try {
     const u = new URL(raw)
-    return u.protocol === 'https:' || (u.protocol === 'http:' && u.hostname === 'localhost') ? u.toString() : null
+    const own = new URL(process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://invalid.local')
+    if (u.origin !== own.origin) return null
+    if (!u.pathname.startsWith('/storage/v1/object/public/page-media/')) return null
+    return u.toString()
   } catch {
     return null
   }

@@ -1,3 +1,4 @@
+import { requireAdmin } from '@/lib/auth'
 import { OrderIssue } from '../IssueForms'
 import { updateOrder } from '../actions'
 import { createAdminClient } from '@/lib/supabase/admin'
@@ -13,6 +14,7 @@ const STATUS: Record<string, string> = {
 const KIND: Record<string, string> = { beta: '베타', preorder: '사전예약', order: '주문' }
 
 export default async function AdminOrders({ searchParams }: { searchParams: Promise<{ status?: string }> }) {
+  await requireAdmin()
   const { status } = await searchParams
   const db = createAdminClient()
   let q = db.from('orders').select('*').order('created_at', { ascending: false }).limit(300)
