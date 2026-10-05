@@ -70,7 +70,21 @@ export default async function MyPage() {
 
       <main className="my-main">
         <section className="my-hello">
-          <h1>{profile.nickname ?? '반가워요'}님의 knock</h1>
+          <h1>
+            {(scans7 ?? 0) > 0 ? (
+              <>
+                이번 주에 {scans7}명이
+                <br />
+                {profile.nickname ?? ''}님 페이지에 다녀갔어요
+              </>
+            ) : (
+              <>
+                {profile.nickname ?? ''}님, 반가워요
+                <br />
+                오늘은 누가 찍을까요
+              </>
+            )}
+          </h1>
           <div className="my-stats">
             <div>
               <b>{scans7 ?? 0}</b>

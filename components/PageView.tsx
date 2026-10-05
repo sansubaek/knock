@@ -141,7 +141,7 @@ function DotBlock({ b, qrId, preview }: { b: Block; qrId?: string; preview?: boo
           <dl className="d-contacts">
             {phone && (
               <div>
-                <dt>TEL</dt>
+                <dt data-ko="전화">TEL</dt>
                 <dd>
                   <a href={`tel:${phone.replace(/[^\d+]/g, '')}`}>{phone}</a>
                 </dd>
@@ -149,7 +149,7 @@ function DotBlock({ b, qrId, preview }: { b: Block; qrId?: string; preview?: boo
             )}
             {email && (
               <div>
-                <dt>MAIL</dt>
+                <dt data-ko="메일">MAIL</dt>
                 <dd>
                   <a href={`mailto:${email}`}>{email}</a>
                 </dd>
@@ -157,7 +157,7 @@ function DotBlock({ b, qrId, preview }: { b: Block; qrId?: string; preview?: boo
             )}
             {web && (
               <div>
-                <dt>WEB</dt>
+                <dt data-ko="웹">WEB</dt>
                 <dd>
                   <a href={web} target="_blank" rel="noopener noreferrer nofollow">
                     {web.replace(/^https?:\/\//, '').replace(/\/$/, '')}
@@ -203,7 +203,7 @@ function DotBlock({ b, qrId, preview }: { b: Block; qrId?: string; preview?: boo
       if (!lines.length) return null
       return (
         <section className="d-sec">
-          <p className="d-k">CAREER</p>
+          <p className="d-k" data-ko="경력">CAREER</p>
           <ul className="d-career">
             {lines.map((l, i) => (
               <li key={i}>{l}</li>
@@ -259,7 +259,12 @@ export function PageView({ data, qrId, preview, decorLayer, banner }: Props) {
           <header className="kp-top">
             <span className="kp-brand">knock!</span>
             <span className="kp-counter">
-              TODAY <b>{data.today_visits}</b> <i>|</i> TOTAL <b>{data.total_visits}</b>
+              <span className="kc-en">
+                TODAY <b>{data.today_visits}</b> <i>|</i> TOTAL <b>{data.total_visits}</b>
+              </span>
+              <span className="kc-ko">
+                오늘 {data.today_visits}명, 지금까지 {data.total_visits}명
+              </span>
             </span>
           </header>
           {data.blocks.map((b) => (

@@ -160,6 +160,26 @@ const GF = 'https://fonts.googleapis.com/css2?display=swap&family='
 
 export const TEMPLATES: Template[] = [
   {
+    key: 'clean',
+    name: '클린',
+    line: 'bang',
+    desc: '회색 바탕에 흰 카드, 핑크 포인트',
+    font: '"Noto Sans KR", "Apple SD Gothic Neo", sans-serif',
+    fontHref: `${GF}Noto+Sans+KR:wght@400;500;700;800`,
+    vars: { '--bg': '#F2F4F6', '--card': '#FFFFFF', '--ink': '#191F28', '--mute': '#6B7684', '--accent': '#E0335E', '--edge': '#F2F4F6' },
+    className: 't-clean',
+  },
+  {
+    key: 'clean',
+    name: '클린',
+    line: 'dot',
+    desc: '회색 바탕에 흰 카드, 파란 포인트',
+    font: '"Noto Sans KR", "Apple SD Gothic Neo", sans-serif',
+    fontHref: `${GF}Noto+Sans+KR:wght@400;500;700;800`,
+    vars: { '--bg': '#F2F4F6', '--card': '#FFFFFF', '--ink': '#191F28', '--mute': '#6B7684', '--accent': '#1F5EFF', '--edge': '#F2F4F6' },
+    className: 't-clean',
+  },
+  {
     key: 'basic',
     name: '기본',
     line: 'bang',
@@ -250,8 +270,8 @@ export function getTemplate(line: Line, key: string | null | undefined): Templat
 }
 
 export const ACCENTS: Record<Line, string[]> = {
-  bang: ['#E8738A', '#FF7A00', '#7B5CFF', '#2547F4', '#1F9D6B', '#FFD66B', '#5A3A26'],
-  dot: ['#111113', '#8A5A2B', '#2547F4', '#1F5C4A', '#B4372F', '#F4F4F5'],
+  bang: ['#E0335E', '#E8738A', '#FF7A00', '#7B5CFF', '#2547F4', '#1F9D6B', '#FFD66B', '#5A3A26'],
+  dot: ['#1F5EFF', '#111113', '#8A5A2B', '#2547F4', '#1F5C4A', '#B4372F', '#F4F4F5'],
 }
 
 export type Theme = { accent?: string }

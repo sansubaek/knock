@@ -19,7 +19,7 @@ create table public.pages (
   id             uuid primary key default gen_random_uuid(),
   owner_id       uuid not null references public.profiles(id) on delete cascade,
   line           text not null check (line in ('bang','dot')),
-  template       text not null default 'basic',
+  template       text not null default 'clean',
   theme          jsonb not null default '{}'::jsonb,
   visibility     text not null default 'public' check (visibility in ('public','link','locked','private')),
   lock_pin_hash  text,

@@ -23,18 +23,8 @@
   --b-cream:#FAF6EC; --b-cream2:#ECE5D4; --b-choco:#5A3A26; --b-pink:#E8738A; --b-blue:#2547F4; --b-mute:#8A6B55;
   --wrap:1120px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#0F1014; --surface:#17181E; --ink:#ECEDF0; --mute:#9C9FAC; --line:#2B2D35;
-    --bang:#3D5BFF; --bang-ink:#FFFFFF; --bang-soft:#1C2347; --ok:#5CC98F; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#0F1014; --surface:#17181E; --ink:#ECEDF0; --mute:#9C9FAC; --line:#2B2D35;
-  --bang:#3D5BFF; --bang-ink:#FFFFFF; --bang-soft:#1C2347; --ok:#5CC98F; color-scheme:dark;
-}
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 h1,h2,h3{text-wrap:balance;margin:0;letter-spacing:-0.025em}
 p{margin:0}
@@ -250,6 +240,97 @@ dialog p{color:var(--mute);font-size:14px;margin-top:8px}
 dialog .btn{margin-top:18px;width:100%}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ── 표지 7안: 펄 & 그래파이트 ── */
+:root{--paper:#F7F7F8;--surface:#FFFFFF;--ink:#191F28;--mute:#6B7684;--line:#E5E8EB;--bang:#191F28;--bang-ink:#FFFFFF;--bang-soft:#F2F4F6;
+  --b-cream:#F2F4F6;--b-cream2:#E5E8EB;--b-choco:#191F28;--b-pink:#E0335E;--b-blue:#1F5EFF;--b-mute:#6B7684}
+.top{background:rgba(255,255,255,.72);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border-bottom:1px solid rgba(25,31,40,.06)}
+.top .btn{border-color:var(--ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.k7{position:relative;overflow:hidden}
+.k7>input{position:absolute;opacity:0;pointer-events:none}
+.k7-doors{display:grid;grid-template-columns:1fr 1fr;height:calc(100svh - 69px);min-height:620px;transition:grid-template-columns .8s cubic-bezier(.7,0,.2,1)}
+#k7bang:checked~.k7-doors{grid-template-columns:1fr 0fr}
+#k7dot:checked~.k7-doors{grid-template-columns:0fr 1fr}
+.k7-door{position:relative;overflow:hidden;min-width:0;display:flex;flex-direction:column;justify-content:space-between;padding:40px clamp(24px,4vw,64px) 52px;transition:padding .8s cubic-bezier(.7,0,.2,1)}
+#k7bang:checked~.k7-doors .k7-dot,#k7dot:checked~.k7-doors .k7-bang{padding-left:0;padding-right:0}
+.k7-door::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");background-size:220px;opacity:.22;mix-blend-mode:overlay;pointer-events:none}
+.k7-bang{background:radial-gradient(70% 60% at 18% 12%,#FFFFFF 0%,rgba(255,255,255,0) 70%),radial-gradient(80% 70% at 95% 100%,#CFCFD4 0%,rgba(207,207,212,0) 70%),#E8E8EA;color:#141416}
+.k7-dot{background:radial-gradient(70% 60% at 85% 8%,#4C4C54 0%,rgba(76,76,84,0) 70%),radial-gradient(80% 70% at 0% 100%,#26262C 0%,rgba(38,38,44,0) 70%),#121215;color:#F2F2F4}
+.k7-hit{position:absolute;inset:0;z-index:2;cursor:pointer}
+#k7bang:checked~.k7-doors .k7-bang .k7-hit,#k7dot:checked~.k7-doors .k7-dot .k7-hit{display:none}
+.k7-in{position:relative;z-index:3;display:flex;flex-direction:column;gap:16px;min-width:min(520px,78vw)}
+.k7-row{flex-direction:row;justify-content:space-between;align-items:baseline;gap:12px}
+.k7-name{font-family:var(--display);font-weight:800;font-size:32px;letter-spacing:-.045em}
+.k7-who{font-size:13px;opacity:.6}
+.k7 h1,.k7 h2{margin:0;font-size:clamp(34px,3.6vw,52px);line-height:1.15;letter-spacing:-.035em;font-weight:700;transition:font-size .8s cubic-bezier(.7,0,.2,1)}
+.k7-sub{margin:0;font-size:17px;line-height:1.6;max-width:30ch}
+.k7-bang .k7-sub{color:#5A5A60}
+.k7-dot .k7-sub{color:#A9A9B0}
+.k7-open{display:inline-flex;align-items:center;align-self:flex-start;height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:15px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.k7-bang .k7-open,.k7-bang .k7-back{background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.7)}
+.k7-dot .k7-open,.k7-dot .k7-back{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#fff}
+.k7-more{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .7s cubic-bezier(.7,0,.2,1) .15s,opacity .5s .3s}
+.k7-more>div{overflow:hidden;display:flex;flex-direction:column;gap:22px}
+#k7bang:checked~.k7-doors .k7-bang .k7-more,#k7dot:checked~.k7-doors .k7-dot .k7-more{grid-template-rows:1fr;opacity:1}
+#k7bang:checked~.k7-doors .k7-bang .k7-open,#k7dot:checked~.k7-doors .k7-dot .k7-open{display:none}
+#k7bang:checked~.k7-doors .k7-bang h1,#k7dot:checked~.k7-doors .k7-dot h2{font-size:clamp(46px,5.6vw,84px)}
+.k7-chips{display:flex;gap:8px;flex-wrap:wrap}
+.k7-chips span{font-size:14px;padding:8px 14px;border-radius:999px}
+.k7-bang .k7-chips span{background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.75)}
+.k7-dot .k7-chips span{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18)}
+.k7-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.k7-cta{display:inline-flex;align-items:center;height:54px;padding:0 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:16px}
+.k7-bang .k7-cta.a{background:#141416;color:#fff}
+.k7-bang .k7-cta.b{background:rgba(255,255,255,.5);color:#141416;border:1px solid rgba(255,255,255,.8)}
+.k7-dot .k7-cta.a{background:#fff;color:#121215}
+.k7-dot .k7-cta.b{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.22)}
+.k7-back{position:absolute;z-index:4;top:28px;left:clamp(24px,4vw,64px);display:none;align-items:center;gap:8px;font-size:14px;cursor:pointer;padding:8px 14px 8px 10px;border-radius:999px}
+#k7bang:checked~.k7-doors .k7-bang .k7-back,#k7dot:checked~.k7-doors .k7-dot .k7-back{display:inline-flex}
+#k7bang:checked~.k7-doors .k7-bang .k7-row,#k7dot:checked~.k7-doors .k7-dot .k7-row{margin-top:48px}
+.k7-excl{position:absolute;z-index:1;right:17%;top:46%;display:flex;flex-direction:column;align-items:center;gap:clamp(14px,1.3vw,20px);transform:translateY(-50%) rotate(9deg);transition:transform .8s cubic-bezier(.7,0,.2,1)}
+.k7-excl i{display:block;border-radius:999px;box-shadow:0 30px 60px rgba(20,20,24,.22)}
+.k7-stem{width:clamp(46px,4.2vw,62px);height:clamp(170px,16vw,236px);background:linear-gradient(90deg,#1B1B20 0%,#4A4A52 22%,#8E8E97 38%,#3A3A42 55%,#18181D 100%)}
+.k7-ball{width:clamp(56px,5vw,74px);aspect-ratio:1;background:radial-gradient(circle at 34% 28%,#B9B9C2 0%,#6E6E77 30%,#2C2C33 70%,#141418 100%)}
+.k7-orb{position:absolute;z-index:1;right:17%;top:44%;width:clamp(110px,10vw,150px);aspect-ratio:1;border-radius:50%;transform:translateY(-50%);background:radial-gradient(circle at 34% 28%,#FFFFFF 0%,#E4E4EA 18%,#9D9DA6 45%,#3E3E46 78%,#1E1E24 100%);box-shadow:0 40px 80px rgba(0,0,0,.55),0 0 60px rgba(255,255,255,.06);transition:transform .8s cubic-bezier(.7,0,.2,1)}
+#k7bang:checked~.k7-doors .k7-excl{transform:translateY(-50%) translateX(-40%) rotate(9deg) scale(1.2)}
+#k7dot:checked~.k7-doors .k7-orb{transform:translateY(-50%) translateX(-60%) scale(1.25)}
+@media (hover:hover){.k7-bang:hover .k7-excl{transform:translateY(-53%) rotate(9deg)}.k7-dot:hover .k7-orb{transform:translateY(-54%)}}
+@media (max-width:720px){
+  .k7-doors{grid-template-columns:1fr;grid-template-rows:1fr 1fr;height:calc(100svh - 61px);min-height:560px;transition:grid-template-rows .8s cubic-bezier(.7,0,.2,1)}
+  #k7bang:checked~.k7-doors{grid-template-columns:1fr;grid-template-rows:1fr 0fr}
+  #k7dot:checked~.k7-doors{grid-template-columns:1fr;grid-template-rows:0fr 1fr}
+  #k7bang:checked~.k7-doors .k7-dot,#k7dot:checked~.k7-doors .k7-bang{padding:0 20px}
+  .k7-door{min-height:0;padding:22px 20px 24px}
+  .k7-who{display:none}
+  .k7-name{font-size:24px}
+  .k7 h1,.k7 h2{font-size:28px}
+  .k7-in{min-width:0;gap:12px}
+  .k7-sub{display:none;font-size:15px}
+  #k7bang:checked~.k7-doors .k7-bang .k7-sub,#k7dot:checked~.k7-doors .k7-dot .k7-sub{display:block}
+  #k7bang:checked~.k7-doors .k7-bang h1,#k7dot:checked~.k7-doors .k7-dot h2{font-size:40px}
+  .k7-open{height:42px;font-size:14px}
+  .k7-back{top:18px;left:20px}
+  #k7bang:checked~.k7-doors .k7-bang .k7-row,#k7dot:checked~.k7-doors .k7-dot .k7-row{margin-top:44px}
+  .k7-excl{right:12%;top:46%;transform:translateY(-50%) rotate(9deg) scale(.55);transform-origin:center}
+  .k7-orb{right:14%;top:42%;width:84px}
+  #k7bang:checked~.k7-doors .k7-excl{transform:translateY(-70%) rotate(9deg) scale(.8)}
+  #k7dot:checked~.k7-doors .k7-orb{transform:translateY(-70%) scale(1.2)}
+  .k7-cta{height:50px;padding:0 20px;font-size:15px}
+}
+#lost{background:radial-gradient(70% 60% at 85% 0%,#3A3A42 0%,rgba(58,58,66,0) 70%),#121215;color:#F2F2F4;border-bottom:0}
+#lost .eyebrow,#lost .lead,#lost .lost-points{color:#A9A9B0}
+#lost .lost-points b{color:#fff}
+#lost .btn{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.22)}
+#lost .btn.solid{background:#fff;color:#121215;border-color:#fff}
+#lost .lost-panel{background:rgba(255,255,255,.06);color:#D1D1D6}
+#lost .phone{border:0;color:#191F28}
+.step-n{color:var(--mute)}
+.step,form{border-color:#EDEEF0}
+.btn.blue{background:#191F28;border-color:#191F28;color:#fff}
+.seg label:has(input:checked){background:#191F28;border-color:#191F28}
+.seg input:checked+span{color:#fff}
+.field input,.field select{background:#F2F4F6;border-color:#F2F4F6}
 </style>
 
 </head>
@@ -268,27 +349,42 @@ dialog .btn{margin-top:18px;width:100%}
 
 <!-- ═════════ HOME ═════════ -->
 <main class="view" id="v-home">
-  <div class="doors">
-    <a class="door bang" href="#bang">
-      <div class="door-top"><span class="door-name">knock!</span><span class="door-who">10·20대 · 크리에이터</span></div>
-      <p class="glyph" aria-hidden="true">!</p>
-      <div class="door-copy">
-        <h1>나를 보여주는 공간</h1>
-        <p class="sub">케이스 QR을 찍으면 내가 꾸민 방이 열려요. 알고리즘도, 눈치도 없는 나만의 아지트.</p>
-        <div class="chips"><span class="chip">자유 꾸미기</span><span class="chip">익명 방명록</span><span class="chip">노크 반응</span></div>
-        <span class="go">knock! 들어가기 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </a>
-    <a class="door dot" href="#dot">
-      <div class="door-top"><span class="door-name">knock.</span><span class="door-who">직장인 · 프리랜서 · 1인 사업자</span></div>
-      <p class="glyph" aria-hidden="true">.</p>
-      <div class="door-copy">
-        <h2>종이 명함 대신</h2>
-        <p class="sub">케이스를 찍으면 연락처가 저장되고, 상대의 명함도 그 자리에서 받아요.</p>
-        <div class="chips"><span class="chip">연락처 저장</span><span class="chip">명함 교환</span><span class="chip">포트폴리오</span></div>
-        <span class="go">knock. 들어가기 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </a>
+  <div class="k7">
+    <input type="radio" name="k7door" id="k7none" checked aria-label="둘 다 보기">
+    <input type="radio" name="k7door" id="k7bang" aria-label="knock! 열기">
+    <input type="radio" name="k7door" id="k7dot" aria-label="knock. 열기">
+    <div class="k7-doors">
+      <section class="k7-door k7-bang">
+        <label class="k7-hit" for="k7bang"><span class="sr">knock! 열기</span></label>
+        <label class="k7-back" for="k7none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>둘 다 보기</label>
+        <span class="k7-excl" aria-hidden="true"><i class="k7-stem"></i><i class="k7-ball"></i></span>
+        <div class="k7-in k7-row"><span class="k7-name">knock!</span><span class="k7-who">10·20대, 크리에이터</span></div>
+        <div class="k7-in">
+          <h1>나를 보여주는 공간</h1>
+          <p class="k7-sub">케이스 QR을 찍으면 내가 꾸민 방이 열려요. 알고리즘도, 눈치도 없는 나만의 아지트.</p>
+          <span class="k7-open">열어보기</span>
+          <div class="k7-more"><div>
+            <div class="k7-chips"><span>자유 꾸미기</span><span>익명 방명록</span><span>노크 반응</span></div>
+            <div class="k7-ctas"><a class="k7-cta a" href="#bang">knock! 둘러보기</a><a class="k7-cta b" href="#beta" data-line="bang">베타 신청</a></div>
+          </div></div>
+        </div>
+      </section>
+      <section class="k7-door k7-dot">
+        <label class="k7-hit" for="k7dot"><span class="sr">knock. 열기</span></label>
+        <label class="k7-back" for="k7none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>둘 다 보기</label>
+        <span class="k7-orb" aria-hidden="true"></span>
+        <div class="k7-in k7-row"><span class="k7-name">knock.</span><span class="k7-who">직장인, 프리랜서, 1인 사업자</span></div>
+        <div class="k7-in">
+          <h2>종이 명함 대신</h2>
+          <p class="k7-sub">케이스를 찍으면 연락처가 저장되고, 상대의 명함도 그 자리에서 받아요.</p>
+          <span class="k7-open">열어보기</span>
+          <div class="k7-more"><div>
+            <div class="k7-chips"><span>연락처 저장</span><span>명함 교환</span><span>포트폴리오</span></div>
+            <div class="k7-ctas"><a class="k7-cta a" href="#dot">knock. 둘러보기</a><a class="k7-cta b" href="#beta" data-line="dot">베타 신청</a></div>
+          </div></div>
+        </div>
+      </section>
+    </div>
   </div>
 
   <section id="how">
