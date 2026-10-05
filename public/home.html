@@ -343,6 +343,107 @@ dialog .btn{margin-top:18px;width:100%}
 
 .k7{word-break:keep-all}
 @media (max-width:720px){.k7 h1,.k7 h2{font-size:26px}#k7bang:checked~.k7-doors .k7-bang h1,#k7dot:checked~.k7-doors .k7-dot h2{font-size:36px}.k7-excl{right:8%;transform:translateY(-62%) rotate(9deg) scale(.5)}}
+/* ── 라인 페이지 B안 ── */
+body.on-bang .top{background:rgba(255,255,255,.72);border-color:rgba(25,31,40,.06);color:var(--ink)}
+body.on-bang .top .nav a{color:var(--mute)}
+body.on-bang .top .btn{background:transparent;color:var(--ink);border-color:var(--ink)}
+.ln{--ac:#E0335E;--ac-soft:#FCE8ED;--r:24px;--r2:20px;--r3:16px;background:#F2F4F6;color:#191F28;font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;word-break:keep-all;line-height:1.5}
+.ln-dot{--ac:#1F5EFF;--ac-soft:#E8EFFF;--r:16px;--r2:12px;--r3:10px}
+.ln *{box-sizing:border-box}
+.ln-main{max-width:1120px;margin:0 auto;padding:24px 20px 56px;display:flex;flex-direction:column;gap:16px}
+.ln-card{background:#fff;border-radius:var(--r);padding:40px}
+.ln-card h2{margin:0 0 24px;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.35}
+.ln-card h2 small{font-size:16px;font-weight:500;color:#6B7684;margin-left:8px;letter-spacing:0}
+.ln-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding:48px}
+.ln-hero h1{margin:0;font-size:44px;line-height:1.3;letter-spacing:-.03em;font-weight:800}
+.ln-hero-t>p{margin:16px 0 0;font-size:18px;line-height:1.6;color:#4E5968}
+.ln-hero-img{width:100%;height:420px;object-fit:cover;border-radius:var(--r2);display:block}
+.ln-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}
+.ln-btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 24px;border-radius:var(--r3);background:#F2F4F6;color:#191F28;font-weight:700;font-size:16px;text-decoration:none;transition:filter .15s}
+.ln-btn:hover{filter:brightness(.96)}
+.ln-btn.solid{background:var(--ac);color:#fff}
+.ln-btn.light{background:#fff;color:#191F28}
+.ln-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ln-step{background:#F9FAFB;border-radius:var(--r2);padding:24px;display:flex;flex-direction:column;gap:14px}
+.ln-step>div{display:flex;flex-direction:column;gap:6px}
+.ln-step b{font-size:18px;font-weight:700}
+.ln-step span{font-size:15px;color:#6B7684;line-height:1.6}
+.ln-ic{width:48px;height:48px;border-radius:14px;background:var(--ac-soft);color:var(--ac);display:flex;align-items:center;justify-content:center;flex:none}
+.ln-dot .ln-ic{border-radius:10px}
+.ln-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.ln-head h2{margin:0}
+.ln-tabs{display:flex;gap:6px;background:#F2F4F6;border-radius:999px;padding:4px}
+.ln-tabs .b-tab{font:inherit;font-size:14px;font-weight:700;border:0;border-radius:999px;padding:8px 18px;background:transparent;color:#6B7684;cursor:pointer}
+.ln-tabs .b-tab[aria-selected="true"]{background:#191F28;color:#fff}
+.ln-prods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.ln-prods[hidden]{display:none}
+.ln-prod{display:flex;flex-direction:column;gap:12px;color:#191F28;text-decoration:none}
+.ln-prod img,.ln-ph{width:100%;height:300px;object-fit:cover;border-radius:var(--r2);display:block;background:#F2F4F6;transition:transform .2s}
+a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
+.ln-ph.line{background:#F9FAFB;border:1.5px dashed #D1D6DB}
+.ln-ph.white{background:#F2F4F6}
+.ln-ph.black{background:#191F28}
+.ln-ph.two{background:linear-gradient(90deg,#F2F4F6 50%,#E5E8EB 50%)}
+.ln-prod>div{display:flex;flex-direction:column;gap:2px}
+.ln-prod b{font-size:17px;font-weight:700}
+.ln-prod span{font-size:15px;color:#6B7684}
+.ln-prod.soon b{color:#4E5968}
+.ln-go{display:none}
+.ln-split{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px}
+.ln-split .ln-card h2{margin-bottom:12px}
+.ln-q{border-bottom:1px solid #F2F4F6}
+.ln-q:last-of-type{border-bottom:0}
+.ln-q summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;font-size:16px;cursor:pointer}
+.ln-q summary::-webkit-details-marker{display:none}
+.ln-chev{flex:none;transition:transform .2s}
+.ln-q[open] .ln-chev{transform:rotate(180deg)}
+.ln-q p{margin:0 0 18px;font-size:15px;color:#4E5968;line-height:1.65}
+.ln-note{margin:12px 0 0;background:#F2F4F6;border-radius:var(--r3);padding:14px 16px;font-size:14px;color:#4E5968}
+.ln-dark{background:#191F28;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:14px}
+.ln-dark h2{margin:0;font-size:24px}
+.ln-dark p{margin:0;font-size:15px;line-height:1.6;color:#B0B8C1}
+.ln-dark .ln-btn{margin-top:10px}
+.ln-other{color:#B0B8C1;font-size:14px;text-decoration:none;margin-top:4px}
+.ln-other:hover{color:#fff}
+.ln-dock{display:none}
+@media (max-width:960px){
+  .ln-prods{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ln-hero{grid-template-columns:1fr;gap:32px}
+  .ln-split{grid-template-columns:1fr}
+}
+@media (max-width:720px){
+  .ln-main{padding:0 0 24px;gap:10px}
+  .ln-card{border-radius:0;padding:26px 20px}
+  .ln-card h2{font-size:20px;margin-bottom:10px}
+  .ln-card h2 small{font-size:14px}
+  .ln-hero{padding:20px 20px 28px;gap:0}
+  .ln-hero h1{font-size:28px;line-height:1.35}
+  .ln-hero-t>p{font-size:15px;margin-top:12px}
+  .ln-btns{display:none}
+  .ln-hero-img{height:280px;margin-top:20px}
+  .ln-steps{grid-template-columns:1fr;gap:0}
+  .ln-step{background:none;padding:12px 0;flex-direction:row;align-items:center;gap:14px}
+  .ln-step>div{gap:2px}
+  .ln-step b{font-size:16px}
+  .ln-step span{font-size:14px;line-height:1.5}
+  .ln-ic{width:44px;height:44px}
+  .ln-head{margin-bottom:10px}
+  .ln-tabs .b-tab{padding:7px 14px;font-size:13px}
+  .ln-prods{grid-template-columns:1fr;gap:4px}
+  .ln-prod{flex-direction:row;align-items:center;gap:14px;padding:6px 0}
+  .ln-prod img,.ln-ph{width:76px;height:96px;flex:none;border-radius:var(--r3)}
+  .ln-prod>div{flex:1;gap:4px}
+  .ln-prod b{font-size:16px}
+  .ln-prod span{font-size:14px}
+  a.ln-prod .ln-go{display:block;flex:none}
+  a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:none}
+  .ln-split{gap:10px}
+  .ln-q summary{font-size:15px;padding:14px 0}
+  .ln-dark{border-radius:0}
+  .ln-dark h2{font-size:22px}
+  .ln-dock{display:block;position:sticky;bottom:0;z-index:15;background:#fff;border-top:1px solid #E5E8EB;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px))}
+  .ln-dock .ln-btn{display:flex;width:100%;height:52px}
+}
 </style>
 
 </head>
@@ -501,139 +602,115 @@ dialog .btn{margin-top:18px;width:100%}
   </section>
 </main>
 
-<!-- ═════════ knock! ═════════ -->
-<main class="view v-bang" id="v-bang" hidden>
-  <div class="b-hero">
-    <div class="wrap">
-      <div>
-        <span class="b-tag">knock! knock!</span>
-        <h1 class="b-title">찍어봐!<br>내 방이 <em>열려.</em></h1>
-        <p class="b-sub">케이스 뒤 QR을 찍으면 내가 꾸민 작은 방으로 들어와요. 친구가 남긴 방명록, 오늘의 기분, 내 사진까지.</p>
-        <div class="b-actions">
-          <a class="b-btn" href="#beta" data-line="bang">베타로 먼저 받기</a>
-          <a class="b-btn ghost" href="#bang-col">케이스 구경하기</a>
-          <a class="b-btn ghost" href="/demo/bang">예시 방 들어가보기</a>
-        </div>
-      </div>
-      <div class="collage" aria-label="knock! 케이스 사진">
-        <figure class="polar p1"><span class="tape"></span><img src="/img/sticker.jpg" alt="스티커가 붙은 크림색 knock! 케이스"><span>스티커</span></figure>
-        <figure class="polar p2"><span class="tape"></span><img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스"><span>깅엄</span></figure>
-        <figure class="polar p3"><span class="tape"></span><img src="/img/door.jpg" alt="문 모양 안에 QR이 들어간 knock! 케이스"><span>똑똑 문</span></figure>
-      </div>
+<!-- ═════════ knock! (B안) ═════════ -->
+<main class="view ln ln-bang" id="v-bang" hidden>
+  <div class="ln-main">
+  <section class="ln-card ln-hero">
+    <div class="ln-hero-t">
+      <h1>케이스 QR을 찍으면<br>내가 꾸민 방이 열려요</h1>
+      <p>친구는 앱 설치 없이 카메라로 찍기만 하면 돼요. 방명록, 노크, 오늘의 기분까지 한 페이지에.</p>
+      <div class="ln-btns"><a class="ln-btn solid" href="#beta" data-line="bang">베타로 무료로 받아보기</a><a class="ln-btn" href="/demo/bang">예시 방 보기</a></div>
     </div>
-  </div>
-  <div class="marquee" aria-hidden="true"><div>knock knock · 찍어봐! · 내 방에 놀러와 · 노크하고 가 · knock knock · 찍어봐! · 내 방에 놀러와 · 노크하고 가 · knock knock · 찍어봐! · 내 방에 놀러와 · 노크하고 가 · knock knock · 찍어봐! · 내 방에 놀러와 · 노크하고 가 ·&nbsp;</div></div>
+    <img class="ln-hero-img" src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스">
+  </section>
 
-  <section id="bang-col">
-    <div class="wrap">
-      <h2 class="b-h">고르는 재미부터</h2>
-      <p class="b-lead">라인업을 고르고 디자인을 고르면, 주문할 때 하나씩 인쇄해요.</p>
-      <div class="b-tabs" role="tablist" aria-label="knock! 라인업">
+  <section class="ln-card" id="bang-how">
+    <h2>이렇게 써요</h2>
+    <div class="ln-steps">
+      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2"/></svg></span><div><b>QR 찍고 6자리 코드 넣기</b><span>케이스와 함께 온 카드의 숫자를 넣으면 이 케이스가 내 것이 돼요.</span></div></div>
+      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span><div><b>내 방 꾸미기</b><span>사진, 오늘의 기분, 요즘 듣는 노래, 링크를 올리고 테마를 골라요.</span></div></div>
+      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><div><b>친구가 노크와 방명록</b><span>찍은 친구는 로그인 없이 바로 흔적을 남겨요.</span></div></div>
+    </div>
+  </section>
+
+  <section class="ln-card" id="bang-col">
+    <div class="ln-head"><h2>케이스 <small>전부 19,900원</small></h2>
+      <div class="ln-tabs" role="tablist" aria-label="knock! 라인업">
         <button class="b-tab" role="tab" id="tab-basic" aria-controls="panel-basic" aria-selected="true">기본</button>
         <button class="b-tab" role="tab" id="tab-mz" aria-controls="panel-mz" aria-selected="false">MZ</button>
         <button class="b-tab" role="tab" id="tab-clear" aria-controls="panel-clear" aria-selected="false">클리어</button>
       </div>
-      <div class="b-panel" role="tabpanel" id="panel-basic" aria-labelledby="tab-basic">
-        <p class="b-panel-lead">귀엽고 무난한 knock!. 처음이라면 여기서.</p>
-        <div class="b-grid">
-        <article class="b-card"><img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스"><div class="in"><h3>깅엄 knock!</h3><p>분홍 체크에 레이스 프레임 QR. 제일 무난하게 귀여운 친구.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="깅엄 knock!">이걸로 신청</a></div></div></article>
-        <article class="b-card"><img src="/img/sticker.jpg" alt="스티커가 붙은 크림색 knock! 케이스"><div class="in"><h3>스티커 knock!</h3><p>말풍선, 발자국, 별 스티커를 흩뿌린 크림 케이스.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="스티커 knock!">이걸로 신청</a></div></div></article>
-        <article class="b-card"><img src="/img/door.jpg" alt="문 모양 안에 QR이 들어간 knock! 케이스"><div class="in"><h3>똑똑 문 knock!</h3><p>문 한가운데 QR. 두드려야 열리는 문, 이름 그대로.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="똑똑 문 knock!">이걸로 신청</a></div></div></article>
-        </div>
-      </div>
-      <div class="b-panel" role="tabpanel" id="panel-mz" aria-labelledby="tab-mz" hidden>
-        <p class="b-panel-lead">보는 순간 찍고 싶어지는 디자인. 케이스가 대신 "찍어봐"라고 말해요.</p>
-        <div class="b-grid">
-          <article class="b-card"><div class="b-ph" aria-hidden="true"><span>쟁반 위에<br>QR</span></div><div class="in"><h3>서빙 knock!</h3><p>QR을 쟁반에 받쳐 내미는 손. 정중하게 찍으라고 권해요.</p><div class="pr"><span class="b-soon">디자인 제작 중</span><a class="b-pick" href="#beta" data-line="bang" data-design="서빙 knock! (MZ)">이걸로 신청</a></div></div></article>
-          <article class="b-card"><div class="b-ph" aria-hidden="true"><span>QR 내미는<br>동물</span></div><div class="in"><h3>내밀기 knock!</h3><p>동그란 눈의 동물이 QR을 쓱 내밀어요. 거절하기 어려운 표정.</p><div class="pr"><span class="b-soon">디자인 제작 중</span><a class="b-pick" href="#beta" data-line="bang" data-design="내밀기 knock! (MZ)">이걸로 신청</a></div></div></article>
-          <article class="b-card"><div class="b-ph" aria-hidden="true"><span>찍어봐<br>캐릭터</span></div><div class="in"><h3>찍어봐 knock!</h3><p>knock 캐릭터가 손가락으로 QR을 가리켜요. 뭐가 나올지 궁금하게.</p><div class="pr"><span class="b-soon">디자인 제작 중</span><a class="b-pick" href="#beta" data-line="bang" data-design="찍어봐 knock! (MZ)">이걸로 신청</a></div></div></article>
-        </div>
-      </div>
-      <div class="b-panel" role="tabpanel" id="panel-clear" aria-labelledby="tab-clear" hidden>
-        <p class="b-panel-lead">내 폰 색 그대로, QR 플레이트만. 잃어버렸을 때 찾아주는 용도로도 좋아요.</p>
-        <div class="b-grid">
-          <article class="b-card"><div class="b-ph clear" aria-hidden="true"><span>투명 + QR</span></div><div class="in"><h3>클리어 knock!</h3><p>투명 케이스에 작은 QR 플레이트. 폰 색을 가리지 않아요.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="클리어 knock!">이걸로 신청</a></div></div></article>
-          <article class="b-card"><div class="b-ph clear" aria-hidden="true"><span>큰 QR</span></div><div class="in"><h3>빅 QR knock!</h3><p>QR을 크게 넣은 분실 방지형. 분실 모드와 함께 쓰면 주인 찾기가 쉬워요.</p><div class="pr"><b>19,900원</b><a class="b-pick" href="#beta" data-line="bang" data-design="빅 QR knock!">이걸로 신청</a></div></div></article>
-        </div>
-      </div>
+    </div>
+    <div class="ln-prods" role="tabpanel" id="panel-basic" aria-labelledby="tab-basic">
+      <a class="ln-prod" href="#beta" data-line="bang" data-design="깅엄 knock!"><img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스" loading="lazy"><div><b>깅엄 knock!</b><span>분홍 체크, 레이스 프레임 QR</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="ln-prod" href="#beta" data-line="bang" data-design="스티커 knock!"><img src="/img/sticker.jpg" alt="스티커가 붙은 크림색 knock! 케이스" loading="lazy"><div><b>스티커 knock!</b><span>말풍선, 발자국, 별 스티커</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="ln-prod" href="#beta" data-line="bang" data-design="똑똑 문 knock!"><img src="/img/door.jpg" alt="문 모양 안에 QR이 들어간 knock! 케이스" loading="lazy"><div><b>똑똑 문 knock!</b><span>문 한가운데 QR</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <div class="ln-prod soon"><span class="ln-ph " aria-hidden="true"></span><div><b>새 디자인</b><span>준비 중이에요</span></div></div>
+    </div>
+    <div class="ln-prods" role="tabpanel" id="panel-mz" aria-labelledby="tab-mz" hidden>
+      <a class="ln-prod" href="#beta" data-line="bang" data-design="서빙 knock! (MZ)"><span class="ln-ph " aria-hidden="true"></span><div><b>서빙 knock!</b><span>QR을 쟁반에 받쳐 내미는 손 · 제작 중</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="ln-prod" href="#beta" data-line="bang" data-design="내밀기 knock! (MZ)"><span class="ln-ph " aria-hidden="true"></span><div><b>내밀기 knock!</b><span>QR을 쓱 내미는 동물 · 제작 중</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="ln-prod" href="#beta" data-line="bang" data-design="찍어봐 knock! (MZ)"><span class="ln-ph " aria-hidden="true"></span><div><b>찍어봐 knock!</b><span>QR을 가리키는 캐릭터 · 제작 중</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="ln-prods" role="tabpanel" id="panel-clear" aria-labelledby="tab-clear" hidden>
+      <a class="ln-prod" href="#beta" data-line="bang" data-design="클리어 knock!"><span class="ln-ph line" aria-hidden="true"></span><div><b>클리어 knock!</b><span>투명 케이스에 작은 QR 플레이트</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a class="ln-prod" href="#beta" data-line="bang" data-design="빅 QR knock!"><span class="ln-ph line" aria-hidden="true"></span><div><b>빅 QR knock!</b><span>QR을 크게 넣은 분실 방지형</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
     </div>
   </section>
 
-  <section>
-    <div class="wrap">
-      <h2 class="b-h">들어오면 이런 방이 있어요</h2>
-      <p class="b-lead">기본 기능은 전부 무료예요. 꾸미는 재료만 나중에 하나씩 더해져요.</p>
-      <div class="b-feats">
-        <div class="b-feat"><b>테마 & 스티커</b>케이스랑 같은 색으로 방을 맞춰요</div>
-        <div class="b-feat"><b>익명 방명록</b>찍은 사람이 로그인 없이 한마디</div>
-        <div class="b-feat"><b>노크 버튼</b>다녀간 흔적을 똑똑</div>
-        <div class="b-feat"><b>오늘의 기분</b>하루 한 줄 상태</div>
-        <div class="b-feat"><b>방문자 카운터</b>오늘 몇 명이 놀러 왔는지</div>
-        <div class="b-feat"><b>공개 범위</b>전체 · 링크 · 암호 · 비공개</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="b-cta">
-    <div class="wrap">
-      <h2 class="b-h">첫 노크를 기다리는 중</h2>
-      <p class="b-lead" style="margin-inline:auto">베타 테스터 20명에게 케이스를 먼저 보내드려요.</p>
-      <div class="b-actions" style="justify-content:center"><a class="b-btn" href="#beta" data-line="bang">knock! 베타 신청</a><a class="b-btn ghost" href="#dot">knock. 도 보기</a></div>
-    </div>
-  </section>
+  <div class="ln-split">
+    <section class="ln-card" id="bang-faq">
+      <h2>자주 묻는 질문</h2>
+      <details class="ln-q"><summary><span>폰을 잃어버리면 어떻게 돼요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>다른 폰이나 PC에서 로그인해 분실 모드를 켜면, QR을 찍은 사람에게 주인 찾기 화면이 떠요. 내 번호는 공개되지 않아요.</p></details><details class="ln-q"><summary><span>아무나 내 페이지를 볼 수 있나요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>공개 범위를 직접 골라요. 전체 공개, 링크 공개, 암호 잠금, 비공개 중 하나예요.</p></details><details class="ln-q"><summary><span>서비스가 없어지면 QR은요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>산 날부터 3년 동안 QR 연결을 보장해요.</p></details><details class="ln-q"><summary><span>케이스 기종은 뭐가 있나요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>아이폰과 갤럭시 주요 기종으로 준비하고 있어요. 베타 신청할 때 쓰는 폰을 골라주세요.</p></details>
+      <p class="ln-note">산 날부터 3년 동안 QR 연결을 보장해요.</p>
+    </section>
+    <section class="ln-card ln-dark">
+      <h2>첫 노크를 두드려 줄<br>20명을 찾아요</h2>
+      <p>케이스를 무료로 받고 2주 동안 써본 뒤 짧은 설문에 두 번 답해주세요.</p>
+      <a class="ln-btn solid" href="#beta" data-line="bang">베타 신청하기</a>
+      <a class="ln-other" href="#dot">일할 때 쓰는 knock. 보러 가기 →</a>
+    </section>
+  </div>
+  </div>
+  <div class="ln-dock"><a class="ln-btn solid" href="#beta" data-line="bang">베타로 무료로 받아보기</a></div>
 </main>
 
-<!-- ═════════ knock. ═════════ -->
-<main class="view v-dot" id="v-dot" hidden>
-  <div class="d-hero">
-    <div class="wrap">
-      <div>
-        <p class="d-label">KNOCK. — BUSINESS LINE</p>
-        <h1 class="d-title">명함 대신,<br>케이스를 내미세요.</h1>
-        <p class="d-sub">상대가 케이스를 찍으면 연락처가 저장되고, 상대의 명함도 그 자리에서 내 '받은 명함'으로 들어옵니다.</p>
-        <div class="d-actions">
-          <a class="d-btn" href="#beta" data-line="dot">베타 신청</a>
-          <a class="d-btn ghost" href="#dot-how">작동 방식</a>
-          <a class="d-btn ghost" href="/demo/dot">예시 명함 보기</a>
-        </div>
-      </div>
-      <figure class="d-photo">
-        <img src="/img/clear.jpg" alt="QR 플레이트가 붙은 투명 knock. 케이스">
-        <figcaption><span>CLEAR / QR PLATE</span><span>knock.im</span></figcaption>
-      </figure>
+<!-- ═════════ knock. (B안) ═════════ -->
+<main class="view ln ln-dot" id="v-dot" hidden>
+  <div class="ln-main">
+  <section class="ln-card ln-hero">
+    <div class="ln-hero-t">
+      <h1>케이스를 내밀면<br>명함 교환이 끝나요</h1>
+      <p>상대가 찍으면 내 연락처가 저장되고, 상대의 명함도 그 자리에서 내 '받은 명함'으로 들어와요.</p>
+      <div class="ln-btns"><a class="ln-btn solid" href="#beta" data-line="dot">베타 신청하기</a><a class="ln-btn" href="/demo/dot">예시 명함 보기</a></div>
     </div>
+    <img class="ln-hero-img" src="/img/clear.jpg" alt="QR 플레이트가 붙은 투명 knock. 케이스">
+  </section>
+
+  <section class="ln-card" id="dot-how">
+    <h2>세 번이면 끝</h2>
+    <div class="ln-steps">
+      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/><path d="M7 12h10"/></svg></span><div><b>상대가 카메라로 찍기</b><span>앱도, NFC 설정도 필요 없어요.</span></div></div>
+      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></span><div><b>연락처 저장</b><span>이름, 직함, 소속, 이메일이 한 번에 들어가요.</span></div></div>
+      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h6M7 14h10"/></svg></span><div><b>받은 명함에 쌓기</b><span>상대가 남긴 연락처와 만난 곳이 내 knock에 모여요.</span></div></div>
+    </div>
+  </section>
+
+  <section class="ln-card" id="dot-col">
+    <div class="ln-head"><h2>케이스 <small>19,900원</small></h2></div>
+    <div class="ln-prods">
+      <a class="ln-prod" href="#beta" data-line="dot" data-design="Clear knock."><img src="/img/clear.jpg" alt="투명 knock. 케이스" loading="lazy"><div><b>Clear</b><span>투명 케이스 + QR 플레이트</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <div class="ln-prod soon"><span class="ln-ph white" aria-hidden="true"></span><div><b>Mono White</b><span>준비 중</span></div></div>
+      <div class="ln-prod soon"><span class="ln-ph black" aria-hidden="true"></span><div><b>Black Plate</b><span>준비 중</span></div></div>
+      <div class="ln-prod soon"><span class="ln-ph two" aria-hidden="true"></span><div><b>Two-tone</b><span>준비 중</span></div></div>
+    </div>
+  </section>
+
+  <div class="ln-split">
+    <section class="ln-card" id="dot-faq">
+      <h2>자주 묻는 질문</h2>
+      <details class="ln-q"><summary><span>상대 폰에 앱이 없어도 되나요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>네. 기본 카메라로 찍으면 바로 열려요.</p></details><details class="ln-q"><summary><span>받은 명함은 누가 볼 수 있나요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>나만 볼 수 있어요. 내 knock에 로그인해야 보여요.</p></details><details class="ln-q"><summary><span>이직하면 명함 정보는요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>케이스는 그대로, 페이지 내용만 바꾸면 돼요.</p></details><details class="ln-q"><summary><span>폰을 잃어버리면요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>다른 폰이나 PC에서 로그인해 분실 모드를 켜면, QR을 찍은 사람에게 주인 찾기 화면이 떠요. 내 번호는 공개되지 않아요.</p></details>
+      <p class="ln-note">산 날부터 3년 동안 QR 연결을 보장해요.</p>
+    </section>
+    <section class="ln-card ln-dark">
+      <h2>명함 교환을 먼저 써볼<br>5명을 찾아요</h2>
+      <p>대외활동, 창업, 인턴처럼 명함을 자주 주고받는 분이면 좋아요.</p>
+      <a class="ln-btn light" href="#beta" data-line="dot">베타 신청하기</a>
+      <a class="ln-other" href="#bang">친구랑 쓰는 knock! 보러 가기 →</a>
+    </section>
   </div>
-
-  <section id="dot-how">
-    <div class="wrap">
-      <h2 class="d-h">세 번의 동작</h2>
-      <div class="d-flow">
-        <div><span class="k">01 — SCAN</span><h3>상대가 찍는다</h3><p>카메라만 있으면 됩니다. 앱도, NFC 설정도 필요 없습니다.</p></div>
-        <div><span class="k">02 — SAVE</span><h3>연락처가 저장된다</h3><p>이름, 직함, 소속, 이메일이 한 번에 연락처로 들어갑니다.</p></div>
-        <div><span class="k">03 — EXCHANGE</span><h3>상대 명함이 돌아온다</h3><p>상대가 남긴 연락처와 만난 곳이 대시보드의 '받은 명함'에 쌓입니다.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2 class="d-h">컬렉션</h2>
-      <div class="d-col">
-        <div class="d-item"><img src="/img/clear.jpg" alt="투명 knock. 케이스"><p>Clear</p><span>19,900원</span></div>
-        <div class="d-soonwrap"><div class="d-soon">MONO WHITE</div><p>Mono White</p><span>준비 중</span></div>
-        <div class="d-soonwrap"><div class="d-soon">BLACK PLATE</div><p>Black Plate</p><span>준비 중</span></div>
-        <div class="d-soonwrap"><div class="d-soon">TWO-TONE</div><p>Two-tone</p><span>준비 중</span></div>
-      </div>
-      <table class="d-spec">
-        <tr><th>QR</th><td>오류 복원 최고 등급, 실물 약 2.5cm 이상. 출고 전 실기기 스캔 검수</td></tr>
-        <tr><th>연결 보장</th><td>구매일로부터 3년간 QR 연결 유지</td></tr>
-        <tr><th>페이지</th><td>명함 카드 · 연락처 저장 · 받은 명함 · 포트폴리오 · 경력 · 링크</td></tr>
-        <tr><th>공개 범위</th><td>전체 공개 / 링크 공개 / 암호 잠금 / 비공개</td></tr>
-        <tr><th>분실</th><td>다른 기기에서 분실 모드 전환, 번호 비공개 메시지</td></tr>
-      </table>
-      <div class="d-actions"><a class="d-btn" href="#beta" data-line="dot" data-design="Clear knock.">knock. 베타 신청</a><a class="d-btn ghost" href="#bang">knock! 도 보기</a></div>
-    </div>
-  </section>
+  </div>
+  <div class="ln-dock"><a class="ln-btn solid" href="#beta" data-line="dot">베타 신청하기</a></div>
 </main>
 
 <footer>
