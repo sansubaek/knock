@@ -331,6 +331,18 @@ dialog .btn{margin-top:18px;width:100%}
 .seg label:has(input:checked){background:#191F28;border-color:#191F28}
 .seg input:checked+span{color:#fff}
 .field input,.field select{background:#F2F4F6;border-color:#F2F4F6}
+
+.k7-in{pointer-events:none}
+.k7-in a,.k7-in label{pointer-events:auto}
+.k7-open{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.k7-row{align-items:center}
+.k7-tag{font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap}
+.k7-bang .k7-tag{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);color:#141416}
+.k7-dot .k7-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);color:#F2F2F4}
+@media (max-width:720px){.k7-row{justify-content:flex-start;gap:10px}.k7-tag{font-size:12px;padding:5px 10px}}
+
+.k7{word-break:keep-all}
+@media (max-width:720px){.k7 h1,.k7 h2{font-size:26px}#k7bang:checked~.k7-doors .k7-bang h1,#k7dot:checked~.k7-doors .k7-dot h2{font-size:36px}.k7-excl{right:8%;transform:translateY(-62%) rotate(9deg) scale(.5)}}
 </style>
 
 </head>
@@ -358,11 +370,11 @@ dialog .btn{margin-top:18px;width:100%}
         <label class="k7-hit" for="k7bang"><span class="sr">knock! 열기</span></label>
         <label class="k7-back" for="k7none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>둘 다 보기</label>
         <span class="k7-excl" aria-hidden="true"><i class="k7-stem"></i><i class="k7-ball"></i></span>
-        <div class="k7-in k7-row"><span class="k7-name">knock!</span><span class="k7-who">10·20대, 크리에이터</span></div>
+        <div class="k7-in k7-row"><span class="k7-name">knock!</span><span class="k7-tag">친구에게 보여주는 내 방</span></div>
         <div class="k7-in">
-          <h1>나를 보여주는 공간</h1>
-          <p class="k7-sub">케이스 QR을 찍으면 내가 꾸민 방이 열려요. 알고리즘도, 눈치도 없는 나만의 아지트.</p>
-          <span class="k7-open">열어보기</span>
+          <h1>찍으면 내 방이 열려요</h1>
+          <p class="k7-sub">사진, 음악, 오늘의 기분으로 꾸민 내 방. 친구는 노크하고 방명록을 남겨요.</p>
+          <label class="k7-open" for="k7bang">knock! 열어보기</label>
           <div class="k7-more"><div>
             <div class="k7-chips"><span>자유 꾸미기</span><span>익명 방명록</span><span>노크 반응</span></div>
             <div class="k7-ctas"><a class="k7-cta a" href="#bang">knock! 둘러보기</a><a class="k7-cta b" href="#beta" data-line="bang">베타 신청</a></div>
@@ -373,11 +385,11 @@ dialog .btn{margin-top:18px;width:100%}
         <label class="k7-hit" for="k7dot"><span class="sr">knock. 열기</span></label>
         <label class="k7-back" for="k7none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>둘 다 보기</label>
         <span class="k7-orb" aria-hidden="true"></span>
-        <div class="k7-in k7-row"><span class="k7-name">knock.</span><span class="k7-who">직장인, 프리랜서, 1인 사업자</span></div>
+        <div class="k7-in k7-row"><span class="k7-name">knock.</span><span class="k7-tag">일할 때 건네는 내 명함</span></div>
         <div class="k7-in">
-          <h2>종이 명함 대신</h2>
-          <p class="k7-sub">케이스를 찍으면 연락처가 저장되고, 상대의 명함도 그 자리에서 받아요.</p>
-          <span class="k7-open">열어보기</span>
+          <h2>찍으면 명함이 저장돼요</h2>
+          <p class="k7-sub">종이 명함 없이 폰만 내밀면 끝. 상대의 연락처도 그 자리에서 받아요.</p>
+          <label class="k7-open" for="k7dot">knock. 열어보기</label>
           <div class="k7-more"><div>
             <div class="k7-chips"><span>연락처 저장</span><span>명함 교환</span><span>포트폴리오</span></div>
             <div class="k7-ctas"><a class="k7-cta a" href="#dot">knock. 둘러보기</a><a class="k7-cta b" href="#beta" data-line="dot">베타 신청</a></div>
