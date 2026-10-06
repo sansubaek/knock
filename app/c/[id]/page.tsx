@@ -75,10 +75,13 @@ export default async function QrPage({ params }: { params: Promise<{ id: string 
             </>
           ) : (
             <>
-              <p className="gate-p">이 케이스는 아직 주인이 없어요. 케이스를 받은 분이라면 로그인하고 카드의 6자리 코드로 문을 열어주세요.</p>
-              <Link className="gate-btn" href={`/login?next=/c/${id}`}>
-                로그인하고 등록하기
+              <p className="gate-p">이 케이스는 아직 주인이 없어요. 케이스를 받은 분이라면 가입(또는 로그인)한 뒤 카드의 6자리 코드로 문을 열어주세요.</p>
+              <Link className="gate-btn" href={`/signup?next=/c/${id}`}>
+                가입하고 등록하기
               </Link>
+              <p className="gate-small">
+                이미 계정이 있나요? <Link href={`/login?next=/c/${id}`}>로그인하고 등록하기</Link>
+              </p>
               <p className="gate-small">
                 주운 케이스라면 <Link href={`/support?type=lost&target=${id}`}>여기로 알려주세요</Link>.
               </p>
