@@ -217,7 +217,15 @@ export default async function MyPage() {
               닉네임 저장
             </button>
           </form>
-          <p className="mute small">로그인: {user.email ?? '카카오'}</p>
+          <p className="mute small">
+            로그인: {user.email ?? '카카오'}
+            {user.email && (
+              <>
+                {' · '}
+                <a href="/account/password">비밀번호 바꾸기</a>
+              </>
+            )}
+          </p>
           <DeleteAccount />
         </section>
       </main>

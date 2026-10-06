@@ -455,6 +455,40 @@ button:disabled {
   font-size: 13px;
   color: var(--mute);
 }
+.auth-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  color: var(--mute);
+  margin-top: 4px;
+}
+.auth-links a {
+  color: var(--ink);
+  font-weight: 700;
+}
+.auth-sent {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.auth-sent b {
+  font-size: 17px;
+}
+.auth-sent p {
+  margin: 0;
+}
+.auth-alt {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
 .auth-fine {
   font-size: 12px;
   color: var(--mute);
