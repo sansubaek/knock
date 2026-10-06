@@ -135,3 +135,60 @@ export async function hideGuestbook(form: FormData) {
   await db.from('guestbook_entries').update({ status: 'hidden' }).eq('id', id)
   await log(db, user.id, 'guestbook.hide', id)
 }
+
+export type BulkState = { ok: boolean; message: string }
+
+function pickIds(form: FormData) {
+  const only = String(form.get('only') ?? '').trim()
+  const list = only ? [only] : form.getAll('ids').map((v) => String(v).trim())
+  return [...new Set(list.filter((s) => /^[A-Z0-9]{4,10}$/.test(s)))].slice(0, 500)
+}
+
+/** 선택한 QR 완전 삭제. 고객이 등록한(사용 중인) QR은 절대 지우지 않는다. 스캔 기록도 같이 지워진다. */
+export async function bulkDeleteQr(_prev: BulkState, form: FormData): Promise<BulkState> {
+  try {
+    const { user, db } = await adminOrThrow()
+    const ids = pickIds(form)
+    if (!ids.length) return { ok: false, message: '선택한 QR이 없어요.' }
+    const { data, error } = await db
+      .from('qr_codes')
+      .delete()
+      .in('id', ids)
+      .neq('status', 'active')
+      .is('owner_id', null)
+      .is('code_used_at', null)
+      .select('id')
+    if (error) return { ok: false, message: `삭제하지 못했어요: ${error.message}` }
+    const n = data?.length ?? 0
+    if (n) await log(db, user.id, 'qr.delete', `${n}개: ${data!.map((r) => r.id).join(',')}`.slice(0, 1000))
+    revalidatePath('/admin/qr')
+    revalidatePath('/admin')
+    const skipped = ids.length - n
+    return { ok: true, message: `${n}개를 삭제했어요.${skipped ? ` 고객이 등록한 ${skipped}개는 지우지 않았어요.` : ''}` }
+  } catch (e) {
+    return { ok: false, message: (e as Error).message }
+  }
+}
+
+/** 선택한 QR 폐기 (기록은 남기고 더 이상 못 쓰게). 사용 중인 QR은 건너뛴다. */
+export async function bulkRetireQr(_prev: BulkState, form: FormData): Promise<BulkState> {
+  try {
+    const { user, db } = await adminOrThrow()
+    const ids = pickIds(form)
+    if (!ids.length) return { ok: false, message: '선택한 QR이 없어요.' }
+    const { data, error } = await db
+      .from('qr_codes')
+      .update({ status: 'retired', lost_mode: false })
+      .in('id', ids)
+      .in('status', ['issued', 'printed'])
+      .select('id')
+    if (error) return { ok: false, message: `폐기하지 못했어요: ${error.message}` }
+    const n = data?.length ?? 0
+    if (n) await log(db, user.id, 'qr.status.retired', `${n}개: ${data!.map((r) => r.id).join(',')}`.slice(0, 1000))
+    revalidatePath('/admin/qr')
+    const skipped = ids.length - n
+    return { ok: true, message: `${n}개를 폐기했어요.${skipped ? ` 이미 폐기됐거나 사용 중인 ${skipped}개는 그대로예요.` : ''}` }
+  } catch (e) {
+    return { ok: false, message: (e as Error).message }
+  }
+}
