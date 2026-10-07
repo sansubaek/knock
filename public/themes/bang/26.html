@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 26 · 백꾸 키링</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Gowun+Dodum&amp;family=Jua&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Gowun+Batang:wght@700&amp;display=swap">
+<style>
+body{margin:0}
+.bk{width:390px;min-height:1340px;box-sizing:border-box;background:#FAF6EC;color:#2B2622;font-family:'Noto Sans KR',sans-serif;font-size:15px;line-height:1.5;word-break:keep-all;padding-bottom:28px;position:relative;overflow:hidden}
+.bk *{box-sizing:border-box}
+.bk-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.bk-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 0;height:48px}
+.bk-bar .bk-brand{font-size:19px}
+.bk-cnt{display:flex;align-items:center;gap:0;font-size:12px;color:#6E6458;background:#fff;border:1px solid #EADFCB;border-radius:99px;padding:5px 12px}
+.bk-cnt b{color:#2B2622;font-weight:700;margin-left:3px}
+.bk-cnt span+span{margin-left:10px;padding-left:10px;border-left:1px solid #EADFCB}
+.bk-cnt em{font-style:normal;background:#F6DE85;color:#2B2622;font-weight:700;border-radius:99px;padding:1px 8px;margin-left:8px}
+
+.bk-me{display:flex;gap:14px;align-items:center;padding:18px 20px 0}
+.bk-av{width:66px;height:66px;border-radius:50%;border:1.5px dashed #C9BBA3;background:#F3ECDD;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;gap:1px}
+.bk-av small{font-size:10px;color:#9A8D7A;line-height:1.1}
+.bk-me h1{margin:0;font-family:'Jua','Noto Sans KR',sans-serif;font-weight:400;font-size:27px;line-height:1.15;letter-spacing:-.01em}
+.bk-me h1 i{font-style:normal;color:#B4A68F;font-size:16px;margin-left:4px}
+.bk-me p{margin:3px 0 0;font-size:14px;color:#6E6458}
+.bk-chips{display:flex;gap:6px;flex-wrap:wrap;padding:12px 20px 0}
+.bk-chips span{font-size:12px;font-weight:500;color:#5C5246;background:#fff;border:1px solid #EADFCB;border-radius:99px;padding:3px 10px}
+.bk-chips span b{color:#B98B12;font-weight:700}
+
+/* stage */
+.bk-stage{position:relative;width:390px;height:612px;margin-top:-34px}
+.bk-stage>svg{position:absolute;left:0;top:0}
+.bk-chain{z-index:1}
+.bk-c{position:absolute;z-index:2}
+.bk-ring{position:absolute;left:50%;top:-12px;margin-left:-7px;width:14px;height:14px;border-radius:50%;border:2.5px solid #ADA393;box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 1px 1px rgba(0,0,0,.12);background:transparent;z-index:3}
+.bk-hole{position:absolute;left:50%;top:5px;margin-left:-4px;width:8px;height:8px;border-radius:50%;background:#FAF5EA;box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+.bk-acr{border-radius:16px;background:#fff;border:3px solid rgba(255,255,255,.95);box-shadow:0 0 0 1px rgba(60,45,30,.10),0 10px 18px -8px rgba(80,60,30,.35);position:relative;overflow:visible}
+.bk-acr::after{content:"";position:absolute;inset:3px;border-radius:12px;background:linear-gradient(135deg,rgba(255,255,255,.75) 0%,rgba(255,255,255,0) 38%);pointer-events:none}
+.bk-tag{position:absolute;font-size:12px;font-weight:700;color:#5C5246;background:#F1E4C9;border-radius:4px 10px 10px 4px;padding:1px 9px 1px 13px;white-space:nowrap;z-index:4;box-shadow:0 2px 4px -2px rgba(60,40,10,.3)}
+.bk-tag::before{content:"";position:absolute;left:4px;top:50%;margin-top:-2.5px;width:5px;height:5px;border-radius:50%;background:#FAF5EA;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+
+.bk-photo{left:16px;top:198px;width:104px;height:130px;transform:rotate(-7deg);transform-origin:50% 0}
+.bk-photo .bk-acr{width:100%;height:100%;background:#E7EEF6;padding:9px 9px 24px;border-radius:14px}
+.bk-photo .bk-ph{width:100%;height:100%;border:1.5px dashed #9FB2C8;border-radius:8px;background:#F4F7FB;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center}
+.bk-photo .bk-ph span{font-size:11px;line-height:1.25;color:#6B7F96}
+.bk-photo .bk-cap{position:absolute;left:0;right:0;bottom:4px;text-align:center;font-size:11px;font-weight:700;color:#6B7F96;letter-spacing:.02em}
+
+.bk-bub{left:132px;top:229px;width:126px}
+.bk-bub .bk-acr{background:#fff;padding:13px 12px 11px;border-radius:22px}
+.bk-bub .bk-acr::before{content:"";position:absolute;left:24px;bottom:-12px;width:18px;height:16px;background:#fff;clip-path:polygon(0 0,100% 0,10% 100%);filter:drop-shadow(0 1px 0 rgba(60,45,30,.12))}
+.bk-bub small{display:block;font-size:12px;font-weight:700;color:#B98B12}
+.bk-bub p{margin:2px 0 0;font-size:14px;font-weight:700;line-height:1.35;color:#2B2622}
+
+.bk-cal{left:278px;top:196px;width:94px;transform:rotate(6deg);transform-origin:50% 0}
+.bk-cal .bk-acr{background:#fff;border-radius:16px;overflow:hidden;padding:0}
+.bk-cal .bk-ch{height:28px;background:#E9897A;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;border-radius:13px 13px 0 0;position:relative}
+.bk-cal .bk-ch i{position:absolute;top:-4px;width:5px;height:11px;border-radius:3px;background:#C9BFB0}
+.bk-cal .bk-cb{text-align:center;padding:4px 4px 9px}
+.bk-cal .bk-cb small{font-size:12px;color:#8A7E6E;display:block}
+.bk-cal .bk-cb b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:30px;line-height:1.05;letter-spacing:-.04em;color:#2B2622}
+
+.bk-cas{left:66px;top:382px;width:124px;transform:rotate(5deg);transform-origin:50% 0}
+.bk-cas .bk-acr{background:#F6DE85;border-radius:12px;padding:8px 9px 9px;border-color:rgba(255,255,255,.7)}
+.bk-cas .bk-lbl{background:#FFFBEF;border-radius:6px;padding:4px 8px 3px;font-size:12px;font-weight:700;line-height:1.3;color:#2B2622;white-space:nowrap;overflow:hidden}
+.bk-cas .bk-lbl span{font-weight:500;color:#8A7E6E}
+.bk-cas .bk-reels{margin-top:6px;height:24px;border-radius:12px;background:#3A332C;display:flex;align-items:center;justify-content:space-between;padding:0 12px}
+.bk-cas .bk-reels i{width:15px;height:15px;border-radius:50%;background:#FFFBEF;box-shadow:inset 0 0 0 4px #FFFBEF,inset 0 0 0 7px #3A332C}
+.bk-cas .bk-reels u{flex:1;height:7px;margin:0 7px;border-radius:4px;background:#6A5E52}
+
+.bk-q{left:206px;top:398px;width:120px;transform:rotate(-4deg);transform-origin:50% 0}
+.bk-q .bk-acr{background:#E4DCF7;border-radius:18px;padding:22px 11px 11px}
+.bk-q .bk-qm{position:absolute;left:50%;top:-6px;margin-left:-16px;width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 12%,#B7A5EC 13% 100%);color:#fff;font-family:'Jua','Noto Sans KR',sans-serif;font-size:19px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 6px -2px rgba(80,60,150,.4);z-index:2}
+.bk-q small{display:block;text-align:center;font-size:12px;font-weight:700;color:#6D5BB0}
+.bk-q p{margin:1px 0 0;text-align:center;font-size:13px;font-weight:700;line-height:1.35}
+
+.bk-bead{position:absolute;z-index:2;display:flex;align-items:center;justify-content:center}
+.bk-lt{width:23px;height:23px;margin:-11.5px 0 0 -11.5px;border-radius:7px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:13px;color:#2B2622;box-shadow:inset 0 -2px 0 rgba(0,0,0,.08),inset 0 2px 0 rgba(255,255,255,.6),0 2px 3px rgba(60,40,10,.18)}
+.bk-pearl{width:15px;height:15px;margin:-7.5px 0 0 -7.5px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 20%,#EFE9E0 45%,#D6CDBF 100%);box-shadow:0 1px 2px rgba(60,40,10,.2)}
+
+.bk-hint{text-align:center;font-size:12px;color:#9A8D7A;margin:-6px 0 0}
+
+.bk-knock{display:flex;align-items:center;gap:12px;margin:16px 16px 0;height:64px;border-radius:22px 32px 32px 22px;background:#2F2924;color:#FFF8E6;padding:0 10px 0 16px;position:relative;box-shadow:0 10px 20px -10px rgba(47,41,36,.6)}
+.bk-knock::before{content:"";position:absolute;inset:5px;border-radius:18px 28px 28px 18px;border:1.5px dashed rgba(255,248,230,.28);pointer-events:none}
+.bk-knock .bk-kr{width:34px;height:34px;flex:none}
+.bk-knock b{font-size:17px;font-weight:800;letter-spacing:-.01em;flex:1}
+.bk-knock b small{display:block;font-size:12px;font-weight:500;color:#C9BBA3;letter-spacing:0;margin-top:-2px}
+.bk-knock em{font-style:normal;flex:none;height:44px;min-width:76px;border-radius:22px;background:#F6DE85;color:#2F2924;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;gap:2px}
+
+.bk-sec{margin:28px 16px 0}
+.bk-h{display:flex;align-items:baseline;justify-content:space-between;margin:0 4px 10px}
+.bk-h b{font-family:'Jua','Noto Sans KR',sans-serif;font-weight:400;font-size:20px}
+.bk-h small{font-size:12px;color:#9A8D7A}
+
+.bk-links{display:flex;gap:10px}
+.bk-lk{flex:1;position:relative;height:66px;background:#fff;border:1px solid #EADFCB;border-radius:10px 16px 16px 10px;clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 calc(100% - 16px),0 16px);display:flex;align-items:center;gap:9px;padding:0 10px 0 28px;text-decoration:none;color:#2B2622}
+.bk-lk::before{content:"";position:absolute;left:10px;top:50%;margin-top:-5px;width:10px;height:10px;border-radius:50%;border:2px solid #D8CBB4;background:#FAF5EA}
+.bk-lk .bk-li{width:32px;height:32px;border-radius:10px;background:#F6EEDC;display:flex;align-items:center;justify-content:center;flex:none}
+.bk-lk span{font-size:13px;font-weight:700;line-height:1.3;min-width:0}
+.bk-lk span small{display:block;font-size:12px;font-weight:400;color:#8A7E6E}
+
+.bk-gb{background:#fff;border:1px solid #EADFCB;border-radius:22px;padding:6px 16px 16px}
+.bk-e{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid #F2EADB}
+.bk-e .bk-ei{width:34px;height:34px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.bk-e div{flex:1}
+.bk-e .bk-en{font-size:12px;color:#8A7E6E}
+.bk-e .bk-en b{color:#2B2622;font-size:13px;margin-right:6px}
+.bk-e p{margin:1px 0 0;font-size:15px;font-weight:500}
+.bk-in{display:flex;gap:8px;margin-top:14px}
+.bk-in input{flex:1;min-width:0;height:48px;border:1px solid #EADFCB;background:#FAF5EA;border-radius:14px;padding:0 14px;font:inherit;font-size:14px;color:#2B2622}
+.bk-in input::placeholder{color:#A99C88}
+.bk-in button{height:48px;padding:0 18px;border:none;border-radius:14px;background:#2F2924;color:#FFF8E6;font:inherit;font-size:14px;font-weight:700}
+
+.bk-foot{text-align:center;font-size:12px;color:#AFA392;margin-top:30px}
+</style>
+</helmet>
+<div class="bk">
+<div class="bk-bar"><span class="bk-brand">knock!</span><div class="bk-cnt"><span>오늘<b>4</b></span><span>지금까지<b>112</b></span></div></div>
+
+<div class="bk-me">
+<div class="bk-av"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99C88" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><small>프로필</small></div>
+<div><h1>지우의 백꾸<i>✦</i></h1><p>똑똑, 들어와도 돼</p></div>
+</div>
+<div class="bk-chips"><span>요즘 빠진 것 <b>키링 모으기</b></span><span>최애 색 <b>버터 옐로</b></span></div>
+
+<div class="bk-stage">
+<svg width="390" height="612" viewBox="0 0 390 612">
+<defs>
+<pattern id="bkCanvas" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#DDE5D3"/><path d="M0 3h6M3 0v6" stroke="#D2DCC6" stroke-width=".7"/></pattern>
+<radialGradient id="bkGlow" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#FFF3C9"/><stop offset="1" stop-color="#FAF5EA" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="195" cy="300" rx="200" ry="260" fill="url(#bkGlow)"/>
+<ellipse cx="195" cy="598" rx="150" ry="9" fill="#2B2622" opacity=".08"/>
+<!-- back handle -->
+<path d="M128 170 C 126 60, 264 60, 262 170" fill="none" stroke="#B9C7A8" stroke-width="18" stroke-linecap="round"/>
+<!-- body -->
+<rect x="40" y="152" width="310" height="440" rx="22" fill="url(#bkCanvas)"/>
+<rect x="40" y="152" width="310" height="440" rx="22" fill="none" stroke="#C5D1B6" stroke-width="1.5"/>
+<rect x="48" y="160" width="294" height="424" rx="17" fill="none" stroke="#B3C2A0" stroke-width="1.2" stroke-dasharray="5 4"/>
+<path d="M40 176 H350" stroke="#C9D4BB" stroke-width="1"/>
+<!-- printed text on tote -->
+<g transform="translate(195 528)" text-anchor="middle">
+<text y="0" font-family="'Gowun Batang',serif" font-weight="700" font-size="21" font-style="italic" fill="#6F8463" letter-spacing=".5">rainy day café</text>
+<text y="22" font-family="'Noto Sans KR',sans-serif" font-size="11" fill="#8A9C7D" letter-spacing="3">FILM · TTEOKBOKKI · KEYRINGS</text>
+<g transform="translate(0 -44)" fill="none" stroke="#8A9C7D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M-12 -6 h20 v9 a8 8 0 0 1 -8 8 h-4 a8 8 0 0 1 -8 -8z"/><path d="M8 -3 h3 a3.5 3.5 0 0 1 0 7 h-3"/><path d="M-6 -12 q2 -3 0 -6 M0 -12 q2 -3 0 -6"/></g>
+</g>
+<!-- front handle -->
+<path d="M100 214 C 96 18, 294 18, 290 214" fill="none" stroke="#CBD7BC" stroke-width="20" stroke-linecap="round"/>
+<path d="M100 214 C 96 18, 294 18, 290 214" fill="none" stroke="#A9B996" stroke-width="1.2" stroke-dasharray="4 3" transform="translate(-6 0)"/>
+<path d="M100 214 C 96 18, 294 18, 290 214" fill="none" stroke="#A9B996" stroke-width="1.2" stroke-dasharray="4 3" transform="translate(6 0)"/>
+<!-- handle tabs (box stitch) -->
+<g fill="#CBD7BC" stroke="#A9B996" stroke-width="1"><rect x="89" y="178" width="22" height="36" rx="3"/><rect x="279" y="178" width="22" height="36" rx="3"/></g>
+<g stroke="#A9B996" stroke-width="1" fill="none" stroke-dasharray="2.5 2"><path d="M92 182h16v28h-16zM92 182l16 28M108 182l-16 28"/><path d="M282 182h16v28h-16zM282 182l16 28M298 182l-16 28"/></g>
+</svg>
+
+<!-- chains, clips, strap -->
+<svg class="bk-chain" width="390" height="612" viewBox="0 0 390 612">
+<defs><linearGradient id="bkMetal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E6E1D9"/><stop offset=".5" stop-color="#B8AFA1"/><stop offset="1" stop-color="#8F8677"/></linearGradient></defs>
+<g fill="none" stroke-linecap="round">
+<!-- bead cord -->
+<path d="M100 150 Q195 250 290 150" stroke="#C9B9A0" stroke-width="2"/>
+<!-- chains -->
+<g stroke="#A79E90" stroke-width="3" stroke-dasharray="5 3.2"><path d="M98 152 L69 188"/><path d="M101 153 L130 376"/><path d="M195 202 L195 222"/><path d="M292 152 L318 188"/><path d="M289 153 L268 392"/></g>
+<g stroke="#E8E3DA" stroke-width="1.1" stroke-dasharray="5 3.2"><path d="M98 152 L69 188"/><path d="M101 153 L130 376"/><path d="M195 202 L195 222"/><path d="M292 152 L318 188"/><path d="M289 153 L268 392"/></g>
+</g>
+<!-- lobster clips -->
+<g>
+<circle cx="99" cy="118" r="8" fill="none" stroke="url(#bkMetal)" stroke-width="3.2"/>
+<path d="M93 126 c-4 8 -3 18 6 24 c9 -6 10 -16 6 -24 z" fill="url(#bkMetal)" stroke="#8F8677" stroke-width=".8"/>
+<path d="M96 131 c-1 5 0 10 3 13" stroke="#F4F1EC" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+<circle cx="291" cy="118" r="8" fill="none" stroke="url(#bkMetal)" stroke-width="3.2"/>
+<path d="M285 126 c-4 8 -3 18 6 24 c9 -6 10 -16 6 -24 z" fill="url(#bkMetal)" stroke="#8F8677" stroke-width=".8"/>
+<path d="M288 131 c-1 5 0 10 3 13" stroke="#F4F1EC" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+<circle cx="195" cy="203" r="6" fill="none" stroke="url(#bkMetal)" stroke-width="2.6"/>
+</g>
+</svg>
+
+<!-- beads: E N F P -->
+<span class="bk-bead bk-pearl" style="left:122.8px;top:171.1px"></span>
+<span class="bk-bead bk-lt" style="left:143.7px;top:185.4px;transform:rotate(30deg);background:#BFE3D1">E</span>
+<span class="bk-bead bk-lt" style="left:166.5px;top:195.5px;transform:rotate(17deg);background:#F6DE85">N</span>
+<span class="bk-bead bk-lt" style="left:223.5px;top:195.5px;transform:rotate(-17deg);background:#F5C4BA">F</span>
+<span class="bk-bead bk-lt" style="left:246.3px;top:185.4px;transform:rotate(-30deg);background:#D3C8F2">P</span>
+<span class="bk-bead bk-pearl" style="left:267.2px;top:171.1px"></span>
+
+<!-- photo frame charm -->
+<div class="bk-c bk-photo"><span class="bk-ring"></span><div class="bk-acr"><span class="bk-hole"></span><div class="bk-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7F93AA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg><span>주인이 올린<br>사진</span></div><div class="bk-cap">10.05 도서관</div></div><span class="bk-tag" style="left:-8px;top:-14px;transform:rotate(-14deg)">사진 3</span></div>
+
+<!-- speech bubble charm -->
+<div class="bk-c bk-bub"><span class="bk-ring"></span><div class="bk-acr"><small>오늘 기분</small><p>시험 D-3,<br>커피 수혈 중</p></div></div>
+
+<!-- calendar charm -->
+<div class="bk-c bk-cal"><span class="bk-ring"></span><div class="bk-acr"><div class="bk-ch"><i style="left:22px"></i><i style="right:22px"></i>10월</div><div class="bk-cb"><small>생일까지</small><b>D-12</b></div></div><span class="bk-tag" style="right:-6px;top:-16px;transform:rotate(12deg)">D-day</span></div>
+
+<!-- cassette charm -->
+<div class="bk-c bk-cas"><span class="bk-ring"></span><div class="bk-acr"><div class="bk-lbl">좋은 날 <span>· 아이유</span></div><div class="bk-reels"><i></i><u></u><i></i></div></div><span class="bk-tag" style="left:-10px;top:-14px;transform:rotate(-10deg)">요즘 노래</span></div>
+
+<!-- question charm -->
+<div class="bk-c bk-q"><div class="bk-acr"><span class="bk-qm">?</span><small>요즘 질문</small><p>제일 좋아하는<br>편의점 간식은?</p></div></div>
+
+</div>
+<p class="bk-hint">키링을 톡 누르면 크게 볼 수 있어요</p>
+
+<div class="bk-knock">
+<svg class="bk-kr" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="12" stroke="#E2D9C9" stroke-width="3.5"/><circle cx="17" cy="17" r="12" stroke="#fff" stroke-opacity=".5" stroke-width="1" stroke-dasharray="6 30"/><path d="M13 13.5c0-1 1.2-1.6 2-1l1 .8V11c0-1 1.6-1 1.6 0v2.2c0-.9 1.5-.9 1.5 0v.6c0-.8 1.4-.8 1.4.1v3.7c0 2.2-1.6 3.9-3.8 3.9-1.4 0-2.4-.7-3.1-1.8L12 17" stroke="#F6DE85" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<b>똑똑, 노크하기<small>지우한테 왔다고 알려줘요</small></b>
+<em>27<span style="font-weight:500;font-size:13px">번</span></em>
+</div>
+
+<div class="bk-sec">
+<div class="bk-h"><b>여기서도 놀아요</b></div>
+<div class="bk-links">
+<a class="bk-lk" href="#"><span class="bk-li"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A6C58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/></svg></span><span>인스타그램<small>@jiwoo.room</small></span></a>
+<a class="bk-lk" href="#"><span class="bk-li"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7A6C58" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2.5h5L16 6"/></svg></span><span>필름 사진 모아둔 곳<small>블로그</small></span></a>
+</div>
+</div>
+
+<div class="bk-sec">
+<div class="bk-h"><b>방명록</b><small>2개</small></div>
+<div class="bk-gb">
+<div class="bk-e"><span class="bk-ei" style="background:#FBEBC0;color:#8A6A10">민</span><div><div class="bk-en"><b>민지</b>10.4</div><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+<div class="bk-e"><span class="bk-ei" style="background:#E4DCF7;color:#5E4CA0">?</span><div><div class="bk-en"><b>익명</b>10.2</div><p>도서관에서 찍고 감</p></div></div>
+<div class="bk-in"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+</div>
+</div>
+
+<div class="bk-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

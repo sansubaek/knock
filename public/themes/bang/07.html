@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 07 · 다꾸 다이어리</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Gaegu:wght@400;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+.dy{width:390px;min-height:1428px;box-sizing:border-box;position:relative;overflow:hidden;color:#2A3352;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.5;word-break:keep-all;
+  background-color:#FDFDFA;
+  background-image:linear-gradient(#E3EAF2 1px,transparent 1px),linear-gradient(90deg,#E3EAF2 1px,transparent 1px);
+  background-size:18px 18px;background-position:-1px -1px;padding:0 20px 30px 38px}
+.dy *{box-sizing:border-box}
+.dy-hand{font-family:'Gaegu','Nanum Pen Script',cursive}
+.dy-holes{position:absolute;left:0;top:0;bottom:0;width:26px;background:#F3F1EA;border-right:1px dashed #D9D4C6;
+  background-image:radial-gradient(circle at 13px 50%,#FFFFFF 0 5px,#D6D0C2 5.5px 6.5px,transparent 7px);background-size:26px 44px}
+.dy-top{display:flex;justify-content:space-between;align-items:center;height:52px}
+.dy-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em;font-size:18px;color:#2A3352}
+.dy-cnt{font-size:12px;color:#5C6684;background:#FFF;border:1px solid #DCE3EC;border-radius:99px;padding:3px 10px}
+.dy-cnt b{color:#2A3352}
+
+.dy-date{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2px solid #2A3352;padding-bottom:10px;position:relative}
+.dy-d small{display:block;font-size:12px;color:#7A84A0;font-weight:500;letter-spacing:.04em}
+.dy-d b{font-family:'Bricolage Grotesque',sans-serif;font-size:44px;line-height:1;letter-spacing:-.03em;color:#2A3352}
+.dy-d span{font-size:13px;font-weight:700;color:#D9483B;margin-left:6px;vertical-align:4px}
+.dy-wx{display:flex;gap:4px;align-items:center}
+.dy-wx i{width:30px;height:30px;display:flex;align-items:center;justify-content:center;position:relative}
+.dy-wx i.on::after{content:"";position:absolute;inset:-1px;border:1.6px solid #D9483B;border-radius:48% 52% 45% 55%;transform:rotate(-8deg)}
+
+.dy-me{display:flex;gap:18px;align-items:center;padding:26px 0 8px;position:relative}
+.dy-av{width:108px;height:120px;flex:none;background:#fff;padding:8px 8px 22px;box-shadow:0 2px 6px rgba(42,51,82,.12);transform:rotate(-3deg);position:relative}
+.dy-av div{height:100%;border:1.5px dashed #BCC5D6;background:#F6F8FB;display:flex;align-items:center;justify-content:center}
+.dy-tape{position:absolute;height:22px;opacity:.88;
+  clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,16% 8%,84% 0,88% 10%,92% 0,96% 8%,100% 0,100% 92%,96% 100%,92% 90%,88% 100%,84% 92%,16% 100%,12% 90%,8% 100%,4% 92%,0 100%)}
+.dy-t1{background:repeating-linear-gradient(90deg,#FBE38E 0 8px,#FDEDB5 8px 16px)}
+.dy-t2{background:repeating-linear-gradient(45deg,#BFE5D3 0 5px,#D8F0E4 5px 10px)}
+.dy-t3{background:radial-gradient(circle,#F6B9C3 2px,transparent 2.5px) 0 0/10px 10px,#FCE3E7}
+.dy-t4{background:repeating-linear-gradient(90deg,#CFC6F2 0 3px,#E4DEFA 3px 12px)}
+.dy-name b{font-family:'Gaegu','Nanum Pen Script',cursive;font-weight:700;font-size:42px;line-height:1;display:block;color:#2A3352}
+.dy-name p{margin:8px 0 0;font-size:15px;font-weight:500;display:inline;background:linear-gradient(transparent 55%,#FBE38E 55%,#FBE38E 92%,transparent 92%)}
+
+.dy-note{position:relative;margin-top:22px;background:#FFFEF9;border:1px solid #E6E1D3;border-radius:4px;box-shadow:0 3px 10px rgba(42,51,82,.07);padding:30px 18px 10px}
+.dy-note h3{margin:0;position:absolute;top:-14px;left:16px;font-family:'Gaegu',cursive;font-size:20px;font-weight:700;background:#FFFEF9;padding:0 6px;line-height:28px;color:#2A3352}
+.dy-row{display:flex;gap:12px;align-items:center;min-height:46px;border-bottom:1px solid #E6EBF2}
+.dy-row:last-child{border-bottom:0}
+.dy-row:nth-of-type(1){padding-right:0}
+.dy-row small{flex:none;width:30px;font-size:12px;font-weight:700;color:#8A93AC}
+.dy-row p{margin:0;flex:1;font-family:'Gaegu','Nanum Pen Script',cursive;font-size:19px;font-weight:700;line-height:1.3;color:#2A3352}
+.dy-row svg{flex:none}
+
+.dy-stamp{position:absolute;right:-12px;top:-46px;width:88px;height:88px;border-radius:50%;border:2px solid #D9483B;color:#D9483B;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(12deg);background:rgba(255,255,255,.7)}
+.dy-stamp::before{content:"";position:absolute;inset:4px;border-radius:50%;border:1px dashed #D9483B}
+.dy-stamp small{font-size:12px;font-weight:700;line-height:1}
+.dy-stamp b{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;line-height:1.1;letter-spacing:-.03em}
+
+.dy-photo{position:relative;margin:34px 16px 0 24px;background:#fff;padding:10px 10px 38px;box-shadow:0 3px 10px rgba(42,51,82,.13);transform:rotate(2deg)}
+.dy-photo div{height:220px;border:1.5px dashed #BCC5D6;background:#F6F8FB;display:flex;flex-direction:column;gap:6px;align-items:center;justify-content:center;color:#7A84A0;font-size:13px}
+.dy-photo p{margin:0;position:absolute;left:14px;bottom:8px;font-family:'Gaegu',cursive;font-weight:700;font-size:17px;color:#5C6684}
+
+.dy-knock{margin-top:34px;text-align:center;position:relative}
+.dy-knock p{margin:0 0 10px;font-family:'Gaegu',cursive;font-size:19px;font-weight:700;color:#5C6684}
+.dy-btn{font:inherit;cursor:pointer;width:100%;height:62px;border:none;border-radius:18px;background:#E5503F;color:#fff;position:relative;transform:rotate(-1deg);box-shadow:0 4px 0 #B23A2D,0 8px 18px rgba(229,80,63,.25);display:flex;align-items:center;justify-content:center;gap:10px;font-size:18px;font-weight:700}
+.dy-btn::before{content:"";position:absolute;inset:5px;border:1.5px dashed rgba(255,255,255,.75);border-radius:13px}
+.dy-btn em{font-style:normal;font-size:13px;font-weight:700;background:#fff;color:#C23D2F;border-radius:99px;padding:2px 9px}
+
+.dy-links{display:flex;flex-direction:column;gap:10px;margin-top:30px}
+.dy-link{position:relative;display:flex;flex-direction:column;justify-content:center;min-height:60px;padding:10px 16px;text-decoration:none;color:#2A3352;border-radius:3px;box-shadow:0 2px 5px rgba(42,51,82,.1)}
+.dy-link:first-child{background:#E8F5EE;transform:rotate(-1.2deg);width:80%}
+.dy-link:last-child{background:#EEEAFB;transform:rotate(1deg);width:80%;align-self:flex-end}
+.dy-link b{font-size:15px;font-weight:700;display:flex;align-items:center;gap:6px}
+.dy-link small{font-size:12px;color:#5C6684;margin-top:1px;padding-left:22px}
+.dy-clip{position:absolute;top:-10px;right:14px}
+
+.dy-gb{margin-top:38px;position:relative}
+.dy-gb h3{margin:0 0 6px;font-family:'Gaegu',cursive;font-size:26px;font-weight:700;display:flex;align-items:baseline;gap:8px}
+.dy-gb h3 small{font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:500;color:#8A93AC}
+.dy-lines{background:#FFFEF9;border:1px solid #E6E1D3;border-radius:4px;padding:6px 16px 14px;box-shadow:0 3px 10px rgba(42,51,82,.07)}
+.dy-e{display:flex;gap:10px;align-items:baseline;min-height:50px;padding:12px 0 8px;border-bottom:1px solid #DCE5F0}
+.dy-e span{flex:none;font-size:12px;color:#8A93AC;width:28px}
+.dy-e b{flex:none;font-size:13px;font-weight:700;color:#2A3352}
+.dy-e p{margin:0;font-family:'Gaegu',cursive;font-size:19px;font-weight:700;line-height:1.3;color:#3A4A86}
+.dy-in{display:flex;gap:8px;align-items:center;margin-top:14px}
+.dy-in span{flex:1;height:46px;display:flex;align-items:center;padding:0 4px;border-bottom:1.5px dashed #9AA6C0;color:#8A93AC;font-family:'Gaegu',cursive;font-size:19px;font-weight:700}
+.dy-in em{flex:none;height:46px;padding:0 18px;border-radius:12px;background:#2A3352;color:#fff;font-style:normal;font-weight:700;font-size:14px;display:flex;align-items:center}
+
+.dy-own{text-align:center;font-size:12px;color:#A7AEC0;margin:30px 0 0}
+.dy-own a{color:#7A84A0;text-decoration:none}
+.dy-dd{position:absolute;pointer-events:none}
+</style>
+</helmet>
+<div class="dy">
+  <div class="dy-holes" aria-hidden="true"></div>
+
+  <div class="dy-top">
+    <span class="dy-logo">knock!</span>
+    <span class="dy-cnt">오늘 <b>4</b>명 · 지금까지 <b>112</b>명</span>
+  </div>
+
+  <div class="dy-date">
+    <div class="dy-d"><small>2026 · OCTOBER</small><b>10.06</b><span>TUE</span></div>
+    <div class="dy-wx" aria-label="날씨 맑음">
+      <i class="on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A3352" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="#FBE38E"/><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></i>
+      <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA6C0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10.5a4 4 0 00.4-8 5.5 5.5 0 00-10.6 1.2A3.4 3.4 0 007 18z"/></svg></i>
+      <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA6C0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 14h10.5a4 4 0 00.4-8 5.5 5.5 0 00-10.6 1.2A3.4 3.4 0 007 14z"/><path d="M9 17l-1 3M13 17l-1 3M17 17l-1 3"/></svg></i>
+      <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9AA6C0" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/></svg></i>
+    </div>
+  </div>
+
+  <div class="dy-me">
+    <div class="dy-av" role="img" aria-label="프로필 사진 자리">
+      <span class="dy-tape dy-t1" style="width:64px;left:22px;top:-11px;transform:rotate(-4deg)"></span>
+      <div><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A9B3C6" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></div>
+    </div>
+    <div class="dy-name">
+      <b>지우</b>
+      <p>똑똑, 들어와도 돼</p>
+    </div>
+    <svg class="dy-dd" style="right:4px;top:20px" width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="#2A3352" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5c1.2 6.5 3.4 9.4 10 10.6-6.4 1.4-8.7 4.1-10 10.9-1.3-6.6-3.7-9.4-10-10.8 6.5-1.3 8.8-4.2 10-10.7z" fill="#FBE38E"/><path d="M32 27c.5 2.4 1.3 3.4 3.6 3.9-2.3.5-3.1 1.5-3.6 3.9-.5-2.4-1.4-3.4-3.6-3.9 2.3-.5 3.1-1.5 3.6-3.9z"/></svg>
+  </div>
+
+  <div class="dy-note">
+    <h3>오늘의 기록</h3>
+    <span class="dy-tape dy-t3" style="width:70px;right:96px;top:-12px;transform:rotate(3deg)"></span>
+    <div class="dy-stamp" aria-label="생일까지 D-12"><small>생일까지</small><b>D-12</b></div>
+    <div class="dy-row"><small>기분</small><p>시험 D-3, 커피 수혈 중</p>
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#2A3352" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12.5h15l-1.6 12.2a2.3 2.3 0 01-2.3 2H10.9a2.3 2.3 0 01-2.3-2z" fill="#F3E2CF"/><path d="M22 15.5h1.8a2.6 2.6 0 010 5.2h-2.4"/><path d="M12 9c-.8-1.2.8-2.2 0-3.6M16 9c-.8-1.2.8-2.2 0-3.6"/></svg></div>
+    <div class="dy-row"><small>노래</small><p>좋은 날 · 아이유</p>
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#2A3352" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 22.5V8.2l12-2.6v14"/><ellipse cx="9.6" cy="22.8" rx="3.1" ry="2.5" fill="#CFC6F2"/><ellipse cx="21.6" cy="19.8" rx="3.1" ry="2.5" fill="#CFC6F2"/></svg></div>
+    <div class="dy-row"><small>질문</small><p>제일 좋아하는 편의점 간식은?</p>
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#2A3352" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9.5c0-2 1.6-3.5 3.5-3.5h13c2 0 3.5 1.6 3.5 3.5v8c0 2-1.6 3.5-3.5 3.5H14l-5 4.5V21H9.5C7.6 21 6 19.4 6 17.5z" fill="#D8F0E4"/><path d="M13.6 11.2a2.5 2.5 0 114 2c-.9.6-1.6 1-1.6 2.1M16 17.8v.1"/></svg></div>
+  </div>
+
+  <div class="dy-photo" role="img" aria-label="주인이 올린 사진 자리">
+    <span class="dy-tape dy-t2" style="width:78px;left:-22px;top:6px;transform:rotate(-38deg)"></span>
+    <span class="dy-tape dy-t4" style="width:78px;right:-22px;bottom:14px;transform:rotate(-38deg)"></span>
+    <div><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A9B3C6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>주인이 올린 사진</div>
+    <p>10월의 어느 날</p>
+  </div>
+
+  <div class="dy-knock">
+    <svg class="dy-dd" style="left:-4px;top:-8px" width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#2A3352" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 27s-10-6-11.3-12.4C3.9 10.8 6.2 7 10 7c2.6 0 4.6 1.6 6 3.8C17.4 8.6 19.4 7 22 7c3.8 0 6.1 3.8 5.3 7.6C26 21 16 27 16 27z" fill="#F6B9C3"/></svg>
+    <svg class="dy-dd" style="right:2px;top:-12px" width="40" height="22" viewBox="0 0 44 24" fill="none" stroke="#2A3352" stroke-width="1.5" stroke-linecap="round"><path d="M3 15c4-6 7 4 11-2s7 4 11-2 7 4 11-2"/><path d="M36 6l3-3M40 10l3-1"/></svg>
+    <p>지나가다 똑똑, 노크 한 번</p>
+    <button type="button" class="dy-btn">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 014 0v4M11 10V6a2 2 0 014 0v5M15 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5.2-3L4 14a2 2 0 013.4-2L9 13"/></svg>
+      노크하기 <em>지금까지 27번</em>
+    </button>
+  </div>
+
+  <div class="dy-links">
+    <a class="dy-link" href="#">
+      <svg class="dy-clip" width="16" height="30" viewBox="0 0 16 30" fill="none" stroke="#8A93AC" stroke-width="1.6" stroke-linecap="round"><path d="M11 9v13a3 3 0 01-6 0V5a4 4 0 018 0v16"/></svg>
+      <b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A3352" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5.5a2.5 2.5 0 005 0V12a9 9 0 10-3.5 7.1"/></svg>인스타그램</b>
+      <small>@jiwoo.room</small>
+    </a>
+    <a class="dy-link" href="#">
+      <svg class="dy-clip" width="16" height="30" viewBox="0 0 16 30" fill="none" stroke="#8A93AC" stroke-width="1.6" stroke-linecap="round"><path d="M11 9v13a3 3 0 01-6 0V5a4 4 0 018 0v16"/></svg>
+      <b><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A3352" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M3 15h18M7 5v4M12 5v4M17 5v4M7 15v4M12 15v4M17 15v4"/></svg>필름 사진 모아둔 곳</b>
+      <small>블로그</small>
+    </a>
+  </div>
+
+  <div class="dy-gb">
+    <h3>방명록 <small>2개</small></h3>
+    <span class="dy-tape dy-t1" style="width:60px;right:22px;top:30px;transform:rotate(6deg);z-index:2"></span>
+    <div class="dy-lines">
+      <div class="dy-e"><span>10.4</span><b>민지</b><p>케이스 뭐야 너무 귀엽잖아</p></div>
+      <div class="dy-e"><span>10.2</span><b>익명</b><p>도서관에서 찍고 감</p></div>
+      <div class="dy-in"><span>한 줄 남기기</span><em>남기기</em></div>
+    </div>
+  </div>
+
+  <p class="dy-own">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

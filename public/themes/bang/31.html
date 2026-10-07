@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 31 · 최애존</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Jua&amp;display=swap">
+<style>
+body{margin:0}
+
+.cz{width:390px;min-height:1801px;box-sizing:border-box;padding:0 16px 22px;font-family:'Noto Sans KR',sans-serif;color:#3A3049;word-break:keep-all;line-height:1.45;font-size:14px;
+background:radial-gradient(90% 30% at 85% 0%,#FFF3CF 0%,rgba(255,243,207,0) 70%),linear-gradient(180deg,#F4EFFA 0%,#F8F4F6 55%,#FBF7EF 100%)}
+.cz *{box-sizing:border-box}
+.cz-bar{height:56px;display:flex;align-items:center;justify-content:space-between}
+.cz-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.04em}
+.cz-cnt{font-size:12px;color:#7A6F8C;background:rgba(255,255,255,.8);border:1px solid #E6DDF2;border-radius:99px;padding:5px 11px}
+.cz-cnt b{color:#3A3049}
+.cz-hd{display:flex;align-items:flex-end;justify-content:space-between;margin:4px 2px 14px}
+.cz-hd small{display:block;font-size:12px;color:#7A6F8C;font-weight:500}
+.cz-hd h1{margin:2px 0 0;font-size:25px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.cz-hd h1 i{font-style:normal;color:#B79BE0}
+.cz-hd span{font-size:12px;color:#7A6F8C;padding-bottom:3px}
+
+.cz-wall{position:relative;height:528px;border-radius:26px;overflow:hidden;
+background-color:#EAE2F5;background-image:radial-gradient(circle,rgba(110,90,150,.2) 1.5px,transparent 2.1px),linear-gradient(180deg,rgba(255,255,255,.35),rgba(255,255,255,0) 40%);
+background-size:18px 18px,100% 100%;background-position:9px 9px,0 0;
+box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),inset 0 -40px 60px -40px rgba(90,70,130,.25),0 22px 36px -26px rgba(70,50,110,.55)}
+.cz-lights{position:absolute;left:0;top:0;line-height:0}
+.cz-ban{position:absolute;left:50%;top:40px;width:248px;margin-left:-124px;height:56px;background:#FFFDF6;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:8px;
+box-shadow:0 0 0 4px #FFFDF6,0 0 0 5px #D9CCEE,0 12px 16px -12px rgba(70,50,110,.5);transform:rotate(-1.5deg)}
+.cz-ban:before{content:'';position:absolute;inset:3px;border:1.5px dashed #CDBDE8;border-radius:4px}
+.cz-ban b{position:relative;font-family:'Jua','Noto Sans KR',sans-serif;font-size:20px;font-weight:800;letter-spacing:-.02em;color:#5B4880}
+.cz-ban em{position:relative;font-style:normal;color:#E7B93A;font-size:15px}
+.cz-str{position:absolute;top:-30px;width:1px;height:30px;background:rgba(90,70,130,.45)}
+
+.cz-tl{position:absolute;padding:7px;border-radius:10px;background:rgba(255,255,255,.4);border:1px solid rgba(150,130,190,.5);
+box-shadow:inset 0 0 0 2.5px rgba(255,255,255,.88),0 14px 20px -12px rgba(70,50,110,.5)}
+.cz-tl:before{content:'';position:absolute;left:50%;top:-1px;width:36px;height:11px;margin-left:-18px;border-radius:0 0 18px 18px;background:#EAE2F5;border:1px solid rgba(150,130,190,.5);border-top:none;z-index:2}
+.cz-tl:after{content:'';position:absolute;inset:0;border-radius:10px;pointer-events:none;z-index:3;background:linear-gradient(120deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.7) 26%,rgba(255,255,255,0) 36%,rgba(255,255,255,0) 64%,rgba(255,255,255,.35) 69%,rgba(255,255,255,0) 74%)}
+.cz-in{height:100%;border-radius:6px;position:relative;overflow:hidden}
+.cz-mood:after,.cz-song:after{opacity:.45}
+.cz-fav{left:16px;top:122px;width:178px;height:244px;transform:rotate(-2deg)}
+.cz-fav .cz-in{background:linear-gradient(160deg,#FFF9E6,#F6EEFF);padding:8px}
+.cz-ph{height:100%;border-radius:5px;border:1.5px dashed #B9A6DA;background:rgba(255,255,255,.6);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8E7FB0;font-size:12px;text-align:center}
+.cz-ph b{font-size:14px;color:#5B4880;font-weight:800}
+.cz-bow{position:absolute;left:50%;top:-20px;margin-left:-26px;z-index:5;line-height:0;filter:drop-shadow(0 2px 2px rgba(70,50,110,.25))}
+.cz-stk{position:absolute;z-index:5;line-height:0;filter:drop-shadow(0 1px 1.5px rgba(60,40,90,.3))}
+.cz-tag{position:absolute;z-index:5;left:-8px;bottom:26px;background:#F7D96E;color:#4A3A1A;font-size:12px;font-weight:800;border-radius:6px;padding:3px 9px;transform:rotate(-8deg);box-shadow:0 2px 3px rgba(60,40,20,.25)}
+
+.cz-mood{left:208px;top:116px;width:136px;height:132px;transform:rotate(2deg)}
+.cz-mood .cz-in{background:linear-gradient(170deg,#FFF6D8,#FFE9DD);padding:10px 10px 9px;display:flex;flex-direction:column}
+.cz-song{left:206px;top:264px;width:138px;height:104px;transform:rotate(-1.5deg)}
+.cz-song .cz-in{background:linear-gradient(170deg,#E9E1FF,#F7ECFF);padding:9px 10px;display:flex;flex-direction:column}
+.cz-in small{font-size:12px;color:#7A6F8C;font-weight:700}
+.cz-mood p{margin:auto 0 0;font-size:15px;font-weight:800;line-height:1.35;letter-spacing:-.02em}
+.cz-cup{position:absolute;right:6px;top:6px;line-height:0}
+.cz-song b{margin-top:6px;font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.cz-song span{font-size:12px;color:#5F5588}
+.cz-eq{margin-top:auto;display:flex;align-items:flex-end;gap:2px;height:14px}
+.cz-eq i{width:3px;border-radius:2px;background:#8C76D6}
+.cz-eq em{margin-left:auto;font-style:normal;font-size:12px;color:#5F5588;font-weight:700;line-height:1}
+.cz-hook{position:absolute;z-index:6;line-height:0}
+
+.cz-shelf{position:absolute;left:10px;right:10px;top:478px;height:16px;border-radius:4px;background:linear-gradient(180deg,#F1DFC2,#E2C9A3);box-shadow:inset 0 1px 0 #fff6e4,0 10px 14px -8px rgba(80,55,30,.45)}
+.cz-shelf:before,.cz-shelf:after{content:'';position:absolute;top:16px;width:10px;height:18px;background:#D7BE97;border-radius:0 0 4px 4px}
+.cz-shelf:before{left:30px}.cz-shelf:after{right:30px}
+.cz-goods{position:absolute;left:0;top:368px;line-height:0}
+.cz-cal{position:absolute;left:182px;top:404px;width:70px;height:74px;background:#fff;border-radius:7px;box-shadow:0 6px 10px -6px rgba(70,50,110,.5);text-align:center;overflow:hidden;transform:rotate(-3deg)}
+.cz-cal div{height:20px;background:#B79BE0;color:#fff;font-size:11px;font-weight:800;line-height:20px}
+.cz-cal b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:24px;font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-top:5px}
+.cz-cal span{font-size:11px;color:#7A6F8C}
+
+.cz-card{position:relative;margin-top:16px;background:rgba(255,255,255,.88);border-radius:22px;padding:16px;box-shadow:0 14px 26px -20px rgba(70,50,110,.5);border:1px solid #EEE6F7}
+.cz-me{display:flex;gap:14px;align-items:center}
+.cz-pf{width:72px;height:72px;flex:none;border-radius:50%;border:1.5px dashed #B9A6DA;background:#F7F2FD;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#8E7FB0;font-size:11px;gap:1px}
+.cz-nm{display:flex;align-items:center;gap:8px}
+.cz-nm b{font-size:24px;font-weight:800;letter-spacing:-.03em}
+.cz-nm span{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:800;letter-spacing:.04em;color:#5B4880;background:#EDE5FA;border-radius:99px;padding:2px 9px}
+.cz-me p{margin:2px 0 0;font-size:14px;color:#7A6F8C}
+.cz-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.cz-tags span{font-size:12px;font-weight:700;color:#5B4880;background:#F3EEFB;border-radius:99px;padding:5px 10px}
+.cz-tags span.y{background:#FFF3C9;color:#6E5718}
+.cz-tags span.no{background:#F2F0F4;color:#8F8899;font-weight:500;text-decoration:line-through}
+
+.cz-knock{display:flex;align-items:center;gap:14px;width:100%;height:68px;margin-top:16px;border:none;border-radius:22px;padding:0 12px 0 10px;cursor:pointer;font:inherit;color:#fff;text-align:left;
+background:linear-gradient(180deg,#4A3D5E,#352B45);box-shadow:0 16px 24px -14px rgba(53,43,69,.75),inset 0 1px 0 rgba(255,255,255,.15)}
+.cz-bulb{width:48px;height:48px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#4A3A1A;background:radial-gradient(circle at 40% 35%,#FFF8D6,#F7D96E 70%);box-shadow:0 0 0 4px rgba(247,217,110,.18),0 0 18px rgba(247,217,110,.55)}
+.cz-knock b{display:block;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.cz-knock small{display:block;font-size:12px;color:rgba(255,255,255,.65)}
+.cz-knock em{margin-left:auto;font-style:normal;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;background:#F7D96E;color:#3A2E12;border-radius:14px;padding:8px 12px}
+
+.cz-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:16px}
+.cz-tix{position:relative;border-radius:16px;background:linear-gradient(170deg,#FFF6D6,#FFEFC2);padding:14px 14px 12px;min-height:150px;display:flex;flex-direction:column;box-shadow:0 12px 20px -16px rgba(110,80,20,.6)}
+.cz-tix:before{content:'';position:absolute;left:12px;right:12px;top:92px;border-top:2px dashed rgba(150,110,30,.28)}
+.cz-tix:after{content:'';position:absolute;left:-8px;top:84px;width:16px;height:16px;border-radius:50%;background:#F8F4F5}
+.cz-tix i{position:absolute;right:-8px;top:84px;width:16px;height:16px;border-radius:50%;background:#F8F4F5}
+.cz-tix small{font-size:12px;font-weight:700;color:#8C6F24}
+.cz-tix b{font-family:'Bricolage Grotesque',sans-serif;font-size:40px;font-weight:800;letter-spacing:-.05em;line-height:1;margin-top:4px;color:#3A2E12}
+.cz-tix p{margin:auto 0 0;font-size:12px;color:#8C6F24;line-height:1.4}
+.cz-let{position:relative;border-radius:16px;background:#fff;padding:14px;min-height:150px;display:flex;flex-direction:column;border:1px solid #EEE6F7;box-shadow:0 12px 20px -16px rgba(70,50,110,.5);overflow:hidden}
+.cz-let:before{content:'';position:absolute;left:0;right:0;top:0;height:34px;background:linear-gradient(160deg,transparent 49%,#EDE5FA 50%) left/50% 100% no-repeat,linear-gradient(200deg,transparent 49%,#EDE5FA 50%) right/50% 100% no-repeat;opacity:.9}
+.cz-let small{position:relative;font-size:12px;font-weight:700;color:#7A6F8C;margin-top:22px}
+.cz-let p{position:relative;margin:4px 0 0;font-size:15px;font-weight:800;line-height:1.35;letter-spacing:-.02em}
+.cz-let span{margin-top:auto;font-size:12px;font-weight:800;color:#5B4880;background:#F3EEFB;border-radius:10px;padding:7px 10px;text-align:center}
+.cz-seal{position:absolute;left:50%;top:22px;margin-left:-11px;width:22px;height:22px;border-radius:50%;background:#C9B2EE;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;z-index:2;box-shadow:0 1px 2px rgba(70,50,110,.35)}
+
+.cz-sec{margin-top:26px}
+.cz-st{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 12px}
+.cz-st h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.cz-st span{font-size:12px;color:#7A6F8C}
+.cz-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:10px}
+.cz-row .cz-mini{position:relative;height:150px;padding:6px;border-radius:9px;background:rgba(255,255,255,.5);border:1px solid rgba(150,130,190,.45);box-shadow:inset 0 0 0 2px rgba(255,255,255,.9),0 10px 16px -12px rgba(70,50,110,.5)}
+.cz-row .cz-mini:after{content:'';position:absolute;inset:0;border-radius:9px;background:linear-gradient(120deg,rgba(255,255,255,0) 20%,rgba(255,255,255,.65) 28%,rgba(255,255,255,0) 38%);pointer-events:none}
+.cz-row .cz-mini:nth-child(1){transform:rotate(-2deg)}
+.cz-row .cz-mini:nth-child(2){transform:rotate(1.5deg) translateY(6px)}
+.cz-pack{position:relative;height:150px;border-radius:9px;transform:rotate(-1deg) translateY(2px);padding:14px 8px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;color:#fff;
+background:linear-gradient(135deg,#BBA6E2 0%,#E3D8F6 28%,#A891D8 52%,#D9CCF2 76%,#B49DE0 100%);box-shadow:0 10px 16px -12px rgba(70,50,110,.6)}
+.cz-pack:before{content:'';position:absolute;left:0;right:0;top:0;height:9px;background:linear-gradient(135deg,transparent 50%,rgba(255,255,255,.55) 50%) 0 0/9px 9px repeat-x;border-radius:9px 9px 0 0}
+.cz-pack i{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);color:#5B4880;display:flex;align-items:center;justify-content:center}
+.cz-pack b{font-size:13px;font-weight:800;text-shadow:0 1px 2px rgba(70,50,110,.35)}
+.cz-pack small{font-size:11px;font-weight:500;line-height:1.35;text-shadow:0 1px 2px rgba(70,50,110,.35)}
+
+.cz-links{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.cz-lk{position:relative;display:flex;flex-direction:column;gap:8px;text-decoration:none;color:#3A3049;background:#fff;border-radius:8px 16px 16px 8px;padding:14px 12px 13px 26px;border:1px solid #EEE6F7;box-shadow:0 10px 18px -14px rgba(70,50,110,.5)}
+.cz-lk:before{content:'';position:absolute;left:9px;top:50%;margin-top:-5px;width:10px;height:10px;border-radius:50%;background:#F4EFFA;box-shadow:inset 0 1px 2px rgba(70,50,110,.35)}
+.cz-lk i{width:32px;height:32px;border-radius:10px;background:#F3EEFB;color:#5B4880;display:flex;align-items:center;justify-content:center}
+.cz-lk b{font-size:14px;line-height:1.3}
+.cz-lk small{font-size:12px;color:#7A6F8C}
+.cz-lk > svg{position:absolute;right:12px;top:14px;color:#B2A6C6}
+
+.cz-gb{background:rgba(255,255,255,.9);border-radius:22px;padding:6px 16px 16px;border:1px solid #EEE6F7;box-shadow:0 14px 26px -20px rgba(70,50,110,.5)}
+.cz-msg{display:flex;gap:11px;padding:13px 0;border-bottom:1px dashed #E3D9F0}
+.cz-av{width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.cz-msg div{flex:1;min-width:0}
+.cz-msg b{font-size:13px}
+.cz-msg b span{font-weight:400;color:#7A6F8C;font-size:12px;margin-left:6px}
+.cz-msg p{margin:2px 0 0;font-size:14px}
+.cz-form{display:flex;gap:8px;margin-top:14px}
+.cz-form input{flex:1;min-width:0;height:48px;border-radius:14px;border:1.5px solid #E3D9F0;background:#FAF7FD;padding:0 14px;font:inherit;font-size:14px;color:#3A3049}
+.cz-form button{height:48px;padding:0 18px;border-radius:14px;border:none;background:#F7D96E;color:#3A2E12;font:inherit;font-size:14px;font-weight:800;box-shadow:0 4px 0 #DDBB4C}
+.cz-foot{text-align:center;font-size:12px;color:#AFA6BC;margin-top:26px}
+
+</style>
+</helmet>
+<div class="cz">
+<div class="cz-bar"><div class="cz-logo">knock!</div><div class="cz-cnt">오늘 <b>4</b>명 · 지금까지 <b>112</b>명</div></div>
+<div class="cz-hd"><div><small>내 방 한쪽, 덕질 코너</small><h1>지우의 최애존 <i>♡</i></h1></div><span>10월 업데이트</span></div>
+
+<div class="cz-wall">
+<i class="cz-lights"><svg width="358" height="60" viewBox="0 0 358 60"><path d="M-4,10 C60,40 120,44 179,30 C240,16 300,22 362,44" fill="none" stroke="#9E8DBA" stroke-width="1.2"/><circle cx="18" cy="27" r="11" fill="#FFE7A0" opacity=".35"/><rect x="16" y="19" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="18" cy="27" rx="4.2" ry="5.4" fill="#FFE7A0" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="16.7" cy="25.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="52" cy="38" r="11" fill="#E9DBFF" opacity=".35"/><rect x="50" y="30" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="52" cy="38" rx="4.2" ry="5.4" fill="#E9DBFF" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="50.7" cy="36.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="88" cy="44" r="11" fill="#FFE7A0" opacity=".35"/><rect x="86" y="36" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="88" cy="44" rx="4.2" ry="5.4" fill="#FFE7A0" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="86.7" cy="42.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="124" cy="45" r="11" fill="#FFD8CC" opacity=".35"/><rect x="122" y="37" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="124" cy="45" rx="4.2" ry="5.4" fill="#FFD8CC" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="122.7" cy="43.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="160" cy="40" r="11" fill="#FFE7A0" opacity=".35"/><rect x="158" y="32" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="160" cy="40" rx="4.2" ry="5.4" fill="#FFE7A0" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="158.7" cy="38.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="196" cy="33" r="11" fill="#E9DBFF" opacity=".35"/><rect x="194" y="25" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="196" cy="33" rx="4.2" ry="5.4" fill="#E9DBFF" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="194.7" cy="31.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="232" cy="29" r="11" fill="#FFE7A0" opacity=".35"/><rect x="230" y="21" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="232" cy="29" rx="4.2" ry="5.4" fill="#FFE7A0" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="230.7" cy="27.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="268" cy="29" r="11" fill="#FFD8CC" opacity=".35"/><rect x="266" y="21" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="268" cy="29" rx="4.2" ry="5.4" fill="#FFD8CC" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="266.7" cy="27.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="304" cy="34" r="11" fill="#FFE7A0" opacity=".35"/><rect x="302" y="26" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="304" cy="34" rx="4.2" ry="5.4" fill="#FFE7A0" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="302.7" cy="32.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/><circle cx="340" cy="44" r="11" fill="#E9DBFF" opacity=".35"/><rect x="338" y="36" width="4" height="4" rx="1" fill="#9E8DBA"/><ellipse cx="340" cy="44" rx="4.2" ry="5.4" fill="#E9DBFF" stroke="rgba(120,100,150,.35)" stroke-width=".8"/><ellipse cx="338.7" cy="42.4" rx="1.2" ry="1.8" fill="#fff" opacity=".8"/></svg></i>
+<div class="cz-ban"><i class="cz-str" style="left:22px"></i><i class="cz-str" style="right:22px"></i><em>★</em><b>똑똑, 들어와도 돼</b><em>★</em></div>
+
+<div class="cz-tl cz-fav"><div class="cz-in"><div class="cz-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg><b>최애 자리</b>주인이 올린 사진</div></div>
+<i class="cz-bow"><svg width="52" height="30" viewBox="0 0 52 30"><path d="M26,14 C18,2 4,2 4,12 C4,22 18,20 26,15 Z" fill="#F7D96E" stroke="#C9A43B" stroke-width="1.2"/><path d="M26,14 C34,2 48,2 48,12 C48,22 34,20 26,15 Z" fill="#F7D96E" stroke="#C9A43B" stroke-width="1.2"/>
+<path d="M24,16 L17,29 L21,27 L23,30 L26,17 Z M28,16 L35,29 L31,27 L29,30 L26,17 Z" fill="#EFCB54" stroke="#C9A43B" stroke-width="1"/><circle cx="26" cy="14.5" r="4" fill="#FFE590" stroke="#C9A43B" stroke-width="1.2"/>
+<path d="M9,9 C12,6 16,6 19,8" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".8"/></svg></i>
+<i class="cz-stk" style="right:-10px;top:30px"><svg width="28" height="28" viewBox="0 0 24 24" style="transform:rotate(12deg)"><path d="M12,2.5 L14.6,9 L21.5,9.4 L16.2,13.8 L18,20.8 L12,17 L6,20.8 L7.8,13.8 L2.5,9.4 L9.4,9 Z" fill="#F7D96E" stroke="#fff" stroke-width="3" stroke-linejoin="round" paint-order="stroke"/></svg></i><i class="cz-stk" style="right:10px;top:54px"><svg width="18" height="18" viewBox="0 0 24 24" style="transform:rotate(10deg)"><path d="M12,20 C5,15.5 2.5,12 3,8.5 C3.5,5 7.5,3.5 10,6 L12,8 L14,6 C16.5,3.5 20.5,5 21,8.5 C21.5,12 19,15.5 12,20Z" fill="#C9B2EE" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round"/></svg></i>
+<i class="cz-stk" style="left:-10px;top:120px"><svg width="22" height="22" viewBox="0 0 24 24" style="transform:rotate(-14deg)"><path d="M12,20 C5,15.5 2.5,12 3,8.5 C3.5,5 7.5,3.5 10,6 L12,8 L14,6 C16.5,3.5 20.5,5 21,8.5 C21.5,12 19,15.5 12,20Z" fill="#FFB8A8" stroke="#fff" stroke-width="3" paint-order="stroke" stroke-linejoin="round"/></svg></i><i class="cz-stk" style="right:-6px;bottom:-8px"><svg width="22" height="22" viewBox="0 0 24 24" style="transform:rotate(-8deg)"><path d="M12,2.5 L14.6,9 L21.5,9.4 L16.2,13.8 L18,20.8 L12,17 L6,20.8 L7.8,13.8 L2.5,9.4 L9.4,9 Z" fill="#C9B2EE" stroke="#fff" stroke-width="3" stroke-linejoin="round" paint-order="stroke"/></svg></i>
+<span class="cz-tag">my fave</span></div>
+
+<i class="cz-hook" style="left:265px;top:94px"><svg width="22" height="26" viewBox="0 0 22 26"><circle cx="11" cy="4" r="3" fill="#B7A9CF"/><path d="M11,6 V14 Q11,20 16,20" fill="none" stroke="#A797C4" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="3.4" r="1.1" fill="#fff" opacity=".8"/></svg></i>
+<div class="cz-tl cz-mood"><div class="cz-in"><small>오늘의 기분</small><i class="cz-cup"><svg width="28" height="34" viewBox="0 0 28 34" fill="none" stroke="#3A3049" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5,10 H23 L21,31 H7 Z" fill="rgba(255,255,255,.75)"/><path d="M6,18 H22 L21,30.5 H7Z" fill="#C99A6C" stroke="none"/><path d="M3.5,10 H24.5"/><path d="M16,10 L19,2" stroke="#B79BE0" stroke-width="2.2"/></svg></i><p>시험 D-3,<br>커피 수혈 중</p></div></div>
+<i class="cz-hook" style="left:263px;top:243px"><svg width="22" height="26" viewBox="0 0 22 26"><circle cx="11" cy="4" r="3" fill="#B7A9CF"/><path d="M11,6 V14 Q11,20 16,20" fill="none" stroke="#A797C4" stroke-width="2.2" stroke-linecap="round"/><circle cx="11" cy="3.4" r="1.1" fill="#fff" opacity=".8"/></svg></i>
+<div class="cz-tl cz-song"><div class="cz-in"><small>요즘 듣는 노래</small><b>좋은 날</b><span>아이유</span><div class="cz-eq"><i style="height:6px"></i><i style="height:11px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:9px"></i><i style="height:12px"></i><i style="height:5px"></i><em>재생 중</em></div></div></div>
+
+<i class="cz-goods"><svg width="358" height="112" viewBox="0 0 358 112"><g transform="translate(70,0)"><rect x="-36" y="0" width="72" height="104" rx="18" fill="rgba(255,255,255,.38)" stroke="rgba(255,255,255,.95)" stroke-width="2"/><path d="M-26,8 Q-30,30 -28,50" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7" fill="none"/><ellipse cx="0" cy="105" rx="38" ry="6" fill="rgba(200,185,230,.75)" stroke="rgba(255,255,255,.9)" stroke-width="1.5"/><g transform="translate(0,100) scale(.84)"><path d="M-14,-26 L-13.5,-7 L-2,-7 L-1,-19 L1,-19 L2,-7 L13.5,-7 L14,-26 Z" fill="#7E9FCC" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-7.5,-20 L-7.5,-9 M7.5,-20 L7.5,-9" stroke="#6888B8" stroke-width="1" fill="none"/>
+<path d="M-15,-7.5 h12 a2,2 0 0 1 2,2 v2 a2,2 0 0 1 -2,2 h-13 a3.5,3.5 0 0 1 -3.5,-3.5 v0 a2.5,2.5 0 0 1 2.5,-2.5Z" fill="#FFFDF8" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M15,-7.5 h-12 a2,2 0 0 0 -2,2 v2 a2,2 0 0 0 2,2 h13 a3.5,3.5 0 0 0 3.5,-3.5 v0 a2.5,2.5 0 0 0 -2.5,-2.5Z" fill="#FFFDF8" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-29,-62 C-33,-92 -22,-110 0,-110 C22,-110 33,-92 29,-62 Q27.5,-57 22.5,-59 L-22.5,-59 Q-27.5,-57 -29,-62 Z" fill="#4B3529" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-15,-50 C-17,-60 -9,-64 0,-64 C9,-64 17,-60 15,-50 Z" fill="#A9ADB7" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-17.5,-27 L-17.5,-46 C-17.5,-54 -10,-57.5 0,-57.5 C10,-57.5 17.5,-54 17.5,-46 L17.5,-27 Q17.5,-23.5 14,-23.5 L-14,-23.5 Q-17.5,-23.5 -17.5,-27 Z" fill="#C3C6CE" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-17.5,-28.5 H17.5" stroke="#3A3049" stroke-width="1" opacity=".5"/>
+<path d="M-9,-29 L-7,-37 H7 L9,-29" fill="none" stroke="#3A3049" stroke-width="1.1" opacity=".55"/>
+<path d="M-4,-56 V-45 M4,-56 V-45" stroke="#3A3049" stroke-width="1.1"/>
+<circle cx="-4" cy="-44" r="1.4" fill="#FFF" stroke="#3A3049" stroke-width="1"/><circle cx="4" cy="-44" r="1.4" fill="#FFF" stroke="#3A3049" stroke-width="1"/>
+<path d="M-14,-51 C-23,-52 -30,-56 -35,-63 L-30,-67.5 C-26,-62 -20,-59 -12,-58 Z" fill="#C3C6CE" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="-35.5" cy="-68.5" r="4.4" fill="#FFE4D2" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-42,-76 l-3,-2.5 M-40,-80 l-1.5,-3.5 M-44.5,-71 l-3.5,-.6" stroke="#3A3049" stroke-width="0.98" stroke-linecap="round"/>
+<circle cx="0" cy="-81" r="25" fill="#FFE4D2" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-25.5,-83 C-27,-101 -14,-108 0,-108 C14,-108 27,-101 25.5,-83 C21,-87.5 15,-85.5 11,-90 C7,-86 -1,-86.5 -4,-91 C-8,-86 -18,-88 -25.5,-83 Z" fill="#4B3529" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="12" y="-99" width="10" height="4.6" rx="2.3" transform="rotate(-24 17 -96.7)" fill="#FFD95E" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="-9" cy="-75" rx="2.7" ry="3.5" fill="#3A3049"/><ellipse cx="9" cy="-75" rx="2.7" ry="3.5" fill="#3A3049"/>
+<circle cx="-8" cy="-76.4" r="1" fill="#fff"/><circle cx="10" cy="-76.4" r="1" fill="#fff"/>
+<ellipse cx="-15.5" cy="-67.5" rx="4.6" ry="2.6" fill="#FFB2A3" opacity=".75"/><ellipse cx="15.5" cy="-67.5" rx="4.6" ry="2.6" fill="#FFB2A3" opacity=".75"/>
+<path d="M-3,-67 Q0,-64.2 3,-67" fill="none" stroke="#3A3049" stroke-width="1.3" stroke-linecap="round"/>
+<path d="M16,-53 C21,-48 23,-40 23,-33 L17.5,-32 C17.5,-38 16,-44 13,-48 Z" fill="#C3C6CE" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="20.5" cy="-30" r="4" fill="#FFE4D2" stroke="#3A3049" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/></g></g><g transform="translate(144,0)"><circle cx="0" cy="34" r="34" fill="#FFF0B8" opacity=".55"/><rect x="-7" y="56" width="14" height="50" rx="7" fill="#F1ECF8" stroke="#9E8DBA" stroke-width="1.4"/><rect x="-3" y="66" width="6" height="12" rx="3" fill="#B79BE0"/><rect x="-11" y="50" width="22" height="9" rx="4" fill="#D9CCEE" stroke="#9E8DBA" stroke-width="1.4"/><circle cx="0" cy="30" r="22" fill="rgba(255,252,238,.92)" stroke="#9E8DBA" stroke-width="1.4"/><path d="M0,40 C-9,34 -12,29 -11,25 C-10,20 -4,19 0,24 C4,19 10,20 11,25 C12,29 9,34 0,40Z" fill="#F7D96E" stroke="#D8B444" stroke-width="1"/><path d="M-13,20 Q-9,12 -2,11" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/></g><g transform="translate(290,0)"><ellipse cx="0" cy="106" rx="34" ry="5" fill="rgba(80,55,30,.16)"/><path d="M-34,104 C-38,80 -24,58 0,58 C24,58 38,80 34,104 Z" fill="#FFFDF7" stroke="#9E8DBA" stroke-width="1.4"/><path d="M-20,62 C-24,52 -16,48 -12,58 M20,62 C24,52 16,48 12,58" fill="#FFFDF7" stroke="#9E8DBA" stroke-width="1.4"/><ellipse cx="-10" cy="84" rx="2.4" ry="3" fill="#3A3049"/><ellipse cx="10" cy="84" rx="2.4" ry="3" fill="#3A3049"/><ellipse cx="-18" cy="92" rx="5" ry="3" fill="#FFC2B8" opacity=".8"/><ellipse cx="18" cy="92" rx="5" ry="3" fill="#FFC2B8" opacity=".8"/><path d="M-3,92 Q0,95 3,92" stroke="#3A3049" stroke-width="1.3" fill="none" stroke-linecap="round"/><rect x="14" y="66" width="16" height="7" rx="3.5" transform="rotate(28 22 69)" fill="#F7D96E" stroke="#C9A43B" stroke-width="1"/></g><g transform="translate(232,0)"><rect x="-12" y="80" width="24" height="26" rx="6" fill="rgba(255,255,255,.6)" stroke="#9E8DBA" stroke-width="1.3"/><rect x="-10" y="90" width="20" height="14" rx="4" fill="#E9DBFF"/><path d="M0,88 V82" stroke="#3A3049" stroke-width="1.2"/><path d="M0,82 C-4,77 -2,72 0,69 C2,72 4,77 0,82Z" fill="#FFC85E"/><circle cx="0" cy="77" r="10" fill="#FFE7A0" opacity=".35"/></g></svg></i>
+<div class="cz-cal"><div>10월</div><b>19</b><span>내 생일 ♡</span></div>
+<div class="cz-shelf"></div>
+</div>
+
+<div class="cz-card">
+<div class="cz-me"><div class="cz-pf"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>프로필</div>
+<div><div class="cz-nm"><b>지우</b><span>ENFP</span></div><p>똑똑, 들어와도 돼</p></div></div>
+<div class="cz-tags"><span>필름카메라</span><span>떡볶이</span><span>비 오는 날 카페</span><span class="y">요즘 빠진 것 · 키링 모으기</span><span class="no">아침 9시 수업</span></div>
+</div>
+
+<button class="cz-knock"><span class="cz-bulb"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V6.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V5a1.5 1.5 0 0 1 3 0v5.5"/><path d="M14 10.5V6.5a1.5 1.5 0 0 1 3 0V13c0 4-2.6 7-6.5 7-2.6 0-4.4-1.3-5.6-3.4L3.6 14a1.6 1.6 0 0 1 2.6-1.8L8 14"/></svg></span><span><b>노크하기</b><small>응원봉 흔들듯 똑똑 두드려 주세요</small></span><em>27</em></button>
+
+<div class="cz-two">
+<div class="cz-tix"><i></i><small>생일까지</small><b>D-12</b><p>생일 카페처럼 꾸며 둘게요<br>10월 19일</p></div>
+<div class="cz-let"><span class="cz-seal">♥</span><small>요즘 질문</small><p>제일 좋아하는 편의점 간식은?</p><span>답장 쓰기</span></div>
+</div>
+
+<div class="cz-sec">
+<div class="cz-st"><h2>탑로더 컬렉션</h2><span>사진 2 · 미개봉 1</span></div>
+<div class="cz-row">
+<div class="cz-mini"><div class="cz-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이<br>올린 사진</div></div>
+<div class="cz-mini"><div class="cz-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이<br>올린 사진</div></div>
+<div class="cz-pack"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></i><b>비밀 일기 3</b><small>친구만<br>열어볼 수 있어요</small></div>
+</div>
+</div>
+
+<div class="cz-sec">
+<div class="cz-st"><h2>방명록</h2><span>응원 한마디 2</span></div>
+<div class="cz-gb">
+<div class="cz-msg"><span class="cz-av" style="background:#FFE6DE;color:#B05E4A">민</span><div><b>민지<span>10.4</span></b><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+<div class="cz-msg"><span class="cz-av" style="background:#EDE5FA;color:#5B4880">?</span><div><b>익명<span>10.2</span></b><p>도서관에서 찍고 감</p></div></div>
+<div class="cz-form"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+</div>
+</div>
+
+<div class="cz-sec cz-links">
+<a class="cz-lk" href="#"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></i><span><b>인스타그램</b><br><small>@jiwoo.room</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+<a class="cz-lk" href="#"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 6l1.5-2h5L16 6"/></svg></i><span><b>필름 사진 모아둔 곳</b><br><small>블로그</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+</div>
+<div class="cz-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

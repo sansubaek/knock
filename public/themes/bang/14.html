@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 14 · 레트로 데스크톱</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;family=Nanum+Gothic+Coding:wght@400;700&amp;family=Silkscreen:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+.rd{width:390px;min-height:1860px;box-sizing:border-box;position:relative;overflow:hidden;color:#1E1A2E;font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;font-size:14px;line-height:1.45;word-break:keep-all;
+  background:
+   radial-gradient(circle,rgba(255,255,255,.09) 1px,transparent 1.2px) 0 0/4px 4px,
+   linear-gradient(180deg,#2F9C99 0%,#4FA3AE 35%,#8CA3CF 70%,#B3A0DC 100%)}
+.rd *{box-sizing:border-box}
+.rd-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.rd-px{font-family:'Silkscreen',monospace}
+
+.rd-bev{background:#E6E2F1;box-shadow:inset -2px -2px 0 #3E3854,inset 2px 2px 0 #FFFFFF,inset -4px -4px 0 #A29CBB,inset 4px 4px 0 #F6F4FB}
+.rd-sunk{background:#fff;box-shadow:inset 2px 2px 0 #A29CBB,inset -2px -2px 0 #FFFFFF,inset 3px 3px 0 #3E3854,inset -3px -3px 0 #E6E2F1}
+
+.rd-top{display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 14px}
+.rd-top .rd-brand{font-size:18px;color:#fff;text-shadow:1px 1px 0 #1C4F4D}
+.rd-tray{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:5px 10px}
+.rd-tray i{width:7px;height:7px;background:#2FBF71;box-shadow:inset -1px -1px 0 #17733F}
+
+.rd-win{position:relative;padding:4px;filter:drop-shadow(4px 5px 0 rgba(30,26,46,.28))}
+.rd-tb{height:28px;display:flex;align-items:center;gap:6px;padding:0 4px 0 8px;background:linear-gradient(90deg,#5A2F7E 0%,#9A4F96 60%,#D08AB0 100%);color:#fff;font-size:13px;font-weight:700}
+.rd-tb.rd-off{background:linear-gradient(90deg,#7C7891 0%,#A7A3BA 100%);color:#EDEBF5}
+.rd-tb .rd-tt{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rd-tb svg.rd-ti{flex:none}
+.rd-btns{display:flex;gap:3px}
+.rd-btns b{width:20px;height:18px;display:flex;align-items:center;justify-content:center;background:#E6E2F1;box-shadow:inset -1px -1px 0 #3E3854,inset 1px 1px 0 #fff,inset -2px -2px 0 #A29CBB}
+.rd-btns b i{display:block;background:#1E1A2E}
+.rd-menu{display:flex;gap:14px;padding:5px 6px 4px;font-size:12px;color:#3E3854}
+.rd-menu u{text-decoration:none;border-bottom:1px solid #3E3854}
+.rd-body{padding:12px}
+
+.rd-row1{display:flex;gap:6px;padding:0 10px 0 6px}
+.rd-icons{width:76px;flex:none;display:flex;flex-direction:column;gap:14px;padding-top:4px}
+.rd-ic{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:#fff;font-size:12px;font-weight:500;text-shadow:1px 1px 0 #1C3F4D,0 0 3px rgba(0,0,0,.4);text-align:center;line-height:1.2}
+.rd-ic svg{filter:drop-shadow(1px 2px 0 rgba(0,0,0,.25))}
+
+.rd-col{flex:1;min-width:0;display:flex;flex-direction:column}
+.rd-prof{flex:none}
+.rd-me{display:flex;gap:12px;align-items:center}
+.rd-av{width:84px;height:84px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:12px;color:#6E6888;background:#F3F1F8;border:1.5px dashed #8E88A8;outline:2px solid #fff;outline-offset:-5px}
+.rd-me b{display:block;font-size:26px;line-height:1.1;font-weight:700}
+.rd-me span{display:block;font-size:13px;color:#3E3854;margin-top:4px}
+.rd-on{display:inline-flex;align-items:center;gap:5px;margin-top:8px;font-size:12px;color:#17733F;font-weight:700}
+.rd-on i{width:7px;height:7px;background:#2FBF71}
+
+.rd-note{margin:-4px -4px 0 -18px;z-index:2}
+.rd-paper{min-height:88px;padding:10px 12px;font-family:'Nanum Gothic Coding','IBM Plex Sans KR',monospace;font-size:17px;font-weight:700;line-height:1.5;background:#fff;background-image:repeating-linear-gradient(180deg,transparent 0 25px,#E9E6F3 25px 26px)}
+.rd-paper small{display:block;font-size:12px;font-weight:400;color:#6E6888;margin-bottom:2px}
+.rd-caret{display:inline-block;width:2px;height:19px;background:#1E1A2E;vertical-align:-3px;margin-left:2px}
+
+.rd-media{margin:18px 30px 0 10px}
+.rd-np{display:flex;gap:12px;align-items:center}
+.rd-cd{width:56px;height:56px;flex:none;border-radius:50%;background:conic-gradient(from 30deg,#E8D6F6,#BFE3E6,#F3D6E4,#D6E6F6,#E8D6F6);box-shadow:inset 0 0 0 1px #8E88A8;position:relative}
+.rd-cd::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px;border-radius:50%;background:#E6E2F1;box-shadow:inset 0 0 0 1px #8E88A8}
+.rd-np small{display:block;font-size:12px;color:#6E6888}
+.rd-np b{display:block;font-size:17px;line-height:1.3}
+.rd-seek{margin-top:12px;height:14px;padding:3px;position:relative}
+.rd-seek i{display:block;height:100%;width:58%;background:repeating-linear-gradient(90deg,#5A2F7E 0 6px,#9A4F96 6px 8px)}
+.rd-ctrl{display:flex;align-items:center;gap:6px;margin-top:10px}
+.rd-ctrl b{width:44px;height:34px;display:flex;align-items:center;justify-content:center}
+.rd-ctrl span{margin-left:auto;font-family:'Silkscreen',monospace;font-size:12px;color:#3E3854}
+
+.rd-cal{margin:18px 10px 0 22px;z-index:1}
+.rd-calb{display:grid;grid-template-columns:1fr 118px;gap:10px;align-items:stretch}
+.rd-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;text-align:center;font-size:12px;padding:6px;background:#fff}
+.rd-grid .h{font-weight:700;color:#6E6888}
+.rd-grid .s{color:#C2416B}
+.rd-grid span{height:19px;line-height:19px}
+.rd-grid .t{background:#5A2F7E;color:#fff;font-weight:700}
+.rd-grid .bd{box-shadow:inset 0 0 0 2px #C2416B;color:#C2416B;font-weight:700;border-radius:50%}
+.rd-mon{grid-column:span 7;font-weight:700;font-size:12px;text-align:left;padding:0 2px 3px;color:#1E1A2E}
+.rd-dd{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#1F1B30;color:#9EF0C8;text-align:center;box-shadow:inset 2px 2px 0 #000,inset -2px -2px 0 #6E6888}
+.rd-dd small{font-size:12px;color:#C8C3DE}
+.rd-dd b{font-family:'Silkscreen',monospace;font-size:30px;line-height:1.1;font-weight:700;text-shadow:0 0 8px rgba(158,240,200,.5)}
+.rd-dd em{font-style:normal;font-family:'Silkscreen',monospace;font-size:11px;color:#8E88A8}
+
+.rd-dlg{margin:-4px 26px 0 40px;z-index:3}
+.rd-dlgb{display:flex;gap:12px;padding:16px 14px 6px}
+.rd-q{width:36px;height:36px;flex:none;border-radius:50%;background:#3D7BD6;color:#fff;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:inset -2px -2px 0 #24539C,inset 2px 2px 0 #7FB0F0}
+.rd-dlgb small{display:block;font-size:12px;color:#6E6888}
+.rd-dlgb p{margin:2px 0 0;font-size:17px;font-weight:700;line-height:1.35}
+.rd-dbtn{display:flex;justify-content:flex-end;gap:8px;padding:10px 10px 10px}
+.rd-dbtn span{min-width:84px;height:44px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;padding:0 14px}
+.rd-dbtn .rd-def{outline:1px dotted #1E1A2E;outline-offset:-7px}
+
+.rd-photo{margin:18px 10px 0 10px}
+.rd-pv{height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px;color:#6E6888;background:repeating-linear-gradient(45deg,#F3F1F8 0 10px,#ECE9F4 10px 20px);border:1.5px dashed #8E88A8}
+.rd-stat{display:flex;justify-content:space-between;font-size:12px;color:#3E3854;padding:6px 4px 2px}
+
+.rd-fold{margin:18px 30px 0 16px}
+.rd-list{background:#fff}
+.rd-list a{display:flex;align-items:center;gap:10px;min-height:52px;padding:6px 10px;text-decoration:none;color:#1E1A2E;border-bottom:1px solid #EEEBF5}
+.rd-list a:last-child{border-bottom:0}
+.rd-list a span{flex:1;line-height:1.3}
+.rd-list a span b{display:block;font-size:14px}
+.rd-list a span small{font-size:12px;color:#6E6888}
+.rd-list a em{font-style:normal;font-size:12px;color:#5A2F7E;font-weight:700}
+
+.rd-gb{margin:18px 10px 0 10px}
+.rd-gl{background:#fff}
+.rd-gh{display:grid;grid-template-columns:62px 1fr 44px;font-size:12px;font-weight:700;color:#3E3854}
+.rd-gh span{padding:4px 8px;background:#E6E2F1;box-shadow:inset -1px -1px 0 #A29CBB,inset 1px 1px 0 #fff}
+.rd-gr{display:grid;grid-template-columns:62px 1fr 44px;font-size:14px;border-bottom:1px solid #EEEBF5}
+.rd-gr span{padding:9px 8px}
+.rd-gr span:first-child{font-weight:700}
+.rd-gr span:last-child{font-size:12px;color:#6E6888;padding-top:11px}
+.rd-gin{display:flex;gap:8px;margin-top:10px}
+.rd-gin span.rd-sunk{flex:1;height:46px;display:flex;align-items:center;padding:0 12px;color:#8E88A8;font-size:14px}
+.rd-gin em{height:46px;padding:0 18px;font-style:normal;font-weight:700;font-size:14px;display:flex;align-items:center}
+
+.rd-tip{position:relative;margin:28px 0 0 30px;width:250px;background:#FFFBE0;border:1.5px solid #1E1A2E;padding:10px 12px;font-size:13px;line-height:1.4;box-shadow:3px 3px 0 rgba(30,26,46,.3)}
+.rd-tip b{display:block;font-size:13px}
+.rd-tip::after{content:"";position:absolute;left:44px;bottom:-11px;width:16px;height:16px;background:#FFFBE0;border-right:1.5px solid #1E1A2E;border-bottom:1.5px solid #1E1A2E;transform:skewX(30deg) rotate(45deg)}
+.rd-task{margin-top:16px;height:64px;display:flex;align-items:center;gap:6px;padding:6px;background:#E6E2F1;box-shadow:inset 0 2px 0 #fff,inset 0 -2px 0 #A29CBB}
+.rd-start{height:52px;display:flex;align-items:center;gap:8px;padding:0 12px 0 10px;border:0;font:inherit;cursor:pointer;font-weight:700;font-size:16px;color:#1E1A2E}
+.rd-start .rd-kn{width:30px;height:30px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#9A4F96,#5A2F7E);box-shadow:inset -2px -2px 0 #3B1D55,inset 2px 2px 0 #D08AB0}
+.rd-start em{font-style:normal;font-family:'Silkscreen',monospace;font-size:13px;font-weight:700;background:#5A2F7E;color:#fff;padding:2px 6px;margin-left:2px}
+.rd-tsk{flex:1;min-width:0;height:40px;display:flex;align-items:center;gap:6px;padding:0 8px;font-size:12px;color:#3E3854;white-space:nowrap;overflow:hidden}
+.rd-clock{height:40px;display:flex;align-items:center;padding:0 10px;font-family:'Silkscreen',monospace;font-size:12px;box-shadow:inset 1px 1px 0 #A29CBB,inset -1px -1px 0 #fff}
+.rd-own{text-align:center;font-size:12px;color:#5E5677;margin:0;padding:14px 0 18px;background:#E6E2F1}
+.rd-own a{color:#3E3854;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="rd">
+  <div class="rd-top"><span class="rd-brand">knock!</span><span class="rd-tray rd-bev"><i></i>오늘 4명 · 지금까지 112명</span></div>
+
+  <div class="rd-row1">
+    <div class="rd-icons">
+      <a href="#" class="rd-ic"><svg width="40" height="36" viewBox="0 0 40 36" aria-hidden="true"><rect x="2" y="2" width="36" height="30" fill="#fff" stroke="#1E1A2E" stroke-width="2"/><rect x="6" y="6" width="28" height="18" fill="#BFE3E6"/><path d="M6 24l9-9 7 7 4-4 8 6z" fill="#7DBE8B"/><circle cx="27" cy="11" r="3" fill="#F2C14E"/></svg>사진</a>
+      <a href="#" class="rd-ic"><svg width="40" height="36" viewBox="0 0 40 36" aria-hidden="true"><circle cx="20" cy="18" r="15" fill="#E8D6F6" stroke="#1E1A2E" stroke-width="2"/><circle cx="20" cy="18" r="9" fill="none" stroke="#B9A6D8" stroke-width="1.5"/><circle cx="20" cy="18" r="4" fill="#fff" stroke="#1E1A2E" stroke-width="2"/></svg>노래</a>
+      <a href="#" class="rd-ic"><svg width="40" height="36" viewBox="0 0 40 36" aria-hidden="true"><rect x="7" y="2" width="27" height="32" fill="#F7D6E3" stroke="#1E1A2E" stroke-width="2"/><path d="M12 10h17M12 16h17M12 22h11" stroke="#1E1A2E" stroke-width="2"/><rect x="4" y="6" width="6" height="3" fill="#1E1A2E"/><rect x="4" y="15" width="6" height="3" fill="#1E1A2E"/><rect x="4" y="24" width="6" height="3" fill="#1E1A2E"/></svg>방명록</a>
+      <a href="#" class="rd-ic"><svg width="40" height="36" viewBox="0 0 40 36" aria-hidden="true"><path d="M3 7h12l3 4h19v21H3z" fill="#F6D66E" stroke="#1E1A2E" stroke-width="2" stroke-linejoin="round"/><path d="M3 14h34" stroke="#C9A43A" stroke-width="2"/></svg>즐겨찾기</a>
+    </div>
+
+    <div class="rd-col">
+    <div class="rd-win rd-bev rd-prof">
+      <div class="rd-tb"><svg class="rd-ti" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1" y="1" width="12" height="12" fill="#fff"/><circle cx="7" cy="5.5" r="2.4" fill="#5A2F7E"/><path d="M2.5 12a4.5 4.5 0 019 0z" fill="#5A2F7E"/></svg><span class="rd-tt">내 정보</span><span class="rd-btns"><b><i style="width:8px;height:2px;margin-top:6px"></i></b><b><i style="width:8px;height:8px;background:none;box-shadow:inset 0 0 0 1.5px #1E1A2E"></i></b></span></div>
+      <div class="rd-body">
+        <div class="rd-me">
+          <div class="rd-av" role="img" aria-label="프로필 사진 자리"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E6888" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>프로필</div>
+          <div><b>지우</b><span>똑똑, 들어와도 돼</span><span class="rd-on"><i></i>방에 있어요</span></div>
+        </div>
+      </div>
+    </div>
+      <div class="rd-win rd-bev rd-note">
+        <div class="rd-tb"><svg class="rd-ti" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="10" height="12" fill="#fff"/><path d="M4 4h6M4 7h6M4 10h4" stroke="#5A2F7E" stroke-width="1.4"/></svg><span class="rd-tt">오늘의기분.txt</span><span class="rd-btns"><b><i style="width:8px;height:2px;margin-top:6px"></i></b><b><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="#1E1A2E" stroke-width="1.8"/></svg></b></span></div>
+        <div class="rd-menu"><span><u>파</u>일</span><span><u>편</u>집</span><span><u>보</u>기</span></div>
+        <div class="rd-paper rd-sunk"><small>오늘의 기분</small>시험 D-3, 커피 수혈 중<span class="rd-caret"></span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="rd-win rd-bev rd-media">
+    <div class="rd-tb rd-off"><svg class="rd-ti" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="6" fill="#fff"/><path d="M5.5 4.5v5l4-2.5z" fill="#7C7891"/></svg><span class="rd-tt">재생기 — 요즘 듣는 노래</span><span class="rd-btns"><b><i style="width:8px;height:2px;margin-top:6px"></i></b></span></div>
+    <div class="rd-body">
+      <div class="rd-np"><span class="rd-cd" aria-hidden="true"></span><div><small>지금 재생 중</small><b>좋은 날 · 아이유</b></div></div>
+      <div class="rd-seek rd-sunk"><i></i></div>
+      <div class="rd-ctrl">
+        <b class="rd-bev"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 0v12L0 6zM16 0v12L8 6z" fill="#1E1A2E"/></svg></b>
+        <b class="rd-bev"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M0 0h4v12H0zM8 0h4v12H8z" fill="#1E1A2E"/></svg></b>
+        <b class="rd-bev"><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 0v12l8-6zM8 0v12l8-6z" fill="#1E1A2E"/></svg></b>
+        <span>2:14 / 3:52</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="rd-win rd-bev rd-cal">
+    <div class="rd-tb rd-off"><svg class="rd-ti" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1" y="2" width="12" height="11" fill="#fff"/><rect x="1" y="2" width="12" height="3" fill="#C2416B"/></svg><span class="rd-tt">달력 · 시계</span><span class="rd-btns"><b><i style="width:8px;height:2px;margin-top:6px"></i></b></span></div>
+    <div class="rd-body rd-calb">
+      <div class="rd-grid rd-sunk">
+        <span class="rd-mon">2026년 10월</span>
+        <span class="h s">일</span><span class="h">월</span><span class="h">화</span><span class="h">수</span><span class="h">목</span><span class="h">금</span><span class="h">토</span>
+        <span></span><span></span><span></span><span></span><span>1</span><span>2</span><span>3</span>
+        <span class="s">4</span><span>5</span><span>6</span><span class="t">7</span><span>8</span><span>9</span><span>10</span>
+        <span class="s">11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span>
+        <span class="s">18</span><span class="bd">19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span>
+      </div>
+      <div class="rd-dd"><small>생일까지</small><b>D-12</b><em>10.19</em></div>
+    </div>
+  </div>
+
+  <div class="rd-win rd-bev rd-dlg">
+    <div class="rd-tb"><span class="rd-tt">요즘 질문</span><span class="rd-btns"><b><svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true"><path d="M1 1l6 6M7 1L1 7" stroke="#1E1A2E" stroke-width="1.8"/></svg></b></span></div>
+    <div class="rd-dlgb"><span class="rd-q">?</span><div><small>지우가 물어봐요</small><p>제일 좋아하는 편의점 간식은?</p></div></div>
+    <div class="rd-dbtn"><span class="rd-bev rd-def">답하기</span><span class="rd-bev">확인</span></div>
+  </div>
+
+  <div class="rd-win rd-bev rd-photo">
+    <div class="rd-tb rd-off"><svg class="rd-ti" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="1" y="2" width="12" height="10" fill="#fff"/><path d="M2 11l3-4 3 3 2-2 3 3z" fill="#7C7891"/></svg><span class="rd-tt">사진 보기 — 도서관창가.jpg</span><span class="rd-btns"><b><i style="width:8px;height:2px;margin-top:6px"></i></b><b><i style="width:8px;height:8px;background:none;box-shadow:inset 0 0 0 1.5px #1E1A2E"></i></b></span></div>
+    <div class="rd-body" style="padding:8px">
+      <div class="rd-pv" role="img" aria-label="주인이 올린 사진 자리"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6E6888" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>주인이 올린 사진</div>
+      <div class="rd-stat"><span>1 / 3</span><span>10.03 올림</span></div>
+    </div>
+  </div>
+
+  <div class="rd-win rd-bev rd-fold">
+    <div class="rd-tb rd-off"><svg class="rd-ti" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 3h5l1 2h6v7H1z" fill="#F6D66E"/></svg><span class="rd-tt">즐겨찾기</span><span class="rd-btns"><b><i style="width:8px;height:2px;margin-top:6px"></i></b></span></div>
+    <div class="rd-body" style="padding:8px">
+      <div class="rd-list rd-sunk">
+        <a href="#"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="3" y="3" width="22" height="22" rx="6" fill="#F7D6E3" stroke="#1E1A2E" stroke-width="2"/><circle cx="14" cy="14" r="5" fill="none" stroke="#1E1A2E" stroke-width="2"/></svg><span><b>인스타그램</b><small>@jiwoo.room</small></span><em>열기</em></a>
+        <a href="#"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="2" y="7" width="24" height="17" fill="#BFE3E6" stroke="#1E1A2E" stroke-width="2"/><circle cx="14" cy="15.5" r="4.5" fill="#fff" stroke="#1E1A2E" stroke-width="2"/><path d="M8 7l2-3h8l2 3" fill="none" stroke="#1E1A2E" stroke-width="2"/></svg><span><b>필름 사진 모아둔 곳</b><small>블로그</small></span><em>열기</em></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="rd-win rd-bev rd-gb">
+    <div class="rd-tb"><svg class="rd-ti" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="10" height="12" fill="#F7D6E3"/><path d="M4 4h6M4 7h6" stroke="#5A2F7E" stroke-width="1.4"/></svg><span class="rd-tt">방명록 (2)</span><span class="rd-btns"><b><i style="width:8px;height:2px;margin-top:6px"></i></b><b><i style="width:8px;height:8px;background:none;box-shadow:inset 0 0 0 1.5px #1E1A2E"></i></b></span></div>
+    <div class="rd-body" style="padding:8px">
+      <div class="rd-gl rd-sunk" style="padding:3px">
+        <div class="rd-gh"><span>이름</span><span>한 줄</span><span>날짜</span></div>
+        <div class="rd-gr"><span>민지</span><span>케이스 뭐야 너무 귀엽잖아</span><span>10.4</span></div>
+        <div class="rd-gr" style="border-bottom:0"><span>익명</span><span>도서관에서 찍고 감</span><span>10.2</span></div>
+      </div>
+      <div class="rd-gin"><span class="rd-sunk">한 줄 남기기</span><em class="rd-bev">남기기</em></div>
+    </div>
+  </div>
+
+  <div class="rd-tip"><b>지우가 노크를 기다려요</b>누르면 바로 알림이 가요</div>
+  <div class="rd-task">
+    <button type="button" class="rd-start rd-bev"><span class="rd-kn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 014 0v4M11 10V6a2 2 0 014 0v5M15 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5.2-3L4 14a2 2 0 013.4-2L9 13"/></svg></span>노크하기<em>27</em></button>
+    <span class="rd-tsk rd-sunk"><svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="10" height="12" fill="#fff" stroke="#3E3854"/></svg>오늘의기분.txt</span>
+    <span class="rd-clock">21:14</span>
+  </div>
+  <p class="rd-own">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

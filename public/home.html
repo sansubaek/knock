@@ -444,6 +444,15 @@ a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
   .ln-dock{display:block;position:sticky;bottom:0;z-index:15;background:#fff;border-top:1px solid #E5E8EB;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px))}
   .ln-dock .ln-btn{display:flex;width:100%;height:52px}
 }
+/* ── 베타: 테마 투표 띠 (투표 끝나면 #voteBar, .nav-vote 지우고 아래 높이 보정도 되돌리기) ── */
+.vote-bar{display:flex;align-items:center;justify-content:center;gap:10px;min-height:38px;padding:6px 16px;background:#FFD66B;color:#3D2A12;text-decoration:none;font-size:14px;line-height:1.35;word-break:keep-all}
+.vote-bar:hover .vote-go{transform:translateX(3px)}
+.vote-pill{flex:none;font:500 11px/1 var(--mono);letter-spacing:.06em;padding:4px 6px;border-radius:5px;background:#3D2A12;color:#FFD66B}
+.vote-t b{font-weight:700}
+.vote-go{flex:none;font-weight:700;transition:transform .15s}
+.nav a.nav-vote{color:var(--ink);font-weight:700}
+.k7-doors{height:calc(100svh - 107px)}
+@media (max-width:640px){.nav a.nav-vote{display:none}.vote-long{display:none}.vote-bar{font-size:13px;gap:8px}.k7-doors{height:calc(100svh - 99px)}}
 </style>
 
 </head>
@@ -453,11 +462,13 @@ a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
     <a class="logo" id="logo" href="#home">knock</a>
     <nav class="nav" aria-label="주요 메뉴">
       <a href="#home" class="hide-sm" id="navHome">처음으로</a>
-      <a href="#lost">분실</a>
+      <a href="/vote" class="nav-vote">테마 투표</a>
+      <a href="#lost" class="hide-sm">분실</a>
       <a href="#beta">베타 신청</a>
       <a class="btn" href="/my" id="loginBtn">내 knock</a>
     </nav>
   </div>
+  <a class="vote-bar" id="voteBar" href="/vote"><span class="vote-pill">BETA</span><span class="vote-t"><b>테마 투표 중</b><span class="vote-long"> · 내 페이지 디자인 60개 중</span> 1~5위를 골라주세요</span><span class="vote-go" aria-hidden="true">→</span></a>
 </header>
 
 <!-- ═════════ HOME ═════════ -->

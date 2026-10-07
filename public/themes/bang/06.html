@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 06 · 프로필 피드</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+.sn-root{width:390px;min-height:1207px;box-sizing:border-box;background:#FBFAF7;color:#18171C;font-family:'IBM Plex Sans KR','Noto Sans KR',sans-serif;font-size:14px;line-height:1.45;word-break:keep-all;padding-bottom:26px}
+.sn-root *{box-sizing:border-box}
+.sn-num{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.03em}
+
+.sn-bar{display:flex;justify-content:space-between;align-items:center;height:52px;padding:0 18px}
+.sn-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.04em}
+.sn-today{display:flex;align-items:center;gap:6px;font-size:12px;color:#5E5B66;background:#F0EEE8;border-radius:99px;padding:5px 11px}
+.sn-today b{color:#18171C;font-weight:700}
+
+.sn-head{display:flex;align-items:center;gap:20px;padding:6px 18px 0}
+.sn-av{position:relative;width:88px;height:88px;flex:none;border-radius:50%;padding:2.5px;background:#18171C}
+.sn-av div{width:100%;height:100%;border-radius:50%;background:#FBFAF7;padding:3px}
+.sn-av div div{border:1.5px dashed #C9C5BD;background:#F3F1EC;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;color:#8E8A96;font-size:11px;padding:0}
+.sn-av .sn-dot{position:absolute;right:2px;bottom:4px;width:24px;height:24px;border-radius:50%;background:#FFE27A;border:3px solid #FBFAF7;display:flex;align-items:center;justify-content:center}
+.sn-stats{flex:1;display:flex;justify-content:space-between;text-align:center}
+.sn-stats div{flex:1}
+.sn-stats b{display:block;font-size:20px;font-weight:800;line-height:1.2}
+.sn-stats span{font-size:12px;color:#5E5B66}
+
+.sn-bio{padding:14px 18px 0}
+.sn-bio h1{margin:0;font-size:17px;font-weight:700;display:flex;align-items:center;gap:6px}
+.sn-bio h1 small{font-size:12px;font-weight:500;color:#8E8A96}
+.sn-bio p{margin:2px 0 0;font-size:14px;color:#2E2C35}
+.sn-mood{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:13px;background:#FFF6CF;border-radius:8px;padding:4px 9px;color:#5A4A12}
+.sn-links{display:flex;flex-direction:column;gap:2px;margin-top:8px}
+.sn-links a{display:flex;align-items:center;gap:6px;color:#2F4FA8;text-decoration:none;font-size:13px;font-weight:600;min-height:26px}
+.sn-links a span{color:#8E8A96;font-weight:400}
+
+.sn-acts{display:flex;gap:8px;padding:14px 18px 0}
+.sn-knock{flex:1;height:48px;border:none;border-radius:14px;background:#18171C;color:#fff;font:inherit;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;position:relative;overflow:hidden}
+.sn-knock .sn-h{width:28px;height:28px;border-radius:50%;background:#FFE27A;display:flex;align-items:center;justify-content:center}
+.sn-knock em{font-style:normal;font-weight:500;font-size:13px;color:#BDB9C4}
+.sn-sec{height:48px;padding:0 16px;border-radius:14px;border:1.5px solid #E2DFD8;background:#fff;font:inherit;font-size:14px;font-weight:700;color:#18171C;display:flex;align-items:center;gap:6px;cursor:pointer}
+
+.sn-hl{display:flex;gap:14px;padding:20px 18px 4px;overflow:hidden}
+.sn-b{display:flex;flex-direction:column;align-items:center;gap:6px;width:68px;flex:none}
+.sn-ring{width:68px;height:68px;border-radius:50%;padding:3px;border:1.5px solid #D9D5CD}
+.sn-ring div{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800}
+.sn-b span{font-size:12px;color:#2E2C35;font-weight:500}
+.sn-b.new .sn-ring{border:2px solid #18171C}
+
+.sn-tabs{display:flex;margin-top:16px;border-top:1px solid #ECE9E2}
+.sn-tabs a{flex:1;height:46px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:600;color:#8E8A96;text-decoration:none;position:relative}
+.sn-tabs a.on{color:#18171C}
+.sn-tabs a.on:after{content:"";position:absolute;left:30%;right:30%;top:-1px;height:2px;background:#18171C;border-radius:1px}
+
+.sn-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:128px;gap:3px;padding:0 3px}
+.sn-t{position:relative;padding:12px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;border-radius:4px}
+.sn-t small{font-size:12px;opacity:.75;font-weight:500}
+.sn-t p{margin:0;font-weight:700;line-height:1.3}
+.sn-big{grid-column:span 2;grid-row:span 2}
+.sn-ph{border:1.5px dashed #CFCBC2;background:#F3F1EC;align-items:center;justify-content:center;gap:6px;color:#8E8A96;font-size:12px;text-align:center}
+.sn-ph .sn-multi{position:absolute;right:10px;top:10px}
+.sn-mo{background:#FFE9A3;color:#3F3410}
+.sn-mo p{font-size:15px}
+.sn-dd{background:#18171C;color:#fff}
+.sn-dd b{font-family:'Bricolage Grotesque',sans-serif;font-size:40px;font-weight:800;letter-spacing:-.04em;line-height:1;color:#FFE27A}
+.sn-dd p{font-size:13px;font-weight:500;color:#D9D6DF}
+.sn-so{background:#E3DEF5;color:#2A2347}
+.sn-so .sn-pl{width:34px;height:34px;border-radius:50%;background:#2A2347;display:flex;align-items:center;justify-content:center}
+.sn-so p{font-size:15px}
+.sn-so p span{display:block;font-size:12px;font-weight:500;opacity:.75}
+.sn-qa{background:#D6EEE3;color:#173D30}
+.sn-qa p{font-size:14px}
+
+.sn-cm{padding:22px 18px 0}
+.sn-cmh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.sn-cmh b{font-size:16px;font-weight:700}
+.sn-cmh span{font-size:12px;color:#8E8A96}
+.sn-c{display:flex;gap:12px;align-items:flex-start;padding:10px 0}
+.sn-ci{width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.sn-c div{flex:1;min-width:0}
+.sn-c p{margin:0;font-size:14px;line-height:1.45}
+.sn-c p b{font-weight:700;margin-right:6px}
+.sn-c small{display:block;font-size:12px;color:#8E8A96;margin-top:2px}
+.sn-c svg{flex:none;margin-top:8px}
+.sn-in{display:flex;align-items:center;gap:10px;margin-top:8px;padding:6px 6px 6px 6px;border:1.5px solid #E2DFD8;border-radius:16px;background:#fff}
+.sn-in .sn-ci{width:34px;height:34px;border:1.5px dashed #CFCBC2;background:#F3F1EC}
+.sn-in .sn-ci{flex:none}
+.sn-in span.sn-ph2{flex:1;color:#8E8A96;font-size:14px}
+.sn-in button{height:44px;padding:0 16px;border:none;border-radius:12px;background:#18171C;color:#fff;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+
+.sn-foot{text-align:center;font-size:12px;color:#A29EA9;margin:28px 0 0}
+.sn-foot a{color:#5E5B66;text-decoration:none;font-weight:700}
+</style>
+</helmet>
+<div class="sn-root">
+  <div class="sn-bar">
+    <span class="sn-logo">knock!</span>
+    <span class="sn-today"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#5E5B66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>오늘 <b>4명</b> 다녀감</span>
+  </div>
+
+  <div class="sn-head">
+    <div class="sn-av" role="img" aria-label="프로필 사진 자리"><div><div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A9A5B0" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>프로필</div></div>
+      <span class="sn-dot"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#18171C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 01-5 5h-1a5 5 0 01-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 010 5H16"/></svg></span>
+    </div>
+    <div class="sn-stats">
+      <div><b class="sn-num">27</b><span>노크</span></div>
+      <div><b class="sn-num">2</b><span>방명록</span></div>
+      <div><b class="sn-num">112</b><span>방문</span></div>
+    </div>
+  </div>
+
+  <div class="sn-bio">
+    <h1>지우 <small>지우의 방</small></h1>
+    <p>똑똑, 들어와도 돼</p>
+    <div class="sn-links">
+      <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F4FA8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg>@jiwoo.room <span>인스타그램</span></a>
+      <a href="#"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F4FA8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg>필름 사진 모아둔 곳 <span>블로그</span></a>
+    </div>
+  </div>
+
+  <div class="sn-acts">
+    <button type="button" class="sn-knock"><span class="sn-h"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18171C" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 014 0v4M11 10V6a2 2 0 014 0v5M15 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5.2-3L4 14a2 2 0 013.4-2L9 13"/></svg></span>노크하기 <em>27번</em></button>
+    <button type="button" class="sn-sec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18171C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>방명록</button>
+  </div>
+
+  <div class="sn-hl">
+    <div class="sn-b new"><div class="sn-ring"><div style="background:#FFE9A3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3F3410" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 01-5 5h-1a5 5 0 01-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 010 5H16"/><path d="M9 3c-.6 1 .6 2 0 3M12 3c-.6 1 .6 2 0 3"/></svg></div></div><span>기분</span></div>
+    <div class="sn-b"><div class="sn-ring"><div style="background:#E3DEF5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A2347" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></div></div><span>노래</span></div>
+    <div class="sn-b new"><div class="sn-ring"><div style="background:#18171C;color:#FFE27A;font-family:'Bricolage Grotesque',sans-serif;font-size:17px;letter-spacing:-.03em">D-12</div></div><span>D-day</span></div>
+    <div class="sn-b"><div class="sn-ring"><div style="background:#D6EEE3;color:#173D30;font-family:'Bricolage Grotesque',sans-serif;font-size:22px">Q</div></div><span>질문</span></div>
+  </div>
+
+  <div class="sn-tabs">
+    <a href="#" class="on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#18171C" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>내 방</a>
+    <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8E8A96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>방명록 2</a>
+  </div>
+
+  <div class="sn-grid">
+    <div class="sn-t sn-big sn-ph" role="img" aria-label="주인이 올린 사진 자리"><svg class="sn-multi" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9A5B0" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="13" height="13" rx="2"/><path d="M4 16V6a2 2 0 012-2h10"/></svg><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#A9A5B0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>주인이 올린 사진</div>
+    <div class="sn-t sn-mo"><small>오늘의 기분</small><p>시험 D-3,<br>커피 수혈 중</p></div>
+    <div class="sn-t sn-dd"><b>D-12</b><p>생일까지</p></div>
+    <div class="sn-t sn-so"><span class="sn-pl"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg></span><p>좋은 날<span>아이유</span></p></div>
+    <div class="sn-t sn-qa"><small>요즘 질문</small><p>제일 좋아하는 편의점 간식은?</p></div>
+    <div class="sn-t sn-ph" role="img" aria-label="주인이 올린 사진 자리"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A9A5B0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>사진</div>
+  </div>
+
+  <div class="sn-cm">
+    <div class="sn-cmh"><b>방명록 2</b><span>최신순</span></div>
+    <div class="sn-c"><span class="sn-ci" style="background:#FFE0D2;color:#7A3A22">민</span><div><p><b>민지</b>케이스 뭐야 너무 귀엽잖아</p><small>10.4</small></div><svg width="16" height="16" viewBox="0 0 24 24" fill="#E8604C" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-9A5.3 5.3 0 0112 6.6 5.3 5.3 0 0121.3 12C19 16.6 12 21 12 21z"/></svg></div>
+    <div class="sn-c"><span class="sn-ci" style="background:#ECEAF2;color:#5E5B66">?</span><div><p><b>익명</b>도서관에서 찍고 감</p><small>10.2</small></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B5B1BC" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-9A5.3 5.3 0 0112 6.6 5.3 5.3 0 0121.3 12C19 16.6 12 21 12 21z"/></svg></div>
+    <div class="sn-in"><span class="sn-ci" aria-hidden="true"></span><span class="sn-ph2">한 줄 남기기</span><button type="button">남기기</button></div>
+  </div>
+
+  <p class="sn-foot">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

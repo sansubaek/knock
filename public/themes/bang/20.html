@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 20 · 냉장고 문</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Jua&amp;family=Gaegu:wght@400;700&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;family=Orbit&amp;display=swap">
+<style>
+body{margin:0}
+.fr{width:390px;min-height:1521px;box-sizing:border-box;position:relative;overflow:hidden;color:#33403A;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.45;word-break:keep-all;padding:20px 14px 22px;
+background:#F4F1EA;background-image:linear-gradient(rgba(150,140,120,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(150,140,120,.10) 1px,transparent 1px);background-size:48px 48px}
+.fr *{box-sizing:border-box}
+.fr-pen{font-family:'Gaegu',cursive}
+.fr-jua{font-family:'Jua',sans-serif}
+.fr-rel{position:relative}
+.fr-fridge{position:relative;border-radius:36px 36px 26px 26px;padding:0;box-shadow:0 22px 40px rgba(60,80,70,.22),0 2px 0 rgba(255,255,255,.7) inset;background:#BFD9C6}
+.fr-door{position:relative;padding:22px 44px 26px 20px;overflow:visible;
+background:linear-gradient(90deg,#C3DCCA 0%,#D5E9DA 14%,#E8F4EA 22%,#D8EBDC 30%,#CCE2D1 60%,#C2DBC8 88%,#B3D0BB 100%)}
+.fr-door::before{content:'';position:absolute;top:0;bottom:0;left:56%;width:34px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.28),rgba(255,255,255,0));pointer-events:none}
+.fr-frz{border-radius:36px 36px 8px 8px;padding-bottom:22px;box-shadow:inset 0 3px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(60,90,70,.15)}
+.fr-main{border-radius:8px 8px 26px 26px;margin-top:7px;box-shadow:inset 0 2px 0 rgba(255,255,255,.55),inset 0 -3px 0 rgba(60,90,70,.15)}
+.fr-seam{position:absolute;left:0;right:0;height:7px;background:#93B39D}
+.fr-handle{position:absolute;right:12px;width:16px;border-radius:10px;background:linear-gradient(90deg,#9AA6A0 0%,#F4F7F5 35%,#C9D2CD 60%,#8C9792 100%);box-shadow:-3px 4px 8px rgba(40,60,50,.25);z-index:2}
+.fr-handle::before,.fr-handle::after{content:'';position:absolute;left:3px;width:10px;height:12px;background:#A9B4AE;border-radius:3px}
+.fr-handle::before{top:-6px}.fr-handle::after{bottom:-6px}
+.fr-badge{display:inline-block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.04em;color:#56655D;text-shadow:0 1px 0 rgba(255,255,255,.8),0 -1px 0 rgba(40,60,50,.25);padding:2px 12px 3px;border-radius:99px;background:linear-gradient(180deg,#F2F6F3,#BCC7C1);box-shadow:0 1px 2px rgba(40,60,50,.3),inset 0 1px 0 #fff}
+.fr-panel{margin-top:12px;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#2E3A36,#1F2926);border-radius:16px;padding:12px 14px;color:#BFF5DA;box-shadow:inset 0 2px 6px rgba(0,0,0,.5),0 1px 0 rgba(255,255,255,.6)}
+.fr-panel .fr-seg{font-family:'Orbit',monospace;display:flex;flex-direction:column;line-height:1.1}
+.fr-panel .fr-seg small{font-size:12px;color:#8FC7AC}
+.fr-panel .fr-seg b{font-size:24px;font-weight:400;text-shadow:0 0 8px rgba(160,255,210,.55);letter-spacing:.04em}
+.fr-panel .fr-seg b span{font-size:13px;margin-left:2px}
+.fr-panel .fr-div{width:1px;align-self:stretch;background:rgba(191,245,218,.2)}
+.fr-panel svg{margin-left:auto;flex:none;opacity:.85}
+
+.fr-namerow{display:flex;align-items:flex-start;gap:10px;margin-top:4px}
+.fr-jamo{position:relative;display:inline-flex;align-items:center;justify-content:center;font-family:'Jua','Noto Sans KR',sans-serif;font-weight:900;line-height:1}
+.fr-c1{color:#F08C78;text-shadow:0 2px 0 #D86E5B,0 4px 0 #C25E4C,0 7px 8px rgba(40,60,50,.28)}
+.fr-c2{color:#F4CD67;text-shadow:0 2px 0 #DDB24C,0 4px 0 #C99C3A,0 7px 8px rgba(40,60,50,.28)}
+.fr-c3{color:#86B8E8;text-shadow:0 2px 0 #6A9DD0,0 4px 0 #5888BA,0 7px 8px rgba(40,60,50,.28)}
+.fr-c4{color:#B79BE3;text-shadow:0 2px 0 #9C80CB,0 4px 0 #886CB5,0 7px 8px rgba(40,60,50,.28)}
+.fr-syl{position:relative;width:124px;height:116px}
+.fr-syl .fr-jamo{position:absolute}
+.fr-pf{margin-left:auto;margin-top:6px;position:relative;width:78px;height:92px;background:#FFFDF8;padding:6px;transform:rotate(5deg);box-shadow:0 4px 8px rgba(40,60,50,.2)}
+.fr-pf div{height:100%;border:1.5px dashed #9FB2A6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:12px;color:#5E6E66;text-align:center;line-height:1.2}
+.fr-mag{position:absolute;z-index:3;filter:drop-shadow(0 3px 3px rgba(40,60,50,.3))}
+.fr-intro{display:inline-block;margin-top:8px;background:#FFFDF8;padding:6px 14px 6px 26px;font-size:20px;font-weight:700;transform:rotate(-2deg);box-shadow:0 3px 6px rgba(40,60,50,.15);position:relative}
+
+.fr-row1{display:grid;grid-template-columns:1fr 132px;gap:12px;margin-top:22px;align-items:center}
+.fr-mood{position:relative;background:#FFF6D8;padding:24px 12px 12px;transform:rotate(-3deg);box-shadow:0 4px 8px rgba(40,60,50,.18)}
+.fr-mood small{display:block;font-size:12px;font-weight:700;color:#A07F2A}
+.fr-mood p{margin:4px 0 0;font-size:21px;line-height:1.25;font-weight:700;color:#3D3527}
+.fr-knock{position:relative;width:132px;height:132px;border-radius:50%;border:none;cursor:pointer;font:inherit;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;
+background:radial-gradient(circle at 34% 28%,#FFB5A6 0%,#F2806C 34%,#DC5F4B 72%,#C24E3C 100%);box-shadow:0 10px 18px rgba(150,60,40,.35),0 4px 0 #A9402F,inset 0 -6px 12px rgba(120,30,20,.25),inset 0 4px 6px rgba(255,255,255,.35)}
+.fr-knock::before{content:'';position:absolute;left:24px;top:16px;width:46px;height:22px;border-radius:50%;background:rgba(255,255,255,.45);transform:rotate(-28deg);filter:blur(1px)}
+.fr-knock .fr-k{font-size:19px;font-weight:900;display:flex;align-items:center;gap:4px;position:relative}
+.fr-knock .fr-n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1;position:relative;text-shadow:0 2px 0 rgba(140,40,30,.35)}
+.fr-knote{text-align:right;font-size:12px;color:#3F5148;margin-top:10px;padding-right:2px}
+
+.fr-row2{display:grid;grid-template-columns:1fr 112px;gap:10px;margin-top:30px;align-items:start}
+.fr-pola{position:relative;background:#FFFDF8;padding:10px 10px 12px;transform:rotate(-2.5deg);box-shadow:0 6px 12px rgba(40,60,50,.2)}
+.fr-pola .fr-ph{height:196px;border:1.5px dashed #9FB2A6;background:#F2F5F1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:13px;color:#5E6E66}
+.fr-pola .fr-pen{display:block;font-size:17px;margin-top:6px;text-align:center;color:#4C5A53}
+.fr-side{display:flex;flex-direction:column;gap:18px;padding-top:6px}
+.fr-cas{position:relative;width:112px;height:76px;border-radius:9px;background:linear-gradient(180deg,#8FB0C9,#7A9DB8);transform:rotate(7deg);box-shadow:0 5px 8px rgba(40,60,50,.28),inset 0 2px 0 rgba(255,255,255,.35);padding:7px}
+.fr-cas .fr-lab{background:#FFF8EA;border-radius:4px;padding:3px 6px 0;height:40px}
+.fr-cas .fr-lab b{display:block;font-size:13px;line-height:1.25;color:#2D3B45}
+.fr-cas .fr-lab span{display:block;font-size:12px;line-height:1.2;color:#5A6A75}
+.fr-cas .fr-reels{position:absolute;left:24px;right:24px;bottom:6px;height:18px;border-radius:9px;background:rgba(40,55,70,.35);display:flex;justify-content:space-between;align-items:center;padding:0 5px}
+.fr-cas .fr-reels i{width:11px;height:11px;border-radius:50%;background:#FFF8EA;border:3px solid #6E8EA8}
+.fr-cal{position:relative;background:#FFFDF8;width:112px;text-align:center;transform:rotate(-4deg);box-shadow:0 5px 10px rgba(40,60,50,.2);padding-bottom:10px}
+.fr-cal .fr-mo{background:#E8806D;color:#fff;font-size:12px;font-weight:900;padding:5px 0 4px;letter-spacing:.1em;position:relative}
+.fr-cal .fr-mo::before{content:'';position:absolute;left:0;right:0;top:-4px;height:4px;background:radial-gradient(circle at 4px 4px,transparent 2px,#E8806D 2.5px) 0 0/8px 4px}
+.fr-cal .fr-day{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:46px;line-height:1.05;color:#33403A;position:relative;display:inline-block;margin-top:4px}
+.fr-cal .fr-day svg{position:absolute;left:-12px;top:-4px}
+.fr-cal small{display:block;font-size:12px;color:#5E6E66;line-height:1.2}
+.fr-cal b{display:block;font-size:15px;font-weight:900;color:#D2604C;margin-top:2px}
+
+.fr-memo{position:relative;margin-top:30px;background:#FFFDF8;padding:24px 16px 14px;transform:rotate(1.2deg);box-shadow:0 5px 10px rgba(40,60,50,.18);background-image:repeating-linear-gradient(180deg,transparent 0 27px,rgba(120,160,200,.3) 27px 28px);background-position:0 18px}
+.fr-memo::before{content:'';position:absolute;top:8px;left:20px;right:20px;height:8px;background:radial-gradient(circle,#CFE3D4 3px,transparent 3.5px) 0 0/16px 8px}
+.fr-memo small{font-size:12px;font-weight:700;color:#6A8476}
+.fr-memo p{margin:2px 0 0;font-size:18px;font-weight:900;line-height:28px;color:#2E3A35}
+.fr-memo .fr-pen{font-size:18px;color:#7C8F86;line-height:28px}
+
+.fr-links{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.fr-lk{display:flex;align-items:center;gap:12px;min-height:56px;border-radius:14px;padding:8px 14px;text-decoration:none;color:#2E3A35;box-shadow:0 4px 8px rgba(40,60,50,.2),inset 0 -3px 0 rgba(0,0,0,.08),inset 0 2px 0 rgba(255,255,255,.5)}
+.fr-lk:nth-child(1){background:#FBE3D6;transform:rotate(-1.4deg);margin-right:16px}
+.fr-lk:nth-child(2){background:#E2E4F8;transform:rotate(1.2deg);margin-left:14px}
+.fr-lk .fr-ic{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 1px 2px rgba(40,60,50,.2)}
+.fr-lk span{flex:1;font-size:15px;font-weight:700;line-height:1.25}
+.fr-lk small{display:block;font-size:12px;font-weight:400;color:#5E6E66}
+
+.fr-gbh{display:flex;align-items:baseline;gap:8px;margin-top:34px}
+.fr-gbh b{font-size:22px}
+.fr-gbh small{font-size:12px;color:#3F5148}
+.fr-notes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.fr-note{position:relative;background:#FFFDF8;padding:22px 12px 12px;box-shadow:0 4px 8px rgba(40,60,50,.18);min-height:104px}
+.fr-note:nth-child(1){transform:rotate(-2deg)}
+.fr-note:nth-child(2){transform:rotate(2.4deg);background:#EAF3FB;margin-top:8px}
+.fr-note .fr-who{font-size:12px;color:#5E6E66;display:flex;justify-content:space-between}
+.fr-note .fr-who b{color:#2E3A35;font-size:13px}
+.fr-note p{margin:4px 0 0;font-size:15px;font-weight:700;line-height:1.35}
+.fr-board{margin-top:20px;background:#FFFFFF;border-radius:14px;padding:8px;display:flex;gap:8px;box-shadow:0 4px 8px rgba(40,60,50,.18),inset 0 0 0 4px #E6ECE8}
+.fr-board input{flex:1;min-width:0;height:48px;border:none;background:transparent;font:inherit;font-size:15px;padding:0 10px;color:#2E3A35;outline:none}
+.fr-board input::placeholder{color:#7C8F86}
+.fr-board button{height:48px;padding:0 18px;border:none;border-radius:99px;background:#33403A;color:#fff;font:inherit;font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 3px 0 #1E2723}
+.fr-feet{display:flex;justify-content:space-between;padding:0 30px}
+.fr-feet i{width:34px;height:10px;border-radius:0 0 8px 8px;background:#8FA898}
+.fr-grill{position:absolute;left:24px;right:44px;bottom:10px;height:8px;background:repeating-linear-gradient(90deg,rgba(60,90,70,.25) 0 10px,transparent 10px 16px);border-radius:4px}
+.fr-foot{text-align:center;font-size:12px;color:#9A968C;margin-top:20px}
+</style>
+</helmet>
+<div class="fr">
+<div class="fr-fridge">
+
+<div class="fr-door fr-frz">
+<div class="fr-handle" style="top:46px;height:96px"></div>
+<span class="fr-badge">knock!</span>
+<div class="fr-panel">
+<div class="fr-seg"><small>오늘</small><b>4<span>명</span></b></div>
+<div class="fr-div"></div>
+<div class="fr-seg"><small>지금까지</small><b>112<span>명</span></b></div>
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#BFF5DA" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9 4 3 2 3-2M9 20l3-2 3 2"/></svg>
+</div>
+</div>
+
+<div class="fr-door fr-main">
+<div class="fr-handle" style="top:40px;height:300px"></div>
+
+<div class="fr-namerow">
+<div class="fr-syl"><svg width="124" height="116" viewBox="0 0 124 116" style="filter:drop-shadow(0 6px 5px rgba(40,60,50,.28));display:block"><g fill="none" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-6 38 56)"><g transform="translate(0 5)"><path d="M12 24H62" stroke="#C25E4C" stroke-width="15"/><path d="M37 26 15 86" stroke="#C25E4C" stroke-width="15"/><path d="M39 50 64 86" stroke="#C25E4C" stroke-width="15"/></g><path d="M12 24H62" stroke="#F08C78" stroke-width="15"/><path d="M37 26 15 86" stroke="#F08C78" stroke-width="15"/><path d="M39 50 64 86" stroke="#F08C78" stroke-width="15"/><g transform="translate(-2 -3)"><path d="M12 24H62" stroke="#fff" stroke-width="3" opacity=".55"/><path d="M37 26 15 86" stroke="#fff" stroke-width="3" opacity=".55"/><path d="M39 50 64 86" stroke="#fff" stroke-width="3" opacity=".55"/></g></g><g fill="none" stroke-linecap="round" stroke-linejoin="round" transform="rotate(5 98 56)"><g transform="translate(0 5)"><path d="M98 10V100" stroke="#C99C3A" stroke-width="15"/></g><path d="M98 10V100" stroke="#F4CD67" stroke-width="15"/><g transform="translate(-2 -3)"><path d="M98 10V100" stroke="#fff" stroke-width="3" opacity=".55"/></g></g></svg></div>
+<div class="fr-syl" style="width:100px"><svg width="100" height="116" viewBox="0 0 100 116" style="filter:drop-shadow(0 6px 5px rgba(40,60,50,.28));display:block"><g transform="rotate(6 50 32)"><circle cx="50" cy="35" r="21" fill="none" stroke="#5888BA" stroke-width="14"/><circle cx="50" cy="30" r="21" fill="none" stroke="#86B8E8" stroke-width="14"/><path d="M33 22a21 21 0 0 1 22-12" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".6"/></g><g fill="none" stroke-linecap="round" stroke-linejoin="round" transform="rotate(-3 50 88)"><g transform="translate(0 5)"><path d="M12 74H88" stroke="#886CB5" stroke-width="15"/><path d="M50 76V104" stroke="#886CB5" stroke-width="15"/></g><path d="M12 74H88" stroke="#B79BE3" stroke-width="15"/><path d="M50 76V104" stroke="#B79BE3" stroke-width="15"/><g transform="translate(-2 -3)"><path d="M12 74H88" stroke="#fff" stroke-width="3" opacity=".55"/><path d="M50 76V104" stroke="#fff" stroke-width="3" opacity=".55"/></g></g></svg></div>
+<div class="fr-pf">
+<svg class="fr-mag" style="left:24px;top:-12px" width="28" height="26" viewBox="0 0 28 26"><path d="M14 24C6 18 2 13 2 8a6 6 0 0 1 12-1 6 6 0 0 1 12 1c0 5-4 10-12 16z" fill="#F29BA8"/><ellipse cx="8.5" cy="7.5" rx="2.6" ry="1.6" fill="#fff" opacity=".6" transform="rotate(-30 8.5 7.5)"/></svg>
+<div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5E6E66" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 20c1-3.8 3.8-5.6 7.2-5.6s6.2 1.8 7.2 5.6"/></svg>프로필<br>사진</div>
+</div>
+</div>
+<div class="fr-intro fr-pen"><svg class="fr-mag" style="left:-8px;top:6px" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#86B8E8"/><circle cx="9" cy="8.5" r="3" fill="#fff" opacity=".5"/></svg>똑똑, 들어와도 돼</div>
+
+<div class="fr-row1">
+<div class="fr-mood">
+<svg class="fr-mag" style="left:50%;top:-18px;margin-left:-22px" width="44" height="36" viewBox="0 0 44 36"><ellipse cx="21" cy="20" rx="17" ry="13" fill="#F6D45E"/><path d="M4 20c0-2 1-3 2-3M38 20c0 2-1 3-2 3" stroke="#E8BE3E" stroke-width="2" stroke-linecap="round"/><ellipse cx="15" cy="15" rx="5" ry="3" fill="#fff" opacity=".5" transform="rotate(-20 15 15)"/><path d="M24 8c4-6 10-6 14-4-3 4-8 6-14 4z" fill="#7DBE86"/></svg>
+<small>오늘의 기분</small>
+<p class="fr-pen">시험 D-3,<br>커피 수혈 중</p>
+</div>
+<button class="fr-knock"><span class="fr-k"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>노크</span><span class="fr-n">27</span></button>
+</div>
+<div class="fr-knote">지금까지 27번 노크했어요</div>
+
+<div class="fr-row2">
+<div class="fr-pola">
+<svg class="fr-mag" style="left:50%;top:-14px;margin-left:-15px" width="30" height="30" viewBox="0 0 30 30"><circle cx="15" cy="15" r="13" fill="#F08C78"/><circle cx="15" cy="15" r="13" fill="url(#frg1)"/><defs><radialGradient id="frg1" cx=".35" cy=".3" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></radialGradient></defs></svg>
+<div class="fr-ph"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5E6E66" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이 올린 사진</div>
+<span class="fr-pen">도서관 창가, 10.5</span>
+</div>
+<div class="fr-side">
+<div class="fr-cas">
+<svg class="fr-mag" style="right:-8px;top:-10px" width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="9" fill="#F4CD67"/><circle cx="8.5" cy="8" r="2.6" fill="#fff" opacity=".55"/></svg>
+<div class="fr-lab"><b>좋은 날</b><span>아이유</span></div>
+<div class="fr-reels"><i></i><i></i></div>
+</div>
+<div class="fr-cal">
+<div class="fr-mo">10월</div>
+<div class="fr-day">18<svg width="76" height="62" viewBox="0 0 76 62" fill="none" stroke="#E8806D" stroke-width="2.4" stroke-linecap="round"><path d="M44 4C20 2 4 14 6 32s28 26 46 22 22-18 18-30S48 2 30 8"/></svg></div>
+<small>일요일</small>
+<b>생일 D-12</b>
+</div>
+</div>
+</div>
+
+<div class="fr-memo">
+<svg class="fr-mag" style="right:22px;top:-14px" width="32" height="32" viewBox="0 0 32 32"><path d="M16 29c-1-3-1-6 0-8" stroke="#7C8F86" stroke-width="2" stroke-linecap="round"/><path d="M6 10c0-5 5-8 10-8s10 3 10 8c0 4-3 7-10 11C9 17 6 14 6 10z" fill="#B79BE3"/><ellipse cx="12" cy="8" rx="3" ry="2" fill="#fff" opacity=".5"/></svg>
+<small>요즘 질문</small>
+<p>제일 좋아하는 편의점 간식은?</p>
+<div class="fr-pen">아래 쪽지에 답 남겨 줘</div>
+</div>
+
+<div class="fr-links">
+<a class="fr-lk" href="#"><span class="fr-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E3A35" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></span><span>인스타그램<small>@jiwoo.room</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E3A35" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+<a class="fr-lk" href="#"><span class="fr-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E3A35" stroke-width="2" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><span>필름 사진 모아둔 곳<small>블로그</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2E3A35" stroke-width="2" stroke-linecap="round"><path d="m9 6 6 6-6 6"/></svg></a>
+</div>
+
+<div class="fr-gbh"><b class="fr-jua">방명록</b><small>쪽지 2장</small></div>
+<div class="fr-notes">
+<div class="fr-note"><svg class="fr-mag" style="left:50%;top:-10px;margin-left:-10px" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#86B8E8"/><circle cx="7.5" cy="7" r="2.4" fill="#fff" opacity=".55"/></svg><div class="fr-who"><b>민지</b><span>10.4</span></div><p>케이스 뭐야 너무 귀엽잖아</p></div>
+<div class="fr-note"><svg class="fr-mag" style="left:50%;top:-10px;margin-left:-10px" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#F08C78"/><circle cx="7.5" cy="7" r="2.4" fill="#fff" opacity=".55"/></svg><div class="fr-who"><b>익명</b><span>10.2</span></div><p>도서관에서 찍고 감</p></div>
+</div>
+<div class="fr-board"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+<div style="height:24px"></div>
+<div class="fr-grill"></div>
+</div>
+</div>
+<div class="fr-feet"><i></i><i></i></div>
+
+<div class="fr-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

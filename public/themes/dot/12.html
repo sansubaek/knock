@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 12 · 명함첩</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;family=DM+Sans:wght@500;600&amp;display=swap">
+<style>
+body{margin:0}
+.mc{width:390px;min-height:1401px;box-sizing:border-box;position:relative;color:#1E2433;font-family:'Noto Sans KR','Noto Sans CJK KR',sans-serif;font-size:15px;line-height:1.55;word-break:keep-all;padding:0 0 26px;
+background-color:#E2DCD1;
+background-image:repeating-linear-gradient(0deg,rgba(90,74,52,.05) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(90,74,52,.045) 0 1px,transparent 1px 4px),radial-gradient(120% 60% at 50% 0%,rgba(255,255,255,.45),transparent 70%)}
+.mc *{box-sizing:border-box}
+.mc-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.mc-en{font-family:'DM Sans','Noto Sans KR',sans-serif}
+.mc-bar{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px}
+.mc-bar .mc-brand{font-size:19px}
+.mc-bar span{font-size:12px;font-weight:500;color:#6E6658;display:flex;align-items:center;gap:6px}
+.mc-bar span b{display:inline-flex;height:22px;padding:0 8px;align-items:center;border-radius:99px;background:rgba(30,36,51,.08);color:#1E2433;font-weight:700}
+.mc-stack{position:relative;height:368px;margin-top:4px}
+.mc-card{position:absolute;left:40px;width:310px;height:188px;border-radius:5px;
+box-shadow:0 1px 1px rgba(40,30,20,.18),0 4px 8px -2px rgba(40,30,20,.18),0 18px 30px -10px rgba(40,30,20,.38),0 34px 46px -30px rgba(40,30,20,.35)}
+.mc-paper{background-color:#FBF9F4;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.3 0 0 0 0 0.22 0 0 0 .09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.mc-back{top:14px;left:26px;transform:rotate(-5deg);background-color:#1E2B4A;color:#F3EFE6;padding:18px 20px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.mc-back-h{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#B9C0D2;margin-bottom:8px}
+.mc-back-h .mc-brand{font-size:16px;color:#F3EFE6}
+.mc-ct{display:grid;grid-template-columns:22px 1fr;align-items:center;gap:6px;height:26px;font-size:14px}
+.mc-ct span.mc-en{font-weight:500;letter-spacing:.01em}
+.mc-front{top:164px;transform:rotate(2.2deg);padding:18px 20px 16px;display:flex;flex-direction:column}
+.mc-f-top{display:flex;justify-content:space-between;align-items:flex-start}
+.mc-logo{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#3A3F4C}
+.mc-logo em{width:34px;height:34px;border-radius:7px;border:1.4px dashed #B8AF9F;display:flex;align-items:center;justify-content:center;background:rgba(232,226,214,.4)}
+.mc-photo{width:62px;height:74px;border-radius:4px;border:1.4px dashed #B8AF9F;background:rgba(232,226,214,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;color:#8C8475;line-height:1.25;text-align:center}
+.mc-name{margin:-22px 0 0;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.2;color:#1E2433;text-shadow:0 1px 0 rgba(255,255,255,.7)}
+.mc-role{margin:2px 0 0;font-size:14px;color:#4E5462}
+.mc-f-bot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #E4DED2;padding-top:9px;font-size:12px;color:#8C8475}
+.mc-f-bot .mc-brand{font-size:14px;color:#1E2433}
+.mc-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#1F5EFF;margin-right:6px;vertical-align:1px}
+.mc-acts{padding:0 20px;display:grid;grid-template-columns:1.4fr 1fr;gap:8px}
+.mc-acts a{height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-size:16px;font-weight:700}
+.mc-save{background:#1E2B4A;color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.2) inset,0 6px 14px -6px rgba(30,43,74,.6)}
+.mc-give{background:#FBF9F4;color:#1E2B4A;border:1.5px solid #1E2B4A}
+.mc-note{margin:10px 20px 0;font-size:12px;color:#6E6658;display:flex;align-items:center;gap:6px}
+.mc-h{display:flex;justify-content:space-between;align-items:baseline;margin:34px 20px 12px}
+.mc-h h2{margin:0;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.mc-h span{font-size:12px;color:#6E6658}
+.mc-flip{display:flex;gap:10px;padding:0 20px}
+.mc-mini{flex:1;height:76px;border-radius:5px;padding:10px 10px 8px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:#1E2433;font-size:14px;font-weight:700;box-shadow:0 1px 1px rgba(40,30,20,.16),0 8px 14px -8px rgba(40,30,20,.4)}
+.mc-mini small{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;color:#9A9283}
+.mc-mini div{display:flex;justify-content:space-between;align-items:center}
+.mc-mini.mc-on{background-color:#1E2B4A;color:#fff;transform:translateY(-6px)}
+.mc-mini.mc-on small{color:#9FA9C2}
+.mc-mini:nth-child(2){transform:rotate(-1.5deg)}
+.mc-mini:nth-child(3){transform:rotate(1.5deg)}
+.mc-book{margin:18px 14px 0;border-radius:12px;background:#2A3550;padding:14px 12px 14px 30px;position:relative;box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 18px 30px -18px rgba(30,25,15,.6);
+background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px)}
+.mc-ring{position:absolute;left:9px;width:11px;height:11px;border-radius:50%;background:#E2DCD1;box-shadow:inset 0 2px 2px rgba(0,0,0,.35)}
+.mc-pocket{position:relative;border-radius:6px;padding:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)}
+.mc-pocket+.mc-pocket{margin-top:12px}
+.mc-pocket:after{content:'';position:absolute;left:0;right:0;bottom:0;top:51px;border-radius:0 0 6px 6px;border-top:1px solid rgba(255,255,255,.55);pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.03) 30%,rgba(255,255,255,.03) 60%,rgba(255,255,255,.12) 76%,rgba(255,255,255,.03) 88%)}
+.mc-sheet{border-radius:4px;padding:14px 16px 16px;box-shadow:0 1px 2px rgba(0,0,0,.25)}
+.mc-sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:12px;color:#8C8475}
+.mc-sh b{font-size:16px;font-weight:800;color:#1E2433;letter-spacing:-.01em}
+.mc-about{margin:0;font-size:15px;line-height:1.7;color:#30364A}
+.mc-tl{display:grid;grid-template-columns:54px 1fr;gap:10px;padding:9px 0;border-top:1px dashed #DDD5C6}
+.mc-tl:first-of-type{border-top:0;padding-top:0}
+.mc-tl small{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:#1F5EFF;padding-top:1px}
+.mc-tl small.mc-ko{font-family:'Noto Sans KR',sans-serif;font-weight:700}
+.mc-tl div b{display:block;font-size:15px;font-weight:700;line-height:1.4}
+.mc-tl div span{font-size:13px;color:#6E6658}
+.mc-ln{display:flex;align-items:center;gap:12px;height:52px;text-decoration:none;color:#1E2433;border-top:1px dashed #DDD5C6}
+.mc-ln:first-of-type{border-top:0;margin-top:-6px}
+.mc-ln i{width:34px;height:34px;border-radius:8px;background:#EFEAE0;display:flex;align-items:center;justify-content:center;flex:none}
+.mc-ln div{flex:1;font-size:15px;font-weight:700}
+.mc-own{text-align:center;margin:30px 0 0;font-size:12px;color:#9A9283}
+.mc-own a{color:#6E6658;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="mc">
+  <div class="mc-bar"><span class="mc-brand">knock.</span><span>명함첩 <b>1 / 4</b></span></div>
+
+  <div class="mc-stack">
+    <div class="mc-card mc-back" aria-label="명함 뒷면">
+      <div class="mc-back-h"><span class="mc-brand">knock.</span><span>CONTACT</span></div>
+      <div class="mc-ct"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B9C0D2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><span class="mc-en">010-0000-0000</span></div>
+      <div class="mc-ct"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B9C0D2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="mc-en">me@example.com</span></div>
+      <div class="mc-ct"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B9C0D2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12M9 20v-6h6v6M3 20h18"/></svg><span>knock · 인하대학교</span></div>
+    </div>
+    <div class="mc-card mc-front mc-paper" aria-label="명함 앞면">
+      <div class="mc-f-top">
+        <div class="mc-logo"><em aria-label="회사 로고 자리"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#A69D8C" stroke-width="1.6" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 15l4-4 4 4 3-3 5 5"/></svg></em>knock</div>
+        <div class="mc-photo" aria-label="프로필 사진 자리"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A69D8C" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1.2-3.6 4-5 7-5s5.8 1.4 7 5"/></svg>프로필<br>사진</div>
+      </div>
+      <h1 class="mc-name">주건우</h1>
+      <p class="mc-role">대표 · 제품</p>
+      <div class="mc-f-bot"><span><span class="mc-dot"></span><span class="mc-brand">knock.</span></span><span>2026</span></div>
+    </div>
+  </div>
+
+  <div class="mc-acts">
+    <a href="#" class="mc-save"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 20c.8-3.5 3.6-5.5 7-5.5M18 13v7M14.5 16.5h7"/></svg>연락처에 저장</a>
+    <a href="#" class="mc-give">내 명함 주기</a>
+  </div>
+  <p class="mc-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E6658" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>앱 설치 없이 바로 저장돼요</p>
+
+  <div class="mc-h"><h2>넘겨보기</h2><span>3장 더 있어요</span></div>
+  <div class="mc-flip">
+    <a href="#" class="mc-mini mc-on mc-paper" style="background-image:none"><small>01</small><div>소개<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div></a>
+    <a href="#" class="mc-mini mc-paper"><small>02</small><div>경력<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E2433" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div></a>
+    <a href="#" class="mc-mini mc-paper"><small>03</small><div>링크<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E2433" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></div></a>
+  </div>
+
+  <div class="mc-book">
+    <span class="mc-ring" style="top:40px" aria-hidden="true"></span>
+    <span class="mc-ring" style="top:50%" aria-hidden="true"></span>
+    <span class="mc-ring" style="bottom:40px" aria-hidden="true"></span>
+
+    <div class="mc-pocket">
+      <div class="mc-sheet mc-paper">
+        <div class="mc-sh"><b>소개</b><span class="mc-en">01</span></div>
+        <p class="mc-about">케이스 뒤 QR을 찍으면 내 페이지가 열리는 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p>
+      </div>
+    </div>
+
+    <div class="mc-pocket">
+      <div class="mc-sheet mc-paper">
+        <div class="mc-sh"><b>경력</b><span class="mc-en">02</span></div>
+        <div class="mc-tl"><small>2026</small><div><b>knock 창업</b><span>대표 · 제품</span></div></div>
+        <div class="mc-tl"><small>2025</small><div><b>인하벤처클럽</b><span>창업 동아리</span></div></div>
+        <div class="mc-tl"><small class="mc-ko">학력</small><div><b>인하대학교</b></div></div>
+      </div>
+    </div>
+
+    <div class="mc-pocket">
+      <div class="mc-sheet mc-paper">
+        <div class="mc-sh"><b>링크</b><span class="mc-en">03</span></div>
+        <a href="#" class="mc-ln"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E2433" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M8 6V4h8v2"/></svg></i><div>포트폴리오</div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A9283" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a href="#" class="mc-ln"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1E2433" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></i><div>링크드인</div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A9283" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <p class="mc-own">knock. · <a href="#">나도 명함 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

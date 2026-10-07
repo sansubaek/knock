@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 20 · 크래프트 스탬프</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Do+Hyeon&amp;family=Gowun+Dodum&amp;family=Special+Elite&amp;display=swap">
+<style>
+body{margin:0}
+.kf{position:relative;width:390px;min-height:1480px;box-sizing:border-box;background:#C9A47A;color:#2A231D;font-family:'Gowun Dodum','Noto Sans CJK KR',sans-serif;font-size:15px;line-height:1.6;word-break:keep-all;overflow:hidden;padding:0 0 24px}
+.kf *{box-sizing:border-box}
+.kf-tex{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.kf-in{position:relative}
+.kf-type{font-family:'Special Elite','DejaVu Sans Mono',monospace}
+.kf-stampf{font-family:'Do Hyeon','Noto Sans CJK KR',sans-serif}
+.kf-top{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 20px}
+.kf-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.04em;color:#2A231D}
+.kf-top i{width:38px;height:38px;border-radius:50%;border:1.5px dashed #6B5139;display:flex;align-items:center;justify-content:center}
+.kf-twine{position:absolute;left:0;top:0;width:390px;height:120px;z-index:2}
+.kf-tagw{position:relative;margin:34px 20px 0;transform:rotate(-1.4deg);filter:drop-shadow(0 6px 8px rgba(74,50,26,.28))}
+.kf-tag{position:relative;background:#E6CFA9;clip-path:polygon(34px 0,calc(100% - 34px) 0,100% 34px,100% 100%,0 100%,0 34px);padding:58px 20px 22px}
+.kf-tag:before{content:'';position:absolute;inset:8px;border:1.5px dashed rgba(91,67,43,.45);clip-path:polygon(30px 0,calc(100% - 30px) 0,100% 30px,100% 100%,0 100%,0 30px)}
+.kf-hole{position:absolute;left:50%;top:14px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#C9A47A;box-shadow:0 0 0 4px #B7925F,0 0 0 5.5px #8E6C45,inset 0 2px 3px rgba(60,40,20,.45);z-index:1}
+.kf-row1{position:relative;display:flex;gap:14px;align-items:flex-start}
+.kf-ph{width:96px;height:112px;border:1.5px dashed #6B5139;background:rgba(255,248,235,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:12px;color:#4E3C2A;flex:none;text-align:center;line-height:1.3}
+.kf-meta{flex:1;padding-top:4px}
+.kf-meta small{display:block;font-size:12px;color:#4E3C2A;letter-spacing:.06em}
+.kf-meta b{display:block;font-size:16px;font-weight:400;margin:2px 0 12px}
+.kf-co{display:flex;align-items:center;gap:8px}
+.kf-co i{width:34px;height:34px;border:1.5px dashed #6B5139;display:flex;align-items:center;justify-content:center;background:rgba(255,248,235,.45)}
+.kf-co span{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;letter-spacing:-.03em}
+.kf-name{position:relative;display:block;margin:18px auto 0;width:100%;height:104px}
+.kf-round{position:absolute;right:-12px;bottom:-40px;width:92px;height:92px;transform:rotate(14deg);z-index:3}
+.kf-sec{margin:0 20px;padding-top:34px;position:relative}
+.kf-h{display:flex;align-items:center;gap:10px;margin:0 0 12px}
+.kf-h b{font-family:'Do Hyeon','Noto Sans CJK KR',sans-serif;font-weight:400;font-size:19px;letter-spacing:.04em;color:#2A231D}
+.kf-h svg{flex:1}
+.kf-note{position:relative;background:#F1E6D1;padding:22px 18px 18px;transform:rotate(.8deg);box-shadow:0 4px 8px -4px rgba(74,50,26,.35)}
+.kf-note:before{content:'';position:absolute;left:50%;top:-11px;width:92px;height:24px;margin-left:-46px;background:rgba(236,224,196,.78);transform:rotate(-3deg);box-shadow:0 1px 2px rgba(74,50,26,.15)}
+.kf-note p{margin:0;font-size:16px;line-height:1.85;background-image:linear-gradient(transparent calc(1.85em - 1px),rgba(91,67,43,.22) calc(1.85em - 1px));background-size:100% 1.85em}
+.kf-job{display:flex;align-items:center;gap:14px;padding:12px 0}
+.kf-job+.kf-job{background:linear-gradient(90deg,rgba(78,60,42,.5) 50%,transparent 50%) top/8px 1px repeat-x}
+.kf-yr{width:66px;height:38px;flex:none;border:2px solid #2F5D4E;border-radius:4px;color:#2F5D4E;display:flex;align-items:center;justify-content:center;font-size:15px;transform:rotate(-4deg);font-family:'Special Elite','DejaVu Sans Mono',monospace;font-weight:700;letter-spacing:.04em}
+.kf-job:nth-child(2) .kf-yr{transform:rotate(3deg)}
+.kf-job:nth-child(3) .kf-yr{transform:rotate(-2deg);font-family:'Do Hyeon','Noto Sans CJK KR',sans-serif;font-weight:400}
+.kf-job b{display:block;font-size:17px;font-weight:400;line-height:1.35}
+.kf-job small{font-size:13px;color:#4E3C2A}
+.kf-ct{display:flex;align-items:center;gap:14px;padding:10px 0}
+.kf-ct i{width:42px;height:42px;flex:none;display:flex;align-items:center;justify-content:center}
+.kf-ct small{display:block;font-size:12px;color:#4E3C2A;line-height:1.3}
+.kf-ct span{font-size:16px}
+.kf-lk{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kf-lk a{position:relative;height:58px;background:#E6CFA9;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 50%,calc(100% - 18px) 100%,0 100%);display:flex;align-items:center;gap:8px;padding:0 26px 0 14px;text-decoration:none;color:#2A231D;font-size:15px}
+.kf-lk a:after{content:'';position:absolute;right:24px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:#C9A47A;box-shadow:inset 0 1px 2px rgba(60,40,20,.5)}
+.kf-acts{margin:34px 20px 0}
+.kf-save{position:relative;height:58px;background:#2F5D4E;color:#F4EAD6;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-size:17px;box-shadow:0 4px 0 #1F4136}
+.kf-save:before{content:'';position:absolute;inset:5px;border:1.5px dashed rgba(244,234,214,.55);border-radius:5px}
+.kf-give{position:relative;margin-top:12px;height:52px;background:#F1E6D1;color:#2A231D;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-size:16px;box-shadow:0 3px 0 #9B7A52}
+.kf-give:before{content:'';position:absolute;inset:5px;border:1.5px dashed rgba(91,67,43,.45);border-radius:5px}
+.kf-hint{margin:12px 0 0;text-align:center;font-size:13px;color:#3F3022}
+.kf-own{text-align:center;margin:32px 0 0;font-size:12px;color:#6E5438}
+.kf-own a{color:#4E3C2A;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="kf">
+  <svg class="kf-tex" aria-hidden="true">
+    <defs>
+      <filter id="kffib" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".03 .22" numOctaves="3" seed="21"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 .35  0 0 0 0 .23  0 0 0 0 .12  0 0 0 -1.4 .95"/>
+      </filter>
+      <filter id="kfspk" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="1" seed="8"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 .26  0 0 0 0 .16  0 0 0 0 .08  0 0 0 -14 10.3"/>
+      </filter>
+    </defs>
+    <rect width="100%" height="100%" filter="url(#kffib)" opacity=".3"/>
+    <rect width="100%" height="100%" filter="url(#kfspk)" opacity=".45"/>
+  </svg>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="kfink" x="-5%" y="-10%" width="110%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency=".06" numOctaves="2" seed="5" result="w"/>
+        <feDisplacementMap in="SourceGraphic" in2="w" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feTurbulence type="fractalNoise" baseFrequency=".7" numOctaves="2" seed="13" result="g"/>
+        <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2 2.25" result="gm"/>
+        <feTurbulence type="fractalNoise" baseFrequency=".012" numOctaves="1" seed="2" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.4 1.95" result="bm"/>
+        <feComposite in="gm" in2="bm" operator="in" result="m"/>
+        <feComposite in="d" in2="m" operator="in"/>
+      </filter>
+      <filter id="kfhand" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency=".05" numOctaves="1" seed="9" result="t"/>
+        <feDisplacementMap in="SourceGraphic" in2="t" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="kf-in">
+    <svg class="kf-twine" viewBox="0 0 390 120" aria-hidden="true">
+      <path d="M150 -4 C 168 30, 186 62, 195 104" fill="none" stroke="#7E5E3A" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M150 -4 C 168 30, 186 62, 195 104" fill="none" stroke="#B08A5C" stroke-width="3.2" stroke-dasharray="3 3" stroke-linecap="round"/>
+      <path d="M244 -4 C 226 34, 206 66, 197 104" fill="none" stroke="#7E5E3A" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M244 -4 C 226 34, 206 66, 197 104" fill="none" stroke="#B08A5C" stroke-width="3.2" stroke-dasharray="3 3" stroke-dashoffset="2" stroke-linecap="round"/>
+    </svg>
+
+    <div class="kf-top">
+      <span class="kf-logo">knock.</span>
+      <i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#3F3022" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></i>
+    </div>
+
+    <div class="kf-tagw">
+      <span class="kf-hole"></span>
+      <div class="kf-tag">
+        <div class="kf-row1">
+          <div class="kf-ph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4E3C2A" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" filter="url(#kfhand)"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c1.3-3.7 4-5.4 7.1-5.4 3 0 5.6 1.8 6.9 5.4"/></svg>프로필 사진</div>
+          <div class="kf-meta">
+            <small class="kf-type">TITLE</small><b>대표 · 제품</b>
+            <small class="kf-type">MAKER OF</small>
+            <div class="kf-co"><i><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4E3C2A" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg></i><span>knock</span></div>
+          </div>
+        </div>
+        <svg class="kf-name" viewBox="0 0 310 104" aria-label="주건우">
+          <g filter="url(#kfink)" fill="#2A2320">
+            <rect x="4" y="6" width="302" height="92" rx="6" fill="none" stroke="#2A2320" stroke-width="4"/>
+            <rect x="12" y="14" width="286" height="76" rx="3" fill="none" stroke="#2A2320" stroke-width="1.5"/>
+            <text x="155" y="74" text-anchor="middle" font-family="'Do Hyeon','Noto Sans CJK KR',sans-serif" font-weight="700" font-size="56" letter-spacing="10">주건우</text>
+            <path d="M34 52 h22 M254 52 h22" stroke="#2A2320" stroke-width="2.5"/>
+          </g>
+        </svg>
+      </div>
+      <svg class="kf-round" viewBox="0 0 100 100" aria-hidden="true">
+          <defs><path id="kfcirc" d="M50 50 m-34 0 a34 34 0 1 1 68 0 a34 34 0 1 1 -68 0"/></defs>
+          <g filter="url(#kfink)" fill="#2F5D4E">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#2F5D4E" stroke-width="3"/>
+            <circle cx="50" cy="50" r="25" fill="none" stroke="#2F5D4E" stroke-width="1.5"/>
+            <text font-family="'Special Elite','DejaVu Sans Mono',monospace" font-size="11" font-weight="700" letter-spacing="2.6"><textPath href="#kfcirc">HANDMADE · KNOCK · 2026 ·</textPath></text>
+            <path d="M40 52 l7 7 14 -16" fill="none" stroke="#2F5D4E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+        </svg>
+    </div>
+
+    <section class="kf-sec" style="padding-top:44px">
+      <div class="kf-note"><p>케이스 뒤 QR을 찍으면 내 페이지가 열리는 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p></div>
+    </section>
+
+    <section class="kf-sec">
+      <div class="kf-h"><b>걸어온 길</b><svg height="8" viewBox="0 0 200 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 5 C 40 2, 80 6, 120 4 S 180 3, 198 5" fill="none" stroke="#4E3C2A" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <div class="kf-job"><span class="kf-yr">2026</span><div><b>knock 창업</b><small>대표 · 제품</small></div></div>
+      <div class="kf-job"><span class="kf-yr">2025</span><div><b>인하벤처클럽</b><small>창업 동아리</small></div></div>
+      <div class="kf-job"><span class="kf-yr">학력</span><div><b>인하대학교</b></div></div>
+    </section>
+
+    <section class="kf-sec">
+      <div class="kf-h"><b>연락처</b><svg height="8" viewBox="0 0 200 8" preserveAspectRatio="none" aria-hidden="true"><path d="M2 4 C 50 6, 90 2, 130 5 S 180 4, 198 3" fill="none" stroke="#4E3C2A" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <div class="kf-ct"><i><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#2A231D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" filter="url(#kfhand)"><path d="M20 2.5c9.8.3 17.6 8 17.4 17.8-.2 9.6-8.3 17.4-17.6 17.2C10.3 37.3 2.4 29.6 2.6 19.8 2.8 10.4 10.6 2.2 20 2.5z" stroke="#6B5139" stroke-width="1.2"/><path d="M14 12.2l3.4-.4 2 5-2.3 1.6c1 2.3 2.8 4.1 5 5.2l1.7-2.2 4.8 2.1-.5 3.5c-.3 1.1-1.3 1.8-2.4 1.7-7-.8-12.7-6.4-13.4-13.4-.1-1.4.6-2.6 1.7-3.1z"/></svg></i><div><small>전화</small><span>010-0000-0000</span></div></div>
+      <div class="kf-ct"><i><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#2A231D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" filter="url(#kfhand)"><path d="M20 2.5c9.8.3 17.6 8 17.4 17.8-.2 9.6-8.3 17.4-17.6 17.2C10.3 37.3 2.4 29.6 2.6 19.8 2.8 10.4 10.6 2.2 20 2.5z" stroke="#6B5139" stroke-width="1.2"/><path d="M11.2 13.6c5.9-.4 11.8-.3 17.7.1.4 4.3.4 8.6-.1 12.8-5.8.4-11.6.4-17.4 0-.5-4.3-.6-8.6-.2-12.9z"/><path d="M11.6 14.2c2.8 2.6 5.6 4.6 8.5 6 2.9-1.5 5.7-3.4 8.4-6"/></svg></i><div><small>메일</small><span>me@example.com</span></div></div>
+      <div class="kf-ct"><i><svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#2A231D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" filter="url(#kfhand)"><path d="M20 2.5c9.8.3 17.6 8 17.4 17.8-.2 9.6-8.3 17.4-17.6 17.2C10.3 37.3 2.4 29.6 2.6 19.8 2.8 10.4 10.6 2.2 20 2.5z" stroke="#6B5139" stroke-width="1.2"/><path d="M11.4 27.6l.2-10.4 8.6-6.2 8.3 6.3-.1 10.3c-5.6.2-11.3.2-17 0z"/><path d="M17.6 27.4l.1-5.4h4.8l-.1 5.4"/></svg></i><div><small>소속</small><span>knock · 인하대학교</span></div></div>
+    </section>
+
+    <section class="kf-sec">
+      <div class="kf-lk">
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A231D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" filter="url(#kfhand)"><path d="M3.4 7.6c5.8-.3 11.5-.3 17.2.1.3 4.1.3 8.2-.1 12.2-5.7.4-11.4.4-17 0-.4-4.1-.4-8.2-.1-12.3z"/><path d="M9 7.4V4.6h6v2.8"/></svg>포트폴리오</a>
+        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A231D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" filter="url(#kfhand)"><path d="M10 14.2a4 4 0 0 0 5.8-.1l3-3.1a4 4 0 0 0-5.7-5.6l-1.1 1.1M14 9.8a4 4 0 0 0-5.8.1l-3 3a4 4 0 0 0 5.7 5.7l1-1.1"/></svg>링크드인</a>
+      </div>
+    </section>
+
+    <div class="kf-acts">
+      <a href="#" class="kf-save"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#F4EAD6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 20c1-3.5 3.8-5.5 7-5.5 1.5 0 2.9.4 4 1.2M18 14v6M15 17h6"/></svg>연락처에 저장</a>
+      <a href="#" class="kf-give"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A231D" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 11h5M7 14h8"/></svg>내 명함 주기</a>
+      <p class="kf-hint">앱 설치 없이 바로 저장돼요</p>
+    </div>
+
+    <p class="kf-own">knock. · <a href="#">나도 명함 만들기</a></p>
+  </div>
+</div>
+</x-dc>
+
+</body>
+</html>

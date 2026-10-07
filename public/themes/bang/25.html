@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 25 · 포카 바인더</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Gaegu:wght@700&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap">
+<style>
+body{margin:0}
+
+.bd{width:390px;min-height:1746px;box-sizing:border-box;padding:0 16px 22px;font-family:'Noto Sans KR',sans-serif;color:#2B3245;word-break:keep-all;line-height:1.45;font-size:14px;
+background:radial-gradient(120% 40% at 50% 0%,#EAF1FB 0%,rgba(234,241,251,0) 70%),linear-gradient(180deg,#F1F3F8,#F6F2F7)}
+.bd *{box-sizing:border-box}
+.bd-bar{height:56px;display:flex;align-items:center;justify-content:space-between}
+.bd-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.04em}
+.bd-cnt{font-size:12px;color:#6B7186;background:#fff;border-radius:99px;padding:5px 11px;box-shadow:0 2px 8px -4px rgba(60,70,110,.3)}
+.bd-cnt b{color:#2B3245}
+.bd-cover{position:relative;background:linear-gradient(180deg,#C7DAF2,#BBD0EC);border-radius:22px 26px 26px 22px;padding:12px 18px 14px 12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 -2px 0 rgba(60,90,140,.15),0 20px 34px -22px rgba(50,70,120,.6)}
+.bd-label{display:flex;align-items:center;justify-content:space-between;margin:2px 2px 12px 26px}
+.bd-label div{background:#fff;border-radius:10px;padding:7px 12px 8px;box-shadow:0 2px 0 rgba(60,90,140,.18);transform:rotate(-1deg)}
+.bd-label small{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:11px;font-weight:800;letter-spacing:.14em;color:#8C95B0;line-height:1.2}
+.bd-label b{font-size:17px;font-weight:800;letter-spacing:-.02em}
+.bd-label span{font-size:12px;color:#4E5E80;font-weight:500;background:rgba(255,255,255,.5);border-radius:99px;padding:4px 10px}
+.bd-wrap{position:relative;display:flex}
+.bd-rings{position:absolute;left:-6px;top:0;bottom:0;width:44px;z-index:3;pointer-events:none}
+.bd-ring{position:absolute;left:-4px;line-height:0}
+.bd-page{position:relative;flex:1;margin-left:22px;background:#FCFDFF;border-radius:8px 14px 14px 8px;padding:12px 10px 12px 18px;box-shadow:0 1px 0 #fff inset,0 4px 10px -6px rgba(40,60,110,.35);
+background-image:linear-gradient(rgba(170,185,215,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(170,185,215,.14) 1px,transparent 1px);background-size:14px 14px}
+.bd-hole{position:absolute;left:5px;width:9px;height:9px;border-radius:50%;background:#BBD0EC;box-shadow:inset 0 1px 2px rgba(40,60,110,.4)}
+.bd-tabs{position:absolute;right:-17px;top:30px;display:flex;flex-direction:column;gap:6px;z-index:0}
+.bd-tabs span{writing-mode:vertical-rl;font-size:11px;font-weight:800;letter-spacing:.06em;width:20px;padding:10px 0 10px 2px;border-radius:0 9px 9px 0;text-align:center;color:#2B3245;box-shadow:2px 2px 4px -2px rgba(40,60,110,.35)}
+.bd-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px 8px}
+.bd-sl{position:relative;padding:5px;border-radius:6px;background:rgba(220,230,245,.35);border:1px solid rgba(150,170,205,.55);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
+.bd-sl:before{content:'';position:absolute;left:50%;top:-1px;width:30px;height:12px;margin-left:-15px;border-radius:0 0 15px 15px;background:#FCFDFF;border:1px solid rgba(150,170,205,.55);border-top:none;z-index:2}
+.bd-sl:after{content:'';position:absolute;inset:0;border-radius:6px;pointer-events:none;z-index:3;background:linear-gradient(118deg,rgba(255,255,255,0) 22%,rgba(255,255,255,.75) 30%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 62%,rgba(255,255,255,.4) 67%,rgba(255,255,255,0) 72%)}
+.bd-c{position:relative;height:200px;border-radius:10px;overflow:hidden;padding:10px;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(40,60,110,.2)}
+.bd-no{display:flex;justify-content:space-between;align-items:center;font-family:'Bricolage Grotesque',sans-serif;font-size:11px;font-weight:800;letter-spacing:.06em;color:rgba(43,50,69,.55)}
+.bd-c h3{margin:0;font-size:15px;font-weight:800;letter-spacing:-.02em;line-height:1.3}
+.bd-c p{margin:0}
+.bd-prof{background:linear-gradient(125deg,#FFD9F4 0%,#D6ECFF 28%,#DDFBE6 52%,#FFF4C9 74%,#F3DAFF 100%);padding:7px}
+.bd-prof .bd-pph{flex:1;border-radius:7px;border:1.5px dashed rgba(90,100,140,.45);background:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#7D86A3;font-size:11px}
+.bd-prof .bd-pn{display:flex;align-items:baseline;justify-content:space-between;padding:6px 3px 1px}
+.bd-prof .bd-pn b{font-size:17px;font-weight:800}
+.bd-prof .bd-pn span{font-size:11px;color:#5D6684}
+.bd-top{position:relative;padding:5px;border-radius:8px;background:rgba(255,255,255,.35);border:2.5px solid rgba(190,205,230,.95);box-shadow:inset 0 0 0 1px #fff,0 4px 8px -4px rgba(40,60,110,.35)}
+.bd-top:after{content:'';position:absolute;inset:0;border-radius:6px;pointer-events:none;z-index:3;background:linear-gradient(118deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.8) 26%,rgba(255,255,255,0) 36%)}
+.bd-top .bd-rim{position:absolute;left:-2.5px;right:-2.5px;top:-2.5px;height:12px;border-radius:8px 8px 0 0;background:rgba(255,255,255,.75);border-bottom:1px solid rgba(160,180,210,.6);z-index:2}
+.bd-stk{position:absolute;z-index:4;line-height:0;filter:drop-shadow(0 1px 1.5px rgba(40,50,80,.3))}
+.bd-nm{position:absolute;z-index:4;left:-4px;top:16px;font-family:'Gaegu','Bricolage Grotesque',cursive;font-weight:700;font-size:15px;color:#E5578A;background:#fff;border-radius:6px;padding:1px 7px;transform:rotate(-6deg);box-shadow:0 1px 2px rgba(40,50,80,.3)}
+.bd-mood{background:linear-gradient(170deg,#FFF3C4,#FFE0D2)}
+.bd-mood h3{font-size:18px;margin-top:auto;line-height:1.3}
+.bd-mood .bd-cup{position:absolute;right:8px;top:26px}
+.bd-song{background:linear-gradient(170deg,#E4DEFF,#F6E6FF)}
+.bd-song .bd-alb{margin:8px 0 8px;height:82px;border-radius:7px;border:1.5px dashed rgba(90,80,150,.4);background:rgba(255,255,255,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:#8A80B3;font-size:11px}
+.bd-song h3 span{display:block;font-size:12px;font-weight:500;color:#5D5784}
+.bd-prog{margin-top:auto;height:4px;border-radius:2px;background:rgba(90,80,150,.18);position:relative}
+.bd-prog i{position:absolute;left:0;top:0;bottom:0;width:42%;border-radius:2px;background:#6E5FD0}
+.bd-dday{background:linear-gradient(170deg,#DFF4E6,#E6F2FF)}
+.bd-dday .bd-big{margin-top:auto;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:48px;letter-spacing:-.05em;line-height:.95}
+.bd-dday p{font-size:13px;color:#4E6070;margin-top:2px}
+.bd-dots{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;width:100%;margin-top:10px}
+.bd-dots i{height:7px;border-radius:2px;background:rgba(60,110,90,.18)}
+.bd-dots i.on{background:#3E9A6C}
+.bd-dots i.bdd{background:#FF8DAE}
+.bd-q{background:#2B3245;color:#fff}
+.bd-q .bd-no{color:rgba(255,255,255,.5)}
+.bd-q .bd-qq{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1;color:#FFE27A;margin-top:8px}
+.bd-q h3{margin-top:6px;font-size:15px}
+.bd-q .bd-ans{margin-top:auto;font-size:12px;font-weight:800;background:#fff;color:#2B3245;border-radius:99px;padding:5px 10px;align-self:flex-start}
+.bd-mb{background:linear-gradient(125deg,#FFD9F4 0%,#D6ECFF 28%,#DDFBE6 52%,#FFF4C9 74%,#F3DAFF 100%)}
+.bd-mb .bd-mbt{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:38px;letter-spacing:-.03em;line-height:1;margin-top:8px;color:#2B3245}
+.bd-mb ul{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:3px}
+.bd-mb li{font-size:12px;font-weight:700;display:flex;gap:5px;align-items:center}
+.bd-mb li i{font-style:normal;color:#E5578A;font-size:10px}
+.bd-mb li.no{color:#6B7186;font-weight:500}
+.bd-mb li.no i{color:#8C95B0}
+.bd-ph{background:#fff}
+.bd-ph .bd-pph{flex:1;margin-top:6px;border-radius:7px;border:1.5px dashed #B6C2DA;background:#F5F8FD;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;color:#8C95B0;font-size:11px;text-align:center}
+.bd-back{background:repeating-linear-gradient(45deg,#D3DFF3 0 8px,#C8D7EF 8px 16px);align-items:center;justify-content:center;text-align:center;gap:6px}
+.bd-back .bd-lk{width:44px;height:44px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;color:#2B3245;box-shadow:0 2px 6px rgba(40,60,110,.25)}
+.bd-back b{font-size:13px;font-weight:800}
+.bd-back small{font-size:11px;color:#4E5E80}
+.bd-back .bd-no{position:absolute;left:10px;right:10px;top:10px}
+.bd-ks{display:flex;flex-direction:column;align-items:center;margin-top:24px}
+.bd-kbtn{position:relative;width:170px;height:150px;border:none;background:none;padding:0;cursor:pointer;font:inherit;filter:drop-shadow(0 10px 14px rgba(200,70,110,.35))}
+.bd-kbtn svg{position:absolute;left:0;top:0}
+.bd-kbtn span{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;height:128px;color:#fff}
+.bd-kbtn b{font-size:19px;font-weight:800;letter-spacing:-.02em;text-shadow:0 1px 0 rgba(160,40,80,.35)}
+.bd-kbtn em{font-style:normal;margin-top:3px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:14px;background:#fff;color:#E5578A;border-radius:99px;padding:1px 10px 2px}
+.bd-ks p{margin:4px 0 0;font-size:12px;color:#6B7186}
+.bd-sec{margin-top:26px}
+.bd-st{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 12px}
+.bd-st h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.bd-st span{font-size:12px;color:#8C95B0}
+.bd-memos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.bd-memo{position:relative;border-radius:4px 4px 16px 4px;padding:18px 12px 12px;min-height:150px;display:flex;flex-direction:column;box-shadow:0 10px 16px -12px rgba(40,60,110,.45);
+background-image:linear-gradient(transparent 26px,rgba(90,110,160,.16) 26px,rgba(90,110,160,.16) 27px,transparent 27px);background-size:100% 27px;background-position:0 12px}
+.bd-memo:nth-child(1){background-color:#FFF0F4;transform:rotate(-1.5deg)}
+.bd-memo:nth-child(2){background-color:#EEF6FF;transform:rotate(1.2deg)}
+.bd-memo:before{content:'';position:absolute;top:-7px;left:50%;margin-left:-26px;width:52px;height:16px;background:rgba(255,226,122,.85);transform:rotate(-3deg)}
+.bd-memo:nth-child(2):before{background:rgba(190,225,200,.9);transform:rotate(4deg)}
+.bd-memo small{font-size:12px;color:#8C95B0;font-weight:700}
+.bd-memo p{margin:4px 0 0;font-family:'Gaegu','Nanum Pen Script',cursive;font-weight:700;font-size:18px;line-height:27px;color:#2B3245}
+.bd-memo .bd-from{margin-top:auto;display:flex;justify-content:space-between;font-size:12px;font-weight:800;padding-top:6px}
+.bd-memo .bd-from span{font-weight:500;color:#8C95B0}
+.bd-form{display:flex;gap:8px;margin-top:16px}
+.bd-form input{flex:1;min-width:0;height:46px;border-radius:14px;border:1.5px solid #D6DDEB;background:#fff;padding:0 14px;font:inherit;font-size:14px;color:#2B3245}
+.bd-form button{height:46px;padding:0 18px;border-radius:14px;border:none;background:#2B3245;color:#fff;font:inherit;font-size:14px;font-weight:800}
+.bd-links{display:flex;flex-direction:column;gap:8px}
+.bd-lkk{display:flex;align-items:center;gap:12px;background:#fff;border-radius:16px;padding:12px 14px;text-decoration:none;color:#2B3245;box-shadow:0 6px 14px -10px rgba(40,60,110,.4)}
+.bd-lkk i{width:36px;height:36px;border-radius:12px;background:linear-gradient(125deg,#FFD9F4 0%,#D6ECFF 28%,#DDFBE6 52%,#FFF4C9 74%,#F3DAFF 100%);display:flex;align-items:center;justify-content:center;flex:none}
+.bd-lkk b{flex:1;font-size:14px}
+.bd-lkk b small{display:block;font-size:12px;font-weight:400;color:#8C95B0}
+.bd-lkk > svg{color:#A3ABC2}
+.bd-foot{text-align:center;font-size:12px;color:#A3ABC2;margin-top:26px}
+
+</style>
+</helmet>
+<div class="bd">
+<div class="bd-bar"><div class="bd-logo">knock!</div><div class="bd-cnt">오늘 <b>4</b>명 · 지금까지 <b>112</b>명</div></div>
+
+<div class="bd-cover">
+<div class="bd-label"><div><small>COLLECT BOOK</small><b>지우의 포카 바인더</b></div><span>똑똑, 들어와도 돼</span></div>
+<div class="bd-wrap">
+<div class="bd-rings"><i class="bd-ring" style="top:61px"><svg width="48" height="28" viewBox="0 0 48 28"><defs><linearGradient id="bd-mt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#C3C9D3"/><stop offset=".62" stop-color="#8D96A6"/><stop offset="1" stop-color="#EEF1F5"/></linearGradient></defs><ellipse cx="24" cy="15" rx="19" ry="8.5" fill="none" stroke="rgba(40,50,80,.22)" stroke-width="5.5"/><ellipse cx="24" cy="13" rx="19" ry="8.5" fill="none" stroke="url(#bd-mt)" stroke-width="5"/><path d="M9,9 Q16,5.5 26,5.2" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".9"/></svg></i><i class="bd-ring" style="top:291px"><svg width="48" height="28" viewBox="0 0 48 28"><defs><linearGradient id="bd-mt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#C3C9D3"/><stop offset=".62" stop-color="#8D96A6"/><stop offset="1" stop-color="#EEF1F5"/></linearGradient></defs><ellipse cx="24" cy="15" rx="19" ry="8.5" fill="none" stroke="rgba(40,50,80,.22)" stroke-width="5.5"/><ellipse cx="24" cy="13" rx="19" ry="8.5" fill="none" stroke="url(#bd-mt)" stroke-width="5"/><path d="M9,9 Q16,5.5 26,5.2" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".9"/></svg></i><i class="bd-ring" style="top:551px"><svg width="48" height="28" viewBox="0 0 48 28"><defs><linearGradient id="bd-mt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#C3C9D3"/><stop offset=".62" stop-color="#8D96A6"/><stop offset="1" stop-color="#EEF1F5"/></linearGradient></defs><ellipse cx="24" cy="15" rx="19" ry="8.5" fill="none" stroke="rgba(40,50,80,.22)" stroke-width="5.5"/><ellipse cx="24" cy="13" rx="19" ry="8.5" fill="none" stroke="url(#bd-mt)" stroke-width="5"/><path d="M9,9 Q16,5.5 26,5.2" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".9"/></svg></i><i class="bd-ring" style="top:781px"><svg width="48" height="28" viewBox="0 0 48 28"><defs><linearGradient id="bd-mt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#C3C9D3"/><stop offset=".62" stop-color="#8D96A6"/><stop offset="1" stop-color="#EEF1F5"/></linearGradient></defs><ellipse cx="24" cy="15" rx="19" ry="8.5" fill="none" stroke="rgba(40,50,80,.22)" stroke-width="5.5"/><ellipse cx="24" cy="13" rx="19" ry="8.5" fill="none" stroke="url(#bd-mt)" stroke-width="5"/><path d="M9,9 Q16,5.5 26,5.2" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".9"/></svg></i></div>
+<div class="bd-page"><i class="bd-hole" style="top:70px"></i><i class="bd-hole" style="top:300px"></i><i class="bd-hole" style="top:560px"></i><i class="bd-hole" style="top:790px"></i>
+<div class="bd-tabs"><span style="background:#FFE27A">MY</span><span style="background:#FFD3E2">취향</span><span style="background:#D6F0DF">방명록</span></div>
+<div class="bd-grid">
+<div class="bd-top"><i class="bd-rim"></i><div class="bd-c bd-prof"><div class="bd-pph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>프로필 사진</div><div class="bd-pn"><b>지우</b><span>No.01</span></div></div>
+<i class="bd-stk" style="right:-7px;top:6px"><svg width="26" height="26" viewBox="0 0 24 24" style="transform:rotate(14deg)"><path d="M12,2.5 L14.6,9 L21.5,9.4 L16.2,13.8 L18,20.8 L12,17 L6,20.8 L7.8,13.8 L2.5,9.4 L9.4,9 Z" fill="#FFD95E" stroke="#fff" stroke-width="3.2" stroke-linejoin="round" paint-order="stroke"/></svg></i><i class="bd-stk" style="right:12px;top:24px"><svg width="16" height="16" viewBox="0 0 24 24" style="transform:rotate(-10deg)"><path d="M12,20 C5,15.5 2.5,12 3,8.5 C3.5,5 7.5,3.5 10,6 L12,8 L14,6 C16.5,3.5 20.5,5 21,8.5 C21.5,12 19,15.5 12,20Z" fill="#FF8DAE" stroke="#fff" stroke-width="3.2" paint-order="stroke" stroke-linejoin="round"/></svg></i><i class="bd-stk" style="left:-6px;bottom:52px"><svg width="20" height="20" viewBox="0 0 24 24" style="transform:rotate(-14deg)"><path d="M12,20 C5,15.5 2.5,12 3,8.5 C3.5,5 7.5,3.5 10,6 L12,8 L14,6 C16.5,3.5 20.5,5 21,8.5 C21.5,12 19,15.5 12,20Z" fill="#B9A8FF" stroke="#fff" stroke-width="3.2" paint-order="stroke" stroke-linejoin="round"/></svg></i>
+<span class="bd-nm">jiwoo</span></div>
+<div class="bd-sl"><div class="bd-c bd-mood"><div class="bd-no"><span>02</span><span>MOOD</span></div><i class="bd-cup"><svg width="34" height="40" viewBox="0 0 34 40" fill="none" stroke="#2B3245" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6,12 H28 L25.5,37 H8.5 Z" fill="rgba(255,255,255,.7)"/><path d="M7.2,22 H26.8 L25.5,36.5 H8.5Z" fill="#C99A6C" stroke="none"/><path d="M4.5,12 H29.5"/><path d="M19,12 L23,2" stroke="#E5578A" stroke-width="2.4"/></svg></i><h3>시험 D-3,<br>커피 수혈 중</h3></div></div>
+<div class="bd-sl"><div class="bd-c bd-song"><div class="bd-no"><span>03</span><span>NOW</span></div><div class="bd-alb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>앨범 커버</div><h3>좋은 날<span>아이유</span></h3><div class="bd-prog"><i></i></div></div></div>
+<div class="bd-sl"><div class="bd-c bd-dday"><div class="bd-no" style="width:100%"><span>04</span><span>D-DAY</span></div><div class="bd-dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class="bdd"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="bd-big">D-12</div><p>생일까지</p></div></div>
+<div class="bd-sl"><div class="bd-c bd-q"><div class="bd-no"><span>05</span><span>QUESTION</span></div><div class="bd-qq">Q.</div><h3>제일 좋아하는 편의점 간식은?</h3><span class="bd-ans">답하기 →</span></div></div>
+<div class="bd-sl"><div class="bd-c bd-mb"><div class="bd-no"><span>06</span><span>TYPE</span></div><div class="bd-mbt">ENFP</div><ul><li><i>♥</i>필름카메라</li><li><i>♥</i>떡볶이</li><li><i>♥</i>비 오는 날 카페</li><li><i>♥</i>키링 모으기</li><li class="no"><i>✕</i>아침 9시 수업</li></ul></div></div>
+<div class="bd-sl"><div class="bd-c bd-ph"><div class="bd-no"><span>07</span><span>PHOTO</span></div><div class="bd-pph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이<br>올린 사진</div></div></div>
+<div class="bd-sl"><div class="bd-c bd-back"><div class="bd-no"><span>08</span><span>SECRET</span></div><div class="bd-lk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><b>비밀 일기 3</b><small>친구만 볼 수 있어요</small></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bd-ks"><button class="bd-kbtn"><svg width="170" height="150" viewBox="0 0 170 150"><defs>
+<linearGradient id="bd-hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF9DC0"/><stop offset="1" stop-color="#F0628F"/></linearGradient></defs>
+<path d="M85,140 C38,110 8,82 10,48 C12,20 34,6 56,8 C70,9 80,18 85,28 C90,18 100,9 114,8 C136,6 158,20 160,48 C162,82 132,110 85,140Z" fill="#fff"/>
+<path d="M85,128 C44,102 20,78 21,50 C22,28 39,18 56,19 C69,20 79,29 85,41 C91,29 101,20 114,19 C131,18 148,28 149,50 C150,78 126,102 85,128Z" fill="url(#bd-hg)"/>
+<path d="M40,40 C44,31 52,28 60,29" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".75"/>
+<circle cx="38" cy="52" r="3.4" fill="#fff" opacity=".75"/>
+</svg><span><b>노크하기</b><em>27</em></span></button><p>하트 스티커를 눌러 노크해요 · 지금까지 27번</p></div>
+
+<div class="bd-sec">
+<div class="bd-st"><h2>교환 메모</h2><span>방명록 2</span></div>
+<div class="bd-memos">
+<div class="bd-memo"><small>To. 지우</small><p>케이스 뭐야 너무 귀엽잖아</p><div class="bd-from">From. 민지<span>10.4</span></div></div>
+<div class="bd-memo"><small>To. 지우</small><p>도서관에서 찍고 감</p><div class="bd-from">From. 익명<span>10.2</span></div></div>
+</div>
+<div class="bd-form"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+</div>
+
+<div class="bd-sec bd-links">
+<a class="bd-lkk" href="#"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></i><b>인스타그램<small>@jiwoo.room</small></b><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+<a class="bd-lkk" href="#"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 6l1.5-2h5L16 6"/></svg></i><b>필름 사진 모아둔 곳<small>블로그</small></b><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+</div>
+<div class="bd-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

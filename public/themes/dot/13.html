@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 13 · 사원증</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap">
+<style>
+body{margin:0}
+.id{width:390px;min-height:1653px;box-sizing:border-box;position:relative;color:#151A2B;font-family:'Noto Sans KR','Noto Sans CJK KR',sans-serif;font-size:15px;line-height:1.55;word-break:keep-all;padding:0 0 26px;background:linear-gradient(180deg,#DADFE7 0,#E9ECF1 380px,#EEF0F3 100%)}
+.id *{box-sizing:border-box}
+.id-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.id-mono{font-family:'IBM Plex Mono',monospace}
+.id-bar{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 20px}
+.id-bar .id-brand{font-size:18px}
+.id-bar span.id-mono{font-size:12px;color:#5A6275;letter-spacing:.06em}
+.id-hang{position:relative;height:614px;margin-top:-52px}
+.id-strap{position:absolute;left:0;top:0;width:390px;height:250px;z-index:1}
+.id-badge{position:absolute;left:55px;top:226px;width:280px;height:368px;border-radius:16px;background:#fff;overflow:hidden;transform:rotate(-1.6deg);transform-origin:50% 0;z-index:2;
+box-shadow:0 0 0 1px rgba(21,26,43,.06),0 2px 3px rgba(21,26,43,.1),0 22px 40px -14px rgba(21,26,43,.38)}
+.id-slot{position:absolute;left:50%;top:12px;width:56px;height:10px;margin-left:-28px;border-radius:6px;background:#E9ECF1;box-shadow:inset 0 1.5px 2px rgba(0,0,0,.28);z-index:2}
+.id-band{height:78px;background:#2453E6;color:#fff;padding:30px 18px 0;display:flex;justify-content:space-between;align-items:flex-start;position:relative;overflow:hidden}
+.id-band:after{content:'';position:absolute;right:-30px;top:-40px;width:150px;height:150px;border-radius:50%;border:22px solid rgba(255,255,255,.09)}
+.id-band .id-brand{font-size:20px}
+.id-band small{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;font-weight:600;padding-top:5px}
+.id-body{display:grid;grid-template-columns:104px 1fr;gap:14px;padding:16px 18px 0}
+.id-photo{width:104px;height:130px;border-radius:8px;border:1.5px dashed #B5BCCA;background:#F4F6F9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:12px;color:#7A8296}
+.id-who{padding-top:4px}
+.id-who h1{margin:0;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.15}
+.id-who .id-en{display:block;margin-top:2px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#7A8296;letter-spacing:.04em}
+.id-who p{margin:12px 0 0;font-size:15px;font-weight:700;line-height:1.35}
+.id-who p span{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:14px;font-weight:500;color:#424A5C}
+.id-who em{width:24px;height:24px;border-radius:6px;border:1.3px dashed #B5BCCA;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.id-meta{display:grid;grid-template-columns:1fr 1fr 1fr;margin:16px 18px 0;border-top:1px solid #E6E9EF;border-bottom:1px solid #E6E9EF}
+.id-meta div{padding:8px 0}
+.id-meta div+div{padding-left:10px;border-left:1px solid #E6E9EF}
+.id-meta small{display:block;font-size:12px;color:#7A8296;line-height:1.3}
+.id-meta b{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;letter-spacing:.02em}
+.id-code{position:absolute;left:0;right:0;bottom:0;height:60px;gap:10px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:#F4F6F9;border-top:4px solid #2453E6}
+.id-code small{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#424A5C;letter-spacing:.04em;line-height:1.3;text-align:right;white-space:nowrap}
+.id-holo{width:30px;height:30px;flex:none;border-radius:50%;background:conic-gradient(from 30deg,#CFE3FF,#F3D9F5,#D8F5E6,#FFF1C9,#CFE3FF);opacity:.85;box-shadow:inset 0 0 0 1px rgba(255,255,255,.7);display:flex;align-items:center;justify-content:center}
+.id-holo span{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:13px;color:rgba(21,26,43,.45)}
+.id-acts{padding:4px 20px 0}
+.id-acts a{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:700}
+.id-save{height:60px;border-radius:14px;background:#151A2B;color:#fff;font-size:17px;box-shadow:0 10px 22px -10px rgba(21,26,43,.6)}
+.id-save i{width:28px;height:28px;border-radius:8px;background:#2453E6;display:flex;align-items:center;justify-content:center}
+.id-give{height:50px;margin-top:8px;border-radius:14px;background:#fff;color:#151A2B;font-size:15px;border:1.5px solid #C9CFDA}
+.id-note{margin:10px 0 0;text-align:center;font-size:12px;color:#5A6275}
+.id-back{margin:30px 16px 0;background:#fff;border-radius:16px;padding:26px 18px 6px;position:relative;box-shadow:0 0 0 1px rgba(21,26,43,.05),0 10px 24px -16px rgba(21,26,43,.3)}
+.id-back:before{content:'';position:absolute;left:50%;top:10px;width:48px;height:8px;margin-left:-24px;border-radius:5px;background:#E9ECF1;box-shadow:inset 0 1.5px 2px rgba(0,0,0,.2)}
+.id-lost{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-size:13px;color:#5A6275}
+.id-lost:before{content:'';width:4px;height:14px;border-radius:2px;background:#2453E6}
+.id-f{display:grid;grid-template-columns:62px 1fr;align-items:center;min-height:46px;border-bottom:1px solid #EEF0F4}
+.id-f small{font-size:12px;color:#7A8296;font-weight:500}
+.id-f span{font-size:15px;font-weight:500}
+.id-f span.id-mono{font-size:15px;font-weight:500}
+.id-f:last-child{border-bottom:0}
+.id-sec{margin:14px 16px 0;background:#fff;border-radius:16px;padding:18px 18px 16px;box-shadow:0 0 0 1px rgba(21,26,43,.05),0 10px 24px -16px rgba(21,26,43,.3)}
+.id-sec h2{display:flex;align-items:center;justify-content:space-between;margin:0 0 10px;font-size:16px;font-weight:800;letter-spacing:-.01em}
+.id-sec h2 small{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;color:#7A8296;letter-spacing:.06em}
+.id-about{margin:0;font-size:15px;line-height:1.7;color:#2C3345}
+.id-log{display:grid;grid-template-columns:70px 1fr;align-items:center;min-height:52px;border-top:1px solid #EEF0F4}
+.id-log:first-of-type{border-top:0}
+.id-log small{justify-self:start;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#2453E6;background:#EDF2FE;border-radius:6px;padding:3px 7px}
+.id-log small.id-ko{font-family:'Noto Sans KR',sans-serif;font-weight:700}
+.id-log b{display:block;font-size:15px;font-weight:700;line-height:1.35}
+.id-log span{font-size:13px;color:#5A6275}
+.id-ln{display:flex;align-items:center;gap:12px;height:54px;text-decoration:none;color:#151A2B;border-top:1px solid #EEF0F4}
+.id-ln:first-of-type{border-top:0}
+.id-ln i{width:36px;height:36px;border-radius:10px;background:#F1F3F7;display:flex;align-items:center;justify-content:center;flex:none}
+.id-ln div{flex:1;font-size:15px;font-weight:700}
+.id-own{text-align:center;margin:28px 0 0;font-size:12px;color:#9AA1B0}
+.id-own a{color:#5A6275;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="id">
+  <div class="id-bar"><span class="id-brand">knock.</span><span class="id-mono">STAFF ID</span></div>
+
+  <div class="id-hang">
+    <svg class="id-strap" viewBox="0 0 390 250" aria-hidden="true">
+      <defs>
+        <linearGradient id="idm" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8F96A3"/><stop offset=".45" stop-color="#F2F4F7"/><stop offset="1" stop-color="#7D8491"/></linearGradient>
+        <path id="idl" d="M128 -20 L186 168"/>
+        <path id="idr" d="M262 -20 L204 168"/>
+      </defs>
+      <path d="M128 -20 L186 168" stroke="#151A2B" stroke-width="30" fill="none"/>
+      <path d="M262 -20 L204 168" stroke="#1C2236" stroke-width="30" fill="none"/>
+      <path d="M128 -20 L186 168" stroke="#2453E6" stroke-width="30" stroke-dasharray="0" fill="none" opacity="0"/>
+      <path d="M114.6 -16 L172.6 172" stroke="#2453E6" stroke-width="2.5" fill="none"/>
+      <path d="M141.4 -24 L199.4 164" stroke="#2453E6" stroke-width="2.5" fill="none"/>
+      <path d="M248.6 -24 L190.6 164" stroke="#2453E6" stroke-width="2.5" fill="none"/>
+      <path d="M275.4 -16 L217.4 172" stroke="#2453E6" stroke-width="2.5" fill="none"/>
+      <text font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="11" fill="#fff" letter-spacing="1.5" dy="4"><textPath href="#idl">knock.  knock.  knock.  knock.  knock.</textPath></text>
+      <text font-family="Bricolage Grotesque, sans-serif" font-weight="800" font-size="11" fill="#fff" letter-spacing="1.5" dy="4"><textPath href="#idr">knock.  knock.  knock.  knock.  knock.</textPath></text>
+      <path d="M170 150 L220 150 L210 176 L180 176 Z" fill="#151A2B"/>
+      <rect x="176" y="164" width="38" height="14" rx="3" fill="url(#idm)"/>
+      <circle cx="195" cy="188" r="9" fill="none" stroke="url(#idm)" stroke-width="4"/>
+      <rect x="186" y="194" width="18" height="22" rx="5" fill="url(#idm)" stroke="#7D8491" stroke-width=".8"/>
+      <rect x="191" y="198" width="8" height="12" rx="3" fill="#C6CBD3"/>
+      <rect x="181" y="212" width="28" height="30" rx="4" fill="rgba(255,255,255,.55)" stroke="rgba(120,130,150,.5)" stroke-width="1"/>
+    </svg>
+
+    <div class="id-badge" aria-label="사원증">
+      <span class="id-slot" aria-hidden="true"></span>
+      <div class="id-band"><span class="id-brand">knock.</span><small>STAFF</small></div>
+      <div class="id-body">
+        <div class="id-photo" aria-label="프로필 사진 자리"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9AA1B0" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1.2-3.6 4-5 7-5s5.8 1.4 7 5"/></svg>프로필 사진</div>
+        <div class="id-who">
+          <h1>주건우</h1>
+          <span class="id-en">JOO GEONWOO</span>
+          <p>대표 · 제품<span><em aria-label="회사 로고 자리"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9AA1B0" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 15l4-4 4 4 3-3 5 5"/></svg></em>knock</span></p>
+        </div>
+      </div>
+      <div class="id-meta">
+        <div><small>사번</small><b>KN-0001</b></div>
+        <div><small>부서</small><b style="font-family:'Noto Sans KR',sans-serif;font-weight:700">제품</b></div>
+        <div><small>발급</small><b>2026</b></div>
+      </div>
+      <div class="id-code">
+        <svg width="124" height="32" viewBox="0 0 132 34" preserveAspectRatio="none" aria-hidden="true"><g fill="#151A2B">
+          <rect x="0" y="0" width="2" height="34"/><rect x="4" y="0" width="1" height="34"/><rect x="7" y="0" width="3" height="34"/><rect x="12" y="0" width="1" height="34"/><rect x="15" y="0" width="2" height="34"/><rect x="19" y="0" width="1" height="34"/><rect x="22" y="0" width="4" height="34"/><rect x="28" y="0" width="1" height="34"/><rect x="31" y="0" width="2" height="34"/><rect x="35" y="0" width="1" height="34"/><rect x="38" y="0" width="3" height="34"/><rect x="43" y="0" width="1" height="34"/><rect x="46" y="0" width="1" height="34"/><rect x="49" y="0" width="2" height="34"/><rect x="53" y="0" width="3" height="34"/><rect x="58" y="0" width="1" height="34"/><rect x="61" y="0" width="2" height="34"/><rect x="65" y="0" width="1" height="34"/><rect x="68" y="0" width="4" height="34"/><rect x="74" y="0" width="1" height="34"/><rect x="77" y="0" width="2" height="34"/><rect x="81" y="0" width="1" height="34"/><rect x="84" y="0" width="3" height="34"/><rect x="89" y="0" width="1" height="34"/><rect x="92" y="0" width="2" height="34"/><rect x="96" y="0" width="1" height="34"/><rect x="99" y="0" width="1" height="34"/><rect x="102" y="0" width="3" height="34"/><rect x="107" y="0" width="1" height="34"/><rect x="110" y="0" width="2" height="34"/><rect x="114" y="0" width="4" height="34"/><rect x="120" y="0" width="1" height="34"/><rect x="123" y="0" width="2" height="34"/><rect x="127" y="0" width="1" height="34"/><rect x="130" y="0" width="2" height="34"/>
+        </g></svg>
+        <div class="id-holo" aria-hidden="true"><span>k.</span></div>
+        <small>KN 0001<br>2026.03</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="id-acts">
+    <a href="#" class="id-save"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M3 20c.8-3.5 3.6-5.5 7-5.5M18 13v7M14.5 16.5h7"/></svg></i>연락처에 저장</a>
+    <a href="#" class="id-give"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#151A2B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M7 11h6M7 14h4"/></svg>내 명함 주기</a>
+    <p class="id-note">앱 설치 없이 바로 저장돼요</p>
+  </div>
+
+  <div class="id-back">
+    <p class="id-lost">이 카드를 주우면 여기로 연락 주세요</p>
+    <div class="id-f"><small>전화</small><span class="id-mono">010-0000-0000</span></div>
+    <div class="id-f"><small>메일</small><span class="id-mono">me@example.com</span></div>
+    <div class="id-f"><small>소속</small><span>knock · 인하대학교</span></div>
+  </div>
+
+  <div class="id-sec">
+    <h2>소개<small>ABOUT</small></h2>
+    <p class="id-about">케이스 뒤 QR을 찍으면 내 페이지가 열리는 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p>
+  </div>
+
+  <div class="id-sec">
+    <h2>경력<small>HISTORY</small></h2>
+    <div class="id-log"><small>2026</small><div><b>knock 창업</b><span>대표 · 제품</span></div></div>
+    <div class="id-log"><small>2025</small><div><b>인하벤처클럽</b><span>창업 동아리</span></div></div>
+    <div class="id-log"><small class="id-ko">학력</small><div><b>인하대학교</b></div></div>
+  </div>
+
+  <div class="id-sec">
+    <h2>링크<small>LINKS</small></h2>
+    <a href="#" class="id-ln"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#151A2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M8 6V4h8v2"/></svg></i><div>포트폴리오</div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA1B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    <a href="#" class="id-ln"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#151A2B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></i><div>링크드인</div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9AA1B0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+  </div>
+
+  <p class="id-own">knock. · <a href="#">나도 명함 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

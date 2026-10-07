@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 29 · 말랑 젤리</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Jua&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap">
+<style>
+body{margin:0}
+.jl{width:390px;min-height:1584px;box-sizing:border-box;background:#F6EEF6;background-image:radial-gradient(circle at 12% 6%,#FFE3D8 0,rgba(255,227,216,0) 34%),radial-gradient(circle at 92% 22%,#E6DDFF 0,rgba(230,221,255,0) 38%),radial-gradient(circle at 10% 58%,#DDF3EA 0,rgba(221,243,234,0) 36%),radial-gradient(circle at 90% 84%,#FFF0C9 0,rgba(255,240,201,0) 36%);color:#3E3348;font-family:'Noto Sans KR',sans-serif;font-size:15px;line-height:1.5;word-break:keep-all;padding:0 16px 28px;position:relative;overflow:hidden}
+.jl *{box-sizing:border-box}
+.jl-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.jl-jua{font-family:'Jua','Noto Sans KR',sans-serif;font-weight:400}
+.jl-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 4px 0}
+.jl-bar .jl-brand{font-size:19px}
+
+/* the squish */
+.jl-sq{position:relative;border-radius:30px;box-shadow:inset 0 2px 0 rgba(255,255,255,.95),inset 0 10px 18px rgba(255,255,255,.55),inset 0 -8px 16px var(--d,rgba(120,90,140,.14)),0 16px 26px -14px var(--s,rgba(120,90,140,.45)),0 2px 4px rgba(120,90,140,.06)}
+.jl-sq::before{content:"";position:absolute;left:18px;top:7px;width:42%;height:12px;border-radius:99px;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0));pointer-events:none}
+
+.jl-cnt{display:flex;gap:6px;align-items:center;font-size:12px;color:#6D6178;padding:5px 12px;border-radius:99px;background:#fff;--d:rgba(120,90,140,.10);--s:rgba(120,90,140,.25)}
+.jl-cnt::before{display:none}
+.jl-cnt b{color:#3E3348}
+
+.jl-hero{margin-top:16px;background:linear-gradient(170deg,#FFFFFF,#FFF4EE);padding:22px 20px 20px;display:flex;gap:16px;align-items:center;--d:rgba(220,150,130,.18);--s:rgba(220,150,130,.45)}
+.jl-av{width:86px;height:86px;border-radius:50%;flex:none;background:linear-gradient(160deg,#FFF,#F4ECF4);box-shadow:inset 0 -6px 10px rgba(120,90,140,.12),inset 0 3px 0 #fff,0 8px 14px -8px rgba(120,90,140,.4);display:flex;align-items:center;justify-content:center}
+.jl-av div{width:68px;height:68px;border-radius:50%;border:1.5px dashed #CDBBD3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+.jl-av small{font-size:10px;color:#A493AB}
+.jl-hero h1{margin:0;font-size:32px;line-height:1.1}
+.jl-hero p{margin:4px 0 0;font-size:14px;color:#7A6E84}
+.jl-chips{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.jl-chip{font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;box-shadow:inset 0 1.5px 0 rgba(255,255,255,.9),inset 0 -3px 5px rgba(0,0,0,.08),0 4px 8px -5px rgba(120,90,140,.5)}
+
+.jl-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.jl-t{padding:16px 16px 16px;min-height:150px;display:flex;flex-direction:column}
+.jl-t small{font-size:12px;font-weight:700;opacity:.75}
+.jl-t .jl-ic{display:block}
+.jl-wide{grid-column:span 2}
+
+.jl-mood{background:linear-gradient(165deg,#FFE7DD,#FFD2C2);--d:rgba(220,110,80,.18);--s:rgba(230,120,90,.5);flex-direction:row;align-items:center;gap:12px;min-height:118px;color:#5A2F25}
+.jl-mood p{margin:2px 0 0;font-size:22px;line-height:1.25}
+
+.jl-song{background:linear-gradient(165deg,#EEE7FF,#D9CCFF);--d:rgba(110,80,200,.18);--s:rgba(120,90,220,.5);color:#3B2A6E}
+.jl-song b{font-size:22px;line-height:1.2;margin-top:auto;display:block}
+.jl-song span{font-size:13px;opacity:.8}
+.jl-play{position:absolute;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;background:linear-gradient(160deg,#fff,#EFE9FF);box-shadow:inset 0 -4px 6px rgba(110,80,200,.15),0 6px 10px -5px rgba(110,80,200,.5);display:flex;align-items:center;justify-content:center}
+
+.jl-dday{background:linear-gradient(165deg,#FFF5D4,#FFE59A);--d:rgba(200,150,30,.2);--s:rgba(210,160,40,.5);color:#5C4209;align-items:flex-start}
+.jl-dday b{font-size:44px;line-height:1;margin-top:auto;letter-spacing:-.01em}
+
+.jl-q{background:linear-gradient(165deg,#E3F0FF,#C9DFFF);--d:rgba(70,120,200,.18);--s:rgba(80,130,210,.5);color:#21406E;flex-direction:row;align-items:center;gap:12px;min-height:112px}
+.jl-q p{margin:2px 0 0;font-size:19px;line-height:1.3}
+
+.jl-photo{background:linear-gradient(165deg,#FFFFFF,#F5F0F7);--d:rgba(120,90,140,.12);--s:rgba(120,90,140,.35);padding:12px;min-height:0}
+.jl-ph{height:100%;min-height:150px;border-radius:22px;border:1.5px dashed #CDBBD3;background:rgba(246,238,246,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.jl-ph span{font-size:12px;color:#9C8BA5}
+
+.jl-fit{background:linear-gradient(165deg,#F4F4F8,#DFE0E8);--d:rgba(80,80,110,.16);--s:rgba(90,90,120,.45);color:#34364A}
+.jl-fit b{font-size:19px;line-height:1.25;margin-top:auto;display:block}
+.jl-like{background:linear-gradient(165deg,#E6F8F0,#C9EEDD);--d:rgba(40,140,100,.16);--s:rgba(50,150,110,.45);color:#1F5440;min-height:0;padding:16px}
+.jl-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.jl-pill{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;background:linear-gradient(170deg,#fff,#F1FBF6);padding:6px 12px 6px 7px;border-radius:99px;box-shadow:inset 0 -3px 5px rgba(40,140,100,.12),0 5px 9px -6px rgba(40,140,100,.6)}
+.jl-pill i{width:22px;height:22px;border-radius:50%;flex:none}
+.jl-like .jl-mini{display:flex;gap:14px;margin-top:12px;padding-top:12px;border-top:1.5px dashed rgba(31,84,64,.18);font-size:13px}
+.jl-like .jl-mini span{flex:1}
+.jl-like .jl-mini span b{display:block;font-size:12px;opacity:.7}
+.jl-like s{text-decoration-thickness:2px;text-decoration-color:#E58C7A}
+
+.jl-knock{margin-top:14px;height:78px;border-radius:39px;background:linear-gradient(175deg,#FFE38A,#FFC94A);--d:rgba(190,120,0,.28);--s:rgba(220,150,20,.6);display:flex;align-items:center;gap:12px;padding:0 12px 0 16px;color:#4A3410}
+.jl-knock::before{left:40px;top:8px;width:55%;height:16px}
+.jl-knock b{flex:1;font-size:24px;line-height:1}
+.jl-knock b small{display:block;font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:500;opacity:.75;margin-top:4px}
+.jl-knock em{font-style:normal;height:52px;min-width:72px;border-radius:26px;background:linear-gradient(170deg,#fff,#FFF6DB);box-shadow:inset 0 -4px 6px rgba(190,120,0,.15),0 6px 10px -6px rgba(190,120,0,.6);display:flex;align-items:center;justify-content:center;gap:2px;font-size:20px;color:#4A3410}
+.jl-knock em small{font-family:'Noto Sans KR',sans-serif;font-size:12px}
+
+.jl-links{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.jl-lk{background:linear-gradient(165deg,#FFFFFF,#F7F2F9);--d:rgba(120,90,140,.12);--s:rgba(120,90,140,.35);padding:14px;border-radius:24px;display:flex;align-items:center;gap:10px;text-decoration:none;color:#3E3348}
+.jl-lk::before{display:none}
+.jl-lk .jl-li{width:36px;height:36px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 2px 0 rgba(255,255,255,.8),inset 0 -3px 5px rgba(0,0,0,.08)}
+.jl-lk span{font-size:13px;font-weight:700;line-height:1.3}
+.jl-lk span small{display:block;font-size:12px;font-weight:400;color:#8B7F95}
+
+.jl-gb{margin-top:22px;background:linear-gradient(170deg,#FFFFFF,#FBF7FC);--d:rgba(120,90,140,.10);--s:rgba(120,90,140,.35);padding:18px 16px 16px}
+.jl-gb h2{margin:0 4px 12px;font-size:21px;display:flex;justify-content:space-between;align-items:baseline}
+.jl-gb h2 small{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#9C8BA5}
+.jl-msg{display:flex;gap:10px;align-items:flex-start;margin-top:10px}
+.jl-msg .jl-mi{width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:inset 0 2px 0 rgba(255,255,255,.8),inset 0 -3px 5px rgba(0,0,0,.08)}
+.jl-msg div{background:#F6F1F8;border-radius:6px 20px 20px 20px;padding:9px 14px 10px}
+.jl-msg div small{display:block;font-size:12px;color:#8B7F95}
+.jl-msg div small b{color:#3E3348;margin-right:5px}
+.jl-msg div p{margin:0;font-size:15px;font-weight:500}
+.jl-in{display:flex;gap:8px;margin-top:16px}
+.jl-in input{flex:1;min-width:0;height:50px;border:none;border-radius:25px;background:#F3EDF5;box-shadow:inset 0 3px 6px rgba(120,90,140,.14);padding:0 18px;font:inherit;font-size:14px;color:#3E3348}
+.jl-in input::placeholder{color:#A596AD}
+.jl-in button{height:50px;padding:0 20px;border:none;border-radius:25px;background:linear-gradient(170deg,#C9B8FF,#A890F5);box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -4px 6px rgba(70,40,160,.2),0 8px 12px -8px rgba(110,80,200,.7);color:#2A1C5C;font:inherit;font-size:14px;font-weight:800}
+.jl-foot{text-align:center;font-size:12px;color:#A99CB0;margin-top:30px}
+</style>
+</helmet>
+<div class="jl">
+<svg width="0" height="0" style="position:absolute">
+<defs>
+<radialGradient id="jlPeach" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#FFF3EC"/><stop offset=".45" stop-color="#FFB7A0"/><stop offset="1" stop-color="#F0806A"/></radialGradient>
+<radialGradient id="jlCoffee" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#E7B98F"/><stop offset=".6" stop-color="#B07648"/><stop offset="1" stop-color="#8A5530"/></radialGradient>
+<radialGradient id="jlCup" cx="30%" cy="20%" r="90%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F2E6EE"/></radialGradient>
+<radialGradient id="jlLilac" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#F3EEFF"/><stop offset=".45" stop-color="#B9A3FF"/><stop offset="1" stop-color="#7E62E8"/></radialGradient>
+<radialGradient id="jlCake" cx="35%" cy="20%" r="90%"><stop offset="0" stop-color="#FFE3E7"/><stop offset=".6" stop-color="#FFAFBC"/><stop offset="1" stop-color="#EE8597"/></radialGradient>
+<radialGradient id="jlCream" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#FFEBD8"/></radialGradient>
+<radialGradient id="jlSky" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#F1F7FF"/><stop offset=".45" stop-color="#9CC3FF"/><stop offset="1" stop-color="#5B8FE6"/></radialGradient>
+<radialGradient id="jlFlame" cx="50%" cy="65%" r="60%"><stop offset="0" stop-color="#FFF6C8"/><stop offset=".6" stop-color="#FFC94A"/><stop offset="1" stop-color="#FF9A3C"/></radialGradient>
+<radialGradient id="jlGrey" cx="35%" cy="25%" r="85%"><stop offset="0" stop-color="#FAFAFC"/><stop offset=".5" stop-color="#C9CAD4"/><stop offset="1" stop-color="#9294A4"/></radialGradient>
+<radialGradient id="jlHeart" cx="35%" cy="28%" r="80%"><stop offset="0" stop-color="#FFF1EC"/><stop offset=".45" stop-color="#FF9D8C"/><stop offset="1" stop-color="#E9645A"/></radialGradient>
+</defs>
+</svg>
+
+<div class="jl-bar"><span class="jl-brand">knock!</span><span class="jl-cnt jl-sq">오늘 <b>4</b> · 지금까지 <b>112</b></span></div>
+
+<div class="jl-hero jl-sq">
+<div class="jl-av"><div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B5A2BC" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><small>프로필</small></div></div>
+<div>
+<h1 class="jl-jua">지우</h1>
+<p>똑똑, 들어와도 돼</p>
+<div class="jl-chips"><span class="jl-chip" style="background:linear-gradient(170deg,#EFE9FF,#DCD0FF);color:#4A3793">ENFP</span><span class="jl-chip" style="background:linear-gradient(170deg,#FFF6D6,#FFE79E);color:#6B4F0C">버터 옐로 최애</span></div>
+</div>
+</div>
+
+<div class="jl-knock jl-sq">
+<svg width="52" height="50" viewBox="0 0 52 50" style="flex:none">
+<path d="M26 46 C 8 34, 3 24, 6 16 C 9 8, 20 6, 26 15 C 32 6, 43 8, 46 16 C 49 24, 44 34, 26 46 Z" fill="url(#jlHeart)"/>
+<ellipse cx="15" cy="16" rx="5" ry="3" fill="#fff" opacity=".85" transform="rotate(-30 15 16)"/>
+</svg>
+<b class="jl-jua">노크하기<small>똑똑, 지우한테 왔다고 알려요</small></b>
+<em class="jl-jua">27<small>번</small></em>
+</div>
+
+<div class="jl-grid">
+
+<div class="jl-t jl-mood jl-wide jl-sq">
+<svg class="jl-ic" width="72" height="84" viewBox="0 0 72 84">
+<ellipse cx="36" cy="80" rx="20" ry="3.5" fill="#C96F58" opacity=".22"/>
+<path d="M14 26 H58 L52 74 a6 6 0 0 1 -6 5 H26 a6 6 0 0 1 -6 -5 Z" fill="url(#jlCup)"/>
+<path d="M17 40 H55 L51.5 72 a5 5 0 0 1 -5 4.5 H25.5 a5 5 0 0 1 -5 -4.5 Z" fill="url(#jlCoffee)"/>
+<rect x="24" y="46" width="10" height="10" rx="3" fill="#fff" opacity=".55" transform="rotate(-12 29 51)"/>
+<rect x="36" y="52" width="9" height="9" rx="3" fill="#fff" opacity=".45" transform="rotate(14 40 56)"/>
+<path d="M22 44 c-1 9 0 18 2 26" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".6" fill="none"/>
+<path d="M10 22 a26 7 0 0 1 52 0 v4 a26 5 0 0 1 -52 0 Z" fill="url(#jlCup)"/>
+<path d="M18 20 a18 4 0 0 1 20 -3" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<rect x="40" y="2" width="7" height="26" rx="3.5" transform="rotate(14 43 15)" fill="url(#jlPeach)"/>
+</svg>
+<div><small>오늘의 기분</small><p class="jl-jua">시험 D-3,<br>커피 수혈 중</p></div>
+</div>
+
+<div class="jl-t jl-song jl-sq">
+<svg class="jl-ic" width="56" height="56" viewBox="0 0 56 56">
+<ellipse cx="28" cy="52" rx="18" ry="3" fill="#6B4FD0" opacity=".2"/>
+<path d="M20 12 L46 6 V38" stroke="url(#jlLilac)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M20 12 V42" stroke="url(#jlLilac)" stroke-width="7" stroke-linecap="round" fill="none"/>
+<ellipse cx="14" cy="43" rx="9" ry="7.5" fill="url(#jlLilac)"/>
+<ellipse cx="40" cy="39" rx="9" ry="7.5" fill="url(#jlLilac)"/>
+<ellipse cx="11" cy="40" rx="3" ry="2" fill="#fff" opacity=".85"/><ellipse cx="37" cy="36" rx="3" ry="2" fill="#fff" opacity=".85"/>
+</svg>
+<small style="margin-top:8px">요즘 듣는 노래</small>
+<b class="jl-jua">좋은 날</b><span>아이유</span>
+<span class="jl-play"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10-6.5a1 1 0 0 0 0-1.7l-10-6.5A1 1 0 0 0 8 5.5Z" fill="#7E62E8"/></svg></span>
+</div>
+
+<div class="jl-t jl-dday jl-sq">
+<svg class="jl-ic" width="62" height="60" viewBox="0 0 62 60">
+<ellipse cx="31" cy="56" rx="22" ry="3.5" fill="#C9A033" opacity=".25"/>
+<path d="M8 30 v16 a23 8 0 0 0 46 0 v-16 Z" fill="url(#jlCake)"/>
+<ellipse cx="31" cy="30" rx="23" ry="8" fill="url(#jlCream)"/>
+<path d="M8 30 c0 6 4 8 6 5 c2 -3 4 6 7 2 c3 -3 5 4 9 1 c3 -3 6 5 9 1 c3 -3 5 3 8 0 c3 -3 7 1 7 -9" fill="url(#jlCream)"/>
+<rect x="28" y="10" width="6" height="18" rx="3" fill="url(#jlSky)"/>
+<path d="M31 1 c4 4 5 8 0 10 c-5 -2 -4 -6 0 -10 Z" fill="url(#jlFlame)"/>
+<ellipse cx="20" cy="27" rx="5" ry="1.8" fill="#fff" opacity=".9"/>
+<circle cx="42" cy="31" r="2" fill="#FF8FA3"/><circle cx="22" cy="33" r="1.7" fill="#9CC3FF"/><circle cx="34" cy="35" r="1.7" fill="#FFC94A"/>
+</svg>
+<small style="margin-top:8px">생일까지</small>
+<b class="jl-jua">D-12</b>
+</div>
+
+<div class="jl-t jl-q jl-wide jl-sq">
+<svg class="jl-ic" width="66" height="62" viewBox="0 0 66 62" style="flex:none">
+<ellipse cx="33" cy="58" rx="20" ry="3" fill="#3D6FC2" opacity=".2"/>
+<path d="M33 4 C 50 4 62 14 62 27 C 62 40 50 49 34 49 C 30 49 27 48.5 24 47.5 L12 54 L15 43 C 8 39 4 33 4 27 C 4 14 16 4 33 4 Z" fill="url(#jlSky)"/>
+<path d="M26 22 c0 -6 4 -9 8 -9 c5 0 8 3 8 7 c0 5 -6 6 -6 11" stroke="#fff" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+<circle cx="36" cy="39" r="3.2" fill="#fff"/>
+<ellipse cx="18" cy="15" rx="6" ry="3" fill="#fff" opacity=".7" transform="rotate(-25 18 15)"/>
+</svg>
+<div><small>요즘 질문</small><p class="jl-jua">제일 좋아하는<br>편의점 간식은?</p></div>
+</div>
+
+<div class="jl-t jl-photo jl-sq">
+<div class="jl-ph"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B5A2BC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg><span>주인이 올린 사진</span></div>
+</div>
+
+<div class="jl-t jl-fit jl-sq">
+<svg class="jl-ic" width="64" height="60" viewBox="0 0 64 60">
+<ellipse cx="32" cy="57" rx="20" ry="3" fill="#6E7080" opacity=".2"/>
+<path d="M22 8 C 26 3, 38 3, 42 8 L54 16 C 58 19, 60 24, 60 30 V36 H50 V54 a2 2 0 0 1 -2 2 H16 a2 2 0 0 1 -2 -2 V36 H4 V30 C 4 24, 6 19, 10 16 Z" fill="url(#jlGrey)"/>
+<path d="M22 8 C 24 18, 40 18, 42 8 C 38 13, 26 13, 22 8 Z" fill="#8E909E"/>
+<path d="M28 16 v9 M36 16 v9" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+<circle cx="28" cy="26" r="1.8" fill="#fff"/><circle cx="36" cy="26" r="1.8" fill="#fff"/>
+<path d="M21 40 H43 L41 50 H23 Z" fill="#9EA0AD" opacity=".55"/>
+<ellipse cx="13" cy="22" rx="4" ry="2.4" fill="#fff" opacity=".8" transform="rotate(-35 13 22)"/>
+</svg>
+<small style="margin-top:8px">오늘의 코디</small>
+<b class="jl-jua">회색 후드티<br>+ 청바지</b>
+</div>
+
+<div class="jl-t jl-like jl-wide jl-sq">
+<small>좋아하는 것</small>
+<div class="jl-pills">
+<span class="jl-pill"><i style="background:radial-gradient(circle at 35% 30%,#fff 0 18%,#8B8F99 60%,#555A66 100%)"></i>필름카메라</span>
+<span class="jl-pill"><i style="background:radial-gradient(circle at 35% 30%,#FFF1EC 0 18%,#FF8C72 60%,#E0563E 100%)"></i>떡볶이</span>
+<span class="jl-pill"><i style="background:radial-gradient(circle at 35% 30%,#F1F7FF 0 18%,#9CC3FF 60%,#5B8FE6 100%)"></i>비 오는 날 카페</span>
+</div>
+<div class="jl-mini"><span><b>요즘 빠진 것</b>키링 모으기</span><span><b>싫어하는 것</b><s>아침 9시 수업</s></span></div>
+</div>
+
+</div>
+
+<div class="jl-links">
+<a class="jl-lk jl-sq" href="#"><span class="jl-li" style="background:linear-gradient(170deg,#FFE7DD,#FFD2C2)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9A4A36" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/></svg></span><span>인스타그램<small>@jiwoo.room</small></span></a>
+<a class="jl-lk jl-sq" href="#"><span class="jl-li" style="background:linear-gradient(170deg,#E6F8F0,#C9EEDD)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#2D6E55" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><span>필름 사진 모아둔 곳<small>블로그</small></span></a>
+</div>
+
+<div class="jl-gb jl-sq">
+<h2 class="jl-jua">방명록<small>2개</small></h2>
+<div class="jl-msg"><span class="jl-mi jl-jua" style="background:linear-gradient(170deg,#FFF6D6,#FFE79E);color:#6B4F0C">민</span><div><small><b>민지</b>10.4</small><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+<div class="jl-msg"><span class="jl-mi jl-jua" style="background:linear-gradient(170deg,#EFE9FF,#DCD0FF);color:#4A3793">?</span><div><small><b>익명</b>10.2</small><p>도서관에서 찍고 감</p></div></div>
+<div class="jl-in"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+</div>
+
+<div class="jl-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

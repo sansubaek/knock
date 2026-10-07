@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 17 · 컷아웃 진</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Black+Han+Sans&amp;family=Noto+Serif+KR:wght@700;900&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;family=Nanum+Pen+Script&amp;family=IBM+Plex+Mono:wght@500;700&amp;family=Hahmlet:wght@800&amp;display=swap">
+<style>
+body{margin:0}
+.zn{width:390px;min-height:1938px;box-sizing:border-box;position:relative;overflow:hidden;background:#EEEAE0;color:#111;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.45;word-break:keep-all;padding:0 18px 26px}
+.zn *{box-sizing:border-box}
+.zn-grain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply;opacity:.22;z-index:5}
+.zn-mono{font-family:'IBM Plex Mono',monospace}
+.zn-pen{font-family:'Nanum Pen Script',cursive}
+.zn-rel{position:relative}
+.zn-sh{filter:drop-shadow(1px 2px 0 rgba(0,0,0,.2))}
+.zn-t1{clip-path:polygon(0.0% 0.7px,4.5% 4.2px,9.1% 3.8px,13.6% 1.3px,18.2% 2.5px,22.7% 2.2px,27.3% 3.3px,31.8% 3.9px,36.4% 0.5px,40.9% 0.1px,45.5% 4.2px,50.0% 2.2px,54.5% 3.8px,59.1% 0.0px,63.6% 2.2px,68.2% 3.6px,72.7% 1.1px,77.3% 4.7px,81.8% 4.5px,86.4% 0.2px,90.9% 0.1px,95.5% 2.7px,100.0% 4.7px,calc(100% - 1.1px) 12.5%,calc(100% - 0.6px) 25.0%,calc(100% - 1.3px) 37.5%,calc(100% - 0.1px) 50.0%,calc(100% - 0.7px) 62.5%,calc(100% - 1.3px) 75.0%,calc(100% - 1.5px) 87.5%,100.0% calc(100% - 1.2px),95.5% calc(100% - 1.2px),90.9% calc(100% - 1.1px),86.4% calc(100% - 2.3px),81.8% calc(100% - 1.4px),77.3% calc(100% - 0.1px),72.7% calc(100% - 4.2px),68.2% calc(100% - 2.8px),63.6% calc(100% - 3.2px),59.1% calc(100% - 0.9px),54.5% calc(100% - 5.0px),50.0% calc(100% - 4.3px),45.5% calc(100% - 0.6px),40.9% calc(100% - 1.7px),36.4% calc(100% - 3.6px),31.8% calc(100% - 3.6px),27.3% calc(100% - 4.7px),22.7% calc(100% - 2.1px),18.2% calc(100% - 4.2px),13.6% calc(100% - 3.4px),9.1% calc(100% - 1.5px),4.5% calc(100% - 2.9px),0.0% calc(100% - 4.4px),2.5px 87.5%,1.5px 75.0%,1.8px 62.5%,0.1px 50.0%,0.7px 37.5%,2.4px 25.0%,1.2px 12.5%)}
+.zn-t2{clip-path:polygon(0.0% 5.7px,4.5% 5.7px,9.1% 0.3px,13.6% 0.5px,18.2% 5.0px,22.7% 4.4px,27.3% 4.0px,31.8% 1.8px,36.4% 3.6px,40.9% 3.6px,45.5% 3.5px,50.0% 1.0px,54.5% 2.6px,59.1% 2.4px,63.6% 4.3px,68.2% 6.0px,72.7% 5.7px,77.3% 3.3px,81.8% 2.7px,86.4% 1.6px,90.9% 0.2px,95.5% 0.2px,100.0% 2.8px,100% 50%,100.0% calc(100% - 1.9px),95.5% calc(100% - 2.3px),90.9% calc(100% - 5.4px),86.4% calc(100% - 3.2px),81.8% calc(100% - 3.4px),77.3% calc(100% - 1.4px),72.7% calc(100% - 0.1px),68.2% calc(100% - 2.0px),63.6% calc(100% - 0.8px),59.1% calc(100% - 3.1px),54.5% calc(100% - 6.0px),50.0% calc(100% - 4.0px),45.5% calc(100% - 1.1px),40.9% calc(100% - 5.4px),36.4% calc(100% - 4.8px),31.8% calc(100% - 4.4px),27.3% calc(100% - 5.4px),22.7% calc(100% - 4.6px),18.2% calc(100% - 4.7px),13.6% calc(100% - 2.1px),9.1% calc(100% - 5.9px),4.5% calc(100% - 5.8px),0.0% calc(100% - 1.0px),0 50%)}
+.zn-t3{clip-path:polygon(0.0% 1.0px,3.3% 2.2px,6.7% 1.5px,10.0% 2.4px,13.3% 2.5px,16.7% 0.3px,20.0% 0.1px,23.3% 3.3px,26.7% 1.0px,30.0% 0.9px,33.3% 4.0px,36.7% 1.9px,40.0% 3.3px,43.3% 1.9px,46.7% 2.6px,50.0% 0.6px,53.3% 2.5px,56.7% 3.5px,60.0% 2.1px,63.3% 3.0px,66.7% 2.7px,70.0% 0.3px,73.3% 3.0px,76.7% 2.4px,80.0% 1.2px,83.3% 0.1px,86.7% 3.5px,90.0% 1.9px,93.3% 2.9px,96.7% 3.5px,100.0% 2.9px,calc(100% - 2.2px) 12.5%,calc(100% - 0.9px) 25.0%,calc(100% - 1.9px) 37.5%,calc(100% - 1.1px) 50.0%,calc(100% - 2.2px) 62.5%,calc(100% - 2.1px) 75.0%,calc(100% - 0.2px) 87.5%,100.0% calc(100% - 0.5px),96.7% calc(100% - 0.9px),93.3% calc(100% - 3.9px),90.0% calc(100% - 1.7px),86.7% calc(100% - 2.5px),83.3% calc(100% - 1.2px),80.0% calc(100% - 2.0px),76.7% calc(100% - 1.5px),73.3% calc(100% - 1.4px),70.0% calc(100% - 2.3px),66.7% calc(100% - 2.3px),63.3% calc(100% - 3.6px),60.0% calc(100% - 2.7px),56.7% calc(100% - 3.7px),53.3% calc(100% - 3.4px),50.0% calc(100% - 4.0px),46.7% calc(100% - 2.7px),43.3% calc(100% - 0.7px),40.0% calc(100% - 3.4px),36.7% calc(100% - 3.9px),33.3% calc(100% - 3.6px),30.0% calc(100% - 2.3px),26.7% calc(100% - 2.9px),23.3% calc(100% - 0.8px),20.0% calc(100% - 3.3px),16.7% calc(100% - 2.3px),13.3% calc(100% - 1.1px),10.0% calc(100% - 0.3px),6.7% calc(100% - 3.4px),3.3% calc(100% - 4.0px),0.0% calc(100% - 0.4px),1.9px 87.5%,1.0px 75.0%,0.4px 62.5%,0.7px 50.0%,1.8px 37.5%,2.1px 25.0%,0.1px 12.5%)}
+.zn-t4{clip-path:polygon(0 0,100% 0,100.0% calc(100% - 1.7px),96.2% calc(100% - 0.7px),92.3% calc(100% - 2.8px),88.5% calc(100% - 1.1px),84.6% calc(100% - 0.5px),80.8% calc(100% - 2.8px),76.9% calc(100% - 6.4px),73.1% calc(100% - 5.6px),69.2% calc(100% - 5.4px),65.4% calc(100% - 1.6px),61.5% calc(100% - 3.8px),57.7% calc(100% - 1.9px),53.8% calc(100% - 1.2px),50.0% calc(100% - 0.7px),46.2% calc(100% - 1.5px),42.3% calc(100% - 6.5px),38.5% calc(100% - 5.8px),34.6% calc(100% - 5.6px),30.8% calc(100% - 5.6px),26.9% calc(100% - 1.4px),23.1% calc(100% - 2.2px),19.2% calc(100% - 4.4px),15.4% calc(100% - 5.1px),11.5% calc(100% - 6.0px),7.7% calc(100% - 6.2px),3.8% calc(100% - 0.6px),0.0% calc(100% - 4.2px))}
+.zn-tape{position:absolute;height:22px;background:rgba(228,214,165,.88);z-index:3;clip-path:polygon(2% 0,98% 6%,100% 30%,97% 55%,100% 80%,98% 100%,3% 94%,0 70%,3% 45%,0 20%);box-shadow:inset 0 0 0 40px rgba(255,255,255,.06)}
+.zn-tape.dk{background:rgba(30,30,30,.82)}
+
+.zn-top{display:flex;justify-content:space-between;align-items:center;padding:18px 0 4px}
+.zn-logo{background:#111;color:#EEEAE0;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;letter-spacing:-.04em;padding:3px 10px 4px;transform:rotate(-3deg)}
+.zn-cnt{display:flex;align-items:center;gap:10px;background:#fff;padding:7px 12px 8px;transform:rotate(1.5deg)}
+.zn-cnt .zn-mono{font-size:12px;line-height:1.3}
+.zn-cnt b{font-weight:700}
+.zn-issue{margin-top:14px;font-size:12px;letter-spacing:.06em;border-top:2px solid #111;border-bottom:2px solid #111;padding:4px 0;display:flex;justify-content:space-between}
+
+.zn-name{position:relative;display:flex;align-items:flex-end;gap:6px;margin:26px 0 0 -4px;height:118px}
+.zn-l{display:flex;align-items:center;justify-content:center;line-height:1}
+.zn-l1{background:#111;color:#F4F0E6;font-family:'Noto Serif KR',serif;font-weight:900;font-size:66px;width:84px;height:96px;transform:rotate(-6deg)}
+.zn-l2{background:#FF4D1F;color:#111;font-family:'Black Han Sans',sans-serif;font-size:78px;width:92px;height:106px;transform:rotate(4deg) translateY(-10px)}
+.zn-l3{background:#DCD5C3;color:#111;font-family:'Noto Serif KR',serif;font-weight:700;font-size:46px;width:64px;height:68px;transform:rotate(-3deg) translateY(4px);background-image:repeating-linear-gradient(0deg,rgba(0,0,0,.09) 0 1px,transparent 1px 5px)}
+.zn-l4{background:#fff;color:#111;font-family:'Hahmlet',serif;font-weight:800;font-size:64px;width:88px;height:98px;transform:rotate(7deg) translateY(-2px);border:3px solid #111;background-image:radial-gradient(rgba(0,0,0,.13) 28%,transparent 31%);background-size:6px 6px}
+.zn-intro{display:inline-block;margin:18px 0 0 6px;background:#FBF8F0;padding:8px 14px 9px;font-size:15px;transform:rotate(-1.2deg);font-family:'IBM Plex Mono','Noto Sans KR',monospace;font-weight:500}
+.zn-intro::before{content:'';display:inline-block;width:8px;height:8px;background:#FF4D1F;border-radius:50%;margin-right:8px;vertical-align:1px}
+
+.zn-row{display:grid;grid-template-columns:150px 1fr;gap:14px;margin-top:26px;align-items:start}
+.zn-pf{position:relative;height:178px;transform:rotate(-3deg);margin-top:6px}
+.zn-ph{height:100%;background:#E2DDD0;border:1.5px dashed #555;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:12px;position:relative;overflow:hidden}
+.zn-ph::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.2) 30%,transparent 33%);background-size:7px 7px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 0,transparent 70%);mask-image:radial-gradient(ellipse at 50% 40%,#000 0,transparent 70%)}
+.zn-ph .zn-lab{position:relative;background:#fff;padding:3px 8px;font-size:12px;display:flex;align-items:center;gap:5px}
+.zn-mood{position:relative;background:#FBF9F3;padding:28px 14px 16px;transform:rotate(2deg);background-image:repeating-linear-gradient(180deg,transparent 0 25px,rgba(60,90,160,.22) 25px 26px);background-position:0 10px}
+.zn-stamp{display:inline-block;border:2px solid #FF4D1F;color:#FF4D1F;font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:12px;padding:1px 6px;letter-spacing:.06em;transform:rotate(-4deg);position:absolute;top:8px;left:10px}
+.zn-mood p{margin:6px 0 0;font-family:'Nanum Pen Script',cursive;font-size:27px;line-height:26px}
+.zn-mood svg{display:block;margin-top:4px}
+
+.zn-knockwrap{margin:34px 4px 0;transform:rotate(-2deg);position:relative}
+.zn-knock{width:100%;height:96px;border:none;cursor:pointer;background:#FF4D1F;color:#111;font:inherit;display:flex;align-items:center;justify-content:space-between;padding:0 16px 0 22px;position:relative;box-shadow:6px 6px 0 #111;outline:3px solid #111;outline-offset:-10px}
+.zn-knock .zn-k{font-family:'Black Han Sans','Bricolage Grotesque',sans-serif;font-size:50px;letter-spacing:.01em;line-height:1;text-align:left}
+.zn-knock .zn-k small{display:block;font-family:'Noto Sans KR',sans-serif;font-weight:900;font-size:14px;letter-spacing:.02em;margin-top:4px}
+.zn-knock .zn-num{width:64px;height:64px;border-radius:50%;border:3px solid #111;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(10deg);background:#EEEAE0}
+.zn-num b{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:24px;line-height:1}
+.zn-num span{font-size:12px;font-weight:700;line-height:1.1}
+.zn-knote{text-align:center;margin-top:12px;font-size:12px}
+
+.zn-two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px;align-items:start}
+.zn-song{background:#111;color:#F4F0E6;padding:16px 14px 18px;transform:rotate(-2.5deg)}
+.zn-song small{font-family:'IBM Plex Mono','Noto Sans KR',monospace;font-size:12px;color:#FF7A55;letter-spacing:.04em;display:block}
+.zn-song b{display:block;font-family:'Noto Serif KR',serif;font-weight:900;font-size:30px;line-height:1.15;margin-top:8px}
+.zn-song span{display:block;font-size:14px;margin-top:4px}
+.zn-song .zn-wave{display:flex;gap:3px;align-items:flex-end;height:18px;margin-top:10px}
+.zn-song .zn-wave i{width:4px;background:#F4F0E6}
+.zn-dday{position:relative;padding-top:6px;text-align:center}
+.zn-dday .zn-pen{font-size:26px;display:block;line-height:1;transform:rotate(-4deg)}
+.zn-dnum{display:flex;justify-content:center;gap:3px;margin-top:8px}
+.zn-dnum span{display:flex;align-items:center;justify-content:center;font-size:36px;line-height:1;height:52px;min-width:34px;padding:0 4px}
+.zn-dnum .a{background:#fff;font-family:'Noto Serif KR',serif;font-weight:900;transform:rotate(-5deg)}
+.zn-dnum .b{background:#111;color:#fff;font-family:'IBM Plex Mono',monospace;font-weight:700;transform:rotate(3deg) translateY(4px)}
+.zn-dnum .c{background:#FF4D1F;font-family:'Black Han Sans',sans-serif;transform:rotate(-2deg)}
+.zn-dnum .d{background:#DCD5C3;font-family:'Hahmlet',serif;font-weight:800;transform:rotate(6deg) translateY(-3px)}
+.zn-dday .zn-date{font-family:'IBM Plex Mono',monospace;font-size:12px;margin-top:10px}
+.zn-circle{position:absolute;left:-8px;top:34px;pointer-events:none}
+
+.zn-q{margin-top:34px;position:relative;background:#FBF8F0;padding:18px 18px 20px 72px;transform:rotate(1deg)}
+.zn-q .zn-qq{position:absolute;left:12px;top:8px;font-family:'Noto Serif KR',serif;font-weight:900;font-size:56px;line-height:1;color:#FF4D1F}
+.zn-q small{font-family:'IBM Plex Mono','Noto Sans KR',monospace;font-size:12px;letter-spacing:.04em}
+.zn-q p{margin:4px 0 0;font-size:19px;font-weight:900;line-height:1.35}
+.zn-q .zn-pen{font-size:22px;margin-top:6px;display:block;color:#444}
+
+.zn-photo{margin:40px 8px 0;position:relative;transform:rotate(1.6deg)}
+.zn-photo .zn-ph{height:250px;justify-content:center;gap:8px;padding:0;background:#E6E1D4}
+.zn-photo .zn-ph::before{background-image:radial-gradient(rgba(0,0,0,.22) 30%,transparent 33%);background-size:8px 8px}
+.zn-photo .zn-cap{display:flex;justify-content:space-between;font-size:12px;margin-top:8px;padding:0 2px}
+.zn-star{position:absolute;pointer-events:none;z-index:4}
+
+.zn-links{margin-top:34px;display:flex;flex-direction:column;gap:14px}
+.zn-dymo{display:flex;align-items:center;gap:12px;height:52px;padding:0 16px;text-decoration:none;color:#F4F0E6;background:#151515;font-family:'IBM Plex Mono','Noto Sans KR',monospace;font-weight:700;font-size:15px;letter-spacing:.08em;text-shadow:0 1px 0 rgba(255,255,255,.25),0 -1px 0 rgba(0,0,0,.6);box-shadow:inset 0 2px 0 rgba(255,255,255,.08),inset 0 -2px 0 rgba(0,0,0,.4)}
+.zn-dymo.o{background:#FF4D1F;color:#111;text-shadow:0 1px 0 rgba(255,255,255,.35);margin-left:24px;transform:rotate(1.5deg)}
+.zn-dymo:first-child{transform:rotate(-1.2deg);margin-right:20px}
+.zn-dymo span{flex:1}
+.zn-dymo small{font-size:12px;font-weight:500;letter-spacing:.04em;opacity:.8}
+
+.zn-gb{margin-top:44px}
+.zn-gbh{display:flex;align-items:flex-end;gap:4px;margin-bottom:16px}
+.zn-gbh span{display:flex;align-items:center;justify-content:center;width:40px;height:44px;font-size:26px;line-height:1}
+.zn-gbh .zn-c{margin-left:10px;font-size:12px;width:auto;height:auto}
+.zn-notes{display:flex;flex-direction:column;gap:16px}
+.zn-note{position:relative;background:#FBF8F0;padding:18px 16px 16px}
+.zn-note:nth-child(1){transform:rotate(-1.5deg);margin-right:30px}
+.zn-note:nth-child(2){transform:rotate(1.2deg);margin-left:34px;background:#fff}
+.zn-staple{position:absolute;top:7px;left:16px;width:22px;height:5px;border-radius:2px;background:linear-gradient(180deg,#d9d9d9,#7a7a7a);box-shadow:0 1px 0 rgba(0,0,0,.3);z-index:4}
+.zn-staple.r{left:auto;right:16px;transform:rotate(8deg)}
+.zn-note .zn-mono{font-size:12px;display:flex;justify-content:space-between}
+.zn-note .zn-mono b{font-weight:700}
+.zn-note p{margin:6px 0 0;font-size:16px;font-weight:700}
+.zn-form{margin-top:20px;display:flex;gap:8px;align-items:stretch;background:#fff;padding:10px;transform:rotate(-.6deg)}
+.zn-form input{flex:1;min-width:0;height:46px;border:none;border-bottom:2px solid #111;background:transparent;font:inherit;font-size:15px;padding:0 6px;outline:none;color:#111}
+.zn-form input::placeholder{color:#666}
+.zn-form button{height:46px;padding:0 18px;border:none;background:#111;color:#F4F0E6;font:inherit;font-weight:900;font-size:15px;cursor:pointer;box-shadow:3px 3px 0 #FF4D1F}
+.zn-foot{text-align:center;font-size:12px;color:#8B877E;margin-top:36px;position:relative;z-index:6}
+</style>
+</helmet>
+<div class="zn">
+<svg class="zn-grain" aria-hidden="true"><filter id="zngrain"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="linear" slope="1.4"/></feComponentTransfer></filter><rect width="100%" height="100%" filter="url(#zngrain)"/></svg>
+
+<div class="zn-top">
+<span class="zn-logo">knock!</span>
+<div class="zn-sh"><div class="zn-cnt zn-t3">
+<svg width="26" height="20" viewBox="0 0 26 20" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"><path d="M3 2l-.5 16M8.5 2.5 8 18M14 2l.3 16M19.5 2.6 19 17.6"/></svg>
+<span class="zn-mono">오늘 <b>4명</b><br>지금까지 <b>112명</b></span>
+</div></div>
+</div>
+<div class="zn-issue zn-mono"><span>ROOM ZINE · VOL.01</span><span>2026.10.06</span></div>
+
+<div class="zn-name">
+<div class="zn-sh"><div class="zn-l zn-l1 zn-t1">지</div></div>
+<div class="zn-sh"><div class="zn-l zn-l2 zn-t3">우</div></div>
+<div class="zn-sh"><div class="zn-l zn-l3 zn-t1">의</div></div>
+<div class="zn-sh"><div class="zn-l zn-l4">방</div></div>
+<svg class="zn-star" style="left:168px;top:-14px" width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"><path d="M17 3v28M5 10l24 14M29 10 5 24"/></svg>
+<svg class="zn-star" style="left:262px;top:128px" width="70" height="26" viewBox="0 0 70 26" fill="none" stroke="#FF4D1F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14 11 5l6 15 7-14 6 14 7-14 6 14 7-14 6 14 8-10"/></svg>
+</div>
+<div class="zn-sh" style="display:inline-block"><div class="zn-intro zn-t2">똑똑, 들어와도 돼</div></div>
+
+<div class="zn-row">
+<div class="zn-pf">
+<div class="zn-tape" style="width:70px;top:-10px;left:38px;transform:rotate(-4deg)"></div>
+<div class="zn-ph"><span class="zn-lab"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.8 20c1-3.8 3.8-5.6 7.2-5.6s6.2 1.8 7.2 5.6"/></svg>프로필 사진</span></div>
+</div>
+<div class="zn-sh"><div class="zn-mood zn-t1">
+<span class="zn-stamp">TODAY'S MOOD</span>
+<p>시험 D-3,<br>커피 수혈 중</p>
+<svg width="140" height="14" viewBox="0 0 140 14" fill="none" stroke="#FF4D1F" stroke-width="2.4" stroke-linecap="round"><path d="M3 9c14-5 22 3 36-1s20-6 34 0 22 2 32-2 18 1 30 0"/></svg>
+<svg width="44" height="34" viewBox="0 0 44 34" fill="none" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin:6px 0 0 auto"><path d="M6 12h22v10a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8z"/><path d="M28 15h3a4 4 0 0 1 0 8h-3"/><path d="M12 7c0-2 2-2 2-4M18 7c0-2 2-2 2-4"/></svg>
+</div></div>
+</div>
+
+<div class="zn-knockwrap">
+<button class="zn-knock">
+<span class="zn-k">KNOCK!<small>노크하기 · 똑똑 두드려 줘</small></span>
+<span class="zn-num"><b>27</b><span>번째</span></span>
+</button>
+<svg class="zn-star" style="right:-14px;top:-26px" width="40" height="34" viewBox="0 0 40 34" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round"><path d="M8 30 4 18M18 28l1-22M28 30l9-16"/></svg>
+</div>
+<div class="zn-knote zn-mono">지금까지 27번 노크했어요</div>
+
+<div class="zn-two">
+<div class="zn-sh"><div class="zn-song zn-t3">
+<small>요즘 귀에 박힌 노래</small>
+<b>좋은 날</b>
+<span>— 아이유</span>
+<div class="zn-wave"><i style="height:8px"></i><i style="height:14px"></i><i style="height:6px"></i><i style="height:18px"></i><i style="height:11px"></i><i style="height:16px"></i><i style="height:7px"></i><i style="height:13px"></i><i style="height:9px"></i><i style="height:17px"></i><i style="height:5px"></i><i style="height:12px"></i></div>
+</div></div>
+<div class="zn-dday">
+<span class="zn-pen">생일까지!!</span>
+<div class="zn-dnum">
+<div class="zn-sh"><span class="a zn-t1">D</span></div>
+<div class="zn-sh"><span class="b zn-t3">-</span></div>
+<div class="zn-sh"><span class="c zn-t1">1</span></div>
+<div class="zn-sh"><span class="d zn-t3">2</span></div>
+</div>
+<svg class="zn-circle" width="180" height="90" viewBox="0 0 180 90" fill="none" stroke="#FF4D1F" stroke-width="2.4" stroke-linecap="round"><path d="M100 8C50 2 10 14 8 42s50 42 100 38 66-20 62-40S130 4 80 10"/></svg>
+<div class="zn-date">10.18 SUN</div>
+</div>
+</div>
+
+<div class="zn-sh"><div class="zn-q zn-t1">
+<span class="zn-qq">Q.</span>
+<small>요즘 질문</small>
+<p>제일 좋아하는 편의점 간식은?</p>
+<span class="zn-pen">답은 방명록에 써 줘</span>
+</div></div>
+
+<div class="zn-photo">
+<div class="zn-tape" style="width:84px;top:-11px;left:-14px;transform:rotate(-28deg)"></div>
+<div class="zn-tape dk" style="width:84px;top:-8px;right:-16px;transform:rotate(24deg)"></div>
+<div class="zn-ph"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="position:relative"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg><span class="zn-lab">주인이 올린 사진</span></div>
+<div class="zn-cap zn-mono"><span>FIG.1 — 도서관 창가</span><span>10.05</span></div>
+<svg class="zn-star" style="right:-6px;bottom:22px" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#FF4D1F" stroke-width="2.4" stroke-linecap="round"><path d="M20 4v32M4 20h32M9 9l22 22M31 9 9 31"/></svg>
+</div>
+
+<div class="zn-links">
+<a class="zn-dymo" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg><span>인스타그램</span><small>@jiwoo.room</small></a>
+<a class="zn-dymo o" href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg><span>필름 사진 모아둔 곳</span><small>블로그</small></a>
+</div>
+
+<div class="zn-gb">
+<div class="zn-gbh">
+<div class="zn-sh"><span class="zn-l zn-l1 zn-t1" style="font-size:26px;width:40px;height:44px;transform:rotate(-4deg)">방</span></div>
+<div class="zn-sh"><span class="zn-l zn-l2 zn-t3" style="font-size:28px;width:40px;height:46px;transform:rotate(3deg) translateY(-3px)">명</span></div>
+<div class="zn-sh"><span class="zn-l zn-l4" style="font-size:26px;width:40px;height:44px;border-width:2px;transform:rotate(-2deg)">록</span></div>
+<span class="zn-c zn-mono">2 LETTERS</span>
+</div>
+<div class="zn-notes">
+<div class="zn-sh"><div class="zn-note zn-t1"><i class="zn-staple"></i><div class="zn-mono"><b>민지</b><span>10.4</span></div><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+<div class="zn-sh"><div class="zn-note zn-t3" style="transform:rotate(1.2deg);margin-left:34px;margin-right:0;background:#fff"><i class="zn-staple r"></i><div class="zn-mono"><b>익명</b><span>10.2</span></div><p>도서관에서 찍고 감</p></div></div>
+</div>
+<div class="zn-sh"><div class="zn-form zn-t2"><input placeholder="한 줄 남기기"><button>남기기</button></div></div>
+</div>
+
+<div class="zn-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

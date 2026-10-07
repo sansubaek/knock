@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 32 · 앨범 선반</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;family=Gowun+Batang:wght@700&amp;family=IBM+Plex+Mono:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+
+.al{width:390px;min-height:2463px;box-sizing:border-box;padding:0 16px 22px;font-family:'Noto Sans KR',sans-serif;color:#F3EADB;word-break:keep-all;line-height:1.45;font-size:14px;
+background:radial-gradient(100% 26% at 50% 0%,#4A3B31 0%,rgba(74,59,49,0) 75%),linear-gradient(180deg,#2D2724 0%,#27221F 60%,#231F1C 100%)}
+.al *{box-sizing:border-box}
+.al-bar{height:56px;display:flex;align-items:center;justify-content:space-between}
+.al-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.04em;color:#F3EADB}
+.al-cnt{font-size:12px;color:#B4A694;background:rgba(255,255,255,.06);border:1px solid rgba(243,234,219,.14);border-radius:99px;padding:5px 11px}
+.al-cnt b{color:#F3EADB}
+.al-hd{margin:6px 2px 16px}
+.al-hd small{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#F2CF6B}
+.al-hd h1{margin:4px 0 0;font-family:'Gowun Batang','Noto Serif KR',serif;font-size:27px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.al-hd p{margin:4px 0 0;font-size:14px;color:#B4A694}
+
+.al-cab{position:relative;border-radius:18px;padding:12px 12px 0;background:linear-gradient(180deg,#9A7454,#7C5A40);
+box-shadow:inset 0 1px 0 rgba(255,230,200,.35),inset 0 -2px 0 rgba(0,0,0,.25),0 26px 36px -24px rgba(0,0,0,.8)}
+.al-rec{position:relative;height:206px;border-radius:8px 8px 0 0;padding:0 8px;display:flex;align-items:flex-end;gap:3px;overflow:hidden;
+background:radial-gradient(120% 70% at 50% 0%,#5A4636 0%,#2A221D 60%,#1E1916 100%);box-shadow:inset 0 10px 16px -8px rgba(0,0,0,.7),inset 6px 0 10px -6px rgba(0,0,0,.6),inset -6px 0 10px -6px rgba(0,0,0,.6)}
+.al-sp{position:relative;flex:none;border-radius:3px 3px 1px 1px;display:flex;align-items:center;justify-content:flex-start;padding:12px 0 10px;writing-mode:vertical-rl;
+font-size:12px;font-weight:700;letter-spacing:.02em;box-shadow:inset 1px 0 0 rgba(255,255,255,.28),inset -2px 0 0 rgba(0,0,0,.14),2px 0 4px -1px rgba(0,0,0,.45)}
+.al-sp:before{content:'';position:absolute;left:4px;right:4px;bottom:8px;height:12px;border-radius:2px;background:rgba(0,0,0,.14)}
+.al-sp em{font-style:normal;writing-mode:horizontal-tb;position:absolute;top:8px;left:0;right:0;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:9px;opacity:.6}
+.al-sp span{margin-top:14px}
+.al-sp.x span{text-decoration:line-through;opacity:.75}
+.al-gap{position:relative;flex:none;width:34px;height:166px;border-radius:3px;background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,.15) 40%,rgba(0,0,0,.35));display:flex;align-items:flex-start;justify-content:center;padding-top:10px}
+.al-gap i{width:8px;height:8px;border-radius:50%;background:#F2CF6B;box-shadow:0 0 10px #F2CF6B}
+.al-plank{height:16px;margin:0 -12px;border-radius:0 0 18px 18px;background:linear-gradient(180deg,#B48B66,#8E6A4C);box-shadow:inset 0 1px 0 rgba(255,235,205,.5)}
+.al-lean{position:absolute;right:20px;bottom:0;line-height:0}
+
+.al-now{position:relative;margin:-8px 0 0;padding:0 0 0;height:262px}
+.al-disc{position:absolute;left:132px;top:20px;width:214px;height:214px;border-radius:50%;
+background:radial-gradient(circle,#2A2522 0 18%,transparent 18.5%),repeating-radial-gradient(circle,#151210 0 2px,#221D1A 2px 3.5px);box-shadow:0 18px 30px -16px rgba(0,0,0,.9)}
+.al-disc:after{content:'';position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 210deg,rgba(255,255,255,0) 0deg,rgba(255,240,220,.16) 30deg,rgba(255,255,255,0) 70deg,rgba(255,255,255,0) 180deg,rgba(255,240,220,.1) 215deg,rgba(255,255,255,0) 250deg)}
+.al-lab{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:radial-gradient(circle,#2A2522 0 3px,#F2CF6B 3.5px);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#3A2E14;text-align:center}
+.al-lab b{font-family:'Gowun Batang','Noto Serif KR',serif;font-size:13px;margin-top:-16px}
+.al-lab small{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;margin-top:22px}
+.al-sleeve{position:absolute;left:4px;top:12px;width:212px;height:212px;border-radius:6px;padding:10px;background:#EFE5D3;color:#3A3029;transform:rotate(-3deg);
+box-shadow:0 22px 30px -16px rgba(0,0,0,.85),inset 0 0 0 1px rgba(255,255,255,.5)}
+.al-cover{height:100%;border-radius:3px;border:1.5px dashed #B3A28A;background:repeating-linear-gradient(135deg,#F6EFE3 0 10px,#F1E8D9 10px 20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8F7D66;font-size:12px}
+.al-sleeve b{display:block;margin-top:8px;font-size:15px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.al-sleeve span{font-size:12px;color:#7D6E5D}
+.al-sticker{position:absolute;right:-12px;top:-10px;width:62px;height:62px;border-radius:50%;background:#F2CF6B;color:#3A2E14;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:11px;font-weight:800;line-height:1.2;transform:rotate(10deg);box-shadow:0 4px 8px -3px rgba(0,0,0,.5)}
+
+.al-player{margin-top:6px;background:rgba(255,255,255,.05);border:1px solid rgba(243,234,219,.12);border-radius:20px;padding:14px 16px 12px}
+.al-player small{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#F2CF6B}
+.al-tr{display:flex;align-items:center;gap:12px;margin-top:4px}
+.al-tr div{flex:1;min-width:0}
+.al-tr b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.25}
+.al-tr span{font-size:13px;color:#B4A694}
+.al-play{width:48px;height:48px;border-radius:50%;border:none;background:#F3EADB;color:#2A2320;display:flex;align-items:center;justify-content:center;flex:none;padding-left:3px}
+.al-ctl{color:#B4A694;flex:none;display:flex}
+.al-bar2{position:relative;height:4px;border-radius:2px;background:rgba(243,234,219,.15);margin-top:14px}
+.al-bar2 i{position:absolute;left:0;top:0;bottom:0;width:34%;border-radius:2px;background:#F2CF6B}
+.al-bar2 i:after{content:'';position:absolute;right:-5px;top:-3px;width:10px;height:10px;border-radius:50%;background:#F2CF6B}
+.al-time{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#B4A694;margin-top:6px}
+
+.al-knock{display:flex;align-items:center;gap:14px;width:100%;height:66px;margin-top:16px;border:none;border-radius:20px;padding:0 10px 0 9px;font:inherit;cursor:pointer;text-align:left;color:#2E2410;
+background:linear-gradient(180deg,#F6D97E,#EDC55A);box-shadow:0 14px 26px -14px rgba(242,207,107,.6),inset 0 1px 0 rgba(255,255,255,.55),inset 0 -3px 0 rgba(150,110,20,.25)}
+.al-knock i{width:48px;height:48px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:#2D2724;color:#F2CF6B}
+.al-knock b{display:block;font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1.25}
+.al-knock small{display:block;font-size:12px;color:#6E5520}
+.al-knock em{margin-left:auto;font-style:normal;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;color:#F3EADB;background:#2D2724;border-radius:14px;padding:8px 12px}
+
+.al-liner{position:relative;margin-top:22px;background:#EFE5D3;color:#3A3029;border-radius:6px 18px 18px 6px;padding:18px 16px 14px 22px;box-shadow:0 22px 30px -20px rgba(0,0,0,.9)}
+.al-liner:before{content:'';position:absolute;left:8px;top:14px;bottom:14px;border-left:1.5px dashed rgba(90,70,50,.25)}
+.al-me{display:flex;gap:14px;align-items:center;padding-bottom:14px;border-bottom:1.5px solid #3A3029}
+.al-pf{width:76px;height:76px;flex:none;border-radius:6px;border:1.5px dashed #B3A28A;background:#F6EFE3;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#8F7D66;font-size:11px;gap:2px}
+.al-me small{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#8F7D66}
+.al-nm{display:flex;align-items:center;gap:8px;margin-top:1px}
+.al-nm b{font-family:'Gowun Batang','Noto Serif KR',serif;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.al-nm span{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:700;border:1.5px solid #3A3029;border-radius:4px;padding:1px 5px}
+.al-me p{margin:3px 0 0;font-size:14px;color:#6F6152}
+.al-side{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 4px;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.12em}
+.al-side span{font-weight:400;color:#8F7D66;letter-spacing:.04em}
+.al-trk{display:grid;grid-template-columns:28px minmax(0,1fr);gap:0 6px;padding:9px 0;border-bottom:1px dotted rgba(90,70,50,.35)}
+.al-trk em{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:12px;color:#8F7D66;padding-top:1px}
+.al-trk small{display:block;font-size:12px;color:#8F7D66}
+.al-trk b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.35}
+.al-trk b.big{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.03em}
+.al-trk b s{color:#9A8A77;font-weight:500}
+.al-hid{display:flex;align-items:center;gap:12px;margin-top:12px;border-radius:12px;padding:12px;background:#3A3029;color:#F3EADB}
+.al-hid i{width:40px;height:40px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:rgba(243,234,219,.12);color:#F2CF6B}
+.al-hid div{flex:1;min-width:0}
+.al-hid b{display:block;font-size:14px}
+.al-hid small{display:block;font-size:12px;color:#B4A694}
+.al-hid span{font-size:12px;font-weight:800;color:#3A2E14;background:#F2CF6B;border-radius:99px;padding:6px 11px;flex:none}
+
+.al-sec{margin-top:28px}
+.al-st{display:flex;justify-content:space-between;align-items:baseline;margin:0 2px 12px}
+.al-st h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.al-st span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#B4A694}
+.al-req{position:relative;border-radius:18px;padding:16px;background:linear-gradient(160deg,#3A302A,#332B26);border:1px solid rgba(243,234,219,.12)}
+.al-req small{font-size:12px;color:#F2CF6B;font-weight:700}
+.al-req p{margin:4px 0 12px;font-family:'Gowun Batang','Noto Serif KR',serif;font-size:19px;font-weight:700;line-height:1.4}
+.al-req div{display:flex;gap:8px}
+.al-req input{flex:1;min-width:0;height:44px;border-radius:12px;border:1px solid rgba(243,234,219,.2);background:rgba(0,0,0,.2);padding:0 12px;font:inherit;font-size:14px;color:#F3EADB}
+.al-req button{height:44px;padding:0 14px;border-radius:12px;border:none;background:#F3EADB;color:#2A2320;font:inherit;font-size:13px;font-weight:800}
+.al-book{display:flex;border-radius:10px;overflow:hidden;background:#EFE5D3;padding:8px;gap:0;box-shadow:0 20px 28px -20px rgba(0,0,0,.9)}
+.al-book > div{flex:1;height:176px;border:1.5px dashed #B3A28A;background:#F6EFE3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8F7D66;font-size:12px}
+.al-book > div:first-child{border-radius:4px 0 0 4px;border-right:none;box-shadow:inset -14px 0 14px -12px rgba(90,70,50,.4)}
+.al-book > div:last-child{border-radius:0 4px 4px 0;box-shadow:inset 14px 0 14px -12px rgba(90,70,50,.4)}
+.al-gb{border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(243,234,219,.12);padding:4px 16px 16px}
+.al-msg{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid rgba(243,234,219,.1)}
+.al-av{width:36px;height:36px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#2A2320}
+.al-msg div{flex:1;min-width:0}
+.al-msg b{font-size:13px}
+.al-msg b span{font-family:'IBM Plex Mono',monospace;font-weight:400;font-size:11px;color:#B4A694;margin-left:6px}
+.al-msg p{margin:2px 0 0;font-size:14px;color:#E6DCCB}
+.al-form{display:flex;gap:8px;margin-top:14px}
+.al-form input{flex:1;min-width:0;height:48px;border-radius:14px;border:1px solid rgba(243,234,219,.2);background:rgba(0,0,0,.22);padding:0 14px;font:inherit;font-size:14px;color:#F3EADB}
+.al-form button{height:48px;padding:0 18px;border-radius:14px;border:none;background:#F2CF6B;color:#2E2410;font:inherit;font-size:14px;font-weight:800}
+.al-links{display:flex;flex-direction:column;gap:8px}
+.al-lk{display:flex;align-items:center;gap:12px;text-decoration:none;color:#F3EADB;border-radius:16px;padding:12px 14px;background:rgba(255,255,255,.05);border:1px solid rgba(243,234,219,.12)}
+.al-lk i{width:38px;height:38px;flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#2A2320;background:#F3EADB}
+.al-lk b{flex:1;font-size:14px}
+.al-lk b small{display:block;font-size:12px;font-weight:400;color:#B4A694}
+.al-lk > svg{color:#B4A694}
+.al-foot{text-align:center;font-size:12px;color:#857A6E;margin-top:28px}
+
+</style>
+</helmet>
+<div class="al">
+<div class="al-bar"><div class="al-logo">knock!</div><div class="al-cnt">오늘 <b>4</b>명 · 지금까지 <b>112</b>명</div></div>
+<div class="al-hd"><small>JIWOO'S SHELF · VOL.20</small><h1>지우의 앨범장</h1><p>똑똑, 들어와도 돼. 한 장씩 꺼내 봐요</p></div>
+
+<div class="al-cab"><div class="al-rec"><div class="al-sp " style="width:30px;height:176px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#E9DCC3;color:#3A3029"><em>01</em><span>필름카메라</span></div><div class="al-sp " style="width:24px;height:160px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#C98F7E;color:#2B1D18"><em>02</em><span>떡볶이</span></div><div class="al-gap"><i></i></div><div class="al-sp " style="width:34px;height:182px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#8FA88A;color:#1E2A1D"><em>04</em><span>비 오는 날 카페</span></div><div class="al-sp " style="width:28px;height:168px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#F2CF6B;color:#3A2E14"><em>05</em><span>ENFP</span></div><div class="al-sp " style="width:30px;height:174px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#7C8DA6;color:#141C29"><em>06</em><span>키링 모으기</span></div><div class="al-sp " style="width:22px;height:156px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#D9C7A6;color:#3A3029"><em>07</em><span>버터 옐로</span></div><div class="al-sp " style="width:30px;height:178px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#3E3733;color:#E9DCC3"><em>08</em><span>회색 후드티</span></div><div class="al-sp " style="width:26px;height:162px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#A7B4C4;color:#1E2733"><em>09</em><span>청바지</span></div><div class="al-sp x" style="width:28px;height:170px;background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,0) 40%,rgba(0,0,0,.08)),#5A4E47;color:#C9BBA6"><em>10</em><span>아침 9시 수업</span></div></div><div class="al-plank"></div></div>
+
+<div class="al-now">
+<div class="al-disc"><div class="al-lab"><b>지우</b><small>SIDE A</small></div></div>
+<div class="al-sleeve"><div class="al-cover"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>앨범 커버</div><div class="al-sticker">꺼내서<br>듣는 중</div></div>
+</div>
+
+<div class="al-player"><small>NOW PLAYING · 요즘 듣는 노래</small>
+<div class="al-tr"><div><b>좋은 날</b><span>아이유 · 시험 기간 무한 반복</span></div><span class="al-ctl"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 6v12l-10-6z"/></svg></span><button class="al-play"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.7L9.5 4.6A1 1 0 0 0 8 5.5Z"/></svg></button><span class="al-ctl"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 6v12l10-6z"/></svg></span></div>
+<div class="al-bar2"><i></i></div><div class="al-time"><span>1:19</span><span>3:53</span></div>
+</div>
+
+<button class="al-knock"><i><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V6.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V5a1.5 1.5 0 0 1 3 0v5.5"/><path d="M14 10.5V6.5a1.5 1.5 0 0 1 3 0V13c0 4-2.6 7-6.5 7-2.6 0-4.4-1.3-5.6-3.4L3.6 14a1.6 1.6 0 0 1 2.6-1.8L8 14"/></svg></i><span><b>노크하기</b><small>앨범장 문을 똑똑 두드려요</small></span><em>27</em></button>
+
+<div class="al-liner">
+<div class="al-me"><div class="al-pf"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>프로필</div>
+<div><small>LINER NOTES</small><div class="al-nm"><b>지우</b><span>ENFP</span></div><p>똑똑, 들어와도 돼</p></div></div>
+<div class="al-side">SIDE A<span>지우의 요즘</span></div>
+<div class="al-trk"><em>A1</em><div><small>오늘의 기분</small><b>시험 D-3, 커피 수혈 중</b></div></div>
+<div class="al-trk"><em>A2</em><div><small>생일까지</small><b class="big">D-12</b></div></div>
+<div class="al-trk"><em>A3</em><div><small>좋아하는 것</small><b>필름카메라 · 떡볶이 · 비 오는 날 카페</b></div></div>
+<div class="al-trk"><em>A4</em><div><small>요즘 빠진 것</small><b>키링 모으기</b></div></div>
+<div class="al-trk"><em>A5</em><div><small>오늘의 코디</small><b>회색 후드티 + 청바지</b></div></div>
+<div class="al-trk" style="border-bottom:none"><em>A6</em><div><small>싫어하는 것</small><b><s>아침 9시 수업</s></b></div></div>
+<div class="al-hid"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></i><div><b>히든 트랙 · 비밀 일기 3</b><small>친구만 들을 수 있어요</small></div><span>친구 신청</span></div>
+</div>
+
+<div class="al-sec">
+<div class="al-st"><h2>신청곡 받아요</h2><span>요즘 질문</span></div>
+<div class="al-req"><small>Q. 지우가 궁금한 거</small><p>제일 좋아하는 편의점 간식은?</p><div><input placeholder="내 답 적기"><button>보내기</button></div></div>
+</div>
+
+<div class="al-sec">
+<div class="al-st"><h2>부클릿</h2><span>PHOTO 2</span></div>
+<div class="al-book"><div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이 올린 사진</div><div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이 올린 사진</div></div>
+</div>
+
+<div class="al-sec">
+<div class="al-st"><h2>방명록</h2><span>2 NOTES</span></div>
+<div class="al-gb">
+<div class="al-msg"><span class="al-av" style="background:#E9B8A8">민</span><div><b>민지<span>10.4</span></b><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+<div class="al-msg"><span class="al-av" style="background:#BFCFB9">?</span><div><b>익명<span>10.2</span></b><p>도서관에서 찍고 감</p></div></div>
+<div class="al-form"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+</div>
+</div>
+
+<div class="al-sec al-links">
+<a class="al-lk" href="#"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></i><b>인스타그램<small>@jiwoo.room</small></b><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+<a class="al-lk" href="#"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 6l1.5-2h5L16 6"/></svg></i><b>필름 사진 모아둔 곳<small>블로그</small></b><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+</div>
+<div class="al-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

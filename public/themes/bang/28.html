@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 28 · 비밀 일기장</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Gowun+Batang:wght@400;700&amp;family=Gowun+Dodum&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+.sdy{width:390px;min-height:1702px;box-sizing:border-box;background:linear-gradient(180deg,#EDE4EC 0%,#E9E3EF 55%,#EFE8E6 100%);color:#3B3140;font-family:'Noto Sans KR',sans-serif;font-size:15px;line-height:1.5;word-break:keep-all;padding-bottom:28px;position:relative;overflow:hidden}
+.sdy *{box-sizing:border-box}
+.sdy-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.sdy-serif{font-family:'Gowun Batang',serif}
+.sdy-bar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 0}
+.sdy-bar .sdy-brand{font-size:19px;color:#3B3140}
+.sdy-cnt{font-size:12px;color:#7D6F82}
+.sdy-cnt b{color:#3B3140;font-weight:700}
+
+.sdy-book{position:relative;margin:18px 16px 0 12px;background:#FFFBF4;border-radius:6px 18px 18px 6px;padding:26px 22px 26px 34px;box-shadow:3px 3px 0 #F4EEE4,6px 6px 0 #EDE5D8,6px 6px 0 1px #DCD2C4,0 22px 40px -18px rgba(70,45,80,.35)}
+.sdy-book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:16px;border-radius:6px 0 0 6px;background:linear-gradient(90deg,#B994AB,#CDB0C1 70%,#B994AB)}
+.sdy-book::after{content:"";position:absolute;left:20px;top:0;bottom:0;width:1px;background:#F0D4DA}
+.sdy-rib{position:absolute;right:58px;bottom:-62px;z-index:0}
+.sdy-stitch{position:absolute;left:7px;top:12px;bottom:12px;border-left:1.5px dashed rgba(255,255,255,.6)}
+
+/* clasp */
+.sdy-strap{position:absolute;right:-16px;top:40px;width:64px;height:44px;border-radius:12px 0 0 12px;background:linear-gradient(180deg,#CBAABD,#B994AB);box-shadow:0 4px 8px -4px rgba(70,45,80,.4);z-index:3}
+.sdy-strap::before{content:"";position:absolute;left:5px;top:5px;right:0;bottom:5px;border:1.5px dashed rgba(255,255,255,.55);border-right:none;border-radius:8px 0 0 8px}
+.sdy-lock{position:absolute;right:20px;top:66px;z-index:4;filter:drop-shadow(0 5px 6px rgba(90,60,30,.3))}
+
+.sdy-date{font-size:12px;color:#9C8DA0;letter-spacing:.06em}
+.sdy-h1{margin:4px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:28px;letter-spacing:-.03em;line-height:1.2}
+.sdy-me{display:flex;gap:14px;align-items:center;margin-top:18px}
+.sdy-av{width:64px;height:76px;border-radius:32px;border:1.5px dashed #CDB9C6;background:#F7EFF2;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;gap:2px}
+.sdy-av small{font-size:10px;color:#A28FA4}
+.sdy-me b{display:block;font-size:20px;font-weight:700}
+.sdy-me p{margin:0;font-size:14px;color:#7D6F82}
+.sdy-me .sdy-tags{display:flex;gap:5px;margin-top:6px}
+.sdy-me .sdy-tags span{font-size:12px;color:#8A5E78;background:#F5E7EE;border-radius:99px;padding:1px 8px}
+
+.sdy-lbl{display:flex;align-items:center;gap:6px;margin:26px 0 10px;font-size:12px;font-weight:700;color:#9C8DA0;letter-spacing:.04em}
+.sdy-lbl::after{content:"";flex:1;height:1px;background:#EADFE4}
+.sdy-lines{background-image:repeating-linear-gradient(transparent 0 39px,#EFE4E4 39px 40px)}
+.sdy-li{display:flex;gap:12px;align-items:flex-start;min-height:40px;padding:8px 0 0}
+.sdy-li i{font-style:normal;flex:none;width:62px;font-size:12px;font-weight:700;color:#A0849A;padding-top:3px}
+.sdy-li p{margin:0;font-family:'Gowun Batang',serif;font-weight:700;font-size:16px;line-height:1.5;color:#3B3140}
+.sdy-li p span{font-family:'Noto Sans KR',sans-serif;font-weight:400;font-size:13px;color:#8D8091}
+.sdy-dd{display:inline-flex;align-items:center;justify-content:center;border:1.5px solid #C46F8B;color:#B25677;border-radius:50%;width:60px;height:34px;font-family:'Bricolage Grotesque',sans-serif;font-size:17px;font-weight:800;transform:rotate(-6deg);margin-left:4px;vertical-align:middle}
+
+.sdy-photo{margin-top:16px;position:relative;width:200px;transform:rotate(-2deg);background:#fff;padding:9px 9px 30px;box-shadow:0 8px 16px -10px rgba(70,45,80,.4)}
+.sdy-photo .sdy-ph{height:140px;border:1.5px dashed #D4C3CE;background:#F8F2F4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.sdy-photo .sdy-ph span{font-size:12px;color:#A28FA4}
+.sdy-photo em{position:absolute;left:0;right:0;bottom:7px;text-align:center;font-style:normal;font-family:'Gowun Batang',serif;font-size:13px;font-weight:700;color:#7D6F82}
+.sdy-tape{position:absolute;top:-9px;left:50%;margin-left:-28px;width:56px;height:18px;background:rgba(214,189,224,.7);transform:rotate(3deg)}
+.sdy-q{position:absolute;right:-6px;top:30px;width:118px;background:#FDF3D8;padding:10px 11px 11px;transform:rotate(3deg);box-shadow:0 8px 14px -10px rgba(90,60,30,.45)}
+.sdy-q small{display:block;font-size:12px;font-weight:700;color:#A07A1F}
+.sdy-q p{margin:3px 0 0;font-size:13px;font-weight:700;line-height:1.4}
+
+/* friends only */
+.sdy-frost{position:relative;border-radius:16px;overflow:hidden;background:#F8F1F3;border:1px solid #EFE2E7}
+.sdy-frost .sdy-blur{filter:blur(5px);padding:14px 16px;opacity:.85}
+.sdy-blur .sdy-row{display:flex;justify-content:space-between;padding:7px 0;font-size:14px}
+.sdy-blur .sdy-row b{font-weight:700}
+.sdy-blur .sdy-tw{display:flex;gap:8px;margin-top:8px}
+.sdy-blur .sdy-tw i{flex:1;height:70px;border-radius:10px;background:linear-gradient(135deg,#E6D3DD,#D8CDE8)}
+.sdy-veil{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:linear-gradient(180deg,rgba(255,251,244,.25),rgba(255,251,244,.55))}
+.sdy-veil .sdy-lk{width:44px;height:44px;border-radius:50%;background:#fff;box-shadow:0 4px 12px -4px rgba(70,45,80,.35);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.sdy-veil b{font-size:15px;font-weight:700;color:#3B3140}
+.sdy-veil span{font-size:12px;color:#7D6F82}
+
+.sdy-secret{margin-top:12px;border-radius:16px;background:#F3ECF4;padding:4px 14px}
+.sdy-shd{display:flex;justify-content:space-between;align-items:center;padding:12px 0 6px;border-bottom:1px solid #E3D6E5}
+.sdy-shd b{display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:#4E3C55}
+.sdy-shd span{font-size:12px;color:#9C8DA0}
+.sdy-sr{display:flex;align-items:center;gap:12px;padding:11px 0}
+.sdy-sr+.sdy-sr{border-top:1px dashed #DCCBDD}
+.sdy-sr time{flex:none;font-size:12px;color:#9C8DA0;width:38px}
+.sdy-sr .sdy-bar2{flex:1;display:flex;gap:5px;align-items:center}
+.sdy-sr .sdy-bar2 u{height:9px;border-radius:5px;background:#DCCDE0;filter:blur(1.2px)}
+.sdy-sr svg{flex:none}
+
+.sdy-knock{display:flex;align-items:center;gap:12px;margin:22px 0 0;height:62px;border-radius:20px;background:linear-gradient(180deg,#54425A,#46364C);color:#FFF6EC;padding:0 8px 0 18px;box-shadow:0 12px 20px -12px rgba(70,45,80,.8),inset 0 1px 0 rgba(255,255,255,.12)}
+.sdy-knock b{flex:1;font-size:17px;font-weight:700}
+.sdy-knock em{font-style:normal;flex:none;height:46px;min-width:70px;padding:0 14px;border-radius:15px;background:#F2E2B6;color:#46364C;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;gap:2px}
+.sdy-knock em small{font-size:12px;font-weight:500}
+.sdy-ksub{margin:8px 0 0;text-align:center;font-size:12px;color:#8D8091}
+
+.sdy-links{display:flex;gap:8px}
+.sdy-links a{flex:1;display:flex;align-items:center;gap:9px;padding:11px 12px;border-radius:14px;background:#F7F1EE;text-decoration:none;color:#3B3140;min-width:0}
+.sdy-links a span{font-size:13px;font-weight:700;line-height:1.3}
+.sdy-links a span small{display:block;font-weight:400;font-size:12px;color:#8D8091}
+.sdy-links .sdy-ic{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+
+.sdy-note{position:relative;padding:12px 2px 12px;border-bottom:1px solid #EFE4E4}
+.sdy-note .sdy-nn{display:flex;justify-content:space-between;font-size:12px;color:#9C8DA0}
+.sdy-note .sdy-nn b{color:#3B3140;font-size:13px}
+.sdy-note p{margin:2px 0 0;font-family:'Gowun Batang',serif;font-weight:700;font-size:16px}
+.sdy-in{display:flex;gap:8px;margin-top:14px}
+.sdy-in input{flex:1;min-width:0;height:48px;border:1px solid #E6D9DF;background:#fff;border-radius:14px;padding:0 14px;font:inherit;font-size:14px;color:#3B3140}
+.sdy-in input::placeholder{color:#AE9FAF}
+.sdy-in button{height:48px;padding:0 18px;border:none;border-radius:14px;background:#46364C;color:#FFF6EC;font:inherit;font-size:14px;font-weight:700}
+.sdy-foot{text-align:center;font-size:12px;color:#A496A6;margin-top:76px}
+</style>
+</helmet>
+<div class="sdy">
+<div class="sdy-bar"><span class="sdy-brand">knock!</span><span class="sdy-cnt">오늘 <b>4</b> · 지금까지 <b>112</b></span></div>
+
+<div class="sdy-book">
+<span class="sdy-stitch"></span>
+<svg class="sdy-rib" width="26" height="74" viewBox="0 0 26 74"><path d="M2 0 H24 V74 L13 62 L2 74 Z" fill="#C7B3E0"/><path d="M5 0 V66" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/></svg>
+<span class="sdy-strap"></span>
+<svg class="sdy-lock" width="46" height="58" viewBox="0 0 46 58">
+<defs><linearGradient id="sdGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3A8"/><stop offset=".5" stop-color="#DDB867"/><stop offset="1" stop-color="#B88F3E"/></linearGradient></defs>
+<path d="M14 22 V14 a9 9 0 0 1 18 0 V22" fill="none" stroke="#C9A55A" stroke-width="4.5" stroke-linecap="round"/>
+<path d="M14 22 V14 a9 9 0 0 1 18 0" fill="none" stroke="#F6E8BE" stroke-width="1.2" stroke-linecap="round" transform="translate(-1 0)"/>
+<path d="M23 56 C 6 45, 2 34, 6 27 C 10 20, 19 20, 23 27 C 27 20, 36 20, 40 27 C 44 34, 40 45, 23 56 Z" fill="url(#sdGold)" stroke="#B88F3E" stroke-width="1"/>
+<path d="M10 30 c2 -4 6 -5 9 -3" stroke="#FFF6DA" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+<circle cx="23" cy="36" r="3.4" fill="#6B4E22"/><path d="M21.6 38 L20.8 44 H25.2 L24.4 38 Z" fill="#6B4E22"/>
+</svg>
+
+<div class="sdy-date">2026. 10. 07 · 수요일</div>
+<h1 class="sdy-h1">지우의 일기장</h1>
+
+<div class="sdy-me">
+<div class="sdy-av"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B49FB3" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><small>프로필</small></div>
+<div><b>지우</b><p>똑똑, 들어와도 돼</p><div class="sdy-tags"><span>ENFP</span><span>버터 옐로</span></div></div>
+</div>
+
+<div class="sdy-lbl"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9C8DA0" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></svg>누구나 볼 수 있어요</div>
+<div class="sdy-lines">
+<div class="sdy-li"><i>오늘 기분</i><p>시험 D-3, 커피 수혈 중</p></div>
+<div class="sdy-li"><i>요즘 노래</i><p>좋은 날 <span>· 아이유</span></p></div>
+<div class="sdy-li" style="align-items:center;padding-top:4px"><i style="padding-top:0">D-day</i><p>생일까지 <span class="sdy-dd">D-12</span></p></div>
+</div>
+
+<div style="position:relative">
+<div class="sdy-photo"><span class="sdy-tape"></span><div class="sdy-ph"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B49FB3" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></svg><span>주인이 올린 사진</span></div><em>10.05 도서관 창가</em></div>
+<div class="sdy-q"><small>요즘 질문</small><p>제일 좋아하는 편의점 간식은?</p></div>
+</div>
+
+<div class="sdy-lbl"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9C8DA0" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>친구만 보기</div>
+<div class="sdy-frost">
+<div class="sdy-blur">
+<div class="sdy-row"><span>오늘의 코디</span><b>회색 후드티 + 청바지</b></div>
+<div class="sdy-row"><span>요즘 빠진 것</span><b>키링 모으기</b></div>
+<div class="sdy-row"><span>싫어하는 것</span><b>아침 9시 수업</b></div>
+<div class="sdy-tw"><i></i><i></i><i></i></div>
+</div>
+<div class="sdy-veil"><span class="sdy-lk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#46364C" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/><circle cx="12" cy="16" r="1.2" fill="#46364C"/></svg></span><b>노크하면 열려요</b><span>지우가 문 열어주면 같이 볼 수 있어요</span></div>
+</div>
+
+<div class="sdy-secret">
+<div class="sdy-shd"><b><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6D5272" stroke-width="2.4" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>비밀 일기 3</b><span>친구만 읽을 수 있어요</span></div>
+<div class="sdy-sr"><time>10.05</time><span class="sdy-bar2"><u style="width:46%"></u><u style="width:22%"></u></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9C7FA0" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+<div class="sdy-sr"><time>09.28</time><span class="sdy-bar2"><u style="width:30%"></u><u style="width:34%"></u></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9C7FA0" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+<div class="sdy-sr"><time>09.21</time><span class="sdy-bar2"><u style="width:56%"></u></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9C7FA0" stroke-width="2.2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+</div>
+
+<div class="sdy-knock">
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none"><circle cx="9.5" cy="15" r="6" stroke="#F2E2B6" stroke-width="2.4"/><circle cx="9.5" cy="15" r="2" fill="#F2E2B6"/><path d="M15.5 15H27M23 15v4M27 15v3" stroke="#F2E2B6" stroke-width="2.4" stroke-linecap="round"/></svg>
+<b>똑똑, 노크하기</b><em>27<small>번</small></em>
+</div>
+<p class="sdy-ksub">노크하면 지우한테 문 열어달라고 알림이 가요</p>
+
+<div class="sdy-lbl" style="margin-top:28px">여기서도 만나요</div>
+<div class="sdy-links">
+<a href="#"><span class="sdy-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6D5B72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/></svg></span><span>인스타그램<small>@jiwoo.room</small></span></a>
+<a href="#"><span class="sdy-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6D5B72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><span>필름 사진 모아둔 곳<small>블로그</small></span></a>
+</div>
+
+<div class="sdy-lbl" style="margin-top:28px">남겨진 쪽지 2</div>
+<div class="sdy-note"><div class="sdy-nn"><b>민지</b><span>10.4</span></div><p>케이스 뭐야 너무 귀엽잖아</p></div>
+<div class="sdy-note"><div class="sdy-nn"><b>익명</b><span>10.2</span></div><p>도서관에서 찍고 감</p></div>
+<div class="sdy-in"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+</div>
+
+<div class="sdy-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

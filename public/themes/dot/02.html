@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 02 · 모노 미니멀</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@300;400;500;700;900&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+.mo{width:390px;min-height:1304px;box-sizing:border-box;background:#fff;color:#0A0A0A;font-family:'Noto Sans KR','Noto Sans CJK KR',sans-serif;font-size:15px;line-height:1.55;word-break:keep-all;padding:0 24px 28px}
+.mo *{box-sizing:border-box}
+.mo-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.mo-cap{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#6E6E6E;font-weight:400}
+.mo-bar{display:flex;justify-content:space-between;align-items:center;height:56px;border-bottom:1px solid #0A0A0A}
+.mo-bar .mo-brand{font-size:18px}
+.mo-hero{display:grid;grid-template-columns:1fr 84px;gap:0 16px;padding:40px 0 0}
+.mo-hero .mo-cap{align-self:end}
+.mo-ph{width:84px;height:104px;border:1px dashed #A8A8A8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#8A8A8A;font-size:12px}
+.mo-name{margin:22px 0 0;font-size:112px;font-weight:900;letter-spacing:-.06em;line-height:.95;margin-left:-4px}
+.mo-role{display:flex;justify-content:space-between;align-items:flex-end;margin-top:22px;padding-bottom:22px;border-bottom:1px solid #0A0A0A}
+.mo-role b{display:block;font-size:17px;font-weight:700;letter-spacing:-.01em}
+.mo-role span{display:block;font-size:15px;color:#4A4A4A;margin-top:2px}
+.mo-logo{width:48px;height:48px;border:1px dashed #A8A8A8;display:flex;align-items:center;justify-content:center;font-size:12px;color:#8A8A8A}
+.mo-row{display:grid;grid-template-columns:84px 1fr;gap:16px;align-items:baseline;padding:15px 0;border-bottom:1px solid #E4E4E4}
+.mo-row span{font-size:16px;font-variant-numeric:tabular-nums}
+.mo-acts{margin-top:28px;display:flex;flex-direction:column;gap:8px}
+.mo-acts a{height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;text-decoration:none;font-size:16px;font-weight:700;border:1px solid #0A0A0A}
+.mo-acts .mo-save{background:#0A0A0A;color:#fff}
+.mo-acts .mo-give{background:#fff;color:#0A0A0A}
+.mo-acts p{margin:6px 0 0;font-size:12px;color:#6E6E6E}
+.mo-sec{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:22px 0;border-top:1px solid #0A0A0A}
+.mo-first{margin-top:56px}
+.mo-sec .mo-cap{padding-top:3px}
+.mo-sec .mo-cap i{display:block;font-style:normal;color:#0A0A0A;margin-bottom:2px}
+.mo-about{margin:0;font-size:15px;line-height:1.75;color:#1E1E1E}
+.mo-tl{list-style:none;margin:0;padding:0}
+.mo-tl li{display:grid;grid-template-columns:48px 1fr;gap:8px;padding:6px 0;font-size:15px}
+.mo-tl li b{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:13px;color:#6E6E6E;padding-top:1px}
+.mo-ln a{display:flex;justify-content:space-between;align-items:center;height:44px;text-decoration:none;color:#0A0A0A;font-size:15px;border-bottom:1px solid #E4E4E4}
+.mo-ln a:first-child{margin-top:-12px}
+.mo-ln a:last-child{border-bottom:0}
+.mo-end{border-top:1px solid #0A0A0A}
+.mo-own{margin:24px 0 0;font-size:12px;color:#A8A8A8}
+.mo-own a{color:#6E6E6E;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="mo">
+  <div class="mo-bar"><span class="mo-brand">knock.</span><span class="mo-cap">Business card</span></div>
+
+  <div class="mo-hero">
+    <span class="mo-cap">No. 001<br>— 2026</span>
+    <div class="mo-ph" aria-label="프로필 사진 자리"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A9A9A" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1.2-3.6 4-5 7-5s5.8 1.4 7 5"/></svg>사진</div>
+  </div>
+  <h1 class="mo-name">주건우</h1>
+  <div class="mo-role">
+    <div><b>대표 · 제품</b><span>knock</span></div>
+    <div class="mo-logo" aria-label="회사 로고 자리">로고</div>
+  </div>
+
+  <div class="mo-row"><span class="mo-cap">Tel</span><span>010-0000-0000</span></div>
+  <div class="mo-row"><span class="mo-cap">Mail</span><span>me@example.com</span></div>
+  <div class="mo-row"><span class="mo-cap">Org</span><span>knock · 인하대학교</span></div>
+
+  <div class="mo-acts">
+    <a href="#" class="mo-save">연락처에 저장<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></a>
+    <a href="#" class="mo-give">내 명함 주기<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+    <p>앱 설치 없이 바로 저장돼요</p>
+  </div>
+
+  <div class="mo-sec mo-first">
+    <span class="mo-cap"><i>01</i>소개</span>
+    <p class="mo-about">케이스 뒤 QR을 찍으면 내 페이지가 열리는 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p>
+  </div>
+  <div class="mo-sec">
+    <span class="mo-cap"><i>02</i>경력</span>
+    <ul class="mo-tl">
+      <li><b>2026</b>knock 창업</li>
+      <li><b>2025</b>인하벤처클럽</li>
+      <li><b>학력</b>인하대학교</li>
+    </ul>
+  </div>
+  <div class="mo-sec">
+    <span class="mo-cap"><i>03</i>링크</span>
+    <div class="mo-ln">
+      <a href="#">포트폴리오<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.6" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      <a href="#">링크드인<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="1.6" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    </div>
+  </div>
+  <div class="mo-end"></div>
+
+  <p class="mo-own">knock. · <a href="#">나도 명함 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

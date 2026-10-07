@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 10 · 개발자 터미널</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Sans+KR:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+.tm{width:390px;min-height:1265px;box-sizing:border-box;background:radial-gradient(420px 300px at 50% -60px,rgba(124,242,176,.10),transparent 70%),#0C0E12;color:#D5D9E0;font-family:'JetBrains Mono','IBM Plex Sans KR',ui-monospace,monospace;font-size:13px;line-height:1.6;word-break:keep-all;padding:0 14px 30px}
+.tm *{box-sizing:border-box}
+.tm a{color:inherit;text-decoration:none}
+.tm-kr{font-family:'IBM Plex Sans KR',sans-serif}
+.tm-bar{display:flex;justify-content:space-between;align-items:center;height:56px;padding:0 4px}
+.tm-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em;font-size:19px;color:#F1F3F6}
+.tm-bar span:last-child{font-size:12px;color:#7D8592}
+.tm-win{background:#14171D;border:1px solid #252A33;border-radius:14px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.tm-chrome{display:flex;align-items:center;gap:7px;height:38px;padding:0 14px;background:#191D24;border-bottom:1px solid #252A33}
+.tm-chrome i{width:11px;height:11px;border-radius:50%;display:block}
+.tm-chrome i:nth-child(1){background:#E8705E}.tm-chrome i:nth-child(2){background:#E6B65C}.tm-chrome i:nth-child(3){background:#6CC48A}
+.tm-chrome span{margin-left:10px;font-size:12px;color:#8C94A1}
+.tm-tab{margin-left:10px;height:38px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#14171D;border-left:1px solid #252A33;border-right:1px solid #252A33;font-size:12px;color:#E6E9EE;position:relative;top:1px}
+.tm-tab b{width:6px;height:6px;border-radius:50%;background:#7CF2B0;display:block}
+.tm-assets{display:flex;gap:10px;padding:14px 14px 4px}
+.tm-asset{flex:none;display:flex;flex-direction:column;gap:5px;font-size:11.5px;color:#7D8592}
+.tm-asset div{border:1.5px dashed #3A414D;border-radius:10px;background:repeating-linear-gradient(45deg,#171B22 0 6px,#151920 6px 12px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8C94A1;font-family:'IBM Plex Sans KR',sans-serif;font-size:11.5px;text-align:center;line-height:1.25}
+.tm-av div{width:88px;height:88px}
+.tm-lg div{width:56px;height:56px}
+.tm-who{flex:1;align-self:center;padding-left:4px}
+.tm-who b{display:block;font-family:'IBM Plex Sans KR',sans-serif;font-size:24px;font-weight:700;color:#F1F3F6;letter-spacing:-.02em;line-height:1.2}
+.tm-who span{font-size:12px;color:#7CF2B0}
+.tm-code{display:flex;padding:10px 0 14px}
+.tm-gut{flex:none;white-space:pre;width:38px;text-align:right;padding-right:12px;color:#454C58;user-select:none}
+.tm-src{flex:1;min-width:0;white-space:pre;color:#D5D9E0}
+.tm-c{color:#69717E}.tm-k{color:#FF9A7A}.tm-p{color:#8FB8FF}.tm-s{color:#A9E8B8}.tm-o{color:#8C94A1}.tm-v{color:#F4D27A}
+.tm-status{display:flex;gap:14px;align-items:center;height:30px;padding:0 14px;border-top:1px solid #252A33;background:#11141A;font-size:11.5px;color:#69717E}
+.tm-status span:first-child{color:#7CF2B0}
+.tm-status span:last-child{margin-left:auto}
+.tm-acts{display:flex;flex-direction:column;gap:8px;margin:16px 0 0}
+.tm-btn{height:56px;border-radius:12px;display:flex;align-items:center;gap:10px;padding:0 16px;font-size:16px;font-weight:700}
+.tm-btn .tm-kr{font-weight:700}
+.tm-btn em{font-style:normal;opacity:.65}
+.tm-btn kbd{margin-left:auto;font-family:inherit;font-size:12px;font-weight:500;padding:3px 8px;border-radius:6px}
+.tm a.tm-save{background:#7CF2B0;color:#0C1A12;box-shadow:0 0 0 1px #7CF2B0,0 10px 26px rgba(124,242,176,.22)}
+.tm-save kbd{background:rgba(12,26,18,.12);color:#0C1A12}
+.tm a.tm-give{border:1px solid #3A414D;background:#14171D;color:#E6E9EE}
+.tm-give kbd{background:#222731;color:#9AA2AE}
+.tm-hint{margin:4px 0 0;font-size:12px;color:#69717E;text-align:center}
+.tm-term{margin-top:18px}
+.tm-body{padding:16px 16px 18px}
+.tm-cmd{color:#E6E9EE}
+.tm-cmd b{color:#7CF2B0;font-weight:500}
+.tm-cmd+*{margin-top:6px}
+.tm-out{margin:6px 0 18px}
+.tm-txt{font-family:'IBM Plex Sans KR',sans-serif;font-size:14.5px;line-height:1.7;color:#C3C8D0}
+.tm-ls{list-style:none;padding:0}
+.tm-ls li{display:flex;gap:12px;padding:4px 0}
+.tm-ls li span:first-child{color:#F4D27A;width:36px;flex:none}
+.tm-ls li span:last-child{color:#8FB8FF}
+.tm-kv{display:grid;grid-template-columns:44px 1fr;row-gap:4px}
+.tm-kv span:nth-child(odd){color:#69717E}
+.tm a.tm-link{display:flex;align-items:center;gap:10px;height:48px;padding:0 12px;border:1px solid #2A303A;border-radius:10px;background:#171B22;color:#E6E9EE}
+.tm-link+.tm-link{margin-top:8px}
+.tm-link span{flex:1;font-family:'IBM Plex Sans KR',sans-serif;font-size:15px;font-weight:500}
+.tm-link b{color:#7CF2B0;font-weight:500}
+.tm-cur{display:inline-block;width:9px;height:17px;background:#7CF2B0;vertical-align:-3px;margin-left:4px;animation:tm-blink 1.1s steps(1) infinite}
+@keyframes tm-blink{0%,55%{opacity:1}56%,100%{opacity:.2}}
+.tm-own{text-align:center;font-family:'IBM Plex Sans KR',sans-serif;font-size:12px;color:#5E6673;margin:28px 0 0}
+.tm-own a{color:#A3AAB5;font-weight:700}
+</style>
+</helmet>
+<div class="tm">
+  <div class="tm-bar"><span class="tm-logo">knock.</span><span>~/명함</span></div>
+
+  <div class="tm-win">
+    <div class="tm-chrome" style="padding-right:0"><i></i><i></i><i></i><span class="tm-tab"><b></b>주건우.ts</span></div>
+
+    <div class="tm-assets">
+      <div class="tm-asset tm-av"><div aria-label="프로필 사진 자리"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C94A1" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg>프로필 사진</div></div>
+      <div class="tm-who"><b>주건우</b><span>대표 · 제품 @ knock</span></div>
+      <div class="tm-asset tm-lg"><div aria-label="회사 로고 자리">로고</div></div>
+    </div>
+
+    <div class="tm-code" aria-label="주건우 프로필">
+      <div class="tm-gut">1
+2
+3
+4
+5
+6
+7
+8
+9</div>
+<div class="tm-src"><span class="tm-c">// knock. 명함</span>
+<span class="tm-k">const</span> <span class="tm-v">주건우</span> <span class="tm-o">=</span> {
+  <span class="tm-p">직함</span><span class="tm-o">:</span> <span class="tm-s">"대표 · 제품"</span>,
+  <span class="tm-p">회사</span><span class="tm-o">:</span> <span class="tm-s">"knock"</span>,
+  <span class="tm-p">전화</span><span class="tm-o">:</span> <span class="tm-s">"010-0000-0000"</span>,
+  <span class="tm-p">메일</span><span class="tm-o">:</span> <span class="tm-s">"me@example.com"</span>,
+  <span class="tm-p">소속</span><span class="tm-o">:</span> [<span class="tm-s">"knock"</span>, <span class="tm-s">"인하대학교"</span>],
+};
+<span class="tm-k">export default</span> <span class="tm-v">주건우</span>;</div>
+    </div>
+    <div class="tm-status"><span>● 저장됨</span><span>UTF-8</span><span>Ln 9, Col 18</span></div>
+  </div>
+
+  <div class="tm-acts">
+    <a href="#" class="tm-btn tm-save"><em>$</em><span class="tm-kr">연락처에 저장</span><kbd>↵ enter</kbd></a>
+    <a href="#" class="tm-btn tm-give"><em>$</em><span class="tm-kr">내 명함 주기</span><kbd>share</kbd></a>
+    <p class="tm-hint"># 앱 설치 없이 바로 저장돼요</p>
+  </div>
+
+  <div class="tm-win tm-term">
+    <div class="tm-chrome"><i></i><i></i><i></i><span>zsh — 주건우@knock</span></div>
+    <div class="tm-body">
+      <div class="tm-cmd"><b>$</b> cat 소개.txt</div>
+      <p class="tm-out tm-txt">케이스 뒤 QR을 찍으면 내 페이지가 열리는 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p>
+
+      <div class="tm-cmd"><b>$</b> ls 경력/</div>
+      <ul class="tm-out tm-ls">
+        <li><span>2026</span><span>knock_창업/</span></li>
+        <li><span>2025</span><span>인하벤처클럽/</span></li>
+        <li><span>학력</span><span>인하대학교/</span></li>
+      </ul>
+
+      <div class="tm-cmd"><b>$</b> whoami --소속</div>
+      <div class="tm-out tm-kv"><span>소속</span><span>knock · 인하대학교</span></div>
+
+      <div class="tm-cmd"><b>$</b> open 링크/</div>
+      <div class="tm-out">
+        <a href="#" class="tm-link"><b>→</b><span>포트폴리오</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7D8592" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a href="#" class="tm-link"><b>→</b><span>링크드인</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7D8592" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+
+      <div class="tm-cmd"><b>$</b><span class="tm-cur"></span></div>
+    </div>
+  </div>
+
+  <p class="tm-own">knock. · <a href="#">나도 명함 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

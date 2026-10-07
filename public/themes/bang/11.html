@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 11 · 영수증</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Nanum+Gothic+Coding:wght@400;700&amp;family=IBM+Plex+Mono:wght@400;600;700&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap">
+<style>
+body{margin:0}
+.rc{width:390px;min-height:1810px;box-sizing:border-box;position:relative;overflow:hidden;color:#24221E;font-family:'Nanum Gothic Coding','IBM Plex Mono','Noto Sans KR',monospace;font-size:14px;line-height:1.5;word-break:keep-all;padding:0 0 26px;
+  background:
+   radial-gradient(circle at 12% 18%,rgba(201,181,138,.55) 0 2px,transparent 2.6px) 0 0/37px 41px,
+   radial-gradient(circle at 70% 60%,rgba(126,154,140,.5) 0 1.6px,transparent 2.2px) 0 0/29px 31px,
+   radial-gradient(circle at 40% 80%,rgba(215,139,106,.5) 0 1.3px,transparent 1.9px) 0 0/43px 23px,
+   radial-gradient(circle at 85% 25%,rgba(233,226,208,.35) 0 1px,transparent 1.5px) 0 0/19px 27px,
+   radial-gradient(120% 60% at 50% 0%,#2F3B35 0%,#1F2723 60%,#18201C 100%)}
+.rc *{box-sizing:border-box}
+.rc-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.rc-sans{font-family:'Noto Sans KR',sans-serif}
+.rc-mono{font-family:'IBM Plex Mono',monospace}
+.rc-top{display:flex;justify-content:space-between;align-items:center;height:54px;padding:0 20px;color:#EFE9DA}
+.rc-top .rc-brand{font-size:18px;text-shadow:0 1px 6px rgba(0,0,0,.8)}
+.rc-cnt{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#EFE9DA;background:rgba(0,0,0,.35);border:1px solid rgba(239,233,218,.18);border-radius:99px;padding:4px 11px;display:flex;align-items:center;gap:6px}
+.rc-cnt i{width:6px;height:6px;border-radius:50%;background:#8BE0A4;box-shadow:0 0 6px #8BE0A4}
+
+.rc-printer{position:relative;margin:4px 14px 0;height:58px;border-radius:18px 18px 10px 10px;background:linear-gradient(180deg,#F1EEE6 0%,#D9D4C8 70%,#C4BEB0 100%);box-shadow:0 10px 18px rgba(0,0,0,.45),inset 0 1px 0 #fff;z-index:2}
+.rc-printer::after{content:"";position:absolute;left:18px;right:18px;bottom:10px;height:9px;border-radius:5px;background:#24221E;box-shadow:inset 0 3px 4px #000}
+.rc-led{position:absolute;left:20px;top:14px;display:flex;align-items:center;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;color:#8D877A;letter-spacing:.12em}
+.rc-led i{width:8px;height:8px;border-radius:50%;background:#43C46A;box-shadow:0 0 6px #43C46A}
+.rc-grill{position:absolute;right:20px;top:14px;display:flex;gap:3px}
+.rc-grill b{width:3px;height:12px;border-radius:2px;background:#B3AC9E}
+
+.rc-wrap{position:relative;margin:-20px 28px 0;filter:drop-shadow(0 14px 16px rgba(0,0,0,.45)) drop-shadow(0 2px 2px rgba(0,0,0,.25));z-index:1}
+.rc-paper{background:#FBF9F2;background-image:repeating-linear-gradient(0deg,rgba(60,50,30,.018) 0 1px,transparent 1px 3px),linear-gradient(180deg,rgba(0,0,0,.12) 0,rgba(0,0,0,0) 26px);padding:38px 20px 18px}
+.rc-tear{height:10px;background:linear-gradient(135deg,#FBF9F2 50%,transparent 50%) 0 0/11px 10px repeat-x,linear-gradient(225deg,#FBF9F2 50%,transparent 50%) 0 0/11px 10px repeat-x}
+
+.rc-c{text-align:center}
+.rc-logo{width:76px;height:76px;margin:0 auto;border-radius:50%;border:1.5px dashed #9C978A;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;position:relative;overflow:hidden;background:radial-gradient(circle,rgba(36,34,30,.16) 1px,transparent 1.5px) 0 0/5px 5px}
+.rc-logo span{font-family:'Noto Sans KR',sans-serif;font-size:11px;color:#6F6A5E;background:#FBF9F2;padding:0 4px;border-radius:3px}
+.rc-store{margin:12px 0 0;font-size:28px;font-weight:700;letter-spacing:.08em;line-height:1.2}
+.rc-store small{font-size:15px;letter-spacing:0;vertical-align:4px;color:#8D877A;margin:0 6px}
+.rc-slogan{margin:4px 0 0;font-size:15px}
+.rc-info{margin:10px 0 0;font-size:12px;color:#5C574C;line-height:1.6}
+
+.rc-hr{border:0;border-top:1.5px dashed #A9A396;margin:14px 0}
+.rc-hr2{border:0;border-top:3px double #24221E;margin:14px 0}
+.rc-meta{display:flex;justify-content:space-between;font-size:12px;color:#5C574C}
+.rc-head{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:#24221E;letter-spacing:.06em}
+
+.rc-item{margin:14px 0 0}
+.rc-ln{display:flex;align-items:baseline;gap:6px;font-size:13px;color:#5C574C}
+.rc-ln .rc-dots{flex:1;border-bottom:2px dotted #B7B1A3;transform:translateY(-4px)}
+.rc-ln b{font-family:'IBM Plex Mono',monospace;font-weight:600;color:#24221E;font-size:13px}
+.rc-val{margin:3px 0 0;padding-left:22px;font-size:16px;font-weight:700;color:#24221E;line-height:1.4;position:relative}
+.rc-val::before{content:"└";position:absolute;left:4px;top:0;color:#A9A396;font-weight:400}
+.rc-dd{display:flex;align-items:baseline;gap:6px}
+.rc-dd .rc-dots{flex:1;border-bottom:2px dotted #B7B1A3;transform:translateY(-6px)}
+.rc-dd span{font-size:13px;color:#5C574C}
+.rc-dd b{font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.rc-bar{display:flex;align-items:center;gap:8px;margin:6px 0 0 22px}
+.rc-bar i{flex:1;height:4px;background:linear-gradient(90deg,#24221E 0 58%,transparent 58%),repeating-linear-gradient(90deg,#B7B1A3 0 2px,transparent 2px 4px);position:relative}
+.rc-bar i::after{content:"";position:absolute;left:58%;top:50%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:#24221E}
+.rc-bar em{font-style:normal;font-family:'IBM Plex Mono',monospace;font-size:11px;color:#5C574C}
+
+.rc-photo{margin:16px 0 0;height:178px;border:1.5px dashed #9C978A;position:relative;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(36,34,30,.2) 1.1px,transparent 1.6px) 0 0/6px 6px}
+.rc-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(251,249,242,.1) 0%,rgba(251,249,242,.85) 70%)}
+.rc-photo p{position:relative;margin:0;display:flex;flex-direction:column;align-items:center;gap:4px;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#5C574C;background:#FBF9F2;padding:8px 12px;border:1px solid #D9D4C8}
+.rc-cap{display:flex;justify-content:space-between;font-size:12px;color:#5C574C;margin-top:6px}
+
+.rc-sub{display:flex;justify-content:space-between;font-size:13px;color:#5C574C;margin-top:4px}
+.rc-sub b{font-family:'IBM Plex Mono',monospace;color:#24221E;font-weight:600}
+.rc-total{position:relative;display:flex;justify-content:space-between;align-items:baseline}
+.rc-total span{font-size:18px;font-weight:700;letter-spacing:.1em}
+.rc-total b{font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.rc-total b small{font-family:'Nanum Gothic Coding',monospace;font-size:16px;margin-left:3px}
+.rc-stamp{position:absolute;left:118px;top:-30px;transform:rotate(-14deg);opacity:.78;pointer-events:none}
+
+.rc-key{margin:18px 0 0;display:flex;align-items:stretch;gap:8px;width:100%;border:0;padding:0;background:none;font:inherit;cursor:pointer}
+.rc-key-main{flex:1;height:64px;border-radius:12px;background:linear-gradient(180deg,#F06A43 0%,#DC4F2A 100%);color:#FFF7EC;box-shadow:0 5px 0 #9E3216,0 9px 14px rgba(120,40,10,.35),inset 0 1px 0 rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Noto Sans KR',sans-serif;font-size:19px;font-weight:900;letter-spacing:.02em}
+.rc-key-lcd{width:84px;height:64px;border-radius:12px;background:#22281F;box-shadow:0 5px 0 #0E120C,inset 0 0 0 3px #3A4434;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rc-key-lcd b{font-family:'IBM Plex Mono',monospace;font-size:24px;font-weight:700;color:#A8F0A0;text-shadow:0 0 8px rgba(168,240,160,.6);line-height:1}
+.rc-key-lcd small{font-family:'Noto Sans KR',sans-serif;font-size:10px;color:#8FB58A;margin-top:4px}
+.rc-hint{margin:16px 0 0;text-align:center;font-size:12px;color:#5C574C}
+
+.rc-sec{margin:0;font-size:13px;font-weight:700;text-align:center;letter-spacing:.12em}
+.rc-links{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.rc-links a{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 12px;border:1.5px solid #24221E;border-radius:4px;color:#24221E;text-decoration:none;background:#fff}
+.rc-links a span{flex:1;font-size:14px;font-weight:700;line-height:1.3}
+.rc-links a span small{display:block;font-weight:400;font-size:12px;color:#5C574C}
+
+.rc-voice{margin-top:10px}
+.rc-v{padding:10px 0;border-bottom:1.5px dashed #D3CDBF}
+.rc-v-h{display:flex;justify-content:space-between;font-size:12px;color:#5C574C}
+.rc-v-h b{color:#24221E}
+.rc-v p{margin:3px 0 0;font-size:15px;font-weight:700}
+.rc-in{display:flex;gap:8px;margin-top:12px}
+.rc-in span{flex:1;height:48px;display:flex;align-items:center;padding:0 12px;border:1.5px dashed #9C978A;border-radius:4px;color:#8D877A;font-size:14px;background:#fff}
+.rc-in em{height:48px;padding:0 18px;border-radius:4px;background:#24221E;color:#FBF9F2;font-style:normal;font-weight:700;font-size:14px;display:flex;align-items:center}
+
+.rc-barcode{margin:20px auto 0;height:54px;width:250px;background:
+  repeating-linear-gradient(90deg,#24221E 0 2px,transparent 2px 4px,#24221E 4px 5px,transparent 5px 8px,#24221E 8px 11px,transparent 11px 12px,#24221E 12px 13px,transparent 13px 16px,#24221E 16px 17px,transparent 17px 19px,#24221E 19px 22px,transparent 22px 25px)}
+.rc-bnum{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.3em;margin-top:4px;color:#24221E}
+.rc-bye{text-align:center;margin:14px 0 4px;font-size:15px;font-weight:700}
+.rc-bye small{display:block;font-size:12px;font-weight:400;color:#5C574C;margin-top:2px}
+.rc-own{text-align:center;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#8C968F;margin:26px 0 0}
+.rc-own a{color:#C9D2CC;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="rc">
+  <div class="rc-top"><span class="rc-brand">knock!</span><span class="rc-cnt"><i></i>오늘 4명 · 지금까지 112명</span></div>
+
+  <div class="rc-printer" aria-hidden="true"><span class="rc-led"><i></i>PRINTING</span><span class="rc-grill"><b></b><b></b><b></b><b></b><b></b><b></b></span></div>
+
+  <div class="rc-wrap">
+    <div class="rc-paper">
+      <div class="rc-c">
+        <div class="rc-logo" role="img" aria-label="프로필 사진 자리"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6F6A5E" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg><span>프로필</span></div>
+        <p class="rc-store"><small>*</small>지우의 방<small>*</small></p>
+        <p class="rc-slogan">똑똑, 들어와도 돼</p>
+        <p class="rc-info">대표 지우 · 영업중 24시간<br>오늘 손님 4명 · 누적 112명</p>
+      </div>
+      <hr class="rc-hr">
+      <div class="rc-meta"><span>2026-10-07 (수) 21:14</span><span>No.0112</span></div>
+      <hr class="rc-hr">
+      <div class="rc-head"><span>품목</span><span>수량</span></div>
+
+      <div class="rc-item">
+        <div class="rc-ln"><span>01 오늘의 기분</span><i class="rc-dots"></i><b>x1</b></div>
+        <p class="rc-val">시험 D-3, 커피 수혈 중</p>
+      </div>
+      <div class="rc-item">
+        <div class="rc-ln"><span>02 요즘 노래</span><i class="rc-dots"></i><b>3:52</b></div>
+        <p class="rc-val">좋은 날 · 아이유</p>
+        <div class="rc-bar"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 0l9 5-9 5z" fill="#24221E"/></svg><i></i><em>2:14</em></div>
+      </div>
+      <div class="rc-item">
+        <div class="rc-dd"><span>03 생일까지</span><i class="rc-dots"></i><b>D-12</b></div>
+      </div>
+      <div class="rc-item">
+        <div class="rc-ln"><span>04 요즘 질문</span><i class="rc-dots"></i><b>Q.</b></div>
+        <p class="rc-val">제일 좋아하는 편의점 간식은?</p>
+      </div>
+
+      <div class="rc-photo"><p><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5C574C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>주인이 올린 사진</p></div>
+      <div class="rc-cap"><span>05 도서관 창가</span><span>10.03</span></div>
+
+      <hr class="rc-hr">
+      <div class="rc-sub"><span>오늘 방문</span><b>4명</b></div>
+      <div class="rc-sub"><span>누적 방문</span><b>112명</b></div>
+      <hr class="rc-hr2">
+      <div class="rc-total">
+        <span>총 노크</span>
+        <b>27<small>회</small></b>
+        <svg class="rc-stamp" width="92" height="92" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#D2452A" stroke-width="2.6"><circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="35" stroke-width="1.4"/></g><text x="50" y="47" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="15" font-weight="700" fill="#D2452A" letter-spacing="1">KNOCK</text><text x="50" y="64" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" font-weight="700" fill="#D2452A">10.07</text><path d="M20 50h4M76 50h4" stroke="#D2452A" stroke-width="2.6"/></svg>
+      </div>
+
+      <button type="button" class="rc-key">
+        <span class="rc-key-main"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFF7EC" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 014 0v4M11 10V6a2 2 0 014 0v5M15 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5.2-3L4 14a2 2 0 013.4-2L9 13"/></svg>노크 찍기</span>
+        <span class="rc-key-lcd"><b>027</b><small>지금까지</small></span>
+      </button>
+      <p class="rc-hint">한 번 찍으면 지우한테 바로 알림이 가요</p>
+
+      <hr class="rc-hr">
+      <p class="rc-sec">— 단골 링크 —</p>
+      <div class="rc-links">
+        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#24221E" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg><span>인스타그램<small>@jiwoo.room</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#24221E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#24221E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>필름 사진 모아둔 곳<small>블로그</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#24221E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+
+      <hr class="rc-hr">
+      <p class="rc-sec">— 고객 한마디 (2) —</p>
+      <div class="rc-voice">
+        <div class="rc-v"><div class="rc-v-h"><b>민지</b><span>10.04</span></div><p>케이스 뭐야 너무 귀엽잖아</p></div>
+        <div class="rc-v"><div class="rc-v-h"><b>익명</b><span>10.02</span></div><p>도서관에서 찍고 감</p></div>
+        <div class="rc-in"><span>한 줄 남기기</span><em>남기기</em></div>
+      </div>
+
+      <div class="rc-barcode" aria-hidden="true"></div>
+      <div class="rc-bnum">0112 1007 0027</div>
+      <p class="rc-bye">감사합니다, 또 놀러 와요<small>이 영수증은 노크할 때마다 다시 뽑혀요</small></p>
+    </div>
+    <div class="rc-tear"></div>
+  </div>
+
+  <p class="rc-own">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

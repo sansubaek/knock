@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 02 · 미니룸</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap">
+<style>
+body{margin:0}
+.v{width:390px;min-height:1086px;box-sizing:border-box;background:#F2F4F6;color:#191F28;font-family:'Noto Sans KR',sans-serif;font-size:15px;line-height:1.5;word-break:keep-all;padding-bottom:36px}
+.v *{box-sizing:border-box}
+.brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.top{background:#fff;padding:14px 20px 18px;border-radius:0 0 28px 28px}
+.bar{display:flex;justify-content:space-between;align-items:center;height:32px}
+.bar .brand{font-size:19px}
+.cnt{font-size:12px;color:#6B7684;display:flex;align-items:center;gap:6px}
+.cnt i{width:6px;height:6px;border-radius:50%;background:#2DBE6C;display:inline-block}
+.me{display:flex;gap:12px;align-items:center;padding:14px 0 0}
+.av{width:48px;height:48px;border-radius:18px;background:#F2F4F6;border:1.5px dashed #D1D6DB;display:flex;align-items:center;justify-content:center;flex:none}
+.me b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.3}
+.me span{font-size:13px;color:#6B7684}
+.room{margin:10px 12px 0;background:#fff;border-radius:24px;padding:12px;position:relative}
+.room svg{display:block;width:100%;height:auto;border-radius:16px}
+.hint{display:flex;justify-content:space-between;align-items:center;padding:12px 6px 2px;font-size:13px;color:#6B7684}
+.hint b{color:#191F28}
+.sheet{margin:10px 12px 0;background:#fff;border-radius:24px;padding:10px 20px 20px;position:relative;box-shadow:0 -1px 0 #E5E8EB}
+.sheet .tag{position:absolute;top:-9px;left:16px;background:#fff;color:#6B7684;border:1px solid #E5E8EB;font-size:11px;font-weight:700;padding:1px 8px;border-radius:99px}
+.handle{width:40px;height:4px;border-radius:4px;background:#E5E8EB;margin:2px auto 14px}
+.sheet small{font-size:12px;color:#6B7684}
+.sheet .song{display:flex;gap:12px;align-items:center;margin-top:8px}
+.sheet .song i{width:52px;height:52px;border-radius:16px;background:#191F28;display:flex;align-items:center;justify-content:center;flex:none}
+.sheet .song b{display:block;font-size:17px}
+.sheet .song span{font-size:13px;color:#6B7684}
+.after{margin:10px 12px 0;background:#191F28;color:#fff;border-radius:20px;padding:16px 18px;display:flex;gap:12px;align-items:center;position:relative}
+.after .tag{position:absolute;top:-9px;left:16px;background:#fff;color:#6B7684;border:1px solid #E5E8EB;font-size:11px;font-weight:700;padding:1px 8px;border-radius:99px}
+.after b{display:block;font-size:15px}
+.after span{font-size:13px;color:#B0B8C1}
+.after a{margin-left:auto;flex:none;background:#fff;color:#191F28;font-weight:700;font-size:13px;padding:9px 12px;border-radius:12px;text-decoration:none}
+.sec{background:#fff;border-radius:24px;margin:10px 12px 0;padding:20px}
+.sec h2{margin:0 0 14px;font-size:16px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.sec h2 small{font-size:12px;font-weight:500;color:#8B95A1}
+.gbook .e{padding:12px 0;border-top:1px solid #F2F4F6}
+.gbook .e:first-of-type{border-top:0;padding-top:0}
+.gbook .e b{font-size:14px}
+.gbook .e b span{font-weight:400;color:#8B95A1;font-size:12px;margin-left:6px}
+.gbook .e p{margin:2px 0 0;font-size:14px}
+.gbook .in{display:flex;gap:8px;margin-top:12px}
+.gbook .in span{flex:1;height:46px;border-radius:12px;background:#F2F4F6;display:flex;align-items:center;padding:0 14px;color:#8B95A1;font-size:14px}
+.gbook .in em{height:46px;padding:0 16px;border-radius:12px;background:#191F28;color:#fff;font-style:normal;font-weight:700;font-size:14px;display:flex;align-items:center}
+.edit{margin:10px 12px 0;border:1.5px dashed #D1D6DB;border-radius:20px;padding:14px 16px;font-size:13px;color:#4E5968;line-height:1.6}
+.edit b{display:block;color:#191F28;font-size:14px;margin-bottom:2px}
+.own{text-align:center;font-size:12px;color:#B0B8C1;margin-top:28px}
+.own a{color:#4E5968;font-weight:700}
+.note{margin:14px 16px 0;font-size:12px;color:#8B95A1;line-height:1.6}
+</style>
+</helmet>
+<div class="v">
+  <div class="top">
+    <div class="bar"><span class="brand">knock!</span><span class="cnt"><i></i>오늘 4명 · 지금까지 112명</span></div>
+    <div class="me">
+      <div class="av" role="img" aria-label="프로필 사진 자리"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></div>
+      <div><b>지우의 방</b><span>똑똑, 들어와도 돼</span></div>
+    </div>
+  </div>
+
+  <div class="room">
+    <svg viewBox="0 0 358 400" role="img" aria-label="지우가 꾸민 방 그림. 액자, 메모, 달력, 라디오, 화분, 우편함, 문이 있어요">
+      <defs>
+        <pattern id="wp" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="1.4" fill="#EADCCF"/></pattern>
+      </defs>
+      <rect x="0" y="0" width="358" height="272" fill="#F7EFE8"/>
+      <rect x="0" y="0" width="358" height="272" fill="url(#wp)"/>
+      <rect x="0" y="264" width="358" height="10" fill="#EBDDD0"/>
+      <rect x="0" y="274" width="358" height="126" fill="#E9D8C8"/>
+      <path d="M0 306h358M0 344h358M0 380h358" stroke="#DFCBB8" stroke-width="1"/>
+      <ellipse cx="166" cy="340" rx="118" ry="26" fill="#F4D3DB"/>
+      <ellipse cx="166" cy="340" rx="96" ry="18" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="2 6"/>
+
+      <!-- 액자 = 사진 -->
+      <rect x="34" y="44" width="112" height="86" rx="6" fill="#fff" stroke="#191F28" stroke-width="1.4"/>
+      <rect x="44" y="54" width="92" height="66" rx="3" fill="#F9FAFB" stroke="#B0B8C1" stroke-dasharray="4 3"/>
+      <path d="M62 108l18-18 14 12 10-8 20 14" fill="none" stroke="#B0B8C1" stroke-width="1.6" stroke-linejoin="round"/>
+      <circle cx="74" cy="76" r="5" fill="none" stroke="#B0B8C1" stroke-width="1.6"/>
+
+      <!-- 메모 = 오늘의 기분 -->
+      <g transform="rotate(-4 200 84)">
+        <rect x="166" y="52" width="72" height="64" rx="4" fill="#FFF1B8" stroke="#191F28" stroke-width="1.4"/>
+        <circle cx="202" cy="58" r="4" fill="#E0335E" stroke="#191F28" stroke-width="1.2"/>
+        <text x="174" y="84" font-size="11" font-weight="700" fill="#191F28" font-family="Noto Sans KR, sans-serif">시험 D-3</text>
+        <text x="174" y="100" font-size="10" fill="#4E5968" font-family="Noto Sans KR, sans-serif">커피 수혈 중</text>
+      </g>
+
+      <!-- 달력 = D-day -->
+      <rect x="170" y="134" width="60" height="62" rx="6" fill="#fff" stroke="#191F28" stroke-width="1.4"/>
+      <path d="M170 140a6 6 0 016-6h48a6 6 0 016 6v10h-60z" fill="#E0335E" stroke="#191F28" stroke-width="1.4"/>
+      <text x="200" y="176" text-anchor="middle" font-size="18" font-weight="800" fill="#191F28" font-family="Noto Sans KR, sans-serif">D-12</text>
+      <text x="200" y="190" text-anchor="middle" font-size="9" fill="#6B7684" font-family="Noto Sans KR, sans-serif">생일</text>
+
+      <!-- 수납장 + 라디오 = 노래 -->
+      <rect x="26" y="206" width="124" height="60" rx="6" fill="#fff" stroke="#191F28" stroke-width="1.4"/>
+      <path d="M88 212v48M50 236h8M118 236h8" stroke="#191F28" stroke-width="1.4" stroke-linecap="round"/>
+      <rect x="46" y="170" width="74" height="36" rx="9" fill="#191F28"/>
+      <circle cx="66" cy="188" r="10" fill="#4E5968"/><circle cx="66" cy="188" r="4" fill="#191F28"/>
+      <rect x="84" y="180" width="28" height="6" rx="3" fill="#FFD25E"/>
+      <rect x="84" y="191" width="18" height="5" rx="2.5" fill="#6B7684"/>
+      <path d="M104 170l14-20" stroke="#191F28" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M126 160c4-6 10-6 12-2" fill="none" stroke="#E0335E" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M132 150c5-7 13-7 15-2" fill="none" stroke="#E0335E" stroke-width="1.6" stroke-linecap="round" opacity=".6"/>
+
+      <!-- 화분 -->
+      <path d="M170 238h30l-4 28h-22z" fill="#F4D3DB" stroke="#191F28" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M185 238c-2-16-16-22-22-20 2 10 10 18 22 20zM185 238c2-18 16-26 24-22-2 12-12 20-24 22zM185 238v-26" fill="#B9DFC4" stroke="#191F28" stroke-width="1.3" stroke-linejoin="round"/>
+
+      <!-- 우편함 = 방명록 -->
+      <rect x="230" y="214" width="5" height="52" fill="#191F28"/>
+      <rect x="212" y="190" width="42" height="28" rx="12" fill="#fff" stroke="#191F28" stroke-width="1.4"/>
+      <path d="M220 204h18" stroke="#191F28" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M250 194v-12h10v6h-10" fill="#E0335E" stroke="#191F28" stroke-width="1.2" stroke-linejoin="round"/>
+
+      <!-- 문 = 노크 -->
+      <path d="M262 266V104a14 14 0 0114-14h52a14 14 0 0114 14v162z" fill="#FBE3E9" stroke="#191F28" stroke-width="1.4"/>
+      <rect x="272" y="104" width="60" height="64" rx="8" fill="none" stroke="#E9B3C1" stroke-width="1.4"/>
+      <rect x="272" y="180" width="60" height="72" rx="8" fill="none" stroke="#E9B3C1" stroke-width="1.4"/>
+      <circle cx="326" cy="176" r="5" fill="#FFD25E" stroke="#191F28" stroke-width="1.2"/>
+      <circle cx="338" cy="96" r="14" fill="#E0335E"/>
+      <text x="338" y="101" text-anchor="middle" font-size="12" font-weight="800" fill="#fff" font-family="Noto Sans KR, sans-serif">27</text>
+
+      <!-- 이름표 -->
+      <g font-family="Noto Sans KR, sans-serif" font-size="10" font-weight="700">
+        <rect x="64" y="134" width="52" height="18" rx="9" fill="#191F28"/><text x="90" y="147" text-anchor="middle" fill="#fff">사진 보기</text>
+        <rect x="58" y="270" width="60" height="18" rx="9" fill="#191F28"/><text x="88" y="283" text-anchor="middle" fill="#fff">요즘 노래</text>
+        <rect x="204" y="270" width="58" height="18" rx="9" fill="#191F28"/><text x="233" y="283" text-anchor="middle" fill="#fff">방명록 2</text>
+        <rect x="270" y="270" width="64" height="18" rx="9" fill="#E0335E"/><text x="302" y="283" text-anchor="middle" fill="#fff">문 두드리기</text>
+      </g>
+    </svg>
+    <div class="hint"><span><b>물건을 눌러보세요</b> · 문을 두드리면 노크돼요</span><span>노크 27</span></div>
+  </div>
+
+  <div class="sheet">
+    
+    <div class="handle"></div>
+    <small>요즘 듣는 노래</small>
+    <div class="song"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></i><div><b>좋은 날</b><span>아이유 · 유튜브에서 듣기</span></div></div>
+  </div>
+
+  <div class="sec gbook">
+    <h2>방명록 2 <small>우편함과 같은 내용</small></h2>
+    <div class="e"><b>민지<span>10.4</span></b><p>케이스 뭐야 너무 귀엽잖아</p></div>
+    <div class="e"><b>익명<span>10.2</span></b><p>도서관에서 찍고 감</p></div>
+    <div class="in"><span>한 줄 남기기</span><em>남기기</em></div>
+  </div>
+
+  <p class="own">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

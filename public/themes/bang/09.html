@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 09 · 음악 플레이어</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap">
+<style>
+body{margin:0}
+.mp{width:390px;min-height:1685px;box-sizing:border-box;color:#F6EEF3;font-family:'Noto Sans KR',sans-serif;font-size:15px;line-height:1.5;word-break:keep-all;padding:0 22px 28px;
+  background:radial-gradient(120% 60% at 20% 0%,#7C4A6C 0%,rgba(124,74,108,0) 60%),radial-gradient(90% 40% at 100% 18%,#B0675E 0%,rgba(176,103,94,0) 60%),linear-gradient(180deg,#3E2638 0%,#1D1520 42%,#141017 100%)}
+.mp *{box-sizing:border-box}
+.mp-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.mp-top{display:flex;justify-content:space-between;align-items:center;height:56px}
+.mp-down{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
+.mp-from{text-align:center;line-height:1.25}
+.mp-from small{display:block;font-size:12px;color:rgba(246,238,243,.62)}
+.mp-from .mp-brand{font-size:16px}
+.mp-cnt{font-size:12px;color:rgba(246,238,243,.72);text-align:right;line-height:1.3}
+.mp-cnt b{color:#fff;font-weight:700}
+
+.mp-art{margin-top:14px;width:346px;height:346px;border-radius:22px;border:1.5px dashed rgba(255,255,255,.32);background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.03));display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;color:rgba(246,238,243,.62);font-size:13px;box-shadow:0 24px 50px rgba(0,0,0,.35)}
+
+.mp-cur{display:flex;align-items:center;gap:10px;margin-top:22px}
+.mp-av{width:34px;height:34px;border-radius:50%;border:1.5px dashed rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;flex:none}
+.mp-cur b{font-size:14px;font-weight:700}
+.mp-cur span{font-size:13px;color:rgba(246,238,243,.65);margin-left:6px}
+
+.mp-track{display:flex;align-items:flex-end;justify-content:space-between;margin-top:12px}
+.mp-track h1{margin:0;font-size:28px;font-weight:900;letter-spacing:-.02em;line-height:1.2}
+.mp-track p{margin:2px 0 0;font-size:16px;color:rgba(246,238,243,.7)}
+.mp-add{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;flex:none}
+
+.mp-prog{margin-top:20px}
+.mp-bar{height:4px;border-radius:2px;background:rgba(255,255,255,.18);position:relative}
+.mp-bar i{position:absolute;left:0;top:0;bottom:0;width:32%;border-radius:2px;background:#fff}
+.mp-bar i::after{content:"";position:absolute;right:-6px;top:-4px;width:12px;height:12px;border-radius:50%;background:#fff}
+.mp-time{display:flex;justify-content:space-between;font-size:12px;color:rgba(246,238,243,.6);margin-top:8px;font-variant-numeric:tabular-nums}
+
+.mp-ctl{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding:0 2px}
+.mp-ctl span{width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+.mp-ctl .mp-play{width:72px;height:72px;border-radius:50%;background:#fff}
+
+.mp-knock{font:inherit;cursor:pointer;margin-top:24px;width:100%;height:64px;border:none;border-radius:20px;background:linear-gradient(100deg,#FFC59A 0%,#FF9C8E 55%,#F58BAA 100%);color:#2A1420;display:flex;align-items:center;gap:12px;padding:0 10px 0 18px;box-shadow:0 10px 30px rgba(255,140,140,.28)}
+.mp-knock .mp-hand{width:40px;height:40px;border-radius:50%;background:rgba(42,20,32,.12);display:flex;align-items:center;justify-content:center;flex:none}
+.mp-knock b{font-size:18px;font-weight:900;text-align:left;flex:1}
+.mp-knock em{font-style:normal;height:44px;padding:0 14px;border-radius:14px;background:#2A1420;color:#FFD3BC;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:700}
+
+.mp-lyr{margin-top:28px;border-radius:22px;padding:20px;background:linear-gradient(160deg,rgba(176,103,94,.55),rgba(124,74,108,.45));position:relative;overflow:hidden}
+.mp-lyr h2,.mp-sec h2{margin:0;font-size:14px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.mp-lyr h2 small,.mp-sec h2 small{font-size:12px;font-weight:500;color:rgba(246,238,243,.6)}
+.mp-lyr .mp-dim{margin:14px 0 0;font-size:20px;font-weight:700;color:rgba(255,255,255,.38);line-height:1.4}
+.mp-lyr .mp-now{margin:16px 0 0;font-size:26px;font-weight:900;line-height:1.35;letter-spacing:-.02em;color:#fff}
+
+.mp-sec{margin-top:30px}
+.mp-q{display:flex;align-items:center;gap:14px;padding:10px 0}
+.mp-thumb{width:52px;height:52px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:800}
+.mp-q div{flex:1;min-width:0}
+.mp-q b{display:block;font-size:15px;font-weight:700;line-height:1.35}
+.mp-q small{display:block;font-size:13px;color:rgba(246,238,243,.62)}
+.mp-q .mp-hdl{flex:none;width:28px;display:flex;justify-content:flex-end}
+.mp-sec h2+.mp-q{margin-top:6px}
+
+.mp-pl a{display:flex;align-items:center;gap:14px;padding:10px 0;color:#F6EEF3;text-decoration:none;min-height:60px}
+.mp-pl .mp-n{width:18px;font-size:13px;color:rgba(246,238,243,.5);text-align:center;flex:none;font-variant-numeric:tabular-nums}
+.mp-pl .mp-ic{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex:none}
+.mp-pl span.mp-tt{flex:1;font-size:15px;font-weight:700;line-height:1.35}
+.mp-pl span.mp-tt small{display:block;font-size:13px;font-weight:400;color:rgba(246,238,243,.62)}
+
+.mp-cm{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:18px;margin-top:30px}
+.mp-c{display:flex;gap:12px;padding:12px 0}
+.mp-c+.mp-c{border-top:1px solid rgba(255,255,255,.08)}
+.mp-ca{width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.mp-c b{font-size:13px;font-weight:700}
+.mp-c b span{font-weight:400;color:rgba(246,238,243,.55);font-size:12px;margin-left:6px}
+.mp-c p{margin:2px 0 0;font-size:15px}
+.mp-in{display:flex;gap:8px;margin-top:10px}
+.mp-in span{flex:1;height:48px;border-radius:24px;background:rgba(255,255,255,.1);display:flex;align-items:center;padding:0 18px;color:rgba(246,238,243,.55);font-size:14px}
+.mp-in em{height:48px;padding:0 20px;border-radius:24px;background:#fff;color:#2A1420;font-style:normal;font-weight:700;font-size:14px;display:flex;align-items:center}
+
+.mp-own{text-align:center;font-size:12px;color:rgba(246,238,243,.4);margin:28px 0 0}
+.mp-own a{color:rgba(246,238,243,.62);text-decoration:none}
+</style>
+</helmet>
+<div class="mp">
+  <div class="mp-top">
+    <span class="mp-down"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    <div class="mp-from"><small>지우의 방에서 재생 중</small><span class="mp-brand">knock!</span></div>
+    <div class="mp-cnt">오늘 <b>4</b>명<br>전체 <b>112</b>명</div>
+  </div>
+
+  <div class="mp-art" role="img" aria-label="주인이 올린 사진 자리">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>
+    주인이 올린 사진
+  </div>
+
+  <div class="mp-cur">
+    <div class="mp-av" role="img" aria-label="프로필 사진 자리"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></div>
+    <div><b>지우</b><span>똑똑, 들어와도 돼</span></div>
+  </div>
+
+  <div class="mp-track">
+    <div><h1>좋은 날</h1><p>아이유</p></div>
+  </div>
+
+  <div class="mp-prog">
+    <div class="mp-bar"><i></i></div>
+    <div class="mp-time"><span>1:12</span><span>3:48</span></div>
+  </div>
+
+  <div class="mp-ctl" aria-hidden="true">
+    <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h3.5c3.5 0 4.5 10 8 10H21M3 17h3.5c1.4 0 2.4-1.6 3.3-3.4M14.2 10.4C15 8.6 16 7 17.5 7H21M18 4l3 3-3 3M18 14l3 3-3 3"/></svg></span>
+    <span><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M6 5h2v14H6zM20 6.2v11.6a1 1 0 01-1.5.8L10 12.8a1 1 0 010-1.6l8.5-5.8a1 1 0 011.5.8z"/></svg></span>
+    <span class="mp-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#2A1420"><rect x="6" y="5" width="4" height="14" rx="1.2"/><rect x="14" y="5" width="4" height="14" rx="1.2"/></svg></span>
+    <span><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M16 5h2v14h-2zM4 6.2v11.6a1 1 0 001.5.8L14 12.8a1 1 0 000-1.6L5.5 5.4A1 1 0 004 6.2z"/></svg></span>
+    <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l3 3-3 3"/><path d="M4 12V10a4 4 0 014-4h12M7 21l-3-3 3-3"/><path d="M20 12v2a4 4 0 01-4 4H4"/></svg></span>
+  </div>
+
+  <button type="button" class="mp-knock">
+    <span class="mp-hand"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2A1420" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 014 0v4M11 10V6a2 2 0 014 0v5M15 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5.2-3L4 14a2 2 0 013.4-2L9 13"/></svg></span>
+    <b>노크하기</b>
+    <em><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFB49A" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.3C1 8.4 3.2 5 6.7 5c2.2 0 3.9 1.2 5.3 3 1.4-1.8 3.1-3 5.3-3 3.5 0 5.7 3.4 4.3 6.7C19.5 16.4 12 21 12 21z"/></svg>지금까지 27번</em>
+  </button>
+
+  <div class="mp-lyr">
+    <h2>오늘의 기분 <small><svg width="18" height="14" viewBox="0 0 18 14" fill="#fff" aria-hidden="true" style="opacity:.8"><rect x="0" y="5" width="3" height="9" rx="1.5"/><rect x="5" y="1" width="3" height="13" rx="1.5"/><rect x="10" y="7" width="3" height="7" rx="1.5"/><rect x="15" y="3" width="3" height="11" rx="1.5"/></svg></small></h2>
+    <p class="mp-now">시험 D-3,<br>커피 수혈 중</p>
+  </div>
+
+  <div class="mp-sec">
+    <h2>다음 순서 <small>2곡</small></h2>
+    <div class="mp-q">
+      <span class="mp-thumb" style="background:#F2D4C2;color:#2A1420;font-size:16px">D-12</span>
+      <div><b>생일까지 D-12</b><small>10월 18일 · 카운트다운</small></div>
+      <span class="mp-hdl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"><path d="M5 9h14M5 15h14"/></svg></span>
+    </div>
+    <div class="mp-q">
+      <span class="mp-thumb" style="background:#D9CCEB;color:#2A1420;font-size:24px">?</span>
+      <div><b>제일 좋아하는 편의점 간식은?</b><small>요즘 질문 · 답 남기기</small></div>
+      <span class="mp-hdl"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.45)" stroke-width="2" stroke-linecap="round"><path d="M5 9h14M5 15h14"/></svg></span>
+    </div>
+  </div>
+
+  <div class="mp-sec mp-pl">
+    <h2>지우의 플레이리스트 <small>링크 2</small></h2>
+    <a href="#"><span class="mp-n">1</span><span class="mp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5.5a2.5 2.5 0 005 0V12a9 9 0 10-3.5 7.1"/></svg></span><span class="mp-tt">인스타그램<small>@jiwoo.room</small></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+    <a href="#"><span class="mp-n">2</span><span class="mp-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg></span><span class="mp-tt">필름 사진 모아둔 곳<small>블로그</small></span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+  </div>
+
+  <div class="mp-cm">
+    <h2 style="margin:0 0 2px;font-size:14px;font-weight:700">댓글 2</h2>
+    <div class="mp-c"><span class="mp-ca" style="background:#F2D4C2;color:#2A1420">민</span><div><b>민지<span>10.4</span></b><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+    <div class="mp-c"><span class="mp-ca" style="background:rgba(255,255,255,.14)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></span><div><b>익명<span>10.2</span></b><p>도서관에서 찍고 감</p></div></div>
+    <div class="mp-in"><span>한 줄 남기기</span><em>남기기</em></div>
+  </div>
+
+  <p class="mp-own">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

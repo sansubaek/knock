@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { requireAdmin } from '@/lib/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { AdminNav } from './AdminNav'
+import { VOTE_OPEN } from '@/lib/vote'
 import './admin.css'
 
 export const metadata: Metadata = { title: '관리자 · knock', robots: { index: false } }
@@ -11,9 +12,10 @@ export const dynamic = 'force-dynamic'
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const { user, profile } = await requireAdmin()
   const db = createAdminClient()
-  const [{ count: newOrders }, { count: openInq }] = await Promise.all([
+  const [{ count: newOrders }, { count: openInq }, { count: votes }] = await Promise.all([
     db.from('orders').select('id', { count: 'exact', head: true }).eq('status', 'received'),
     db.from('inquiries').select('id', { count: 'exact', head: true }).eq('status', 'open'),
+    db.from('theme_votes').select('id', { count: 'exact', head: true }),
   ])
 
   return (
@@ -29,6 +31,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             { href: '/admin/qr', label: 'QR 발급 · 관리' },
             { href: '/admin/inquiries', label: '문의', count: openInq ?? 0 },
             { href: '/admin/members', label: '회원' },
+            ...(VOTE_OPEN || votes ? [{ href: '/admin/votes', label: '테마 투표' }] : []),
           ]}
         />
         <div className="ad-side-foot">

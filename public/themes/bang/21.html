@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 21 · 아이소 미니룸</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Jua&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap">
+<style>
+body{margin:0}
+
+.mr{width:390px;min-height:1838px;box-sizing:border-box;padding:0 16px 22px;font-family:'Noto Sans KR',sans-serif;color:#3F3128;word-break:keep-all;line-height:1.45;font-size:14px;
+background:radial-gradient(circle at 1px 1px,rgba(160,120,60,.13) 1px,transparent 1.4px) 0 0/16px 16px,linear-gradient(180deg,#FFF6DD 0%,#FFFBF1 38%,#FFF8EA 100%)}
+.mr *{box-sizing:border-box}
+.mr-bar{height:56px;display:flex;align-items:center;justify-content:space-between}
+.mr-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.04em;color:#3F3128}
+.mr-cnt{display:flex;align-items:center;gap:6px;font-size:12px;color:#7A6656;background:#FFFDF7;border:1.2px solid #E9D9BD;border-radius:99px;padding:5px 11px}
+.mr-cnt b{color:#3F3128;font-weight:700}
+.mr-cnt i{width:6px;height:6px;border-radius:50%;background:#8CCB8A;display:inline-block}
+.mr-hd{display:flex;align-items:flex-end;justify-content:space-between;margin:6px 2px 10px}
+.mr-hd h1{margin:0;font-family:'Jua','Noto Sans KR',sans-serif;font-weight:400;font-size:26px;letter-spacing:-.01em;color:#3F3128;line-height:1.15}
+.mr-hd h1 small{display:block;font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#9A836E;font-weight:500;letter-spacing:0;margin-bottom:3px}
+.mr-hd span{font-size:12px;color:#9A836E}
+.mr-room{position:relative;border-radius:30px;background:linear-gradient(180deg,#FFEFC0 0%,#FFF4D8 55%,#FBE6CC 100%);border:1.5px solid #EED9AE;box-shadow:0 14px 30px -18px rgba(140,100,40,.45),inset 0 1px 0 #fff;overflow:hidden}
+.mr-svg{display:block}
+.mr-np{display:flex;align-items:center;gap:10px;margin:-4px 12px 12px;background:#FFFDF7;border:1.4px solid #5A4636;border-radius:20px;padding:9px 10px 9px 9px}
+.mr-pl{width:38px;height:38px;border-radius:50%;background:#FFE07A;border:1.3px solid #5A4636;display:flex;align-items:center;justify-content:center;color:#3F3128;flex:none;padding-left:2px}
+.mr-npt{min-width:0;flex:1}
+.mr-npt small{display:block;font-size:12px;color:#9A836E;line-height:1.2}
+.mr-npt b{font-size:15px;font-weight:800;letter-spacing:-.01em}
+.mr-npt b span{font-weight:500;color:#7A6656;font-size:13px}
+.mr-eq{display:flex;align-items:flex-end;gap:2px;height:16px}
+.mr-eq i{width:3px;border-radius:2px;background:#E8B93A;display:block}
+.mr-eq i:nth-child(1){height:7px}.mr-eq i:nth-child(2){height:14px}.mr-eq i:nth-child(3){height:10px}.mr-eq i:nth-child(4){height:16px}
+.mr-dd{flex:none;text-align:center;background:#3F3128;color:#FFE07A;border-radius:14px;padding:4px 10px 5px;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;line-height:1.1}
+.mr-dd small{display:block;font-family:'Noto Sans KR',sans-serif;font-weight:500;font-size:10.5px;color:#F3E6C8}
+.mr-hint{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#8A735F;padding:0 16px 14px;margin-top:-6px}
+.mr-hint b{color:#3F3128}
+.mr-hint em{font-style:normal;display:flex;gap:4px}
+.mr-hint em i{width:6px;height:6px;border-radius:50%;background:#E9D6B0;display:inline-block}
+.mr-hint em i.on{background:#3F3128;width:16px;border-radius:9px}
+.mr-prof{margin-top:16px;background:#FFFDF7;border:1.5px solid #EEDFC4;border-radius:26px;padding:18px}
+.mr-prow{display:flex;gap:14px;align-items:center}
+.mr-pic{width:68px;height:68px;border-radius:22px;border:1.6px dashed #CDB79B;background:#FBF4E7;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#A48C74;font-size:11px;gap:2px;flex:none}
+.mr-name{font-size:22px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.mr-mbti{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:800;background:#FFE07A;border:1.2px solid #3F3128;border-radius:99px;padding:1px 9px;letter-spacing:.02em}
+.mr-intro{font-size:14px;color:#6E5A4A;margin-top:1px}
+.mr-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.mr-chips span{font-size:12px;font-weight:500;color:#5E4B3D;background:#FFF5D6;border:1px solid #F0DFAE;border-radius:99px;padding:5px 10px}
+.mr-knock{margin-top:14px;width:100%;height:60px;border-radius:20px;border:1.6px solid #3F3128;background:linear-gradient(180deg,#FFE47F,#FFD54F);box-shadow:0 4px 0 #3F3128;display:flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-size:18px;font-weight:800;color:#3F3128;cursor:pointer}
+.mr-knock em{font-style:normal;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;background:#3F3128;color:#FFE47F;border-radius:99px;padding:2px 10px 3px}
+.mr-knote{text-align:center;font-size:12px;color:#8A735F;margin-top:10px}
+.mr-sec{margin-top:22px}
+.mr-st{display:flex;justify-content:space-between;align-items:center;margin:0 4px 10px}
+.mr-st h2{margin:0;font-size:16px;font-weight:800;display:flex;align-items:center;gap:6px}
+.mr-st span{font-size:12px;color:#9A836E}
+.mr-memo{position:relative;background:#FFE88F;border-radius:6px 6px 22px 6px;padding:18px 18px 16px;box-shadow:0 10px 18px -12px rgba(120,90,20,.5);transform:rotate(-.6deg)}
+.mr-memo:before{content:'';position:absolute;top:-8px;left:50%;width:70px;height:18px;margin-left:-35px;background:rgba(255,255,255,.65);border:1px solid rgba(200,170,110,.4);transform:rotate(2deg)}
+.mr-memo small{font-size:12px;font-weight:700;color:#8C6A1E}
+.mr-memo p{margin:4px 0 12px;font-size:18px;font-weight:800;letter-spacing:-.02em;color:#3F3128}
+.mr-memo .mr-ans{display:flex;gap:8px}
+.mr-memo input{flex:1;height:44px;border-radius:14px;border:1.2px solid rgba(63,49,40,.25);background:rgba(255,255,255,.7);padding:0 14px;font:inherit;font-size:14px;color:#3F3128}
+.mr-memo button{height:44px;padding:0 16px;border-radius:14px;border:none;background:#3F3128;color:#FFE88F;font:inherit;font-size:14px;font-weight:700}
+.mr-photos{display:grid;grid-template-columns:1.25fr 1fr;gap:10px}
+.mr-ph{border-radius:20px;border:1.6px dashed #CDB79B;background:#FFFDF7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#A48C74;font-size:12px;height:170px}
+.mr-ph2{display:grid;grid-template-rows:1fr 1fr;gap:10px}
+.mr-ph2 .mr-ph{height:auto}
+.mr-lock{display:flex;align-items:center;gap:12px;background:#3F3128;color:#FFF6DD;border-radius:20px;padding:14px 16px}
+.mr-lock .mr-li{width:40px;height:40px;border-radius:14px;background:rgba(255,224,122,.18);display:flex;align-items:center;justify-content:center;color:#FFE07A;flex:none}
+.mr-lock b{display:block;font-size:14px}
+.mr-lock small{font-size:12px;color:#D9C9AE}
+.mr-lock span{margin-left:auto;font-size:12px;font-weight:700;color:#3F3128;background:#FFE07A;border-radius:99px;padding:6px 11px}
+.mr-gb{background:#FFFDF7;border:1.5px solid #EEDFC4;border-radius:24px;padding:6px 16px 16px}
+.mr-g{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed #E9D9BD}
+.mr-g .mr-gi{width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;border:1.2px solid #3F3128}
+.mr-g .mr-gm{font-size:12px;color:#9A836E}
+.mr-g .mr-gm b{color:#3F3128;font-size:13px;margin-right:6px}
+.mr-g p{margin:2px 0 0;font-size:14px}
+.mr-form{display:flex;gap:8px;margin-top:14px}
+.mr-form input{flex:1;min-width:0;height:46px;border-radius:15px;border:1.2px solid #E4D3B5;background:#FBF5EA;padding:0 14px;font:inherit;font-size:14px;color:#3F3128}
+.mr-form button{height:46px;padding:0 18px;border-radius:15px;border:1.4px solid #3F3128;background:#FFE07A;font:inherit;font-size:14px;font-weight:800;color:#3F3128}
+.mr-links{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mr-lk{display:flex;flex-direction:column;gap:12px;background:#FFFDF7;border:1.5px solid #EEDFC4;border-radius:20px;padding:14px;text-decoration:none;color:#3F3128}
+.mr-lk .mr-lt{display:flex;justify-content:space-between;align-items:center;color:#8A735F}
+.mr-lk .mr-lt i{width:34px;height:34px;border-radius:12px;background:#FFF0B8;display:flex;align-items:center;justify-content:center;color:#3F3128}
+.mr-lk b{font-size:14px;line-height:1.3}
+.mr-lk small{display:block;font-size:12px;color:#9A836E;font-weight:400;margin-top:2px}
+.mr-foot{text-align:center;font-size:12px;color:#B5A593;margin-top:26px}
+
+</style>
+</helmet>
+<div class="mr">
+<div class="mr-bar"><div class="mr-logo">knock!</div><div class="mr-cnt"><i></i>오늘 <b>4</b>명 · 지금까지 <b>112</b>명</div></div>
+<div class="mr-hd"><h1><small>지우 방에 놀러 왔어요</small>지우의 미니룸</h1><span>물건을 눌러봐요</span></div>
+<div class="mr-room"><svg class="mr-svg" width="358" height="367" viewBox="0 0 358 367" xmlns="http://www.w3.org/2000/svg"><defs>
+<pattern id="mr-wp" width="1" height="7" patternUnits="userSpaceOnUse"><rect width="1" height="7" fill="#FFF7E2"/><rect x="0" width=".42" height="7" fill="#FCEBB8"/></pattern>
+<pattern id="mr-wp2" width="1" height="7" patternUnits="userSpaceOnUse"><rect width="1" height="7" fill="#F8EBCF"/><rect x="0" width=".42" height="7" fill="#F3DDA4"/></pattern>
+<linearGradient id="mr-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9B9D6"/><stop offset="1" stop-color="#D9E1EE"/></linearGradient>
+<linearGradient id="mr-scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF4C2"/><stop offset="1" stop-color="#FFE08A"/></linearGradient>
+<clipPath id="mr-gclip"><rect x="2.1" y="1.75" width="2.6" height="2.1"/></clipPath>
+</defs>
+<polygon points="11.6,242.3 179.0,339.0 179.0,353.8 11.6,257.1" fill="#D7B183" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="346.4,242.3 179.0,339.0 179.0,353.8 346.4,257.1" fill="#BF976A" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="179.0,154.0 18.8,246.5 18.8,117.0 179.0,24.5" fill="#FFF7E2" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 -9.250 0 18.500 18.79 117.00)"><rect x="0" y="0" width="10" height="7.0" fill="url(#mr-wp)"/><rect x="0" y="6.58" width="10" height=".42" fill="#FFFDF7" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/></g>
+<polygon points="179.0,154.0 339.2,246.5 339.2,117.0 179.0,24.5" fill="#F8EBCF" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 9.250 0 18.500 179.00 24.50)"><rect x="0" y="0" width="10" height="7.0" fill="url(#mr-wp2)"/><rect x="0" y="6.58" width="10" height=".42" fill="#F6EEDD" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/></g>
+<polyline points="18.8,246.5 18.8,117.0 179.0,24.5 339.2,117.0 339.2,246.5" fill="none" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round"/>
+<line x1="179.0" y1="154.0" x2="179.0" y2="24.5" stroke="#5A4636" stroke-width="1" opacity=".35"/>
+<polygon points="11.6,112.8 179.0,16.2 346.4,112.8 339.2,117.0 179.0,24.5 18.8,117.0" fill="#FFFDF6" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="11.6,112.8 18.8,117.0 18.8,246.5 11.6,242.3" fill="#EAD9B8" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="346.4,112.8 339.2,117.0 339.2,246.5 346.4,242.3" fill="#DCC8A3" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 9.250 -16.021 9.250 179.00 154.00)"><rect x="0" y="0" width="10" height="10" fill="#EDCFA4" stroke="#5A4636" stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+<line x1="0" y1="1.25" x2="10" y2="1.25" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="0" y1="2.5" x2="10" y2="2.5" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="0" y1="3.75" x2="10" y2="3.75" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="0" y1="5.0" x2="10" y2="5.0" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="0" y1="6.25" x2="10" y2="6.25" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="0" y1="7.5" x2="10" y2="7.5" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="0" y1="8.75" x2="10" y2="8.75" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="2.89" y1="0.00" x2="2.89" y2="1.25" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="1.83" y1="0.00" x2="1.83" y2="1.25" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="4.17" y1="1.25" x2="4.17" y2="2.50" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="2.24" y1="1.25" x2="2.24" y2="2.50" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="1.53" y1="2.50" x2="1.53" y2="3.75" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="4.21" y1="2.50" x2="4.21" y2="3.75" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="8.34" y1="3.75" x2="8.34" y2="5.00" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="7.40" y1="3.75" x2="7.40" y2="5.00" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="7.12" y1="5.00" x2="7.12" y2="6.25" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="2.78" y1="5.00" x2="2.78" y2="6.25" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="5.29" y1="6.25" x2="5.29" y2="7.50" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="3.21" y1="6.25" x2="3.21" y2="7.50" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="2.38" y1="7.50" x2="2.38" y2="8.75" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="1.85" y1="7.50" x2="1.85" y2="8.75" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="2.72" y1="8.75" x2="2.72" y2="10.00" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="8.42" y1="8.75" x2="8.42" y2="10.00" stroke="#D9B582" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<circle cx="7.2" cy="7.25" r="2.75" fill="#FFE07A" stroke="#5A4636" stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+<circle cx="7.2" cy="7.25" r="2.25" fill="none" stroke="#FFF6D2" stroke-width="2.4" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/>
+<circle cx="7.2" cy="7.25" r="1.2" fill="#FFEBA8" opacity=".9"/>
+</g>
+<g transform="matrix(16.021 -9.250 0 18.500 18.79 117.00)">
+<rect x="1.8" y="1.45" width="3.2" height="2.7" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+<rect x="2.1" y="1.75" width="2.6" height="2.1" fill="url(#mr-glass)" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<g clip-path="url(#mr-gclip)">
+<path d="M2.3,2.55 q.18-.38 .55-.3 q.14-.34 .52-.26 q.34-.06 .4.3 q.3.04 .26.3 Z" fill="#fff" opacity=".9"/>
+<line x1="2.35" y1="2.9" x2="2.25" y2="3.2199999999999998" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="2.75" y1="3.35" x2="2.65" y2="3.67" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="3.1" y1="2.7" x2="3.0" y2="3.02" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="3.5" y1="3.2" x2="3.4" y2="3.52" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="3.9" y1="2.55" x2="3.8" y2="2.8699999999999997" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="4.3" y1="3.05" x2="4.2" y2="3.3699999999999997" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="2.55" y1="3.6" x2="2.4499999999999997" y2="3.92" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="3.3" y1="3.65" x2="3.1999999999999997" y2="3.9699999999999998" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="4.05" y1="3.5" x2="3.9499999999999997" y2="3.82" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="4.45" y1="2.4" x2="4.3500000000000005" y2="2.7199999999999998" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<line x1="3.7" y1="2.15" x2="3.6" y2="2.4699999999999998" stroke="#fff" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+</g>
+<line x1="3.4" y1="1.75" x2="3.4" y2="3.85" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="2.1" y1="2.8" x2="4.7" y2="2.8" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<rect x="1.65" y="4.1" width="3.5" height=".22" fill="#FFFDF7" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/>
+<line x1="1.2" y1="1.2" x2="5.6" y2="1.2" stroke="#5A4636" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+<path d="M1.3,1.2 h.9 q-.05 1.4 .25 2.9 q-.6.15 -1.15 0 q-.12-1.5 0-2.9Z" fill="#FFD95E" stroke="#5A4636" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+<path d="M5.5,1.2 h-.9 q.05 1.4 -.25 2.9 q.6.15 1.15 0 q.12-1.5 0-2.9Z" fill="#FFD95E" stroke="#5A4636" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+<rect x="7.0" y="2.0" width="1.75" height="1.95" rx=".12" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+<path d="M7.0,2.55 V2.12 a.12 .12 0 0 1 .12-.12 h1.51 a.12 .12 0 0 1 .12.12 V2.55Z" fill="#FF9C86" stroke="#5A4636" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+<text x="7.875" y="3.36" font-size=".62" font-weight="800" text-anchor="middle" fill="#5A4636" font-family="Bricolage Grotesque, Noto Sans KR, sans-serif">D-12</text>
+<text x="7.875" y="3.75" font-size=".26" font-weight="700" text-anchor="middle" fill="#A07B5E" font-family="Noto Sans KR, sans-serif">생일</text>
+<circle cx="7.875" cy="1.85" r=".07" fill="#5A4636"/>
+</g>
+<g transform="matrix(16.021 9.250 0 18.500 179.00 24.50)">
+<rect x="5.45" y="0.9" width="2.6" height="1.95" rx=".08" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.3" vector-effect="non-scaling-stroke"/>
+<rect x="5.7" y="1.12" width="2.1" height="1.5" fill="#F4EDE1" stroke="#B29A84" stroke-width="1" stroke-dasharray="3 2.5" vector-effect="non-scaling-stroke"/>
+<path d="M6.1,2.35 l.45-.45 .3.25 .5-.55 .55.75" fill="none" stroke="#B29A84" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/><circle cx="6.3" cy="1.55" r=".14" fill="#B29A84"/>
+<g transform="rotate(4 9.25 2.6)"><rect x="8.7" y="2.05" width="1.1" height="1.1" fill="#FFE07A" stroke="#5A4636" stroke-width="1.2" vector-effect="non-scaling-stroke"/><text x="9.25" y="2.78" font-size=".5" font-weight="800" text-anchor="middle" fill="#5A4636" font-family="Bricolage Grotesque, sans-serif">Q.</text><rect x="9.1" y="1.95" width=".3" height=".2" fill="#FF9C86"/></g>
+</g>
+<polygon points="173.4,88.8 220.7,116.1 220.7,112.4 173.4,85.1" fill="#E4C496" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="235.1,107.8 220.7,116.1 220.7,112.4 235.1,104.0" fill="#D1AD7C" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="187.8,76.8 235.1,104.0 220.7,112.4 173.4,85.1" fill="#F7E3C2" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="181.4,86.9 200.6,98.0 200.6,84.7 181.4,73.6" fill="#F3EEE6" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="209.4,93.0 200.6,98.0 200.6,84.7 209.4,79.6" fill="#DCD5CA" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="190.2,68.5 209.4,79.6 200.6,84.7 181.4,73.6" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="181.3,87.0 200.5,98.1 200.5,94.0 181.3,82.9" fill="#5B4A3E" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="209.4,93.0 200.5,98.1 200.5,94.0 209.4,88.9" fill="#4A3B31" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="190.2,77.8 209.4,88.9 200.5,94.0 181.3,82.9" fill="#5B4A3E" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 9.250 0 18.500 166.90 160.98)"><circle cx="1.55" cy="-4.86" r=".27" fill="#4A3B31" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/><circle cx="1.55" cy="-4.86" r=".12" fill="#9FB7D6"/><rect x="1.03" y="-5.12" width=".22" height=".14" fill="#FFD95E" stroke="#5A4636" stroke-width=".8" vector-effect="non-scaling-stroke"/></g>
+<polygon points="206.2,102.2 210.7,104.8 210.7,87.2 206.2,84.6" fill="#FFD95E" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="221.1,98.8 210.7,104.8 210.7,87.2 221.1,81.2" fill="#E8BE3E" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="216.7,78.6 221.1,81.2 210.7,87.2 206.2,84.6" fill="#FFE07A" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="211.2,105.1 215.7,107.7 215.7,91.9 211.2,89.3" fill="#A8C7DF" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="226.1,101.6 215.7,107.7 215.7,91.9 226.1,85.9" fill="#8EB2CF" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="221.6,83.3 226.1,85.9 215.7,91.9 211.2,89.3" fill="#B7D3E8" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="216.2,107.9 220.7,110.5 220.7,96.1 216.2,93.5" fill="#F0A994" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="231.1,104.5 220.7,110.5 220.7,96.1 231.1,90.1" fill="#DA917B" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="226.6,87.5 231.1,90.1 220.7,96.1 216.2,93.5" fill="#F5B9A8" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<line x1="179.8" y1="92.5" x2="179.8" y2="108.8" stroke="#5A4636" stroke-width=".9"/>
+<circle cx="179.8" cy="107.8" r="1.6" fill="none" stroke="#5A4636" stroke-width=".9"/>
+<polygon points="179.8,109.2 181.3,112.7 185.1,113.0 182.3,115.6 183.1,119.3 179.8,117.4 176.5,119.3 177.3,115.6 174.5,113.0 178.3,112.7" fill="#FFD95E" stroke="#5A4636" stroke-width="1" stroke-linejoin="round"/>
+<line x1="188.6" y1="97.6" x2="188.6" y2="108.3" stroke="#5A4636" stroke-width=".9"/>
+<circle cx="188.6" cy="107.3" r="1.6" fill="none" stroke="#5A4636" stroke-width=".9"/>
+<path d="M188.6,118.3 c-6,-4 -6,-9 -3,-9.5 c1.5,-.3 2.6,.6 3,1.6 c.4,-1 1.5,-1.9 3,-1.6 c3,.5 3,5.5 -3,9.5Z" fill="#FF9C86" stroke="#5A4636" stroke-width="1" stroke-linejoin="round"/>
+<line x1="198.2" y1="103.1" x2="198.2" y2="122.2" stroke="#5A4636" stroke-width=".9"/>
+<circle cx="198.2" cy="121.2" r="1.6" fill="none" stroke="#5A4636" stroke-width=".9"/>
+<ellipse cx="198.2" cy="128.7" rx="4.6" ry="5" fill="#BFE0C8" stroke="#5A4636" stroke-width="1"/><circle cx="196.6" cy="128.2" r=".7" fill="#5A4636"/><circle cx="199.8" cy="128.2" r=".7" fill="#5A4636"/><path d="M194.6,124.6 l1,-2.6 1.4,1.8 M201.8,124.6 l-1,-2.6 -1.4,1.8" fill="#BFE0C8" stroke="#5A4636" stroke-width="1" stroke-linejoin="round"/>
+<line x1="207.8" y1="108.7" x2="207.8" y2="121.3" stroke="#5A4636" stroke-width=".9"/>
+<circle cx="207.8" cy="120.3" r="1.6" fill="none" stroke="#5A4636" stroke-width=".9"/>
+<circle cx="207.8" cy="127.3" r="4.2" fill="#B7D3E8" stroke="#5A4636" stroke-width="1"/><circle cx="207.8" cy="127.3" r="1.6" fill="#fff" opacity=".8"/>
+<line x1="216.7" y1="113.8" x2="216.7" y2="131.0" stroke="#5A4636" stroke-width=".9"/>
+<circle cx="216.7" cy="130.0" r="1.6" fill="none" stroke="#5A4636" stroke-width=".9"/>
+<path d="M216.7,131.5 c3,4 4.4,6 4.4,7.6 a4.4,4.4 0 0 1 -8.8,0 c0,-1.6 1.4,-3.6 4.4,-7.6Z" fill="#D9C6F2" stroke="#5A4636" stroke-width="1" stroke-linejoin="round"/>
+<polygon points="272.4,249.0 293.2,261.0 293.2,211.1 272.4,199.0" fill="#F2DDB8" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="326.9,241.6 293.2,261.0 293.2,211.1 326.9,191.6" fill="#DCBF91" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="306.1,179.6 326.9,191.6 293.2,211.1 272.4,199.0" fill="#F7E3C2" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 9.250 0 18.500 143.43 174.53)"><rect x="8.18" y="-2.45" width="1.04" height="1.0" fill="none" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/><rect x="8.18" y="-1.3" width="1.04" height="1.0" fill="none" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/><line x1="8.5" y1="-1.95" x2="8.9" y2="-1.95" stroke="#5A4636" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/><line x1="8.5" y1="-0.8" x2="8.9" y2="-0.8" stroke="#5A4636" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/></g>
+<polygon points="225.1,222.6 228.7,224.7 228.7,173.8 225.1,171.8" fill="#E4C496" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="232.2,222.6 228.7,224.7 228.7,173.8 232.2,171.8" fill="#CFAE80" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="228.7,169.7 232.2,171.8 228.7,173.8 225.1,171.8" fill="#E4C496" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="221.5,171.1 293.6,212.7 293.6,208.7 221.5,167.0" fill="#EBD0A6" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="331.2,191.0 293.6,212.7 293.6,208.7 331.2,186.9" fill="#D7B786" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="259.1,145.3 331.2,186.9 293.6,208.7 221.5,167.0" fill="#FBEBCF" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="244.7,159.2 258.3,167.0 258.3,143.9 244.7,136.1" fill="#FFE07A" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="271.9,159.2 258.3,167.0 258.3,143.9 271.9,136.1" fill="#EDC54F" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="258.3,128.2 271.9,136.1 258.3,143.9 244.7,136.1" fill="#FFF5D6" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 9.250 0 18.500 159.77 165.10)"><circle cx="5.72" cy="-3.79" r=".27" fill="#FFF7DA" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/><circle cx="5.72" cy="-3.79" r=".1" fill="#5A4636"/><circle cx="5.72" cy="-3.30" r=".14" fill="#FFF7DA" stroke="#5A4636" stroke-width="1" vector-effect="non-scaling-stroke"/></g>
+<g fill="#5A4636"><path d="M251.5,125.8 v-8 l5,-1.4 v7" fill="none" stroke="#5A4636" stroke-width="1.1"/><ellipse cx="250.1" cy="126.2" rx="1.8" ry="1.3"/><ellipse cx="255.1" cy="124.8" rx="1.8" ry="1.3"/><path d="M262.5,115.8 v-6" stroke="#5A4636" stroke-width="1.1"/><ellipse cx="261.1" cy="116.2" rx="1.7" ry="1.2"/></g>
+<polygon points="254.3,177.7 284.7,195.3 284.7,193.4 254.3,175.8" fill="#D9DCE3" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="306.4,182.8 284.7,195.3 284.7,193.4 306.4,180.9" fill="#C3C7D0" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="275.9,163.3 306.4,180.9 284.7,193.4 254.3,175.8" fill="#E9EBF0" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="275.9,163.3 306.4,180.9 305.2,157.9 274.8,140.3" fill="#D9DCE3" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 9.250 0 18.500 169.39 159.55)"><rect x="6.72" y="-4.25" width="1.66" height="1.06" fill="url(#mr-scr)" stroke="#5A4636" stroke-width=".9" vector-effect="non-scaling-stroke"/><path d="M7.55,-3.57 c-.32,-.22 -.32,-.48 -.14,-.5 c.07,0 .12,.04 .14,.1 c.02,-.06 .07,-.1 .14,-.1 c.18,.02 .18,.28 -.14,.5Z" fill="#FF9C86"/></g>
+<polygon points="291.2,196.2 297.6,199.9 297.6,190.6 291.2,186.9" fill="#F5F0E6" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="304.0,196.2 297.6,199.9 297.6,190.6 304.0,186.9" fill="#DDD6C8" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="297.6,183.2 304.0,186.9 297.6,190.6 291.2,186.9" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="231.9,287.2 247.9,296.4 247.9,277.9 231.9,268.7" fill="#E59B76" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="263.9,287.2 247.9,296.4 247.9,277.9 263.9,268.7" fill="#CF845F" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="247.9,259.4 263.9,268.7 247.9,277.9 231.9,268.7" fill="#E9A784" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 9.250 -16.021 9.250 179.00 135.50)"><rect x="8.95" y="4.6499999999999995" width=".8" height=".8" fill="#8A6A4E"/></g>
+<ellipse cx="237.9" cy="246.7" rx="5.2" ry="11" transform="rotate(-28 237.9 246.7)" fill="#9CCB8F" stroke="#5A4636" stroke-width="1.2"/>
+<line x1="247.9" y1="268.7" x2="239.9" y2="253.3" stroke="#6E9C63" stroke-width="1"/>
+<ellipse cx="255.9" cy="242.7" rx="5.2" ry="11" transform="rotate(22 255.9 242.7)" fill="#9CCB8F" stroke="#5A4636" stroke-width="1.2"/>
+<line x1="247.9" y1="268.7" x2="254.3" y2="250.5" stroke="#6E9C63" stroke-width="1"/>
+<ellipse cx="245.9" cy="234.7" rx="5.2" ry="11" transform="rotate(-4 245.9 234.7)" fill="#9CCB8F" stroke="#5A4636" stroke-width="1.2"/>
+<line x1="247.9" y1="268.7" x2="246.3" y2="244.9" stroke="#6E9C63" stroke-width="1"/>
+<ellipse cx="231.9" cy="256.7" rx="5.2" ry="11" transform="rotate(-58 231.9 256.7)" fill="#9CCB8F" stroke="#5A4636" stroke-width="1.2"/>
+<line x1="247.9" y1="268.7" x2="235.1" y2="260.3" stroke="#6E9C63" stroke-width="1"/>
+<ellipse cx="262.9" cy="255.7" rx="5.2" ry="11" transform="rotate(55 262.9 255.7)" fill="#9CCB8F" stroke="#5A4636" stroke-width="1.2"/>
+<line x1="247.9" y1="268.7" x2="259.9" y2="259.6" stroke="#6E9C63" stroke-width="1"/>
+<ellipse cx="250.9" cy="250.7" rx="5.2" ry="11" transform="rotate(12 250.9 250.7)" fill="#9CCB8F" stroke="#5A4636" stroke-width="1.2"/>
+<line x1="247.9" y1="268.7" x2="250.3" y2="256.1" stroke="#6E9C63" stroke-width="1"/>
+<polygon points="24.4,243.3 30.0,246.5 30.0,201.2 24.4,197.9" fill="#E4C496" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="90.1,211.8 30.0,246.5 30.0,201.2 90.1,166.5" fill="#D1AD7C" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="84.5,163.2 90.1,166.5 30.0,201.2 24.4,197.9" fill="#E4C496" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="30.0,246.5 103.7,289.0 103.7,273.3 30.0,230.8" fill="#E4C496" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="163.8,254.4 103.7,289.0 103.7,273.3 163.8,238.6" fill="#CFAE80" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="90.1,196.1 163.8,238.6 103.7,273.3 30.0,230.8" fill="#E9CC9E" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="31.6,230.8 103.7,272.4 103.7,262.2 31.6,220.6" fill="#F4EEE3" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="162.2,238.6 103.7,272.4 103.7,262.2 162.2,228.5" fill="#E4DCCD" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="90.1,186.8 162.2,228.5 103.7,262.2 31.6,220.6" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="40.4,218.3 57.2,228.0 57.2,222.1 40.4,212.4" fill="#F6F1E8" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="102.9,201.6 57.2,228.0 57.2,222.1 102.9,195.7" fill="#E6DFD2" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="86.1,186.0 102.9,195.7 57.2,222.1 40.4,212.4" fill="#FFFFFF" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="53.2,249.7 103.7,278.9 103.7,262.2 53.2,233.1" fill="#FFD95E" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="165.4,243.3 103.7,278.9 103.7,262.2 165.4,226.6" fill="#EDC54F" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<polygon points="114.9,197.5 165.4,226.6 103.7,262.2 53.2,233.1" fill="#FFE07A" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round" />
+<g transform="matrix(16.021 9.250 -16.021 9.250 179.00 126.25)"><line x1="2.25" y1="5.85" x2="2.25" y2="9.7" stroke="#FFF3C4" stroke-width="2.2" vector-effect="non-scaling-stroke"/><circle cx="3.3" cy="6.9" r=".1" fill="#fff"/><circle cx="4.2" cy="7.8" r=".1" fill="#fff"/><circle cx="3.2" cy="8.7" r=".1" fill="#fff"/><circle cx="4.4" cy="6.5" r=".1" fill="#fff"/></g>
+<g transform="translate(62.8 208.7)"><circle cx="-5" cy="-13" r="3" fill="#F5B9A8" stroke="#5A4636" stroke-width="1"/><circle cx="5" cy="-13" r="3" fill="#F5B9A8" stroke="#5A4636" stroke-width="1"/><ellipse cx="0" cy="-6" rx="8" ry="7.4" fill="#F5B9A8" stroke="#5A4636" stroke-width="1.1"/><circle cx="-2.6" cy="-7" r=".9" fill="#5A4636"/><circle cx="2.6" cy="-7" r=".9" fill="#5A4636"/><ellipse cx="0" cy="-4.4" rx="2" ry="1.3" fill="#FFF2EA"/></g>
+<g transform="translate(178.2 294.1) scale(.82)"><ellipse cx="0" cy="-1" rx="24" ry="6" fill="rgba(80,55,30,.16)"/>
+<path d="M-14,-26 L-13.5,-7 L-2,-7 L-1,-19 L1,-19 L2,-7 L13.5,-7 L14,-26 Z" fill="#7E9FCC" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-7.5,-20 L-7.5,-9 M7.5,-20 L7.5,-9" stroke="#6888B8" stroke-width="1" fill="none"/>
+<path d="M-15,-7.5 h12 a2,2 0 0 1 2,2 v2 a2,2 0 0 1 -2,2 h-13 a3.5,3.5 0 0 1 -3.5,-3.5 v0 a2.5,2.5 0 0 1 2.5,-2.5Z" fill="#FFFDF8" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M15,-7.5 h-12 a2,2 0 0 0 -2,2 v2 a2,2 0 0 0 2,2 h13 a3.5,3.5 0 0 0 3.5,-3.5 v0 a2.5,2.5 0 0 0 -2.5,-2.5Z" fill="#FFFDF8" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-29,-62 C-33,-92 -22,-110 0,-110 C22,-110 33,-92 29,-62 Q27.5,-57 22.5,-59 L-22.5,-59 Q-27.5,-57 -29,-62 Z" fill="#4B3529" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-15,-50 C-17,-60 -9,-64 0,-64 C9,-64 17,-60 15,-50 Z" fill="#A9ADB7" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-17.5,-27 L-17.5,-46 C-17.5,-54 -10,-57.5 0,-57.5 C10,-57.5 17.5,-54 17.5,-46 L17.5,-27 Q17.5,-23.5 14,-23.5 L-14,-23.5 Q-17.5,-23.5 -17.5,-27 Z" fill="#C3C6CE" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-17.5,-28.5 H17.5" stroke="#4A3A30" stroke-width="1" opacity=".5"/>
+<path d="M-9,-29 L-7,-37 H7 L9,-29" fill="none" stroke="#4A3A30" stroke-width="1.1" opacity=".55"/>
+<path d="M-4,-56 V-45 M4,-56 V-45" stroke="#4A3A30" stroke-width="1.1"/>
+<circle cx="-4" cy="-44" r="1.4" fill="#FFF" stroke="#4A3A30" stroke-width="1"/><circle cx="4" cy="-44" r="1.4" fill="#FFF" stroke="#4A3A30" stroke-width="1"/>
+<path d="M-16,-53 C-21,-48 -23,-40 -23,-33 L-17.5,-32 C-17.5,-38 -16,-44 -13,-48 Z" fill="#C3C6CE" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="-20.5" cy="-30" r="4" fill="#FFE4D2" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="0" cy="-81" r="25" fill="#FFE4D2" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-25.5,-83 C-27,-101 -14,-108 0,-108 C14,-108 27,-101 25.5,-83 C21,-87.5 15,-85.5 11,-90 C7,-86 -1,-86.5 -4,-91 C-8,-86 -18,-88 -25.5,-83 Z" fill="#4B3529" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="12" y="-99" width="10" height="4.6" rx="2.3" transform="rotate(-24 17 -96.7)" fill="#FFD95E" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="-9" cy="-75" rx="2.7" ry="3.5" fill="#4A3A30"/><ellipse cx="9" cy="-75" rx="2.7" ry="3.5" fill="#4A3A30"/>
+<circle cx="-8" cy="-76.4" r="1" fill="#fff"/><circle cx="10" cy="-76.4" r="1" fill="#fff"/>
+<ellipse cx="-15.5" cy="-67.5" rx="4.6" ry="2.6" fill="#FFB2A3" opacity=".75"/><ellipse cx="15.5" cy="-67.5" rx="4.6" ry="2.6" fill="#FFB2A3" opacity=".75"/>
+<path d="M-3,-67 Q0,-64.2 3,-67" fill="none" stroke="#4A3A30" stroke-width="1.3" stroke-linecap="round"/>
+<path d="M16,-53 C21,-49 22,-44 20,-40 C18,-37 14,-37 11,-38 L11.5,-43 C14,-43 15.5,-44 15.5,-45.5 C15,-48 14,-50 12.5,-51 Z" fill="#C3C6CE" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M5.5,-55 L18.5,-55 L16.6,-35.5 Q16.4,-34 15,-34 L9,-34 Q7.6,-34 7.4,-35.5 Z" fill="rgba(255,255,255,.75)" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M6.6,-47 L17.4,-47 L16.6,-35.6 Q16.4,-34.6 15,-34.6 L9,-34.6 Q7.6,-34.6 7.4,-35.6 Z" fill="#B88458" opacity=".9"/>
+<rect x="8.5" y="-46" width="3.2" height="3.2" rx=".8" fill="#fff" opacity=".7"/><rect x="12.5" y="-43" width="3" height="3" rx=".8" fill="#fff" opacity=".6"/>
+<path d="M4.5,-56.5 H19.5" stroke="#4A3A30" stroke-width="2.0" stroke-linecap="round"/>
+<path d="M13.5,-56.5 L17,-64" stroke="#FFD95E" stroke-width="2.6" stroke-linecap="round"/><path d="M13.5,-56.5 L17,-64" stroke="#4A3A30" stroke-width="0.8" opacity=".5"/>
+<circle cx="10.5" cy="-40.5" r="3.8" fill="#FFE4D2" stroke="#4A3A30" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/></g>
+<line x1="287.1" y1="105.6" x2="293.1" y2="79.6" stroke="#5A4636" stroke-width="1" stroke-dasharray="2 2"/><circle cx="287.1" cy="105.6" r="3.2" fill="#FFD95E" stroke="#5A4636" stroke-width="1.2"/><g class="mr-tag"><rect x="256.6" y="68.6" width="73" height="22" rx="11" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.2"/><text x="293.1" y="83.9" text-anchor="middle" font-size="12" font-weight="700" fill="#5A4636" font-family="Noto Sans KR, sans-serif">사진 액자</text></g>
+<line x1="145.0" y1="79.0" x2="115.0" y2="55.0" stroke="#5A4636" stroke-width="1" stroke-dasharray="2 2"/><circle cx="145.0" cy="79.0" r="3.2" fill="#FFD95E" stroke="#5A4636" stroke-width="1.2"/><g class="mr-tag"><rect x="88.5" y="44.0" width="53" height="22" rx="11" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.2"/><text x="115.0" y="59.3" text-anchor="middle" font-size="12" font-weight="700" fill="#5A4636" font-family="Noto Sans KR, sans-serif">D-day</text></g>
+<line x1="327.2" y1="148.0" x2="325.2" y2="120.0" stroke="#5A4636" stroke-width="1" stroke-dasharray="2 2"/><circle cx="327.2" cy="148.0" r="3.2" fill="#FFD95E" stroke="#5A4636" stroke-width="1.2"/><g class="mr-tag"><rect x="304.2" y="109.0" width="42" height="22" rx="11" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.2"/><text x="325.2" y="124.3" text-anchor="middle" font-size="12" font-weight="700" fill="#5A4636" font-family="Noto Sans KR, sans-serif">질문</text></g>
+<line x1="257.8" y1="136.2" x2="249.8" y2="100.2" stroke="#5A4636" stroke-width="1" stroke-dasharray="2 2"/><circle cx="257.8" cy="136.2" r="3.2" fill="#FFD95E" stroke="#5A4636" stroke-width="1.2"/><g class="mr-tag"><rect x="221.8" y="89.2" width="56" height="22" rx="11" fill="#FFFDF7" stroke="#5A4636" stroke-width="1.2"/><text x="249.8" y="104.5" text-anchor="middle" font-size="12" font-weight="700" fill="#5A4636" font-family="Noto Sans KR, sans-serif">♪ 노래</text></g>
+
+<g><path d="M124.2,141.9 h80 a16,16 0 0 1 16,16 v16 a16,16 0 0 1 -16,16 h-28.0 l-4,9 l-8,-9 h-40.0 a16,16 0 0 1 -16,-16 v-16 a16,16 0 0 1 16,-16Z" fill="#FFFFFF" stroke="#5A4636" stroke-width="1.3" stroke-linejoin="round"/><text x="164.2" y="162.9" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5A4636" font-family="Noto Sans KR, sans-serif">시험 D-3,</text><text x="164.2" y="179.9" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5A4636" font-family="Noto Sans KR, sans-serif">커피 수혈 중</text><rect x="100.2" y="133.9" width="34" height="17" rx="8.5" fill="#FFD95E" stroke="#5A4636" stroke-width="1.1"/><text x="117.2" y="146.3" text-anchor="middle" font-size="10.5" font-weight="800" fill="#5A4636" font-family="Noto Sans KR, sans-serif">기분</text></g>
+<path d="M30,35 Q30,40 35,40 Q30,40 30,45 Q30,40 25,40 Q30,40 30,35Z" fill="#FFD95E" stroke="#5A4636" stroke-width="1"/>
+<path d="M330,24 Q330,30 336,30 Q330,30 330,36 Q330,30 324,30 Q330,30 330,24Z" fill="#FFD95E" stroke="#5A4636" stroke-width="1"/>
+<path d="M345,295.5 Q345,300 349.5,300 Q345,300 345,304.5 Q345,300 340.5,300 Q345,300 345,295.5Z" fill="#FFD95E" stroke="#5A4636" stroke-width="1"/>
+<path d="M22,246 Q22,250 26,250 Q22,250 22,254 Q22,250 18,250 Q22,250 22,246Z" fill="#FFD95E" stroke="#5A4636" stroke-width="1"/></svg>
+<div class="mr-np"><i class="mr-pl"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.7L9.5 4.6A1 1 0 0 0 8 5.5Z"/></svg></i><div class="mr-npt"><small>스피커에서 나오는 중</small><b>좋은 날 <span>· 아이유</span></b></div><div class="mr-eq"><i></i><i></i><i></i><i></i></div><div class="mr-dd"><small>생일까지</small>D-12</div></div>
+</div>
+
+<div class="mr-prof">
+<div class="mr-prow"><div class="mr-pic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>프로필</div>
+<div><div class="mr-name">지우<span class="mr-mbti">ENFP</span></div><div class="mr-intro">똑똑, 들어와도 돼</div></div></div>
+<div class="mr-chips"><span>필름카메라</span><span>떡볶이</span><span>비 오는 날 카페</span><span>키링 모으는 중</span></div>
+<button class="mr-knock"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V6.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V5a1.5 1.5 0 0 1 3 0v5.5"/><path d="M14 10.5V6.5a1.5 1.5 0 0 1 3 0V13c0 4-2.6 7-6.5 7-2.6 0-4.4-1.3-5.6-3.4L3.6 14a1.6 1.6 0 0 1 2.6-1.8L8 14"/></svg>노크하기<em>27</em></button>
+<div class="mr-knote">지금까지 27번 똑똑 두드렸어요</div>
+</div>
+
+<div class="mr-sec">
+<div class="mr-st"><h2>벽에 붙은 메모</h2><span>요즘 질문</span></div>
+<div class="mr-memo"><small>Q. 지우가 궁금한 거</small><p>제일 좋아하는 편의점 간식은?</p>
+<div class="mr-ans"><input placeholder="내 답 붙이기"><button>붙이기</button></div></div>
+</div>
+
+<div class="mr-sec">
+<div class="mr-st"><h2>액자 속 사진</h2><span>3장</span></div>
+<div class="mr-photos"><div class="mr-ph"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이 올린 사진</div><div class="mr-ph2"><div class="mr-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>사진</div><div class="mr-ph"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>사진</div></div></div>
+</div>
+
+<div class="mr-sec">
+<div class="mr-lock"><div class="mr-li"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><div><b>침대 밑 비밀 일기 3</b><small>친구만 볼 수 있어요</small></div><span>친구 신청</span></div>
+</div>
+
+<div class="mr-sec">
+<div class="mr-st"><h2>방명록</h2><span>2개</span></div>
+<div class="mr-gb">
+<div class="mr-g"><div class="mr-gi" style="background:#FFE0D6">민</div><div><div class="mr-gm"><b>민지</b>10.4</div><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+<div class="mr-g"><div class="mr-gi" style="background:#E3EEDD">?</div><div><div class="mr-gm"><b>익명</b>10.2</div><p>도서관에서 찍고 감</p></div></div>
+<div class="mr-form"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+</div>
+</div>
+
+<div class="mr-sec mr-links">
+<a class="mr-lk" href="#"><div class="mr-lt"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></div><b>인스타그램<small>@jiwoo.room</small></b></a>
+<a class="mr-lk" href="#"><div class="mr-lt"><i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 6l1.5-2h5L16 6"/></svg></i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></div><b>필름 사진<small>모아둔 블로그</small></b></a>
+</div>
+<div class="mr-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

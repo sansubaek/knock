@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 13 · 잡지 커버</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Bodoni+Moda:ital,opsz,wght@0,6..96,700;0,6..96,900;1,6..96,500;1,6..96,700&amp;family=Noto+Serif+KR:wght@500;700;900&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;family=IBM+Plex+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+.mg{width:390px;min-height:1812px;box-sizing:border-box;position:relative;overflow:hidden;color:#141414;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.5;word-break:keep-all;background:#F6F2EA}
+.mg *{box-sizing:border-box}
+.mg-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.mg-bd{font-family:'Bodoni Moda','Noto Serif KR',serif}
+.mg-sr{font-family:'Noto Serif KR',serif}
+
+.mg-cover{position:relative;height:812px;background:#ECE5D8;overflow:hidden}
+.mg-photo{position:absolute;left:12px;right:12px;top:184px;bottom:12px;border:1.5px dashed #A99F8C;background:repeating-linear-gradient(135deg,rgba(20,20,20,.035) 0 10px,transparent 10px 20px),radial-gradient(70% 55% at 62% 45%,#F4EFE6 0%,#E3DACB 100%)}
+.mg-ph-lab{position:absolute;left:12px;bottom:96px;display:flex;align-items:center;gap:6px;font-size:12px;color:#6E6555;background:rgba(246,242,234,.9);padding:5px 10px;border-radius:99px}
+.mg-strip{position:relative;display:flex;justify-content:space-between;align-items:center;height:36px;padding:0 18px;font-size:12px}
+.mg-strip .mg-brand{font-size:16px}
+.mg-strip span:last-child{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em}
+.mg-mast{position:relative;margin:0;padding:0 10px;font-family:'Bodoni Moda','Noto Serif KR',serif;font-weight:900;font-size:100px;line-height:.9;letter-spacing:-.05em;text-align:center;white-space:nowrap;color:#141414}
+.mg-mast i{font-style:normal;color:#D2321F}
+.mg-tag{position:relative;display:flex;justify-content:space-between;align-items:center;margin:8px 18px 0;padding:6px 0;border-top:1.5px solid #141414;border-bottom:1px solid #141414;font-size:12px}
+.mg-tag em{font-family:'Bodoni Moda','Noto Serif KR',serif;font-style:italic;font-weight:500;font-size:15px}
+.mg-tag b{font-weight:700}
+
+.mg-cl{position:absolute;z-index:2}
+.mg-kick{display:inline-block;font-size:12px;font-weight:900;letter-spacing:.08em;color:#fff;background:#D2321F;padding:2px 7px}
+.mg-k2{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;color:#D2321F}
+.mg-h1{margin:6px 0 0;font-family:'Noto Serif KR',serif;font-weight:900;font-size:34px;line-height:1.08;letter-spacing:-.04em}
+.mg-h2{margin:2px 0 0;font-family:'Noto Serif KR',serif;font-weight:900;font-size:22px;line-height:1.15;letter-spacing:-.03em}
+.mg-h3{margin:2px 0 0;font-family:'Noto Serif KR',serif;font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-.03em}
+.mg-pg{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#6E6555;margin-left:4px;font-weight:500;letter-spacing:0}
+.mg-dd{text-align:right}
+.mg-dd small{display:block;font-size:13px;font-weight:700}
+.mg-dd b{display:block;font-family:'Bodoni Moda','Noto Serif KR',serif;font-weight:900;font-size:80px;line-height:.9;letter-spacing:-.05em;color:#D2321F}
+
+.mg-sticker{position:absolute;right:10px;bottom:96px;z-index:3;width:150px;height:150px;border:0;padding:0;background:none;cursor:pointer;transform:rotate(9deg);font:inherit}
+.mg-sticker svg{position:absolute;inset:0;filter:drop-shadow(2px 4px 0 rgba(20,20,20,.9))}
+.mg-sticker span{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:#141414;line-height:1}
+.mg-sticker small{font-size:12px;font-weight:900;letter-spacing:.1em}
+.mg-sticker b{font-family:'Noto Sans KR',sans-serif;font-weight:900;font-size:24px;margin-top:4px;letter-spacing:-.03em}
+.mg-sticker em{font-style:normal;font-family:'Bodoni Moda','Noto Serif KR',serif;font-weight:900;font-size:34px;margin-top:2px;color:#D2321F}
+
+.mg-bc{position:absolute;left:24px;bottom:24px;z-index:2;background:#fff;padding:8px 10px 5px;display:flex;gap:10px;align-items:flex-end}
+.mg-bars{width:96px;height:44px;background:repeating-linear-gradient(90deg,#141414 0 2px,transparent 2px 3px,#141414 3px 4px,transparent 4px 7px,#141414 7px 10px,transparent 10px 11px,#141414 11px 12px,transparent 12px 15px,#141414 15px 16px,transparent 16px 18px)}
+.mg-bc div{font-family:'IBM Plex Mono',monospace;font-size:10px;line-height:1.35}
+.mg-bc div b{display:block;font-family:'Noto Sans KR',sans-serif;font-size:12px}
+
+.mg-in{padding:0 20px}
+.mg-folio{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6E6555;padding:18px 0 10px;border-bottom:1px solid #141414}
+.mg-sech{display:flex;align-items:baseline;justify-content:space-between;margin:26px 0 0}
+.mg-sech h2{margin:0;font-family:'Bodoni Moda','Noto Serif KR',serif;font-style:italic;font-weight:700;font-size:44px;line-height:1;letter-spacing:-.03em}
+.mg-sech span{font-size:12px;font-weight:700;color:#D2321F;letter-spacing:.06em}
+.mg-toc{margin-top:14px;border-top:3px solid #141414}
+.mg-toc a,.mg-toc div{display:flex;align-items:center;gap:14px;min-height:64px;padding:10px 0;border-bottom:1px solid #CFC6B5;color:#141414;text-decoration:none}
+.mg-toc .mg-n{font-family:'Bodoni Moda','Noto Serif KR',serif;font-weight:900;font-size:34px;line-height:1;color:#D2321F;width:46px;flex:none}
+.mg-toc .mg-tt{flex:1;line-height:1.3}
+.mg-toc .mg-tt b{display:block;font-family:'Noto Serif KR',serif;font-weight:900;font-size:17px}
+.mg-toc .mg-tt small{font-size:12px;color:#6E6555}
+.mg-toc .mg-go{width:36px;height:36px;border-radius:50%;border:1.5px solid #141414;display:flex;align-items:center;justify-content:center;flex:none}
+
+.mg-feat{margin-top:30px;display:grid;grid-template-columns:1fr 112px;gap:14px;align-items:end}
+.mg-pic{height:260px;border:1.5px dashed #A99F8C;background:repeating-linear-gradient(135deg,rgba(20,20,20,.035) 0 10px,transparent 10px 20px),#EDE7DC;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px;color:#6E6555}
+.mg-pq{font-family:'Noto Serif KR',serif;font-weight:900;font-size:19px;line-height:1.3;letter-spacing:-.03em;border-top:3px solid #D2321F;padding-top:8px}
+.mg-pq small{display:block;font-family:'Noto Sans KR',sans-serif;font-weight:500;font-size:12px;color:#6E6555;margin-top:10px;letter-spacing:0}
+.mg-capt{font-size:12px;color:#6E6555;margin-top:8px}
+.mg-capt b{color:#141414;letter-spacing:.06em;font-size:11px;margin-right:6px}
+
+.mg-let{margin-top:14px;border-top:3px solid #141414}
+.mg-l{padding:16px 0 14px 34px;border-bottom:1px solid #CFC6B5;position:relative}
+.mg-l::before{content:"\201C";position:absolute;left:0;top:6px;font-family:'Bodoni Moda','Noto Serif KR',serif;font-weight:900;font-size:52px;line-height:1;color:#D2321F}
+.mg-l p{margin:0;font-family:'Noto Serif KR',serif;font-weight:700;font-size:18px;line-height:1.4;letter-spacing:-.02em}
+.mg-l small{display:block;margin-top:6px;font-size:12px;color:#6E6555}
+.mg-l small b{color:#141414}
+.mg-form{display:flex;gap:8px;margin-top:16px}
+.mg-form span{flex:1;height:50px;display:flex;align-items:center;padding:0 14px;border:1.5px solid #141414;background:#fff;color:#8A806E;font-size:14px}
+.mg-form em{height:50px;padding:0 20px;background:#141414;color:#F6F2EA;font-style:normal;font-weight:700;font-size:14px;display:flex;align-items:center}
+.mg-end{display:flex;justify-content:center;margin:34px 0 0}
+.mg-end i{width:10px;height:10px;background:#D2321F}
+.mg-own{text-align:center;font-size:12px;color:#9C9282;margin:20px 0 0;padding-bottom:28px}
+.mg-own a{color:#5A5246;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="mg">
+  <div class="mg-cover">
+    <div class="mg-photo" role="img" aria-label="프로필 사진 자리"><span class="mg-ph-lab"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6E6555" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>커버 · 프로필 사진</span></div>
+    <div class="mg-strip"><span class="mg-brand">knock!</span><span>VOL.21 · OCT 2026</span></div>
+    <h1 class="mg-mast">JIW<i>O</i>O</h1>
+    <div class="mg-tag"><em>똑똑, 들어와도 돼</em><b>오늘 4명 · 지금까지 112명</b></div>
+
+    <div class="mg-cl" style="left:24px;top:232px;width:210px">
+      <span class="mg-kick">오늘의 기분</span>
+      <p class="mg-h1">시험 D-3,<br>커피 수혈 중</p>
+    </div>
+    <div class="mg-cl mg-dd" style="right:24px;top:236px">
+      <small>생일까지</small>
+      <b>D-12</b>
+    </div>
+    <div class="mg-cl" style="left:24px;top:380px;width:200px">
+      <span class="mg-k2">이달의 노래</span>
+      <p class="mg-h2">좋은 날 · 아이유</p>
+    </div>
+    <div class="mg-cl" style="left:24px;top:470px;width:190px">
+      <span class="mg-k2">독자에게 묻다</span>
+      <p class="mg-h3">제일 좋아하는<br>편의점 간식은?<span class="mg-pg">p.08</span></p>
+    </div>
+
+    <button type="button" class="mg-sticker">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><polygon fill="#FFD84A" stroke="#141414" stroke-width="1.6" stroke-linejoin="round" points="50,2 57,14 70,6 72,21 87,18 83,32 97,36 88,47 98,58 84,63 89,77 74,77 73,92 60,85 50,97 40,85 27,92 26,77 11,77 16,63 2,58 12,47 3,36 17,32 13,18 28,21 30,6 43,14"/></svg>
+      <span><small>똑똑!</small><b>노크하기</b><em>27</em></span>
+    </button>
+
+    <div class="mg-bc" aria-hidden="true"><i class="mg-bars"></i><div><b>₩0</b>2026 10 07</div></div>
+  </div>
+
+  <div class="mg-in">
+    <div class="mg-folio"><span>JIWOO</span><span>INSIDE · 02</span></div>
+
+    <div class="mg-sech"><h2>Contents</h2><span>이번 호 차례</span></div>
+    <div class="mg-toc">
+      <a href="#"><span class="mg-n">06</span><span class="mg-tt"><b>인스타그램</b><small>@jiwoo.room</small></span><span class="mg-go"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+      <a href="#"><span class="mg-n">14</span><span class="mg-tt"><b>필름 사진 모아둔 곳</b><small>블로그</small></span><span class="mg-go"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span></a>
+    </div>
+
+    <div class="mg-feat">
+      <div class="mg-pic" role="img" aria-label="주인이 올린 사진 자리"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6E6555" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>주인이 올린 사진</div>
+      <p class="mg-pq">도서관 창가, 커피 세 잔째<small>PHOTO · 지우<br>10.03</small></p>
+    </div>
+    <p class="mg-capt"><b>p.10</b>이달의 화보</p>
+
+    <div class="mg-sech"><h2>Letters</h2><span>독자 편지 2</span></div>
+    <div class="mg-let">
+      <div class="mg-l"><p>케이스 뭐야 너무 귀엽잖아</p><small><b>민지</b> · 10.4</small></div>
+      <div class="mg-l"><p>도서관에서 찍고 감</p><small><b>익명</b> · 10.2</small></div>
+    </div>
+    <div class="mg-form"><span>한 줄 남기기</span><em>남기기</em></div>
+
+    <div class="mg-end" aria-hidden="true"><i></i></div>
+    <p class="mg-own">knock! · <a href="#">나도 knock 만들기</a></p>
+  </div>
+</div>
+</x-dc>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 12 · RPG 스테이터스</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Silkscreen:wght@400;700&amp;family=Press+Start+2P&amp;family=Do+Hyeon&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap">
+<style>
+body{margin:0}
+.rp{width:390px;min-height:1624px;box-sizing:border-box;position:relative;overflow:hidden;color:#F4E9D0;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.5;word-break:keep-all;padding:0 20px 26px;
+  background:
+   linear-gradient(45deg,rgba(255,255,255,.025) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.025) 75%) 0 0/8px 8px,
+   linear-gradient(45deg,rgba(255,255,255,.025) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.025) 75%) 4px 4px/8px 8px,
+   linear-gradient(180deg,#1A1630 0%,#141226 50%,#0F0E1E 100%)}
+.rp *{box-sizing:border-box}
+.rp-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.rp-px{font-family:'Silkscreen','Press Start 2P',monospace}
+.rp-dh{font-family:'Do Hyeon','Noto Sans KR',sans-serif;font-weight:400}
+.rp-top{display:flex;justify-content:space-between;align-items:center;height:58px}
+.rp-top .rp-brand{font-size:18px;color:#F4E9D0}
+.rp-online{display:flex;align-items:center;gap:7px;font-size:12px;color:#F4E9D0;background:#0B0A16;padding:5px 10px;box-shadow:-2px 0 0 #4A4470,2px 0 0 #4A4470,0 -2px 0 #4A4470,0 2px 0 #4A4470}
+.rp-online i{width:8px;height:8px;background:#7CF29A;box-shadow:0 0 0 2px #1E5A33}
+
+.rp-win{position:relative;background:linear-gradient(180deg,#27244A 0%,#1D1B3A 100%);margin:6px 4px 0;padding:16px;box-shadow:-4px 0 0 0 #F4E9D0,4px 0 0 0 #F4E9D0,0 -4px 0 0 #F4E9D0,0 4px 0 0 #F4E9D0,inset 0 0 0 3px #3A3566,8px 8px 0 0 rgba(0,0,0,.45),0 8px 0 4px transparent}
+.rp-win+.rp-win{margin-top:26px}
+.rp-tab{position:absolute;left:10px;top:-15px;background:#F4E9D0;color:#1D1B3A;font-family:'Silkscreen','Press Start 2P',monospace;font-size:12px;font-weight:700;padding:3px 9px;letter-spacing:.06em;line-height:1.3}
+.rp-tab.rp-gold{background:#F2C14E}
+.rp-tab.rp-pink{background:#FF8FA3}
+.rp-tab.rp-cyan{background:#7FDBFF}
+.rp-tab.rp-green{background:#7CF29A}
+
+.rp-hero{display:flex;gap:14px;align-items:flex-start;padding-top:6px}
+.rp-por{width:104px;height:116px;flex:none;position:relative;background:repeating-linear-gradient(45deg,rgba(244,233,208,.05) 0 6px,transparent 6px 12px);border:2px dashed #8C86B8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px;color:#BDB6E0;text-align:center;line-height:1.3}
+.rp-por::after{content:"P1";position:absolute;left:-2px;bottom:-2px;background:#F2C14E;color:#1D1B3A;font-family:'Silkscreen','Press Start 2P',monospace;font-size:10px;font-weight:700;padding:1px 5px}
+.rp-who{flex:1;min-width:0}
+.rp-lv{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#1D1B3A;background:#7FDBFF;padding:2px 8px;font-weight:700}
+.rp-lv b{font-family:'Silkscreen','Press Start 2P',monospace;font-size:12px}
+.rp-name{margin:6px 0 0;font-size:34px;line-height:1.05;color:#FFF8E6;text-shadow:3px 3px 0 #0B0A16}
+.rp-cls{margin:4px 0 0;font-size:15px;font-weight:700;color:#F2C14E}
+.rp-say{margin:8px 0 0;font-size:13px;color:#D8D1F2;background:#14122A;padding:6px 9px;position:relative}
+.rp-say::before{content:"";position:absolute;left:-8px;top:10px;border:4px solid transparent;border-right-color:#14122A;border-width:4px 8px 4px 0}
+
+.rp-stats{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.rp-st{display:grid;grid-template-columns:62px 1fr 44px;align-items:center;gap:8px;font-size:13px;font-weight:700}
+.rp-st span{color:#D8D1F2}
+.rp-st b{font-family:'Silkscreen','Press Start 2P',monospace;font-size:13px;text-align:right}
+.rp-track{height:16px;background:#0B0A16;padding:3px;box-shadow:inset 0 0 0 1px #4A4470}
+.rp-fill{height:100%;background:repeating-linear-gradient(90deg,var(--c) 0 7px,transparent 7px 9px)}
+.rp-low b{color:#FF6B6B}
+.rp-low .rp-fill{animation:none}
+.rp-lowtag{font-size:11px;color:#FF6B6B;margin-left:4px;font-weight:700}
+
+.rp-status{margin-top:16px;padding-top:14px;border-top:2px dashed #3E3970}
+.rp-status small{font-size:12px;color:#BDB6E0;font-weight:700}
+.rp-status p{margin:4px 0 0;font-size:18px;color:#FFF8E6;line-height:1.35}
+.rp-chips{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.rp-chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;padding:3px 8px 3px 6px;background:#14122A;box-shadow:inset 0 0 0 1px var(--c);color:var(--c)}
+
+.rp-act{display:flex;align-items:center;gap:12px;width:100%;margin:30px 0 0;padding:0 18px;height:72px;border:0;cursor:pointer;font:inherit;background:#F2C14E;color:#1D1B3A;box-shadow:-4px 0 0 0 #FFF3C4,4px 0 0 0 #B8862A,0 -4px 0 0 #FFF3C4,0 4px 0 0 #B8862A,8px 10px 0 0 rgba(0,0,0,.5);position:relative}
+.rp-act .rp-cur{font-family:'Press Start 2P',monospace;font-size:14px}
+.rp-act .rp-t{flex:1;text-align:left;display:flex;flex-direction:column;line-height:1.2}
+.rp-act .rp-t b{font-family:'Do Hyeon','Noto Sans KR',sans-serif;font-weight:400;font-size:24px}
+.rp-act .rp-t small{font-size:12px;font-weight:700;opacity:.75;margin-top:2px}
+.rp-act .rp-x{font-family:'Silkscreen','Press Start 2P',monospace;font-weight:700;font-size:22px;background:#1D1B3A;color:#F2C14E;padding:6px 10px}
+.rp-sub{text-align:center;font-size:12px;color:#BDB6E0;margin:16px 0 0}
+
+.rp-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px}
+.rp-row .rp-win{margin:0 4px}
+.rp-ev{text-align:center;padding:18px 10px 14px}
+.rp-ev small{display:block;font-size:12px;color:#BDB6E0;font-weight:700}
+.rp-ev b{display:block;font-family:'Press Start 2P','Silkscreen',monospace;font-size:26px;color:#FF8FA3;margin:10px 0 8px;text-shadow:3px 3px 0 #0B0A16;line-height:1.1}
+.rp-ev .rp-pips{display:flex;gap:3px;justify-content:center}
+.rp-ev .rp-pips i{width:8px;height:8px;background:#FF8FA3}
+.rp-ev .rp-pips i.o{background:#3A3566}
+.rp-bgm{padding:18px 12px 14px}
+.rp-bgm small{display:block;font-size:12px;color:#BDB6E0;font-weight:700}
+.rp-bgm p{margin:8px 0 0;font-size:16px;color:#FFF8E6;line-height:1.3}
+.rp-eq{display:flex;align-items:flex-end;gap:3px;height:22px;margin-top:10px}
+.rp-eq i{width:6px;background:#7FDBFF}
+
+.rp-quest h3{margin:2px 0 0;font-size:12px;color:#BDB6E0;font-weight:700;display:flex;align-items:center;gap:6px}
+.rp-quest p.rp-q{margin:6px 0 0;font-size:21px;color:#FFF8E6;line-height:1.35}
+.rp-rew{margin-top:10px;display:flex;align-items:center;gap:8px;font-size:12px;color:#D8D1F2}
+.rp-rew b{color:#7CF29A}
+.rp-qbtn{margin-top:14px;display:flex;gap:8px}
+.rp-qbtn span{height:46px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.rp-qbtn .rp-ok{flex:1;background:#7CF29A;color:#123D22;box-shadow:inset 0 -4px 0 #3FAE5E}
+.rp-qbtn .rp-no{width:88px;background:#14122A;color:#BDB6E0;box-shadow:inset 0 0 0 2px #4A4470}
+
+.rp-inv{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.rp-slot{background:#14122A;box-shadow:inset 0 0 0 2px #4A4470,inset 0 0 0 4px #14122A,inset 0 0 0 5px #2E2A55;padding:12px;min-height:110px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:#F4E9D0;position:relative}
+.rp-slot .rp-ico{width:36px;height:36px;background:#27244A;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 0 2px var(--c)}
+.rp-slot b{font-size:14px;line-height:1.3;display:block;margin-top:8px}
+.rp-slot small{font-size:12px;color:#BDB6E0}
+.rp-slot .rp-eqp{position:absolute;right:8px;top:8px;font-family:'Silkscreen','Press Start 2P',monospace;font-size:10px;font-weight:700;color:#1D1B3A;background:var(--c);padding:1px 5px}
+.rp-mem{grid-column:span 2;min-height:170px;align-items:center;justify-content:center;gap:6px;border:2px dashed #8C86B8;box-shadow:none;background:repeating-linear-gradient(45deg,rgba(244,233,208,.04) 0 8px,transparent 8px 16px);color:#BDB6E0;font-size:12px}
+.rp-mem .rp-cap{position:absolute;left:10px;bottom:8px;font-size:12px;color:#8C86B8}
+
+.rp-log{background:#0B0A16;padding:10px 12px;box-shadow:inset 0 0 0 1px #3A3566;display:flex;flex-direction:column;gap:8px}
+.rp-msg{font-size:14px;line-height:1.45;color:#E9E3FF}
+.rp-msg .rp-t{font-family:'Silkscreen','Press Start 2P',monospace;font-size:11px;color:#6F69A0;margin-right:6px}
+.rp-msg b{margin-right:4px}
+.rp-sys{font-size:12px;color:#7CF29A}
+.rp-in{display:flex;gap:8px;margin-top:12px}
+.rp-in span{flex:1;height:48px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#0B0A16;box-shadow:inset 0 0 0 2px #4A4470;color:#8C86B8;font-size:14px}
+.rp-in span i{width:2px;height:18px;background:#F4E9D0}
+.rp-in em{height:48px;padding:0 16px;background:#F4E9D0;color:#1D1B3A;font-style:normal;font-weight:700;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:inset 0 -4px 0 #BDB09A}
+.rp-own{text-align:center;font-size:12px;color:#6F69A0;margin:34px 0 0}
+.rp-own a{color:#BDB6E0;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="rp">
+  <div class="rp-top"><span class="rp-brand">knock!</span><span class="rp-online"><i></i>오늘 4명 · 지금까지 112명</span></div>
+
+  <div class="rp-win" style="margin-top:20px">
+    <span class="rp-tab">STATUS</span>
+    <div class="rp-hero">
+      <div class="rp-por" role="img" aria-label="프로필 사진 자리"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#BDB6E0" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>프로필 사진</div>
+      <div class="rp-who">
+        <span class="rp-lv"><b>LV.21</b></span>
+        <p class="rp-name rp-dh">지우</p>
+        <p class="rp-cls">시험기간 대학생</p>
+        <p class="rp-say">똑똑, 들어와도 돼</p>
+      </div>
+    </div>
+    <div class="rp-stats">
+      <div class="rp-st"><span>카페인</span><div class="rp-track"><div class="rp-fill" style="--c:#F2C14E;width:92%"></div></div><b>92%</b></div>
+      <div class="rp-st"><span>텐션</span><div class="rp-track"><div class="rp-fill" style="--c:#7CF29A;width:64%"></div></div><b>64%</b></div>
+      <div class="rp-st"><span>멘탈</span><div class="rp-track"><div class="rp-fill" style="--c:#7FDBFF;width:41%"></div></div><b>41%</b></div>
+      <div class="rp-st rp-low"><span>수면</span><div class="rp-track"><div class="rp-fill" style="--c:#FF6B6B;width:18%"></div></div><b>18%</b></div>
+    </div>
+    <div class="rp-status">
+      <small>현재 상태 · 오늘의 기분</small>
+      <p class="rp-dh">시험 D-3, 커피 수혈 중</p>
+      <div class="rp-chips">
+        <span class="rp-chip" style="--c:#F2C14E"><svg width="12" height="12" viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true"><path fill="#F2C14E" d="M0 2h4v3H0zM4 2h1v1h1v1H5v1H4zM1 0h1v1H1zM3 0h1v1H3z"/></svg>각성 +30</span>
+        <span class="rp-chip" style="--c:#FF6B6B"><svg width="12" height="12" viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true"><path fill="#FF6B6B" d="M0 0h3v1H2v1H1v1h2v1H0V3h1V2h1V1H0zM3 3h3v1H5v1h1v1H3V5h1V4H3z"/></svg>수면 부족</span>
+        <span class="rp-chip" style="--c:#7FDBFF"><svg width="12" height="12" viewBox="0 0 6 6" shape-rendering="crispEdges" aria-hidden="true"><path fill="#7FDBFF" d="M1 0h4v1H1zM0 1h1v4H0zM5 1h1v4H5zM1 5h4v1H1zM2 2h2v2H2z"/></svg>집중 모드</span>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="rp-act">
+    <span class="rp-cur" aria-hidden="true">▶</span>
+    <span class="rp-t"><b>말 걸기 (노크)</b><small>누르면 지우한테 알림이 가요</small></span>
+    <span class="rp-x">×27</span>
+  </button>
+  <p class="rp-sub">지금까지 27명이 말을 걸었어요</p>
+
+  <div class="rp-row">
+    <div class="rp-win rp-ev">
+      <span class="rp-tab rp-pink">EVENT</span>
+      <small>생일 이벤트까지</small>
+      <b>D-12</b>
+      <div class="rp-pips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i></div>
+    </div>
+    <div class="rp-win rp-bgm">
+      <span class="rp-tab rp-cyan">BGM</span>
+      <small>지금 흐르는 노래</small>
+      <p class="rp-dh">좋은 날 · 아이유</p>
+      <div class="rp-eq" aria-hidden="true"><i style="height:40%"></i><i style="height:90%"></i><i style="height:60%"></i><i style="height:100%"></i><i style="height:35%"></i><i style="height:75%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:30%"></i><i style="height:65%"></i></div>
+    </div>
+  </div>
+
+  <div class="rp-win rp-quest" style="margin-top:30px">
+    <span class="rp-tab rp-gold">QUEST !</span>
+    <h3>요즘 질문 · 진행 중</h3>
+    <p class="rp-q rp-dh">제일 좋아하는 편의점 간식은?</p>
+    <div class="rp-rew"><svg width="14" height="14" viewBox="0 0 7 7" shape-rendering="crispEdges" aria-hidden="true"><path fill="#FF8FA3" d="M1 0h2v1h1V0h2v1h1v2H6v1H5v1H4v1H3V5H2V4H1V3H0V1h1z"/></svg>보상 <b>지우 호감도 +10</b></div>
+    <div class="rp-qbtn"><span class="rp-ok">답하기</span><span class="rp-no">나중에</span></div>
+  </div>
+
+  <div class="rp-win" style="margin-top:30px">
+    <span class="rp-tab rp-green">INVENTORY</span>
+    <div class="rp-inv" style="margin-top:6px">
+      <a href="#" class="rp-slot" style="--c:#FF8FA3"><span class="rp-eqp">EQUIP</span><span class="rp-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FF8FA3" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></span><span><b>인스타그램</b><small>@jiwoo.room</small></span></a>
+      <a href="#" class="rp-slot" style="--c:#7FDBFF"><span class="rp-eqp">EQUIP</span><span class="rp-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7FDBFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg></span><span><b>필름 사진 모아둔 곳</b><small>블로그</small></span></a>
+      <div class="rp-slot rp-mem" role="img" aria-label="주인이 올린 사진 자리"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#BDB6E0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg>주인이 올린 사진<span class="rp-cap">획득한 기억 · 10.03</span></div>
+    </div>
+  </div>
+
+  <div class="rp-win" style="margin-top:30px">
+    <span class="rp-tab">PARTY CHAT</span>
+    <div class="rp-log" style="margin-top:6px">
+      <div class="rp-sys">* 방명록 채널에 들어왔어요</div>
+      <div class="rp-msg"><span class="rp-t">10.4</span><b style="color:#FF8FA3">민지</b>케이스 뭐야 너무 귀엽잖아</div>
+      <div class="rp-msg"><span class="rp-t">10.2</span><b style="color:#7FDBFF">익명</b>도서관에서 찍고 감</div>
+    </div>
+    <div class="rp-in"><span><i></i>한 줄 남기기</span><em>남기기</em></div>
+  </div>
+
+  <p class="rp-own">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

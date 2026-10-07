@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 08 · 링크 모음</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap">
+<style>
+body{margin:0}
+.lb{width:390px;min-height:1200px;box-sizing:border-box;position:relative;overflow:hidden;color:#1C1B22;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.5;word-break:keep-all;padding:0 20px 30px;
+  background:
+    radial-gradient(260px 240px at 8% 6%,rgba(255,196,168,.85),transparent 70%),
+    radial-gradient(280px 260px at 96% 14%,rgba(206,192,255,.8),transparent 70%),
+    radial-gradient(320px 300px at 0% 50%,rgba(176,232,210,.85),transparent 70%),
+    radial-gradient(340px 320px at 100% 66%,rgba(255,224,150,.85),transparent 70%),
+    radial-gradient(340px 280px at 20% 98%,rgba(204,188,255,.75),transparent 70%),radial-gradient(260px 220px at 60% 34%,rgba(255,206,224,.45),transparent 70%),
+    #F7F3EE}
+.lb *{box-sizing:border-box}
+.lb a{color:inherit;text-decoration:none}
+.lb-top{display:flex;justify-content:center;padding-top:20px}
+.lb-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em;font-size:16px;padding:5px 12px;border-radius:99px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8)}
+.lb-me{display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:26px}
+.lb-av{position:relative;width:108px;height:108px;border-radius:50%;padding:5px;background:conic-gradient(from 200deg,#FFB49A,#C5B4FF,#9FE3CB,#FFD98A,#FFB49A)}
+.lb-av>div{width:100%;height:100%;border-radius:50%;background:#FBF8F5;border:1.5px dashed #B9B2C4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;color:#7A748A;line-height:1.25}
+.lb-co{position:absolute;right:-4px;bottom:2px;width:34px;height:34px;border-radius:11px;background:#FBF8F5;border:1.5px dashed #B9B2C4;box-shadow:0 0 0 3px #F7F3EE}
+.lb-me h1{margin:16px 0 0;font-size:27px;font-weight:800;letter-spacing:-.03em;line-height:1.2}
+.lb-role{margin-top:4px;font-size:14px;font-weight:500;color:#4D4858}
+.lb-bio{margin:12px 0 0;max-width:316px;text-wrap:balance;font-size:14px;color:#3D3946;line-height:1.6}
+.lb-ic{display:flex;justify-content:center;gap:10px;margin-top:18px}
+.lb-ic a{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(60,40,90,.06)}
+.lb-stack{display:flex;flex-direction:column;gap:10px;margin-top:26px}
+.lb-l{display:flex;align-items:center;gap:14px;min-height:62px;padding:9px 16px 9px 9px;border-radius:22px;background:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.95);box-shadow:0 1px 2px rgba(60,40,90,.05),0 8px 20px rgba(60,40,90,.06)}
+.lb-l .lb-t{width:44px;height:44px;border-radius:15px;flex:none;display:flex;align-items:center;justify-content:center}
+.lb-l .lb-tx{flex:1;min-width:0}
+.lb-l b{display:block;font-size:16px;font-weight:700;letter-spacing:-.01em}
+.lb-l small{display:block;font-size:12px;color:#6A6475;margin-top:1px}
+.lb-l svg.lb-go{flex:none}
+.lb-l.lb-save{min-height:72px;background:#1C1B22;border-color:#1C1B22;color:#fff;box-shadow:0 10px 28px rgba(28,27,34,.28)}
+.lb-l.lb-save .lb-t{width:52px;height:52px;border-radius:17px;background:linear-gradient(135deg,#FFB49A,#C5B4FF)}
+.lb-l.lb-save b{font-size:17px}
+.lb-l.lb-save small{color:#BDB8C8}
+.lb-p{background:#FFE1D4}.lb-v{background:#E6DEFF}.lb-m{background:#D5F2E6}.lb-y{background:#FFF0C7}.lb-s{background:#E3ECF7}
+.lb-card{margin-top:22px;border-radius:24px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.9);padding:18px 18px 8px}
+.lb-card h2{margin:0 0 6px;font-size:13px;font-weight:700;color:#6A6475}
+.lb-card ol{list-style:none;margin:0;padding:0}
+.lb-card li{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:15px}
+.lb-card li+li{border-top:1px solid rgba(28,27,34,.07)}
+.lb-card li span{width:40px;flex:none;font-size:13px;font-weight:700;color:#8C8598}
+.lb-card .lb-aff{display:flex;justify-content:space-between;align-items:center;padding:12px 0 10px;border-top:1px solid rgba(28,27,34,.07);font-size:15px}
+.lb-card .lb-aff small{font-size:13px;font-weight:700;color:#8C8598}
+.lb-own{text-align:center;font-size:12px;color:#9C96A6;margin:28px 0 0}
+.lb-own a{color:#5C5768;font-weight:700}
+</style>
+</helmet>
+<div class="lb">
+  <div class="lb-top"><span class="lb-logo">knock.</span></div>
+
+  <div class="lb-me">
+    <div class="lb-av">
+      <div aria-label="프로필 사진 자리">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8C8598" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg>
+        프로필 사진
+      </div>
+      <i class="lb-co" aria-label="회사 로고 자리"></i>
+    </div>
+    <h1>주건우</h1>
+    <div class="lb-role">대표 · 제품 @ knock</div>
+    <p class="lb-bio">케이스 뒤 QR을 찍으면 내 페이지가 열리는 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p>
+    <div class="lb-ic">
+      <a href="#" aria-label="전화"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></a>
+      <a href="#" aria-label="메일"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
+      <a href="#" aria-label="웹사이트"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></a>
+      <a href="#" aria-label="공유"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5M5 14v5a2 2 0 002 2h10a2 2 0 002-2v-5"/></svg></a>
+    </div>
+  </div>
+
+  <div class="lb-stack">
+    <a href="#" class="lb-l lb-save">
+      <span class="lb-t"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 19c1.2-3 3.6-4.5 6.5-4.5 1.3 0 2.5.3 3.5.9M18 13v6M15 16h6"/></svg></span>
+      <span class="lb-tx"><b>연락처에 저장</b><small>앱 설치 없이 바로 저장돼요</small></span>
+      <svg class="lb-go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a href="#" class="lb-l">
+      <span class="lb-t lb-p"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 11h5M7 14h8"/></svg></span>
+      <span class="lb-tx"><b>내 명함 주기</b><small>내 연락처도 보내드려요</small></span>
+      <svg class="lb-go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A39DAE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a href="#" class="lb-l">
+      <span class="lb-t lb-v"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></span>
+      <span class="lb-tx"><b>포트폴리오</b></span>
+      <svg class="lb-go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A39DAE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a href="#" class="lb-l">
+      <span class="lb-t lb-m"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg></span>
+      <span class="lb-tx"><b>링크드인</b></span>
+      <svg class="lb-go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A39DAE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a href="#" class="lb-l">
+      <span class="lb-t lb-y"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+      <span class="lb-tx"><b>메일 보내기</b><small>me@example.com</small></span>
+      <svg class="lb-go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A39DAE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a href="#" class="lb-l">
+      <span class="lb-t lb-s"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1C1B22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2"/></svg></span>
+      <span class="lb-tx"><b>전화하기</b><small>010-0000-0000</small></span>
+      <svg class="lb-go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A39DAE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  <section class="lb-card">
+    <h2>지나온 길</h2>
+    <ol>
+      <li><span>2026</span>knock 창업</li>
+      <li><span>2025</span>인하벤처클럽</li>
+      <li><span>학력</span>인하대학교</li>
+    </ol>
+    <div class="lb-aff"><small>소속</small>knock · 인하대학교</div>
+  </section>
+
+  <p class="lb-own">knock. · <a href="#">나도 명함 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 09 · 월렛 패스</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap">
+<style>
+body{margin:0}
+.wp{width:390px;min-height:1310px;box-sizing:border-box;background:#E9E8E4;color:#16181D;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.5;word-break:keep-all;padding:0 16px 30px}
+.wp *{box-sizing:border-box}
+.wp a{color:inherit;text-decoration:none}
+.wp-num{font-family:'Bricolage Grotesque','Noto Sans KR',sans-serif}
+.wp-bar{display:flex;justify-content:space-between;align-items:center;height:58px;padding:0 4px}
+.wp-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em;font-size:19px}
+.wp-bar span:last-child{font-size:12px;color:#6C6E74;display:flex;align-items:center;gap:6px}
+.wp-bar span:last-child i{width:6px;height:6px;border-radius:50%;background:#2DBE7E;display:block}
+.wp-pass{position:relative;border-radius:22px;color:#fff;background:radial-gradient(320px 220px at 100% 0%,rgba(80,130,255,.55),transparent 70%),radial-gradient(260px 200px at 0% 100%,rgba(44,72,170,.6),transparent 70%),#0F1A3A;box-shadow:0 2px 4px rgba(15,26,58,.12),0 18px 40px rgba(15,26,58,.22)}
+.wp-stack{position:relative;margin-top:14px}
+.wp-stack:before,.wp-stack:after{content:'';position:absolute;left:22px;right:22px;top:-14px;height:40px;border-radius:18px;background:#CFCEC8}
+.wp-stack:after{left:11px;right:11px;top:-7px;background:#8A97BE}
+.wp-pass{z-index:1}
+.wp-hd{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.12)}
+.wp-hd em{width:34px;height:34px;border-radius:10px;border:1.5px dashed rgba(255,255,255,.45);background:rgba(255,255,255,.06);display:block;flex:none}
+.wp-hd b{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em}
+.wp-hd .wp-tag{margin-left:auto;text-align:right;line-height:1.3}
+.wp-hd .wp-tag small{display:block;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.6)}
+.wp-hd .wp-tag span{font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:15px}
+.wp-f small{display:block;font-size:11.5px;font-weight:500;letter-spacing:.1em;color:rgba(255,255,255,.58);margin-bottom:2px}
+.wp-f span{display:block;font-size:16px;font-weight:500;line-height:1.35}
+.wp-main{display:flex;align-items:flex-start;gap:12px;padding:20px 18px 4px}
+.wp-main .wp-f{flex:1}
+.wp-main .wp-f span{font-size:36px;font-weight:800;letter-spacing:-.03em;line-height:1.15}
+.wp-ph{width:72px;height:88px;flex:none;border-radius:12px;border:1.5px dashed rgba(255,255,255,.45);background:rgba(255,255,255,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;color:rgba(255,255,255,.7);text-align:center;line-height:1.25}
+.wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 12px;padding:16px 18px 20px}
+.wp-grid .wp-wide{grid-column:span 2}
+.wp-perf{position:relative;height:24px}
+.wp-perf:before{content:'';position:absolute;left:20px;right:20px;top:11px;border-top:2px dotted rgba(255,255,255,.28)}
+.wp-perf i{position:absolute;top:0;width:24px;height:24px;border-radius:50%;background:#E9E8E4}
+.wp-perf i:first-child{left:-12px}.wp-perf i:last-child{right:-12px}
+.wp-stub{padding:10px 18px 20px}
+.wp-code{background:#FBFAF7;border-radius:12px;padding:14px 16px 10px;text-align:center}
+.wp-bars{height:52px;border-radius:2px;background-blend-mode:normal;background:
+  repeating-linear-gradient(90deg,#16181D 0 2px,transparent 2px 5px,#16181D 5px 6px,transparent 6px 9px,#16181D 9px 12px,transparent 12px 14px,#16181D 14px 15px,transparent 15px 19px),
+  repeating-linear-gradient(90deg,transparent 0 23px,#FBFAF7 23px 26px),repeating-linear-gradient(90deg,transparent 0 37px,#16181D 37px 40px)}
+.wp-code span{display:block;margin-top:7px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.18em;color:#3A3D44}
+.wp-acts{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+.wp-btn{height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:700}
+.wp-save{background:#1F5EFF;color:#fff;box-shadow:0 8px 20px rgba(31,94,255,.28)}
+.wp-give{background:#fff;color:#16181D;border:1px solid #D7D6D1}
+.wp-acts p{margin:4px 0 0;text-align:center;font-size:12px;color:#7A7C82}
+.wp-back{margin-top:22px;background:#FBFAF7;border-radius:20px;padding:4px 18px}
+.wp-back h2{margin:0;padding:16px 0 4px;font-size:12px;font-weight:500;letter-spacing:.1em;color:#7A7C82}
+.wp-back section+section{border-top:1px solid #ECEBE6}
+.wp-back p{margin:0 0 16px;font-size:15px;line-height:1.65;color:#2C2F36}
+.wp-kv{display:flex;align-items:center;gap:14px;padding:11px 0;font-size:15px}
+.wp-kv small{width:40px;flex:none;font-size:13px;color:#7A7C82}
+.wp-kv .wp-num{font-weight:500}
+.wp-back section:last-child{padding-bottom:6px}
+.wp-ln{display:flex;align-items:center;gap:12px;min-height:52px;font-size:15px;font-weight:500}
+.wp-ln+.wp-ln{border-top:1px solid #ECEBE6}
+.wp-ln span{flex:1}
+.wp-ln i{width:32px;height:32px;border-radius:10px;background:#EEF2FF;display:flex;align-items:center;justify-content:center;flex:none}
+.wp-own{text-align:center;font-size:12px;color:#9B9CA1;margin:26px 0 0}
+.wp-own a{color:#5C5E64;font-weight:700}
+</style>
+</helmet>
+<div class="wp">
+  <div class="wp-bar"><span class="wp-logo">knock.</span><span><i></i>명함 패스</span></div>
+
+  <div class="wp-stack">
+  <div class="wp-pass" role="img" aria-label="주건우의 명함 패스">
+    <div class="wp-hd">
+      <em aria-label="회사 로고 자리"></em>
+      <b>knock</b>
+      <div class="wp-tag"><small>발급</small><span>2026.10</span></div>
+    </div>
+
+    <div class="wp-main">
+      <div class="wp-f"><small>이름</small><span>주건우</span></div>
+      <div class="wp-ph" aria-label="프로필 사진 자리">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg>
+        프로필<br>사진
+      </div>
+    </div>
+
+    <div class="wp-grid">
+      <div class="wp-f"><small>직함</small><span>대표 · 제품</span></div>
+      <div class="wp-f"><small>회사</small><span>knock</span></div>
+      <div class="wp-f"><small>전화</small><span class="wp-num">010-0000-0000</span></div>
+      <div class="wp-f"><small>메일</small><span class="wp-num">me@example.com</span></div>
+    </div>
+
+    <div class="wp-perf"><i></i><i></i></div>
+
+    <div class="wp-stub">
+      <div class="wp-code" aria-hidden="true">
+        <div class="wp-bars"></div>
+        <span>KNOCK · JGW · 0001</span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="wp-acts">
+    <a href="#" class="wp-btn wp-save"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>연락처에 저장</a>
+    <a href="#" class="wp-btn wp-give">내 명함 주기</a>
+    <p>앱 설치 없이 바로 저장돼요</p>
+  </div>
+
+  <div class="wp-back">
+    <section>
+      <h2>소개</h2>
+      <p>케이스 뒤 QR을 찍으면 내 페이지가 열리는 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p>
+    </section>
+    <section>
+      <h2>경력</h2>
+      <div class="wp-kv"><small class="wp-num">2026</small>knock 창업</div>
+      <div class="wp-kv"><small class="wp-num">2025</small>인하벤처클럽</div>
+      <div class="wp-kv"><small>학력</small>인하대학교</div>
+      <div class="wp-kv" style="padding-bottom:14px"><small>소속</small>knock · 인하대학교</div>
+    </section>
+    <section>
+      <h2>링크</h2>
+      <a href="#" class="wp-ln"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F5EFF" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></i><span>포트폴리오</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9AAAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="#" class="wp-ln"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1F5EFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></svg></i><span>링크드인</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A9AAAF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    </section>
+  </div>
+
+  <p class="wp-own">knock. · <a href="#">나도 명함 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

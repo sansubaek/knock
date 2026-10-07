@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 04 · 위젯 홈</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap">
+<style>
+body{margin:0}
+.wg-root{width:390px;min-height:1375px;box-sizing:border-box;position:relative;overflow:hidden;color:#24212F;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.45;word-break:keep-all;padding:16px 20px 26px;
+  background:
+   radial-gradient(260px 240px at 8% 6%,#FFD9C7 0,rgba(255,217,199,0) 70%),
+   radial-gradient(300px 280px at 100% 22%,#D7CBF6 0,rgba(215,203,246,0) 70%),
+   radial-gradient(320px 300px at 0% 52%,#C9E4F6 0,rgba(201,228,246,0) 70%),
+   radial-gradient(300px 260px at 100% 70%,#FFE1EA 0,rgba(255,225,234,0) 70%),
+   radial-gradient(320px 300px at 20% 96%,#D4F0E3 0,rgba(212,240,227,0) 70%),
+   #EFEBF6}
+.wg-root *{box-sizing:border-box}
+.wg-num{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.03em}
+.wg-top{display:flex;justify-content:space-between;align-items:center;height:32px;padding:0 4px}
+.wg-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;letter-spacing:-.04em}
+.wg-live{display:flex;align-items:center;gap:6px;font-size:12px;color:#4A4558;font-weight:500}
+.wg-live i{width:6px;height:6px;border-radius:50%;background:#F0896F;box-shadow:0 0 0 3px rgba(240,137,111,.2)}
+
+.wg-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:77px;gap:14px;margin-top:12px}
+.wg-w{position:relative;border-radius:24px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.75);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);box-shadow:0 6px 20px rgba(80,60,130,.08);padding:14px;overflow:hidden}
+.wg-w small{font-size:12px;color:#6A6478;font-weight:500;display:flex;align-items:center;gap:5px}
+.wg-s4x2{grid-column:span 4;grid-row:span 2}
+.wg-s2x2{grid-column:span 2;grid-row:span 2}
+.wg-s2x1{grid-column:span 2}
+.wg-s4x1{grid-column:span 4}
+.wg-s1{grid-column:span 1}
+
+.wg-me{display:flex;align-items:center;gap:16px;padding:18px}
+.wg-av{width:96px;height:96px;border-radius:50%;border:1.5px dashed #B6AEC8;background:rgba(255,255,255,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex:none;color:#8C849E;font-size:12px}
+.wg-me b{display:block;font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.wg-me p{margin:4px 0 0;font-size:15px;color:#4A4558}
+.wg-me .wg-chip{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:rgba(36,33,47,.07);border-radius:99px;padding:4px 10px;font-size:12px;color:#4A4558}
+
+.wg-dday{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,rgba(255,255,255,.7),rgba(255,226,214,.65))}
+.wg-dday .wg-big{display:flex;align-items:flex-end;gap:4px}
+.wg-dday .wg-big b{font-size:64px;font-weight:800;line-height:.9;color:#24212F}
+.wg-dday .wg-big span{font-size:14px;font-weight:700;color:#6A6478;padding-bottom:6px}
+.wg-dday p{margin:0;font-size:14px;font-weight:700}
+.wg-ring{position:absolute;right:12px;top:12px}
+
+.wg-mood{display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,rgba(255,255,255,.7),rgba(220,210,248,.6))}
+.wg-mood .wg-cup{width:46px;height:46px;border-radius:16px;background:rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center}
+.wg-mood p{margin:0;font-size:16px;font-weight:700;line-height:1.35}
+
+.wg-music{display:flex;gap:14px;align-items:center;padding:16px;background:rgba(40,36,56,.78);border-color:rgba(255,255,255,.18);color:#fff}
+.wg-music .wg-cover{width:122px;height:122px;border-radius:18px;border:1.5px dashed rgba(255,255,255,.35);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;color:rgba(255,255,255,.6);flex:none;text-align:center}
+.wg-music .wg-info{flex:1;min-width:0;display:flex;flex-direction:column;height:122px}
+.wg-music small{color:rgba(255,255,255,.62)}
+.wg-music b{display:block;font-size:20px;font-weight:800;margin-top:6px;line-height:1.2}
+.wg-music .wg-ar{font-size:14px;color:rgba(255,255,255,.72)}
+.wg-prog{margin-top:auto;height:4px;border-radius:2px;background:rgba(255,255,255,.2);position:relative}
+.wg-prog:after{content:"";position:absolute;left:0;top:0;bottom:0;width:40%;border-radius:2px;background:linear-gradient(90deg,#FFC8B4,#CDBBFF)}
+.wg-ctrl{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.wg-ctrl .wg-t{font-size:12px;color:rgba(255,255,255,.55);font-family:'Bricolage Grotesque',sans-serif}
+.wg-ctrl span.wg-btns{display:flex;align-items:center;gap:14px}
+.wg-ctrl .wg-play{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+
+.wg-photo{padding:10px}
+.wg-photo .wg-ph{height:100%;border-radius:16px;border:1.5px dashed #B6AEC8;background:rgba(255,255,255,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#8C849E;font-size:12px}
+
+.wg-app{display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:#24212F}
+.wg-app i{width:62px;height:62px;border-radius:19px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(80,60,130,.14),inset 0 0 0 1px rgba(255,255,255,.5)}
+.wg-app span{font-size:12px;font-weight:500;line-height:1.1;white-space:nowrap}
+.wg-app.a i{background:linear-gradient(145deg,#FFB9A4,#F48FB1 55%,#B79BF2)}
+.wg-app.b i{background:linear-gradient(145deg,#FFE7A8,#F6C177)}
+
+.wg-cnt{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+.wg-cnt div{display:flex;flex-direction:column}
+.wg-cnt b{font-size:24px;font-weight:800;line-height:1.05}
+.wg-cnt span{font-size:12px;color:#6A6478}
+.wg-cnt hr{width:1px;height:34px;border:0;background:rgba(36,33,47,.12);margin:0}
+
+.wg-q{display:flex;align-items:center;gap:12px;padding:12px 14px 12px 16px;background:linear-gradient(100deg,rgba(255,255,255,.72),rgba(212,240,227,.7))}
+.wg-q .wg-qm{width:44px;height:44px;border-radius:14px;background:#24212F;color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;flex:none}
+.wg-q div{flex:1;min-width:0}
+.wg-q p{margin:1px 0 0;font-size:15px;font-weight:700;line-height:1.3}
+
+.wg-dots{display:flex;justify-content:center;gap:6px;margin:16px 0 0}
+.wg-dots i{width:6px;height:6px;border-radius:50%;background:rgba(36,33,47,.2)}
+.wg-dots i:first-child{background:#24212F;width:16px;border-radius:3px}
+
+.wg-dock{margin:14px -6px 0;padding:10px;border-radius:32px;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.8);-webkit-backdrop-filter:blur(22px) saturate(150%);backdrop-filter:blur(22px) saturate(150%);box-shadow:0 10px 30px rgba(80,60,130,.12);display:flex;gap:10px;align-items:center}
+.wg-knock{position:relative;flex:1;height:64px;border:none;border-radius:22px;background:#24212F;color:#fff;font:inherit;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;box-shadow:0 8px 20px rgba(36,33,47,.25)}
+.wg-knock .wg-hand{width:36px;height:36px;border-radius:12px;background:linear-gradient(145deg,#FFC8B4,#CDBBFF);display:flex;align-items:center;justify-content:center}
+.wg-badge{position:absolute;top:-8px;right:-4px;min-width:28px;height:28px;padding:0 7px;border-radius:14px;background:#F0644F;color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;border:2.5px solid #F4F0FA;font-family:'Bricolage Grotesque',sans-serif}
+.wg-knock em{font-style:normal;font-weight:500;font-size:13px;opacity:.7;margin-left:-2px}
+.wg-dk{width:64px;height:64px;border-radius:22px;background:rgba(255,255,255,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;font-weight:700;color:#4A4558;flex:none}
+
+.wg-nc{margin-top:30px}
+.wg-nch{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px;margin-bottom:10px}
+.wg-nch b{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.wg-nch span{font-size:12px;color:#6A6478}
+.wg-stack{position:relative;padding-bottom:16px}
+.wg-n{position:relative;z-index:2;display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:22px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.85);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 6px 18px rgba(80,60,130,.08)}
+.wg-n+.wg-n{margin-top:8px}
+.wg-n .wg-ni{width:38px;height:38px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;font-weight:800;font-size:15px;color:#24212F}
+.wg-n .wg-nb{flex:1;min-width:0}
+.wg-n .wg-nt{display:flex;justify-content:space-between;font-size:12px;color:#6A6478}
+.wg-n .wg-nt b{color:#24212F;font-size:14px;font-weight:700}
+.wg-n p{margin:2px 0 0;font-size:15px}
+.wg-ghost{position:absolute;left:14px;right:14px;bottom:6px;height:30px;border-radius:0 0 20px 20px;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.7);border-top:0;z-index:1}
+.wg-ghost.two{left:28px;right:28px;bottom:0;background:rgba(255,255,255,.3)}
+.wg-reply{display:flex;gap:8px;margin-top:10px;padding:8px;border-radius:22px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8)}
+.wg-reply span{flex:1;height:46px;border-radius:15px;background:rgba(255,255,255,.75);display:flex;align-items:center;padding:0 14px;color:#8C849E;font-size:14px}
+.wg-reply button{height:46px;padding:0 18px;border:none;border-radius:15px;background:#24212F;color:#fff;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+
+.wg-foot{text-align:center;font-size:12px;color:#8C849E;margin:30px 0 0}
+.wg-foot a{color:#5C566B;text-decoration:none;font-weight:700}
+</style>
+</helmet>
+<div class="wg-root">
+  <div class="wg-top">
+    <span class="wg-logo">knock!</span>
+    <span class="wg-live"><i></i>지우의 방</span>
+  </div>
+
+  <div class="wg-grid">
+    <div class="wg-w wg-s4x2 wg-me">
+      <div class="wg-av" role="img" aria-label="프로필 사진 자리"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A39BB6" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>프로필</div>
+      <div><b>지우</b><p>똑똑, 들어와도 돼</p></div>
+    </div>
+
+    <div class="wg-w wg-s2x2 wg-dday">
+      <svg class="wg-ring" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="rgba(36,33,47,.1)" stroke-width="4"/><circle cx="20" cy="20" r="16" fill="none" stroke="#F0896F" stroke-width="4" stroke-linecap="round" stroke-dasharray="100.5" stroke-dashoffset="34" transform="rotate(-90 20 20)"/></svg>
+      <small>D-day</small>
+      <div class="wg-big"><span>D-</span><b class="wg-num">12</b></div>
+      <p>생일까지</p>
+    </div>
+
+    <div class="wg-w wg-s2x2 wg-mood">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start"><small>오늘의 기분</small><span class="wg-cup"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5B4C8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 01-5 5h-1a5 5 0 01-5-5z"/><path d="M16 11h1.5a2.5 2.5 0 010 5H16"/><path d="M9 3c-.6 1 .6 2 0 3M12 3c-.6 1 .6 2 0 3"/></svg></span></div>
+      <p>시험 D-3,<br>커피 수혈 중</p>
+    </div>
+
+    <div class="wg-w wg-s4x2 wg-music">
+      <div class="wg-cover" role="img" aria-label="앨범 커버 자리"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>앨범 커버</div>
+      <div class="wg-info">
+        <small>요즘 듣는 노래</small>
+        <b>좋은 날</b>
+        <span class="wg-ar">아이유</span>
+        <div class="wg-prog"></div>
+        <div class="wg-ctrl"><span class="wg-t">1:32</span>
+          <span class="wg-btns">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>
+            <span class="wg-play"><svg width="14" height="14" viewBox="0 0 24 24" fill="#24212F" aria-hidden="true"><path d="M7 4h4v16H7zM14 4h4v16h-4z"/></svg></span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg>
+          </span>
+          <span class="wg-t">3:52</span></div>
+      </div>
+    </div>
+
+    <div class="wg-w wg-s2x2 wg-photo"><div class="wg-ph" role="img" aria-label="주인이 올린 사진 자리"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A39BB6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>주인이 올린 사진</div></div>
+
+    <a href="#" class="wg-s1 wg-app a" aria-label="인스타그램 @jiwoo.room"><i><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/></svg></i><span>인스타</span></a>
+    <a href="#" class="wg-s1 wg-app b" aria-label="필름 사진 모아둔 곳, 블로그"><i><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 8h16M4 16h16M8 3v18M16 3v18"/></svg></i><span>필름 블로그</span></a>
+
+    <div class="wg-w wg-s2x1 wg-cnt"><div><b class="wg-num">4</b><span>오늘</span></div><hr><div><b class="wg-num">112</b><span>지금까지</span></div></div>
+
+    <div class="wg-w wg-s4x1 wg-q">
+      <span class="wg-qm">Q</span>
+      <div><small>요즘 질문</small><p>제일 좋아하는 편의점 간식은?</p></div>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8C849E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+    </div>
+  </div>
+
+  <div class="wg-dots"><i></i><i></i><i></i></div>
+
+  <div class="wg-dock">
+    <button type="button" class="wg-knock"><span class="wg-hand"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#24212F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 014 0v4M11 10V6a2 2 0 014 0v5M15 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5.2-3L4 14a2 2 0 013.4-2L9 13"/></svg></span>노크하기 <em>지금까지 27번</em></button>
+    <span class="wg-dk" style="position:relative"><span class="wg-badge" style="top:-6px;right:-6px">2</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A4558" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>방명록</span>
+  </div>
+
+  <div class="wg-nc">
+    <div class="wg-nch"><b>방명록 2</b><span>최근 남긴 글</span></div>
+    <div class="wg-stack">
+      <div class="wg-n"><span class="wg-ni" style="background:#FFE0D4">민</span><div class="wg-nb"><div class="wg-nt"><b>민지</b><span>10.4</span></div><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+      <div class="wg-n"><span class="wg-ni" style="background:#E4DCFA">?</span><div class="wg-nb"><div class="wg-nt"><b>익명</b><span>10.2</span></div><p>도서관에서 찍고 감</p></div></div>
+      <span class="wg-ghost"></span><span class="wg-ghost two"></span>
+    </div>
+    <div class="wg-reply"><span>한 줄 남기기</span><button type="button">남기기</button></div>
+  </div>
+
+  <p class="wg-foot">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

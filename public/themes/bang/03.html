@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 03 · 포스트잇 보드</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Gaegu:wght@400;700&amp;family=Gowun+Dodum&amp;display=swap">
+<style>
+body{margin:0}
+.pi-root{width:390px;min-height:1606px;box-sizing:border-box;position:relative;overflow:hidden;color:#3A2F28;font-family:'Gowun Dodum','Noto Sans KR',sans-serif;font-size:14px;line-height:1.5;word-break:keep-all;padding:18px 18px 28px;
+  background-color:#EDE4D6;
+  background-image:radial-gradient(rgba(120,92,60,.10) 1px,transparent 1.2px),radial-gradient(rgba(255,255,255,.55) 1px,transparent 1.2px);
+  background-size:7px 7px,11px 11px;background-position:0 0,3px 4px}
+.pi-root *{box-sizing:border-box}
+.pi-hand{font-family:'Gaegu','Gowun Dodum',sans-serif}
+.pi-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+
+.pi-top{display:flex;justify-content:space-between;align-items:center;height:36px}
+.pi-label{position:relative;background:#FFFDF8;padding:4px 14px 5px;font-size:18px;transform:rotate(-2deg);box-shadow:0 1px 2px rgba(60,40,20,.18)}
+.pi-label:before{content:"";position:absolute;left:-8px;top:-6px;width:30px;height:13px;background:rgba(173,205,196,.85);transform:rotate(-24deg)}
+.pi-ticket{display:flex;align-items:center;gap:8px;background:#3A2F28;color:#F6EFE3;font-size:12px;padding:5px 12px;border-radius:4px;transform:rotate(1.5deg);
+  -webkit-mask:radial-gradient(circle 4px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 4px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 4px at 0 50%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 4px at 100% 50%,transparent 98%,#000) right/51% 100% no-repeat}
+.pi-ticket b{color:#FFD873;font-weight:400}
+.pi-ticket i{width:1px;height:12px;background:rgba(246,239,227,.35)}
+
+.pi-tape{position:absolute;height:20px;width:74px;background:rgba(255,255,255,.55);border-left:2px dotted rgba(0,0,0,.06);border-right:2px dotted rgba(0,0,0,.06);z-index:3}
+.pi-tape.mint{background:rgba(173,214,200,.78)}
+.pi-tape.pink{background:repeating-linear-gradient(45deg,rgba(244,190,190,.85) 0 6px,rgba(252,222,218,.85) 6px 12px)}
+.pi-tape.yel{background:rgba(250,222,140,.8)}
+.pi-tape.lav{background:repeating-linear-gradient(90deg,rgba(196,186,232,.85) 0 5px,rgba(220,212,245,.85) 5px 10px)}
+.pi-pin{position:absolute;width:16px;height:16px;border-radius:50%;z-index:4;box-shadow:2px 3px 3px rgba(40,25,10,.28)}
+.pi-pin:after{content:"";position:absolute;left:4px;top:3px;width:5px;height:4px;border-radius:50%;background:rgba(255,255,255,.7)}
+.pi-pin.r{background:#E0664F}.pi-pin.g{background:#5E9C86}.pi-pin.b{background:#6C86C4}.pi-pin.y{background:#E7B53D}
+
+.pi-hero{position:relative;height:332px;margin-top:14px}
+.pi-pola{position:absolute;left:4px;top:10px;width:196px;background:#FFFEFB;padding:12px 12px 14px;transform:rotate(-3.5deg);box-shadow:0 2px 3px rgba(60,40,20,.12),0 10px 18px rgba(60,40,20,.14)}
+.pi-ph{border:1.5px dashed #C9BBA8;background:#F7F2EA;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#9C8B76;font-size:12px;text-align:center}
+.pi-pola .pi-ph{height:178px}
+.pi-pola b{display:block;font-size:30px;line-height:1;margin-top:12px;font-weight:700}
+.pi-pola span{display:block;font-size:19px;color:#6E5E4E;margin-top:4px}
+.pi-note{position:absolute;padding:16px 14px 14px;box-shadow:0 1px 1px rgba(60,40,20,.08),0 8px 14px rgba(60,40,20,.14)}
+.pi-note small{display:block;font-size:12px;color:rgba(58,47,40,.62);letter-spacing:.02em}
+.pi-mood{right:0;top:0;width:156px;height:156px;background:#FBE79A;transform:rotate(4deg)}
+.pi-mood:after{content:"";position:absolute;right:0;bottom:0;width:22px;height:22px;background:linear-gradient(135deg,#EAD37A 50%,#EDE4D6 50%)}
+.pi-mood p{margin:6px 0 0;font-size:20px;line-height:1.2;font-weight:700}
+.pi-dday{right:6px;top:170px;width:140px;height:136px;background:#F8C9C3;transform:rotate(-2.5deg)}
+.pi-dday p{margin:2px 0 0;font-size:15px}
+.pi-dday strong{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:44px;line-height:1;letter-spacing:-.04em;color:#B4483B;margin-top:6px}
+
+.pi-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px;align-items:start}
+.pi-card{position:relative;padding:16px 14px 14px;box-shadow:0 1px 1px rgba(60,40,20,.08),0 8px 14px rgba(60,40,20,.14)}
+.pi-card small{display:block;font-size:12px;color:rgba(58,47,40,.62)}
+.pi-song{background:#CFE6DC;transform:rotate(2deg);margin-top:10px}
+.pi-song .pi-rec{display:flex;align-items:center;gap:10px;margin-top:8px}
+.pi-song .pi-rec i{width:40px;height:40px;border-radius:50%;flex:none;background:radial-gradient(circle,#CFE6DC 0 4px,#3A2F28 4.5px 7px,#4B3F37 7.5px 12px,#3A2F28 12.5px 13.5px,#4B3F37 14px);}
+.pi-song b{display:block;font-size:22px;line-height:1.1;font-weight:700}
+.pi-song span{font-size:13px;color:#4F6B60}
+.pi-bar{margin-top:14px;height:4px;border-radius:2px;background:rgba(58,47,40,.15);position:relative}
+.pi-bar:after{content:"";position:absolute;left:0;top:0;bottom:0;width:38%;border-radius:2px;background:#3A2F28}
+.pi-time{display:flex;justify-content:space-between;font-size:12px;color:#4F6B60;margin-top:4px}
+.pi-q{background:#FFFEFB;transform:rotate(-1.5deg);
+  background-image:linear-gradient(transparent 31px,#E6DCCB 31px 32px);background-size:100% 26px;background-position:0 12px;border-top:6px solid #9DB4D9}
+.pi-q p{margin:6px 0 0;font-size:21px;line-height:26px;font-weight:700}
+.pi-q em{display:block;font-style:normal;font-size:12px;color:#8A7A66;margin-top:10px}
+
+.pi-photo{position:relative;margin:30px 20px 0 30px;background:#FFFEFB;padding:12px 12px 12px;transform:rotate(1.8deg);box-shadow:0 2px 3px rgba(60,40,20,.12),0 10px 18px rgba(60,40,20,.14)}
+.pi-photo .pi-ph{height:200px}
+.pi-photo p{margin:10px 2px 0;font-size:19px;color:#6E5E4E;display:flex;justify-content:space-between}
+.pi-photo p em{font-style:normal;font-size:12px;color:#A0907C;font-family:'Gowun Dodum',sans-serif;align-self:center}
+
+.pi-knock{position:relative;margin:34px 6px 0;display:flex;align-items:stretch;gap:0;transform:rotate(-1.2deg)}
+.pi-kbtn{flex:1;position:relative;height:96px;padding-right:76px !important;border:none;background:#E9714F;color:#FFF8F0;border-radius:6px;font:inherit;cursor:pointer;display:flex;align-items:center;gap:14px;padding:0 20px;text-align:left;
+  box-shadow:inset 0 0 0 5px #E9714F,inset 0 0 0 6.5px rgba(255,240,225,.55),0 3px 0 #C25639,0 12px 20px rgba(160,70,40,.28)}
+.pi-kbtn .pi-hand{font-size:30px;font-weight:700;line-height:1}
+.pi-kbtn small{display:block;font-size:13px;opacity:.9;margin-top:4px}
+.pi-kbtn .pi-door{width:52px;height:52px;border-radius:50%;background:rgba(255,248,240,.18);display:flex;align-items:center;justify-content:center;flex:none}
+.pi-stamp{position:absolute;right:-4px;top:-30px;width:74px;height:74px;border-radius:50%;border:2px solid #8E3A26;color:#8E3A26;background:rgba(255,250,240,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(12deg);box-shadow:0 0 0 4px rgba(255,250,240,.92),0 0 0 5.5px #8E3A26;z-index:2}
+.pi-stamp b{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;line-height:1;letter-spacing:-.03em}
+.pi-stamp span{font-size:12px;line-height:1.2}
+
+.pi-links{display:flex;flex-direction:column;gap:14px;margin-top:34px;padding:0 4px}
+.pi-tag{position:relative;display:flex;align-items:center;gap:12px;min-height:58px;padding:10px 16px 10px 40px;background:#F6EEDF;color:#3A2F28;text-decoration:none;
+  clip-path:polygon(16px 0,100% 0,100% 100%,16px 100%,0 50%);filter:drop-shadow(0 4px 6px rgba(60,40,20,.16))}
+.pi-tag:before{content:"";position:absolute;left:18px;top:50%;width:9px;height:9px;margin-top:-4.5px;border-radius:50%;background:#EDE4D6;box-shadow:inset 0 0 0 1.5px #BFAE96}
+.pi-tag.a{transform:rotate(-1deg);margin-right:34px}
+.pi-tag.b{transform:rotate(1.2deg);margin-left:28px;background:#E3ECF3}
+.pi-tag .pi-ic{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;flex:none}
+.pi-tag span{flex:1;font-size:15px;line-height:1.3}
+.pi-tag small{display:block;font-size:12px;color:#7D6D5B}
+
+.pi-gb{position:relative;margin-top:44px}
+.pi-gbh{display:inline-block;position:relative;left:50%;transform:translateX(-50%) rotate(-1.5deg);background:rgba(250,222,140,.85);padding:4px 18px;font-size:22px;font-weight:700}
+.pi-gbh em{font-style:normal;font-size:13px;font-family:'Gowun Dodum',sans-serif;color:#7A6640;margin-left:6px}
+.pi-gbrow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+.pi-sn{position:relative;padding:18px 14px 14px;min-height:122px;box-shadow:0 1px 1px rgba(60,40,20,.08),0 8px 14px rgba(60,40,20,.14)}
+.pi-sn p{margin:0;font-size:19px;line-height:1.25;font-weight:700}
+.pi-sn div{margin-top:10px;font-size:12px;color:rgba(58,47,40,.65);display:flex;justify-content:space-between}
+.pi-sn.a{background:#D8E3F6;transform:rotate(-3deg)}
+.pi-sn.b{background:#E7DDF5;transform:rotate(2.5deg);margin-top:12px}
+.pi-write{position:relative;margin:26px 2px 0;background:#FFFEFB;padding:14px;transform:rotate(-.6deg);box-shadow:0 1px 1px rgba(60,40,20,.08),0 8px 14px rgba(60,40,20,.12)}
+.pi-write label{display:block;font-size:12px;color:#8A7A66;margin-bottom:8px}
+.pi-in{display:flex;gap:8px}
+.pi-in span{flex:1;height:48px;border-bottom:1.5px dashed #C9BBA8;display:flex;align-items:center;padding:0 4px;color:#A0907C;font-size:15px}
+.pi-in button{height:48px;padding:0 18px;border:none;border-radius:6px;background:#3A2F28;color:#FFF8F0;font:inherit;font-size:15px;cursor:pointer}
+
+.pi-foot{text-align:center;font-size:12px;color:#A0907C;margin:34px 0 0}
+.pi-foot a{color:#7D6D5B;text-decoration:none}
+</style>
+</helmet>
+<div class="pi-root">
+  <div class="pi-top">
+    <span class="pi-label pi-logo">knock!</span>
+    <span class="pi-ticket">오늘 <b>4</b><i></i>지금까지 <b>112</b></span>
+  </div>
+
+  <div class="pi-hero">
+    <div class="pi-pola">
+      <span class="pi-tape mint" style="left:58px;top:-10px;transform:rotate(-4deg)"></span>
+      <div class="pi-ph" role="img" aria-label="프로필 사진 자리"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B5A48E" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>프로필 사진</div>
+      <b class="pi-hand">지우</b>
+      <span class="pi-hand">똑똑, 들어와도 돼</span>
+    </div>
+    <div class="pi-note pi-mood">
+      <span class="pi-pin r" style="left:66px;top:-6px"></span>
+      <small>오늘의 기분</small>
+      <p class="pi-hand">시험 D-3,<br>커피 수혈 중</p>
+    </div>
+    <div class="pi-note pi-dday">
+      <span class="pi-tape pink" style="left:34px;top:-10px;width:66px;transform:rotate(3deg)"></span>
+      <small>D-day</small>
+      <strong>D-12</strong>
+      <p>생일까지</p>
+    </div>
+  </div>
+
+  <div class="pi-row">
+    <div class="pi-card pi-q">
+      <span class="pi-pin b" style="left:50%;top:-12px;margin-left:-8px"></span>
+      <small>요즘 질문</small>
+      <p class="pi-hand">제일 좋아하는 편의점 간식은?</p>
+      <em>방명록에 답해줘요</em>
+    </div>
+    <div class="pi-card pi-song">
+      <span class="pi-tape yel" style="right:-14px;top:-6px;width:56px;transform:rotate(38deg)"></span>
+      <small>요즘 듣는 노래</small>
+      <div class="pi-rec"><i aria-hidden="true"></i><div><b class="pi-hand">좋은 날</b><span>아이유</span></div></div>
+      <div class="pi-bar"></div><div class="pi-time"><span>1:32</span><span>3:52</span></div>
+    </div>
+  </div>
+
+  <div class="pi-photo">
+    <span class="pi-tape lav" style="left:-18px;top:6px;width:64px;transform:rotate(-38deg)"></span>
+    <span class="pi-tape lav" style="right:-18px;top:6px;width:64px;transform:rotate(38deg)"></span>
+    <div class="pi-ph" role="img" aria-label="주인이 올린 사진 자리"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#B5A48E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>주인이 올린 사진</div>
+    <p class="pi-hand">요즘 내 책상 <em>10.3</em></p>
+  </div>
+
+  <div class="pi-knock">
+    <span class="pi-pin g" style="left:24px;top:-7px"></span>
+    <button type="button" class="pi-kbtn">
+      <span class="pi-door"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFF8F0" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 014 0v4M11 10V6a2 2 0 014 0v5M15 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5.2-3L4 14a2 2 0 013.4-2L9 13"/></svg></span>
+      <span><span class="pi-hand">노크하기</span><small>두드리면 지우한테 알림이 가요</small></span>
+    </button>
+    <div class="pi-stamp"><b>27</b><span>번 노크</span></div>
+  </div>
+
+  <div class="pi-links">
+    <a href="#" class="pi-tag a"><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A2F28" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/></svg></span><span>인스타그램<small>@jiwoo.room</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A0907C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a href="#" class="pi-tag b"><span class="pi-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A2F28" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 6l1.5-2h5L16 6"/><circle cx="12" cy="12.5" r="3.2"/></svg></span><span>필름 사진 모아둔 곳<small>블로그</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A0907C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+  </div>
+
+  <div class="pi-gb">
+    <span class="pi-gbh pi-hand">방명록 <em>2</em></span>
+    <div class="pi-gbrow">
+      <div class="pi-sn a"><span class="pi-pin y" style="left:50%;top:-6px;margin-left:-8px"></span><p class="pi-hand">케이스 뭐야 너무 귀엽잖아</p><div><span>민지</span><span>10.4</span></div></div>
+      <div class="pi-sn b"><span class="pi-tape mint" style="left:36px;top:-10px;width:60px;transform:rotate(-5deg)"></span><p class="pi-hand">도서관에서 찍고 감</p><div><span>익명</span><span>10.2</span></div></div>
+    </div>
+    <div class="pi-write">
+      <label>나도 한 장 붙이기</label>
+      <div class="pi-in"><span class="pi-hand">한 줄 남기기</span><button type="button">남기기</button></div>
+    </div>
+  </div>
+
+  <p class="pi-foot">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

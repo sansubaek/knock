@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 11 · 스위스 포스터</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&amp;family=IBM+Plex+Sans+KR:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+.sw{width:390px;min-height:1516px;box-sizing:border-box;background:#F1EEE7;color:#111;font-family:'IBM Plex Sans KR','Noto Sans CJK KR',sans-serif;font-size:15px;line-height:1.5;word-break:keep-all;overflow:hidden}
+.sw *{box-sizing:border-box}
+.sw-en{font-family:'Archivo','Helvetica Neue',Arial,sans-serif}
+.sw-hero{position:relative;height:560px;background:#E5401F;overflow:hidden}
+.sw-grid{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(17,17,17,.16) 0 1px,transparent 1px 65px);pointer-events:none}
+.sw-top{position:absolute;left:0;right:0;top:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1.5px solid #111}
+.sw-logo{font-family:'Archivo',sans-serif;font-weight:900;font-size:19px;letter-spacing:-.04em}
+.sw-tag{font-size:12px;font-weight:600;line-height:1.25;text-align:right}
+.sw-tag span{display:block;font-family:'Archivo',sans-serif;font-weight:500;opacity:.8}
+.sw-name{position:absolute;right:-22px;top:62px;writing-mode:vertical-rl;font-size:152px;font-weight:700;line-height:.92;letter-spacing:-.04em;color:#111;margin:0}
+.sw-num{position:absolute;left:16px;top:66px;font-family:'Archivo',sans-serif;font-weight:900;font-size:13px;letter-spacing:.02em}
+.sw-num b{display:block;font-size:64px;line-height:.9;letter-spacing:-.05em;margin-top:6px;color:#F1EEE7}
+.sw-photo{position:absolute;left:16px;top:168px;width:150px;height:186px;border:1.5px dashed rgba(17,17,17,.55);background:rgba(241,238,231,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px;font-weight:600;color:#2A1009}
+.sw-circ{position:absolute;left:168px;top:372px;width:100px;height:100px;mix-blend-mode:multiply;border-radius:50%;background:#111;display:flex;align-items:center;justify-content:center}
+.sw-circ svg{display:block}
+.sw-role{position:absolute;left:16px;top:416px;width:190px}
+.sw-role b{display:block;font-size:22px;font-weight:700;line-height:1.25;letter-spacing:-.02em}
+.sw-role span{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:15px;font-weight:600}
+.sw-role em{width:30px;height:30px;border:1.5px dashed rgba(17,17,17,.55);display:flex;align-items:center;justify-content:center;flex:none}
+.sw-foot{position:absolute;left:0;right:0;bottom:0;height:52px;border-top:1.5px solid #111;display:grid;grid-template-columns:130px 1fr 1fr;align-items:center;padding:0 16px;font-size:12px;font-weight:600}
+.sw-foot span{font-family:'Archivo',sans-serif;font-weight:700;letter-spacing:.02em}
+.sw-acts a{display:flex;align-items:center;justify-content:space-between;text-decoration:none;padding:0 16px}
+.sw-save{height:76px;background:#111;color:#F1EEE7}
+.sw-save div{display:flex;align-items:baseline;gap:14px}
+.sw-save i,.sw-give i{font-style:normal;font-family:'Archivo',sans-serif;font-weight:800;font-size:13px;color:#E5401F}
+.sw-save strong{font-size:22px;font-weight:700;letter-spacing:-.02em}
+.sw-give{height:64px;background:#F1EEE7;color:#111;border-bottom:1.5px solid #111}
+.sw-give div{display:flex;align-items:baseline;gap:14px}
+.sw-give strong{font-size:19px;font-weight:700;letter-spacing:-.02em}
+.sw-note{display:flex;justify-content:space-between;padding:10px 16px 0;font-size:12px;color:#55524C}
+.sw-note span{font-family:'Archivo',sans-serif;font-weight:700;color:#111}
+.sw-sec{display:grid;grid-template-columns:98px 1fr;margin:30px 16px 0;padding-top:12px;border-top:3px solid #111}
+.sw-h{font-family:'Archivo',sans-serif;font-weight:900;font-size:44px;line-height:.95;letter-spacing:-.05em;color:#E5401F}
+.sw-h small{display:block;margin-top:8px;font-family:'IBM Plex Sans KR',sans-serif;font-size:13px;font-weight:700;letter-spacing:0;color:#111}
+.sw-row{display:grid;grid-template-columns:52px 1fr;gap:8px;padding:11px 0;border-bottom:1px solid rgba(17,17,17,.2);align-items:baseline}
+.sw-row:first-child{padding-top:2px}
+.sw-row small{font-size:12px;font-weight:600;color:#6A665E}
+.sw-row span{font-size:16px;font-weight:500}
+.sw-row span.sw-en{font-weight:600;letter-spacing:-.01em}
+.sw-about{margin:0;font-size:18px;font-weight:600;line-height:1.55;letter-spacing:-.02em}
+.sw-about em{font-style:normal;background:linear-gradient(transparent 62%,rgba(229,64,31,.35) 62%)}
+.sw-yr{display:grid;grid-template-columns:84px 1fr;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(17,17,17,.2)}
+.sw-yr:first-child{padding-top:0}
+.sw-yr b{font-family:'Archivo',sans-serif;font-weight:900;font-size:30px;letter-spacing:-.04em;line-height:1}
+.sw-yr b.sw-ko{font-family:'IBM Plex Sans KR',sans-serif;font-size:22px;font-weight:700}
+.sw-yr span{font-size:16px;font-weight:600;line-height:1.35}
+.sw-yr span small{display:block;font-size:13px;font-weight:400;color:#6A665E}
+.sw-ln{display:flex;align-items:center;justify-content:space-between;height:58px;text-decoration:none;color:#111;border-bottom:1px solid rgba(17,17,17,.2)}
+.sw-ln:first-child{border-top:0;margin-top:-6px}
+.sw-ln div{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:700}
+.sw-ln svg.sw-ic{flex:none}
+.sw-ln i{width:40px;height:40px;background:#E5401F;display:flex;align-items:center;justify-content:center}
+.sw-own{margin:44px 0 0;padding:14px 16px 24px;text-align:center;font-size:12px;color:#9C978D}
+.sw-own a{color:#6A665E;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="sw">
+  <div class="sw-hero">
+    <div class="sw-grid" aria-hidden="true"></div>
+    <div class="sw-top"><span class="sw-logo">knock.</span><div class="sw-tag">명함<span>Card N°011 / 2026</span></div></div>
+    <div class="sw-num" aria-hidden="true">Profile<b>01</b></div>
+    <h1 class="sw-name">주건우</h1>
+    <div class="sw-photo" aria-label="프로필 사진 자리"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2A1009" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1.2-3.6 4-5 7-5s5.8 1.4 7 5"/></svg>프로필 사진</div>
+    <div class="sw-circ" aria-hidden="true"></div>
+    <div class="sw-role">
+      <b>대표 · 제품</b>
+      <span><em aria-label="회사 로고 자리"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2A1009" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16"/><path d="M4 15l4-4 4 4 3-3 5 5"/></svg></em>knock</span>
+    </div>
+    <div class="sw-foot"><span>Joo Geon-woo</span><div>knock</div><div>인하대학교</div></div>
+  </div>
+
+  <div class="sw-acts">
+    <a href="#" class="sw-save"><div><i>A</i><strong>연락처에 저장</strong></div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#F1EEE7" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M12 4v16M4 12h16"/></svg></a>
+    <a href="#" class="sw-give"><div><i>B</i><strong>내 명함 주기</strong></div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <p class="sw-note">앱 설치 없이 바로 저장돼요<span>vCard</span></p>
+
+  <section class="sw-sec">
+    <div class="sw-h">02<small>연락처</small></div>
+    <div>
+      <div class="sw-row"><small>전화</small><span class="sw-en">010-0000-0000</span></div>
+      <div class="sw-row"><small>메일</small><span class="sw-en">me@example.com</span></div>
+      <div class="sw-row"><small>소속</small><span>knock · 인하대학교</span></div>
+    </div>
+  </section>
+
+  <section class="sw-sec">
+    <div class="sw-h">03<small>소개</small></div>
+    <p class="sw-about">케이스 뒤 QR을 찍으면 내 페이지가 열리는 폰케이스를 만들어요. <em>종이 명함 대신 폰을 내밀면 되도록요.</em></p>
+  </section>
+
+  <section class="sw-sec">
+    <div class="sw-h">04<small>경력</small></div>
+    <div>
+      <div class="sw-yr"><b>2026</b><span>knock 창업<small>대표 · 제품</small></span></div>
+      <div class="sw-yr"><b>2025</b><span>인하벤처클럽<small>창업 동아리</small></span></div>
+      <div class="sw-yr"><b class="sw-ko">학력</b><span>인하대학교</span></div>
+    </div>
+  </section>
+
+  <section class="sw-sec">
+    <div class="sw-h">05<small>링크</small></div>
+    <div>
+      <a href="#" class="sw-ln"><div><svg class="sw-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.9" stroke-linecap="square" aria-hidden="true"><rect x="3" y="6" width="18" height="14"/><path d="M3 11h18M9 6V3h6v3"/></svg>포트폴리오</div><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></a>
+      <a href="#" class="sw-ln"><div><svg class="sw-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>링크드인</div><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></i></a>
+    </div>
+  </section>
+
+  <p class="sw-own">knock. · <a href="#">나도 명함 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

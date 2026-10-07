@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 18 · 포켓 게임기</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=DotGothic16&amp;family=Orbit&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap">
+<style>
+body{margin:0}
+.hh{width:390px;min-height:1829px;box-sizing:border-box;position:relative;overflow:hidden;color:#4A3A33;font-family:'Noto Sans KR',sans-serif;font-size:14px;line-height:1.45;word-break:keep-all;padding:22px 16px 26px;
+background:#F1E9DE;background-image:radial-gradient(rgba(122,90,74,.13) 1.2px,transparent 1.6px);background-size:16px 16px}
+.hh *{box-sizing:border-box}
+.hh-dot{font-family:'DotGothic16','Orbit',monospace}
+.hh-ko{font-family:'Orbit','DotGothic16',sans-serif}
+.hh-brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em}
+.hh-px{box-shadow:0 -2px 0 0 #4A3A33,0 2px 0 0 #4A3A33,-2px 0 0 0 #4A3A33,2px 0 0 0 #4A3A33}
+
+.hh-body{position:relative;margin-top:14px;border-radius:46px 46px 58px 58px;padding:20px 18px 26px;
+background:linear-gradient(160deg,#F0E1CD 0%,#E5CFB5 45%,#D9C0A2 100%);
+box-shadow:inset 0 3px 0 rgba(255,255,255,.55),inset 0 -6px 0 rgba(140,100,70,.18),inset 4px 0 0 rgba(255,255,255,.18),0 18px 34px rgba(90,60,40,.22),0 3px 0 #C6A985}
+.hh-strap{position:absolute;right:30px;top:-30px;width:46px;height:50px;pointer-events:none}
+.hh-head{display:flex;align-items:center;justify-content:space-between;padding:0 6px 14px}
+.hh-led{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#8A6A55;letter-spacing:.08em}
+.hh-led i{width:9px;height:9px;border-radius:50%;background:#8EE3B8;box-shadow:0 0 0 2px rgba(255,255,255,.5),0 0 10px #8EE3B8}
+.hh-head .hh-brand{font-size:17px;color:#7A5A4A;text-shadow:0 1px 0 rgba(255,255,255,.6)}
+.hh-head .hh-brand small{font-family:'Noto Sans KR',sans-serif;font-weight:700;font-size:12px;letter-spacing:.12em;margin-left:4px;color:#A0806A}
+.hh-vents{display:flex;gap:4px}
+.hh-vents i{width:4px;height:16px;border-radius:2px;background:#C9AE90;box-shadow:inset 0 1px 1px rgba(90,60,40,.35)}
+
+.hh-bezel{background:#3E322D;border-radius:24px 24px 30px 30px;padding:14px 14px 10px;box-shadow:inset 0 2px 6px rgba(0,0,0,.45),0 2px 0 rgba(255,255,255,.45)}
+.hh-screen{position:relative;background:#FBF3E4;border-radius:8px;padding:12px 12px 14px;overflow:hidden;
+background-image:repeating-linear-gradient(0deg,rgba(74,58,51,.035) 0 1px,transparent 1px 3px)}
+.hh-screen::after{content:'';position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 32%);pointer-events:none}
+.hh-sbar{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding-bottom:8px;border-bottom:2px dotted rgba(74,58,51,.35)}
+.hh-sbar span{display:flex;align-items:center;gap:5px}
+.hh-bat{display:inline-flex;gap:2px;padding:2px;border:2px solid #4A3A33;position:relative}
+.hh-bat::after{content:'';position:absolute;right:-5px;top:3px;width:3px;height:5px;background:#4A3A33}
+.hh-bat i{width:4px;height:6px;background:#4A3A33}
+.hh-bat i.e{background:transparent}
+.hh-char{display:grid;grid-template-columns:96px 1fr;gap:12px;margin-top:12px}
+.hh-pf{height:112px;border:2px dashed rgba(74,58,51,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:12px;background:rgba(127,184,164,.12)}
+.hh-name{font-size:28px;font-weight:900;line-height:1.1;display:flex;align-items:baseline;gap:6px}
+.hh-name small{font-size:12px;font-weight:700;background:#4A3A33;color:#FBF3E4;padding:1px 5px}
+.hh-intro{font-size:13px;margin-top:3px}
+.hh-stat{display:grid;grid-template-columns:40px 1fr;align-items:center;gap:6px;margin-top:8px;font-size:12px;font-weight:700}
+.hh-bar{display:flex;gap:2px;height:10px;padding:2px;background:#FBF3E4}
+.hh-bar i{flex:1;background:#E2725B}
+.hh-bar.m i{background:#7FB8A4}
+.hh-bar i.e{background:rgba(74,58,51,.12)}
+.hh-state{margin-top:14px;background:#4A3A33;color:#FBF3E4;padding:7px 10px;font-size:13px;display:flex;gap:8px;align-items:center}
+.hh-state b{color:#F2C66D;font-weight:700;flex:none}
+.hh-rows{margin-top:10px}
+.hh-row{display:grid;grid-template-columns:22px 52px 1fr auto;align-items:center;gap:6px;padding:8px 2px;border-bottom:2px dotted rgba(74,58,51,.28);font-size:14px}
+.hh-row small{font-size:12px;color:#8A6A55;font-weight:700}
+.hh-row b{font-weight:700}
+.hh-row b span{font-weight:400;color:#7A5A4A}
+.hh-row .hh-dd{font-size:20px;color:#E2725B;line-height:1}
+.hh-eq{display:flex;gap:2px;align-items:flex-end;height:14px}
+.hh-eq i{width:3px;background:#7FB8A4}
+.hh-dlg{position:relative;margin:20px 2px 2px;background:#FFFDF7;padding:14px 12px 12px}
+.hh-dlg .hh-tag{position:absolute;top:-11px;left:10px;background:#E2725B;color:#fff;font-size:12px;font-weight:700;padding:1px 8px}
+.hh-dlg p{margin:0;font-size:16px;font-weight:700;line-height:1.4}
+.hh-dlg .hh-tri{position:absolute;right:10px;bottom:8px}
+.hh-blab{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:8px;font-size:12px;color:#B39B8B;letter-spacing:.12em}
+.hh-blab i{width:5px;height:5px;border-radius:50%;background:#E2725B}
+
+.hh-ctrl{position:relative;height:200px;margin-top:22px}
+.hh-dpad{position:absolute;left:8px;top:22px;width:118px;height:118px;border-radius:50%;background:rgba(160,120,90,.16);box-shadow:inset 0 2px 4px rgba(90,60,40,.18)}
+.hh-dpad .v,.hh-dpad .h{position:absolute;background:linear-gradient(180deg,#5A4840,#43352F);border-radius:9px;box-shadow:0 3px 0 #2E2420,inset 0 1px 0 rgba(255,255,255,.18)}
+.hh-dpad .v{left:41px;top:12px;width:36px;height:94px}
+.hh-dpad .h{left:12px;top:41px;width:94px;height:36px}
+.hh-dpad .c{position:absolute;left:51px;top:51px;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#5c4a42,#3a2e29)}
+.hh-dpad svg{position:absolute}
+.hh-ab{position:absolute;right:0;top:0;width:190px;height:170px}
+.hh-ab .hh-socket{position:absolute;border-radius:50%;background:rgba(160,120,90,.18);box-shadow:inset 0 2px 4px rgba(90,60,40,.2)}
+.hh-a{position:absolute;right:6px;top:4px;width:104px;height:104px;border-radius:50%;border:none;cursor:pointer;font:inherit;color:#fff;
+background:radial-gradient(circle at 35% 28%,#F7B3A6 0%,#E9897E 38%,#D4685E 100%);box-shadow:0 6px 0 #A9483F,0 10px 18px rgba(150,60,50,.35),inset 0 2px 0 rgba(255,255,255,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.hh-a .hh-ak{font-size:18px;font-weight:900;line-height:1.1;display:flex;align-items:center;gap:4px}
+.hh-a .hh-an{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:30px;line-height:1;margin-top:2px;text-shadow:0 2px 0 rgba(150,60,50,.4)}
+.hh-b{position:absolute;left:10px;top:84px;width:70px;height:70px;border-radius:50%;border:none;cursor:pointer;font:inherit;color:#F7EDE3;font-size:13px;font-weight:700;
+background:radial-gradient(circle at 35% 28%,#A3826F 0%,#7A5A4A 55%,#644838 100%);box-shadow:0 5px 0 #4A3428,0 8px 14px rgba(90,60,40,.3),inset 0 2px 0 rgba(255,255,255,.3)}
+.hh-ablab{position:absolute;font-size:12px;font-weight:900;color:#A0806A;letter-spacing:.1em}
+.hh-pills{position:absolute;left:0;right:0;bottom:4px;display:flex;justify-content:center;gap:22px}
+.hh-pills div{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#A0806A;letter-spacing:.1em}
+.hh-pills i{width:50px;height:14px;border-radius:99px;background:#BFA388;box-shadow:inset 0 2px 2px rgba(90,60,40,.35),0 1px 0 rgba(255,255,255,.5);transform:rotate(-14deg)}
+.hh-knote{text-align:center;font-size:12px;color:#8A6A55;margin-top:6px;font-weight:500}
+.hh-spk{display:grid;grid-template-columns:repeat(7,8px);gap:5px;justify-content:center;margin-top:14px}
+.hh-spk i{width:8px;height:8px;border-radius:50%;background:#C2A587;box-shadow:inset 0 1px 2px rgba(90,60,40,.45)}
+.hh-spk i.n{background:transparent;box-shadow:none}
+
+.hh-sec{margin-top:30px}
+.hh-h{display:flex;align-items:center;justify-content:space-between;margin:0 4px 12px}
+.hh-h b{font-size:16px;font-weight:900;display:flex;align-items:center;gap:8px}
+.hh-h b i{width:8px;height:8px;background:#E2725B;display:inline-block}
+.hh-h small{font-size:12px;color:#8A6A55}
+.hh-carts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hh-cart{position:relative;display:block;text-decoration:none;color:#4A3A33;border-radius:16px 16px 10px 10px;padding:30px 12px 12px;min-height:168px;box-shadow:0 4px 0 rgba(90,60,40,.22),inset 0 2px 0 rgba(255,255,255,.4)}
+.hh-cart.m{background:linear-gradient(180deg,#BFDCCF,#A9CDBD)}
+.hh-cart.p{background:linear-gradient(180deg,#F2CFC4,#E9B7A8)}
+.hh-cart::before{content:'';position:absolute;top:10px;left:50%;width:56px;height:8px;margin-left:-28px;border-radius:99px;background:rgba(74,58,51,.18);box-shadow:inset 0 1px 2px rgba(74,58,51,.25)}
+.hh-cart .hh-lbl{background:#FFFDF7;border-radius:8px;padding:10px 10px 12px;min-height:96px;display:flex;flex-direction:column;gap:4px}
+.hh-cart .hh-lbl em{font-style:normal;width:30px;height:30px;border-radius:8px;background:#4A3A33;display:flex;align-items:center;justify-content:center}
+.hh-cart .hh-lbl b{font-size:14px;font-weight:900;line-height:1.3;margin-top:4px}
+.hh-cart .hh-lbl span{font-size:12px;color:#7A5A4A}
+.hh-cart .hh-ridge{display:flex;gap:4px;justify-content:center;margin-top:10px}
+.hh-cart .hh-ridge i{width:14px;height:5px;border-radius:2px;background:rgba(74,58,51,.2)}
+
+.hh-shot{background:#3E322D;border-radius:20px;padding:12px}
+.hh-shot .hh-in{height:220px;border-radius:10px;border:2px dashed rgba(251,243,228,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#FBF3E4;font-size:13px;background:rgba(251,243,228,.05)}
+.hh-shot .hh-meta{display:flex;justify-content:space-between;color:#D9C7B5;font-size:12px;padding:10px 4px 2px}
+
+.hh-save{background:#FBF3E4;padding:6px 14px 14px;margin:0 2px}
+.hh-slot{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:12px 0;border-bottom:2px dotted rgba(74,58,51,.28)}
+.hh-slot .hh-no{font-size:12px;background:#4A3A33;color:#FBF3E4;padding:2px 6px;height:20px;line-height:16px;margin-top:2px}
+.hh-slot .hh-who{font-size:12px;color:#8A6A55;display:flex;justify-content:space-between}
+.hh-slot .hh-who b{color:#4A3A33;font-size:13px}
+.hh-slot p{margin:2px 0 0;font-size:15px;font-weight:700}
+.hh-new{margin-top:14px}
+.hh-new .hh-no{font-size:12px;color:#E2725B;font-weight:700}
+.hh-form{display:flex;gap:8px;margin-top:8px}
+.hh-form input{flex:1;min-width:0;height:48px;border:2px solid #4A3A33;background:#fff;font:inherit;font-size:14px;padding:0 12px;color:#4A3A33;outline:none}
+.hh-form input::placeholder{color:#9C8677}
+.hh-form button{height:48px;padding:0 18px;border:none;background:#E2725B;color:#fff;font:inherit;font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 4px 0 #A9483F}
+.hh-foot{text-align:center;font-size:12px;color:#A39183;margin-top:30px}
+</style>
+</helmet>
+<div class="hh">
+
+<div class="hh-body">
+<svg class="hh-strap" viewBox="0 0 46 50" fill="none"><path d="M10 48C4 30 8 8 24 6s20 20 14 42" stroke="#E2725B" stroke-width="5" stroke-linecap="round"/><path d="M10 48C4 30 8 8 24 6s20 20 14 42" stroke="#fff" stroke-width="1.2" stroke-dasharray="2 4" stroke-linecap="round" opacity=".7"/></svg>
+<div class="hh-head">
+<span class="hh-led"><i></i>ON</span>
+<span class="hh-brand">knock!<small>POCKET</small></span>
+<span class="hh-vents"><i></i><i></i><i></i></span>
+</div>
+
+<div class="hh-bezel">
+<div class="hh-screen hh-ko">
+<div class="hh-sbar hh-dot"><span><svg width="12" height="12" viewBox="0 0 12 12" fill="#E2725B" shape-rendering="crispEdges"><path d="M1 3h2V1h2v2h2V1h2v2h2v3h-1v1H9v1H8v1H7v1H5v-1H4V8H3V7H2V6H1z"/></svg>오늘 4 · 총 112</span><span>10.06<span class="hh-bat"><i></i><i></i><i class="e"></i><i class="e"></i></span></span></div>
+<div class="hh-char">
+<div class="hh-pf"><svg width="26" height="26" viewBox="0 0 13 13" fill="#4A3A33" shape-rendering="crispEdges" opacity=".7"><path d="M5 1h3v1h1v3H8v1H5V5H4V2h1zM3 7h7v1h1v4H2V8h1z"/></svg>프로필 사진</div>
+<div>
+<div class="hh-name">지우<small class="hh-dot">1P</small></div>
+<div class="hh-intro">똑똑, 들어와도 돼</div>
+<div class="hh-stat"><span>카페인</span><div class="hh-bar hh-px"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<div class="hh-stat"><span>체력</span><div class="hh-bar m hh-px"><i></i><i></i><i class="e"></i><i class="e"></i><i class="e"></i><i class="e"></i><i class="e"></i><i class="e"></i><i class="e"></i><i class="e"></i></div></div>
+</div>
+</div>
+<div class="hh-state hh-px"><b>상태</b>시험 D-3, 커피 수혈 중</div>
+<div class="hh-rows">
+<div class="hh-row"><svg width="18" height="18" viewBox="0 0 9 9" fill="#7FB8A4" shape-rendering="crispEdges"><path d="M3 1h5v6H7v1H5V7h1V3H4v4H3v1H1V7h1V6h1z"/></svg><small>BGM</small><b>좋은 날 <span>· 아이유</span></b><span class="hh-eq"><i style="height:6px"></i><i style="height:12px"></i><i style="height:8px"></i><i style="height:14px"></i><i style="height:5px"></i></span></div>
+<div class="hh-row"><svg width="18" height="18" viewBox="0 0 9 9" fill="#F2C66D" shape-rendering="crispEdges"><path d="M4 0h1v1h1v1H3V1h1zM1 3h7v1h1v4H0V4h1z"/><path d="M2 5h1v1H2zM4 5h1v1H4zM6 5h1v1H6z" fill="#FBF3E4"/></svg><small>이벤트</small><b>생일까지 <span>10.18</span></b><span class="hh-dd hh-dot">D-12</span></div>
+</div>
+<div class="hh-dlg hh-px">
+<span class="hh-tag">요즘 질문</span>
+<p>제일 좋아하는 편의점 간식은?</p>
+<svg class="hh-tri" width="10" height="8" viewBox="0 0 5 4" fill="#E2725B" shape-rendering="crispEdges"><path d="M0 0h5v1H4v1H3v1H2V2H1V1H0z"/></svg>
+</div>
+</div>
+<div class="hh-blab"><i></i>knock! COLOR SCREEN</div>
+</div>
+
+<div class="hh-ctrl">
+<div class="hh-dpad"><div class="v"></div><div class="h"></div><div class="c"></div>
+<svg style="left:53px;top:18px" width="12" height="8" viewBox="0 0 12 8"><path d="M6 1 11 7H1z" fill="#2E2420"/></svg>
+<svg style="left:53px;top:92px" width="12" height="8" viewBox="0 0 12 8"><path d="M6 7 11 1H1z" fill="#2E2420"/></svg>
+<svg style="left:18px;top:53px" width="8" height="12" viewBox="0 0 8 12"><path d="M1 6 7 1v10z" fill="#2E2420"/></svg>
+<svg style="left:92px;top:53px" width="8" height="12" viewBox="0 0 8 12"><path d="M7 6 1 1v10z" fill="#2E2420"/></svg>
+</div>
+<div class="hh-ab">
+<div class="hh-socket" style="right:0;top:-2px;width:116px;height:116px"></div>
+<div class="hh-socket" style="left:4px;top:78px;width:82px;height:82px"></div>
+<button class="hh-b">방명록</button>
+<button class="hh-a"><span class="hh-ak"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>노크</span><span class="hh-an">27</span></button>
+<span class="hh-ablab" style="right:50px;top:118px">A</span>
+<span class="hh-ablab" style="left:-10px;top:112px">B</span>
+</div>
+<div class="hh-pills"><div><i></i>MENU</div><div><i></i>SAVE</div></div>
+</div>
+<div class="hh-knote">A 버튼을 누르면 똑똑 · 지금까지 27번 노크했어요</div>
+<div class="hh-spk">
+<i class="n"></i><i></i><i></i><i class="n"></i><i></i><i></i><i class="n"></i>
+<i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+<i class="n"></i><i></i><i></i><i></i><i></i><i></i><i class="n"></i>
+<i class="n"></i><i class="n"></i><i></i><i></i><i></i><i class="n"></i><i class="n"></i>
+<i class="n"></i><i class="n"></i><i class="n"></i><i></i><i class="n"></i><i class="n"></i><i class="n"></i>
+</div>
+</div>
+
+<div class="hh-sec">
+<div class="hh-h"><b><i></i>카트리지</b><small>2개 꽂혀 있어요</small></div>
+<div class="hh-carts">
+<a class="hh-cart m" href="#"><div class="hh-lbl"><em><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBF3E4" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></em><b>인스타그램</b><span>@jiwoo.room</span></div><div class="hh-ridge"><i></i><i></i><i></i><i></i><i></i></div></a>
+<a class="hh-cart p" href="#"><div class="hh-lbl"><em><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBF3E4" stroke-width="2.4" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></em><b>필름 사진 모아둔 곳</b><span>블로그</span></div><div class="hh-ridge"><i></i><i></i><i></i><i></i><i></i></div></a>
+</div>
+</div>
+
+<div class="hh-sec">
+<div class="hh-h"><b><i></i>스크린샷</b><small>10.05</small></div>
+<div class="hh-shot"><div class="hh-in"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FBF3E4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이 올린 사진</div>
+<div class="hh-meta hh-dot"><span>SHOT 01</span><span>1 / 1</span></div></div>
+</div>
+
+<div class="hh-sec">
+<div class="hh-h"><b><i></i>세이브 기록</b><small>방명록 2개</small></div>
+<div class="hh-save hh-px">
+<div class="hh-slot"><span class="hh-no hh-dot">01</span><div><div class="hh-who"><b>민지</b><span class="hh-dot">10.4</span></div><p>케이스 뭐야 너무 귀엽잖아</p></div></div>
+<div class="hh-slot"><span class="hh-no hh-dot">02</span><div><div class="hh-who"><b>익명</b><span class="hh-dot">10.2</span></div><p>도서관에서 찍고 감</p></div></div>
+<div class="hh-new"><span class="hh-no">▶ 새로 저장하기</span>
+<div class="hh-form"><input placeholder="한 줄 남기기"><button>남기기</button></div></div>
+</div>
+</div>
+
+<div class="hh-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

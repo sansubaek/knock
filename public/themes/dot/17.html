@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 17 · 한지와 낙관</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Song+Myung&amp;family=Gowun+Batang:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+.hj{position:relative;width:390px;min-height:1473px;box-sizing:border-box;background:#F4EFE4;color:#24211D;font-family:'Gowun Batang','Noto Serif CJK KR',serif;font-size:15px;line-height:1.7;word-break:keep-all;overflow:hidden;padding:0 0 26px}
+.hj *{box-sizing:border-box}
+.hj-paper{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hj-in{position:relative}
+.hj-top{display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 22px}
+.hj-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;letter-spacing:-.04em;color:#24211D}
+.hj-top i{width:36px;height:36px;border-radius:50%;border:1px solid #CFC5B2;display:flex;align-items:center;justify-content:center}
+.hj-hero{position:relative;height:400px;margin:0 22px}
+.hj-frame{position:absolute;left:0;top:18px;width:158px;height:206px;border:1.5px dashed #B9AE9B;background:rgba(255,253,247,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:12px;color:#8A8072}
+.hj-frame:before{content:'';position:absolute;left:-6px;right:-6px;top:-8px;height:3px;background:#3A332B;border-radius:2px}
+.hj-mark{position:absolute;left:0;top:242px;display:flex;align-items:center;gap:10px;font-size:13px;color:#5E5850}
+.hj-mark i{width:44px;height:44px;border:1.5px dashed #B9AE9B;display:flex;align-items:center;justify-content:center;background:rgba(255,253,247,.55)}
+.hj-name{position:absolute;right:4px;top:6px;writing-mode:vertical-rl;font-family:'Song Myung','Noto Serif CJK KR',serif;font-size:66px;line-height:1;letter-spacing:.14em;color:#1E1B18;margin:0;font-weight:400}
+.hj-role{position:absolute;right:88px;top:14px;writing-mode:vertical-rl;font-size:15px;letter-spacing:.2em;color:#4A443C;margin:0;line-height:1.4}
+.hj-role b{color:#B23A28;font-weight:700}
+.hj-seal{position:absolute;right:8px;top:250px;width:64px;height:64px;transform:rotate(-2.5deg)}
+.hj-hills{position:absolute;left:-22px;right:-22px;bottom:0;height:150px}
+.hj-sec{margin:0 22px;padding:26px 0 6px;position:relative}
+.hj-lab{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:13px;color:#B23A28;letter-spacing:.24em;font-weight:700}
+.hj-lab svg{flex:1}
+.hj-about{margin:0;font-size:17px;line-height:1.85;color:#2C2823}
+.hj-about em{font-style:normal;background:linear-gradient(transparent 70%,rgba(178,58,40,.16) 70%)}
+.hj-book{display:flex;flex-direction:row-reverse;border-top:2px solid #3A332B;border-bottom:2px solid #3A332B;padding:3px 0}
+.hj-col{flex:1;border-left:1px solid #B9AE9B;padding:12px 0 14px;display:flex;flex-direction:column;align-items:center;gap:10px;background:rgba(255,253,247,.35)}
+.hj-col:last-child{border-left:0}
+.hj-col small{font-size:13px;color:#B23A28;letter-spacing:.06em;font-weight:700}
+.hj-col span{writing-mode:vertical-rl;font-size:17px;letter-spacing:.16em;line-height:1.3;color:#24211D;height:150px}
+.hj-col span em{font-style:normal;display:block;font-size:13px;color:#7A7166;letter-spacing:.1em;margin-right:6px}
+.hj-row{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px solid rgba(58,51,43,.16)}
+.hj-row:last-child{border-bottom:0}
+.hj-row small{width:36px;flex:none;font-size:13px;color:#8A8072;letter-spacing:.12em}
+.hj-row span{font-size:16px;color:#24211D}
+.hj-links{display:flex;gap:10px}
+.hj-links a{flex:1;height:52px;border:1px solid #BDB29F;display:flex;align-items:center;justify-content:space-between;padding:0 14px;text-decoration:none;color:#24211D;font-size:15px;background:rgba(255,253,247,.5)}
+.hj-links a span{display:flex;align-items:center;gap:8px}
+.hj-acts{margin:30px 22px 0}
+.hj-save{position:relative;height:56px;background:#24211D;color:#F6F1E6;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-size:17px;letter-spacing:.06em}
+.hj-save:after{content:'';position:absolute;right:16px;top:50%;width:14px;height:14px;margin-top:-7px;background:#B23A28;transform:rotate(-4deg);border-radius:1px}
+.hj-give{margin-top:10px;height:50px;border:1.5px solid #B23A28;color:#B23A28;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-size:16px;letter-spacing:.06em;font-weight:700}
+.hj-note{margin:12px 0 0;text-align:center;font-size:13px;color:#7A7166}
+.hj-own{text-align:center;margin:34px 0 0;font-size:12px;color:#A39A8C}
+.hj-own a{color:#7A7166;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="hj">
+  <svg class="hj-paper" aria-hidden="true">
+    <defs>
+      <filter id="hjfib" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".012 .09" numOctaves="3" seed="7" result="n"/>
+        <feColorMatrix in="n" type="matrix" values="0 0 0 0 .55  0 0 0 0 .47  0 0 0 0 .36  0 0 0 -1.6 1.02"/>
+      </filter>
+      <filter id="hjspk" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="1" seed="3" result="s"/>
+        <feColorMatrix in="s" type="matrix" values="0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .28  0 0 0 -14 10.6"/>
+      </filter>
+      <radialGradient id="hjvig" cx=".5" cy=".3" r=".9"><stop offset=".6" stop-color="#E7DCC6" stop-opacity="0"/><stop offset="1" stop-color="#DCCDB2" stop-opacity=".35"/></radialGradient>
+    </defs>
+    <rect width="100%" height="100%" filter="url(#hjfib)" opacity=".22"/>
+    <rect width="100%" height="100%" filter="url(#hjspk)" opacity=".35"/>
+    <rect width="100%" height="100%" fill="url(#hjvig)"/>
+  </svg>
+
+  <div class="hj-in">
+    <div class="hj-top">
+      <span class="hj-logo">knock.</span>
+      <i><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#3A332B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></i>
+    </div>
+
+    <div class="hj-hero">
+      <div class="hj-frame"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8A8072" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg>프로필 사진</div>
+      <div class="hj-mark"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A8072" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg></i>회사 로고</div>
+
+      <h1 class="hj-name">주건우</h1>
+      <p class="hj-role">대표 · 제품&#12288;<b>knock</b></p>
+
+      <svg class="hj-seal" viewBox="0 0 66 66" aria-label="주건우 인장">
+        <defs>
+          <filter id="hjstamp" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency=".09" numOctaves="2" seed="11" result="t"/>
+            <feDisplacementMap in="SourceGraphic" in2="t" scale="1.8" xChannelSelector="R" yChannelSelector="G" result="d"/>
+            <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="4" result="g"/>
+            <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3 2.55" result="gm"/>
+            <feComposite in="d" in2="gm" operator="in"/>
+          </filter>
+          <mask id="hjsm">
+            <rect width="66" height="66" fill="#fff"/>
+            <g font-family="'Song Myung','Noto Serif CJK KR',serif" font-size="24" font-weight="700" fill="#000" text-anchor="middle">
+              <text x="46" y="30">주</text><text x="46" y="56">건</text>
+              <text x="20" y="30">우</text><text x="20" y="56">인</text>
+            </g>
+            <path d="M33 9V57" stroke="#000" stroke-width="1"/>
+          </mask>
+        </defs>
+        <g filter="url(#hjstamp)">
+          <rect x="3" y="3" width="60" height="60" rx="3" fill="#B8322A" mask="url(#hjsm)"/>
+        </g>
+      </svg>
+
+      <svg class="hj-hills" viewBox="0 0 434 150" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="hjwash" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5E5850" stop-opacity=".16"/><stop offset="1" stop-color="#5E5850" stop-opacity="0"/></linearGradient></defs>
+        <path d="M0 98 C 40 86, 62 60, 96 64 C 124 68, 136 92, 168 88 C 204 84, 222 40, 262 44 C 296 48, 312 82, 346 80 C 378 78, 400 62, 434 66 L434 150 L0 150 Z" fill="url(#hjwash)"/>
+        <path d="M0 98 C 40 86, 62 60, 96 64 C 124 68, 136 92, 168 88 C 204 84, 222 40, 262 44 C 296 48, 312 82, 346 80 C 378 78, 400 62, 434 66 L434 66.8 C 400 64.5, 378 81.6, 346 83.6 C 312 85.6, 296 51.6, 262 48 C 222 44.6, 204 88, 168 91.8 C 136 95.6, 124 71.4, 96 67.6 C 62 63.2, 40 88, 0 98.8 Z" fill="#3A332B" opacity=".55"/>
+        <path d="M0 84 C 30 80, 50 70, 80 72 C 110 74, 120 84, 150 82 L150 82.6 C 120 85, 110 75.4, 80 73.4 C 50 71.6, 30 81.4, 0 85 Z" fill="#3A332B" opacity=".18"/>
+        <path d="M120 118 C 160 108, 190 112, 230 104 C 270 96, 300 108, 340 102 L340 103 C 300 110, 270 98.4, 230 106 C 190 114, 160 110, 120 119.2 Z" fill="#3A332B" opacity=".3"/>
+        <circle cx="236" cy="24" r="9" fill="#B8322A" opacity=".62"/>
+      </svg>
+    </div>
+
+    <section class="hj-sec">
+      <p class="hj-lab">소개<svg height="6" viewBox="0 0 300 6" preserveAspectRatio="none" aria-hidden="true"><path d="M0 3 C 60 1.4, 160 2.2, 300 2.6 L300 3.2 C 160 3.8, 60 4.8, 0 4 Z" fill="#3A332B" opacity=".55"/></svg></p>
+      <p class="hj-about">케이스 뒤 QR을 찍으면 <em>내 페이지가 열리는</em> 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p>
+    </section>
+
+    <section class="hj-sec">
+      <p class="hj-lab">경력<svg height="6" viewBox="0 0 300 6" preserveAspectRatio="none" aria-hidden="true"><path d="M0 3 C 60 1.4, 160 2.2, 300 2.6 L300 3.2 C 160 3.8, 60 4.8, 0 4 Z" fill="#3A332B" opacity=".55"/></svg></p>
+      <div class="hj-book">
+        <div class="hj-col"><small>2026</small><span>knock 창업<em>대표 · 제품</em></span></div>
+        <div class="hj-col"><small>2025</small><span>인하벤처클럽<em>창업 동아리</em></span></div>
+        <div class="hj-col"><small>학력</small><span>인하대학교<em>재학</em></span></div>
+      </div>
+    </section>
+
+    <section class="hj-sec">
+      <p class="hj-lab">연락<svg height="6" viewBox="0 0 300 6" preserveAspectRatio="none" aria-hidden="true"><path d="M0 3 C 60 1.4, 160 2.2, 300 2.6 L300 3.2 C 160 3.8, 60 4.8, 0 4 Z" fill="#3A332B" opacity=".55"/></svg></p>
+      <div class="hj-row"><small>전화</small><span>010-0000-0000</span></div>
+      <div class="hj-row"><small>메일</small><span>me@example.com</span></div>
+      <div class="hj-row"><small>소속</small><span>knock · 인하대학교</span></div>
+    </section>
+
+    <section class="hj-sec">
+      <div class="hj-links">
+        <a href="#"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A332B" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3"/></svg>포트폴리오</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B23A28" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+        <a href="#"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A332B" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>링크드인</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B23A28" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </section>
+
+    <div class="hj-acts">
+      <a href="#" class="hj-save">연락처에 저장</a>
+      <a href="#" class="hj-give">내 명함 주기</a>
+      <p class="hj-note">앱 설치 없이 바로 저장돼요</p>
+    </div>
+
+    <p class="hj-own">knock. · <a href="#">나도 명함 만들기</a></p>
+  </div>
+</div>
+</x-dc>
+
+</body>
+</html>

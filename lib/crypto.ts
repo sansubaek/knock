@@ -66,3 +66,8 @@ export function ipKey(ip: string) {
 export function visitorHash(ip: string, ua: string) {
   return createHash('sha256').update(`${secret('VISITOR_HASH_SALT')}|${ip}|${ua}`).digest('hex').slice(0, 32)
 }
+
+/** 테마 투표용: 브라우저 쿠키의 무작위 값을 되돌릴 수 없게 바꾼 값 */
+export function voteHash(raw: string) {
+  return createHash('sha256').update(`${secret('VISITOR_HASH_SALT')}|vote|${raw}`).digest('hex').slice(0, 32)
+}

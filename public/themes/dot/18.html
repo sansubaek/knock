@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock. 테마 18 · 브루탈리즘</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&amp;family=JetBrains+Mono:wght@500;700;800&amp;family=IBM+Plex+Sans+KR:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+.br{width:390px;min-height:1498px;box-sizing:border-box;background-color:#F1EFE7;background-image:linear-gradient(#DCD9CE 1px,transparent 1px),linear-gradient(90deg,#DCD9CE 1px,transparent 1px);background-size:26px 26px;color:#0B0B0B;font-family:'IBM Plex Sans KR','Noto Sans CJK KR',sans-serif;font-size:15px;line-height:1.5;word-break:keep-all;padding:0 0 22px;overflow:hidden}
+.br *{box-sizing:border-box}
+.br-mono{font-family:'JetBrains Mono','DejaVu Sans Mono',monospace}
+.br-ar{font-family:'Archivo','IBM Plex Sans KR',sans-serif}
+.br-tape{height:34px;background:#0B0B0B;color:#D4FF2A;display:flex;align-items:center;white-space:nowrap;overflow:hidden;font-size:12px;font-weight:800;letter-spacing:.08em}
+.br-tape span{padding-left:14px}
+.br-head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px 0}
+.br-logo{display:inline-flex;align-items:center;height:40px;padding:0 12px;background:#fff;border:3px solid #0B0B0B;box-shadow:4px 4px 0 #0B0B0B;font-family:'Archivo',sans-serif;font-weight:900;font-size:19px;letter-spacing:-.04em}
+.br-share{width:44px;height:44px;background:#fff;border:3px solid #0B0B0B;box-shadow:4px 4px 0 #0B0B0B;display:flex;align-items:center;justify-content:center}
+.br-box{background:#fff;border:3px solid #0B0B0B;box-shadow:6px 6px 0 #0B0B0B;position:relative}
+.br-hero{margin:20px 16px 0;display:grid;grid-template-columns:1fr 128px;grid-template-rows:auto auto}
+.br-hero>div{border-right:3px solid #0B0B0B;border-bottom:3px solid #0B0B0B}
+.br-hero>div:nth-child(2n){border-right:0}
+.br-hero>div:nth-last-child(-n+2){border-bottom:0}
+.br-who{padding:14px 14px 16px}
+.br-who small{display:block;font-size:12px;font-weight:800;letter-spacing:.1em}
+.br-who h1{margin:6px 0 0;font-size:50px;line-height:1;font-weight:700;letter-spacing:-.04em}
+.br-who p{margin:10px 0 0;display:inline-block;background:#0B0B0B;color:#fff;font-size:14px;font-weight:600;padding:3px 8px}
+.br-ph{padding:10px;background:#F1EFE7}
+.br-ph div{height:100%;min-height:126px;border:2px dashed #0B0B0B;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:12px;font-weight:600;background:#fff;text-align:center}
+.br-co{display:flex;align-items:center;gap:12px;padding:12px 14px;background:#D4FF2A}
+.br-co i{width:44px;height:44px;border:2px dashed #0B0B0B;background:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.br-co small{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;line-height:1.2}
+.br-co b{font-family:'Archivo',sans-serif;font-size:24px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.br-est{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-align:center;line-height:1.3}
+.br-est b{font-family:'Archivo',sans-serif;font-size:28px;font-weight:900;letter-spacing:-.02em;line-height:1}
+.br-burst{position:absolute;right:-12px;top:-26px;width:78px;height:78px;transform:rotate(12deg)}
+.br-cta{margin:26px 16px 0}
+.br-btn{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 18px;border:3px solid #0B0B0B;box-shadow:6px 6px 0 #0B0B0B;text-decoration:none;color:#0B0B0B;font-size:20px;font-weight:700;letter-spacing:-.02em}
+.br-btn small{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;line-height:1.2;margin-bottom:2px}
+.br-btn i{width:44px;height:44px;background:#0B0B0B;display:flex;align-items:center;justify-content:center;flex:none}
+.br-save{background:#D4FF2A}
+.br-give{background:#fff;margin-top:14px;height:60px;font-size:18px}
+.br-give i{background:#fff;border:3px solid #0B0B0B}
+.br-note{margin:14px 0 0;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
+.br-note b{background:#0B0B0B;color:#D4FF2A;font-size:12px;padding:2px 6px;letter-spacing:.06em}
+.br-sec{margin:34px 16px 0}
+.br-tab{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;background:#0B0B0B;color:#fff;font-size:13px;font-weight:800;letter-spacing:.08em;position:relative;z-index:1}
+.br-tab em{font-style:normal;color:#D4FF2A}
+.br-sec .br-box{margin-top:-3px}
+.br-about{padding:16px 16px 18px;margin:0;font-size:17px;font-weight:600;line-height:1.65}
+.br-about mark{background:#D4FF2A;color:inherit;padding:0 2px}
+.br-tr{display:grid;grid-template-columns:78px 1fr;border-bottom:3px solid #0B0B0B}
+.br-tr:last-child{border-bottom:0}
+.br-tr>span{display:flex;align-items:center;justify-content:center;border-right:3px solid #0B0B0B;font-size:15px;font-weight:800;min-height:62px}
+.br-tr:first-child>span{background:#D4FF2A}
+.br-tr div{padding:10px 14px;display:flex;flex-direction:column;justify-content:center}
+.br-tr b{font-size:17px;font-weight:700;line-height:1.3}
+.br-tr small{font-size:13px;color:#4A4A45}
+.br-ct{display:flex;align-items:center;gap:12px;padding:0 0 0 14px;min-height:62px;border-bottom:3px solid #0B0B0B;text-decoration:none;color:#0B0B0B}
+.br-ct:last-child{border-bottom:0}
+.br-ct div{flex:1;min-width:0}
+.br-ct small{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;line-height:1.3}
+.br-ct span{font-size:16px;font-weight:600}
+.br-ct i{width:62px;align-self:stretch;border-left:3px solid #0B0B0B;display:flex;align-items:center;justify-content:center;flex:none}
+.br-lk{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:0}
+.br-lk a{height:92px;padding:12px;background:#fff;border:3px solid #0B0B0B;box-shadow:5px 5px 0 #0B0B0B;text-decoration:none;color:#0B0B0B;display:flex;flex-direction:column;justify-content:space-between}
+.br-lk a:nth-child(2){background:#0B0B0B;color:#fff;box-shadow:5px 5px 0 #D4FF2A,5px 5px 0 3px #0B0B0B}
+.br-lk small{font-size:12px;font-weight:800;letter-spacing:.1em;display:flex;justify-content:space-between;align-items:center}
+.br-lk b{font-size:18px;font-weight:700}
+.br-own{text-align:center;margin:34px 0 0;font-size:12px;color:#8E8B80}
+.br-own a{color:#5C5A53;font-weight:700;text-decoration:none}
+</style>
+</helmet>
+<div class="br">
+  <div class="br-tape br-mono"><span>KNOCK. ★ 명함 ★ SCAN → SAVE ★ 주건우 ★ KNOCK. ★ 명함 ★ SCAN → SAVE ★</span></div>
+
+  <div class="br-head">
+    <span class="br-logo">knock.</span>
+    <span class="br-share"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5M5 13v7h14v-7"/></svg></span>
+  </div>
+
+  <div class="br-box br-hero">
+    <div class="br-who"><small class="br-mono">NAME / 이름</small><h1>주건우</h1><p>대표 · 제품</p></div>
+    <div class="br-ph"><div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1.2-3.6 4-5.5 7-5.5s5.8 1.9 7 5.5"/></svg>프로필 사진</div></div>
+    <div class="br-co"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg></i><div><small class="br-mono">COMPANY</small><b>knock</b></div></div>
+    <div class="br-est br-mono">EST.<b>2026</b></div>
+    <svg class="br-burst" viewBox="0 0 80 80" aria-hidden="true">
+      <path d="M40 2l7 13 14-6 0 15 15 3-9 12 9 12-15 3 0 15-14-6-7 13-7-13-14 6 0-15-15-3 9-12-9-12 15-3 0-15 14 6z" fill="#D4FF2A" stroke="#0B0B0B" stroke-width="3" stroke-linejoin="round"/>
+      <text x="40" y="46" text-anchor="middle" font-family="Archivo,'DejaVu Sans',sans-serif" font-weight="900" font-size="17" fill="#0B0B0B">HI!</text>
+    </svg>
+  </div>
+
+  <div class="br-cta">
+    <a href="#" class="br-btn br-save"><span><small class="br-mono">01 → SAVE</small>연락처에 저장</span><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D4FF2A" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M12 4v13M6 11l6 6 6-6M4 21h16"/></svg></i></a>
+    <a href="#" class="br-btn br-give"><span>내 명함 주기</span><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    <p class="br-note"><b class="br-mono">NO APP</b>앱 설치 없이 바로 저장돼요</p>
+  </div>
+
+  <section class="br-sec">
+    <span class="br-tab br-mono"><em>02/</em>소개</span>
+    <div class="br-box"><p class="br-about">케이스 뒤 QR을 찍으면 <mark>내 페이지가 열리는</mark> 폰케이스를 만들어요. 종이 명함 대신 폰을 내밀면 되도록요.</p></div>
+  </section>
+
+  <section class="br-sec">
+    <span class="br-tab br-mono"><em>03/</em>경력</span>
+    <div class="br-box">
+      <div class="br-tr"><span class="br-mono">2026</span><div><b>knock 창업</b><small>대표 · 제품</small></div></div>
+      <div class="br-tr"><span class="br-mono">2025</span><div><b>인하벤처클럽</b><small>창업 동아리</small></div></div>
+      <div class="br-tr"><span>학력</span><div><b>인하대학교</b></div></div>
+    </div>
+  </section>
+
+  <section class="br-sec">
+    <span class="br-tab br-mono"><em>04/</em>연락처</span>
+    <div class="br-box">
+      <a href="#" class="br-ct"><div><small class="br-mono">TEL</small><span class="br-mono">010-0000-0000</span></div><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></i></a>
+      <a href="#" class="br-ct"><div><small class="br-mono">MAIL</small><span>me@example.com</span></div><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg></i></a>
+      <div class="br-ct"><div><small class="br-mono">소속</small><span>knock · 인하대학교</span></div><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V8l8-5 8 5v13H4zM10 21v-6h4v6"/></svg></i></div>
+    </div>
+  </section>
+
+  <section class="br-sec">
+    <span class="br-tab br-mono" style="margin-bottom:12px"><em>05/</em>링크</span>
+    <div class="br-lk">
+      <a href="#"><small class="br-mono">LINK 1<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></small><b>포트폴리오</b></a>
+      <a href="#"><small class="br-mono">LINK 2<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4FF2A" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></small><b>링크드인</b></a>
+    </div>
+  </section>
+
+  <p class="br-own">knock. · <a href="#">나도 명함 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

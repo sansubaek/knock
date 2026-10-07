@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 36 · 일촌 파도타기</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Sans+KR:wght@400;500;700;800&amp;display=swap">
+<style>
+body{margin:0}
+
+.wv{width:390px;min-height:2185px;box-sizing:border-box;padding:0 16px 22px;font-family:'Noto Sans KR',sans-serif;color:#3B2F2A;word-break:keep-all;line-height:1.45;font-size:14px;
+background:radial-gradient(#F0DCCB 1px,transparent 1.2px) 0 0/18px 18px,linear-gradient(180deg,#FFF6EC 0%,#FBF1E8 60%,#F7EFE6 100%)}
+.wv *{box-sizing:border-box}
+.wv-bar{height:56px;display:flex;align-items:center;justify-content:space-between}
+.wv-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;letter-spacing:-.04em}
+.wv-cnt{display:flex;align-items:center;font-size:12px;color:#8B7B70;background:#fff;border-radius:99px;padding:0 4px 0 12px;height:30px;box-shadow:0 4px 12px -8px rgba(120,80,50,.45)}
+.wv-cnt b{color:#3B2F2A;margin-left:3px}
+.wv-cnt i{width:1px;height:12px;background:#EADBD0;margin:0 9px}
+.wv-cnt span.wv-now{margin-left:8px;background:#FFF1E6;color:#C26A4F;border-radius:99px;padding:3px 9px;font-weight:700}
+.wv-hero{position:relative;height:418px;border-radius:30px;background:linear-gradient(180deg,#FFFDF9 0%,#FFF4EA 100%);box-shadow:0 22px 40px -28px rgba(140,90,60,.55),inset 0 0 0 1px rgba(233,200,180,.55);overflow:hidden}
+.wv-osvg{position:absolute;left:0;top:0}
+.wv-ht{position:absolute;left:18px;top:16px;right:18px;display:flex;justify-content:space-between;align-items:center}
+.wv-ht h1{margin:0;font-size:16px;font-weight:800;letter-spacing:-.02em}
+.wv-ht h1 span{color:#E98A6E;margin-left:4px}
+.wv-ht em{font-style:normal;font-size:12px;font-weight:700;color:#5E7C63;background:#EAF2E8;border-radius:99px;padding:4px 10px;display:inline-flex;gap:4px;align-items:center}
+.wv-fr{position:absolute;width:58px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.wv-fr svg{border-radius:50%;box-shadow:0 0 0 3px #fff,0 8px 16px -8px rgba(120,70,40,.55)}
+.wv-fr b{margin-top:6px;font-size:13px;font-weight:800;line-height:1.1;white-space:nowrap}
+.wv-fr small{font-size:12px;color:#8B7B70;line-height:1.3;white-space:nowrap}
+.wv-more{position:absolute;left:293px;top:311px;width:50px;height:50px;border-radius:50%;background:#fff;border:1.5px dashed #E1BBA6;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#C26A4F;line-height:1.1}
+.wv-more small{font-size:12px;font-weight:500;color:#8B7B70}
+.wv-me{position:absolute;left:50%;top:292px;transform:translateX(-50%);background:#3B2F2A;color:#fff;font-size:12px;font-weight:700;border-radius:99px;padding:3px 11px}
+.wv-bub{position:absolute;left:50%;transform:translateX(-50%);top:62px;text-align:center;background:#fff;border-radius:16px;padding:7px 11px;font-size:12px;font-weight:700;line-height:1.35;box-shadow:0 8px 18px -10px rgba(120,70,40,.5);white-space:nowrap}
+.wv-bub small{display:block;font-size:12px;font-weight:500;color:#8B7B70}
+.wv-bub:after{content:'';position:absolute;left:50%;bottom:-5px;width:11px;height:11px;margin-left:-5.5px;background:#fff;transform:rotate(45deg);border-radius:2px}
+.wv-card{position:relative;margin-top:12px;background:#fff;border-radius:26px;padding:16px 16px 16px;box-shadow:0 16px 30px -22px rgba(120,70,40,.55)}
+.wv-prow{display:flex;gap:13px;align-items:center}
+.wv-pic{width:62px;height:62px;border-radius:50%;border:1.6px dashed #DDBFAE;background:#FFF8F2;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#C4A595;font-size:12px;flex:none;gap:1px}
+.wv-name{font-size:23px;font-weight:800;letter-spacing:-.02em;line-height:1.15;display:flex;align-items:center;gap:7px}
+.wv-name span{font-family:'Bricolage Grotesque',sans-serif;font-size:12px;font-weight:800;color:#5E7C63;background:#EAF2E8;border-radius:99px;padding:2px 8px;letter-spacing:.03em}
+.wv-intro{font-size:14px;color:#8B7B70;margin-top:2px}
+.wv-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}
+.wv-tags span{font-size:12px;font-weight:500;background:#FBF3EC;border-radius:99px;padding:5px 10px;color:#6E5D52}
+.wv-tags span b{color:#E98A6E;font-weight:800;margin-right:3px}
+.wv-knock{margin-top:14px;width:100%;height:60px;border:none;border-radius:20px;font:inherit;display:flex;align-items:center;gap:10px;padding:0 10px 0 18px;color:#fff;
+background:linear-gradient(100deg,#EE9873 0%,#E3806C 100%);box-shadow:0 14px 24px -14px rgba(220,110,80,.85),inset 0 1px 0 rgba(255,255,255,.35)}
+.wv-knock b{font-size:17px;font-weight:800;flex:1;text-align:left;letter-spacing:-.01em}
+.wv-knock b small{display:block;font-size:12px;font-weight:500;opacity:.88;line-height:1.2}
+.wv-knock em{font-style:normal;background:#fff;color:#C9604A;border-radius:14px;height:40px;min-width:62px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;gap:2px}
+.wv-knock em small{font-size:12px;font-weight:500;color:#8B7B70}
+.wv-sec{margin-top:26px}
+.wv-st{display:flex;justify-content:space-between;align-items:baseline;margin:0 4px 10px}
+.wv-st h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.02em}
+.wv-st span{font-size:12px;color:#8B7B70}
+.wv-row{display:flex;gap:10px;overflow:hidden;margin-right:-16px;padding:2px 0 14px}
+.wv-pc{flex:none;width:226px;background:#fff;border-radius:22px;padding:14px 15px 15px;box-shadow:0 12px 24px -20px rgba(120,70,40,.6);position:relative}
+.wv-pc:before{content:'';position:absolute;left:22px;top:-6px;width:12px;height:12px;background:#fff;transform:rotate(45deg);border-radius:2px}
+.wv-pch{display:flex;align-items:center;gap:9px}
+.wv-pch svg{flex:none}
+.wv-pch b{font-size:14px;font-weight:800;display:block;line-height:1.2}
+.wv-pch small{font-size:12px;color:#5E7C63;font-weight:700;background:#EAF2E8;border-radius:99px;padding:1px 7px}
+.wv-pc p{margin:10px 0 0;font-size:14px;line-height:1.5;color:#4A3C35}
+.wv-pc.c2{background:#FFF9EC} .wv-pc.c2:before{background:#FFF9EC}
+.wv-pc.c3{background:#F6FAF4} .wv-pc.c3:before{background:#F6FAF4}
+.wv-surf{background:linear-gradient(135deg,#F3F8F1,#FFF8EA);border-radius:24px;padding:16px;box-shadow:inset 0 0 0 1px rgba(160,190,160,.35)}
+.wv-surf h3{margin:0;font-size:15px;font-weight:800;display:flex;align-items:center;gap:7px;color:#45604A}
+.wv-surf h3 + p{margin:3px 0 12px;font-size:12px;color:#7A8B7C}
+.wv-chips{display:flex;flex-wrap:wrap;gap:8px}
+.wv-chip{display:inline-flex;align-items:center;gap:7px;height:44px;padding:0 13px 0 5px;border-radius:99px;background:#fff;font-size:13px;font-weight:700;color:#3B2F2A;box-shadow:0 6px 14px -10px rgba(80,110,80,.6)}
+.wv-chip svg{border-radius:50%}
+.wv-chip i{color:#9AB09D;display:flex}
+.wv-chip.rnd{background:#45604A;color:#fff;padding:0 15px 0 13px}
+.wv-chip.rnd i{color:#FFE08A}
+.wv-today{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:24px;box-shadow:0 12px 24px -20px rgba(120,70,40,.6);overflow:hidden}
+.wv-t{padding:14px 15px;display:flex;flex-direction:column;gap:5px;min-height:108px}
+.wv-t:nth-child(1),.wv-t:nth-child(2){border-bottom:1px solid #F4E9E1}
+.wv-t:nth-child(odd){border-right:1px solid #F4E9E1}
+.wv-t small{font-size:12px;color:#8B7B70;font-weight:700;display:flex;align-items:center;gap:6px}
+.wv-t small i{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.wv-t p{margin:0;font-size:15px;font-weight:800;line-height:1.35;letter-spacing:-.01em}
+.wv-t p span{font-weight:500;color:#8B7B70;font-size:13px}
+.wv-dd{font-family:'Bricolage Grotesque',sans-serif;font-size:30px!important;line-height:1!important;color:#E98A6E;letter-spacing:-.03em!important}
+.wv-ans{margin-top:auto;font-size:12px;font-weight:700;color:#C26A4F}
+.wv-ph{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
+.wv-phb{position:relative;border-radius:22px;border:1.6px dashed #DDBFAE;background:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:#B89A8A;font-size:12px;text-align:center}
+.wv-phb.big{height:230px}
+.wv-tagged{position:absolute;left:10px;bottom:10px;display:flex;align-items:center;gap:6px;background:rgba(59,47,42,.82);color:#fff;font-size:12px;font-weight:700;border-radius:99px;padding:4px 10px 4px 4px}
+.wv-tagged span{display:flex}
+.wv-tagged span svg{border-radius:50%;box-shadow:0 0 0 1.5px #fff}
+.wv-tagged span svg + svg{margin-left:-6px}
+.wv-col{display:flex;flex-direction:column;gap:10px}
+.wv-col .wv-phb{flex:1}
+.wv-lock{flex:1;border-radius:22px;background:#3B2F2A;color:#fff;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.wv-lock i{width:32px;height:32px;border-radius:11px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#FFE08A}
+.wv-lock b{font-size:13px;line-height:1.35}
+.wv-lock b small{display:block;font-size:12px;font-weight:500;color:#D9C8BC}
+.wv-gb{background:#fff;border-radius:24px;padding:4px 16px 16px;box-shadow:0 12px 24px -20px rgba(120,70,40,.6)}
+.wv-g{display:flex;gap:11px;padding:14px 0;border-bottom:1px solid #F4E9E1;align-items:flex-start}
+.wv-g svg{flex:none}
+.wv-gx{flex:1;min-width:0}
+.wv-gm{display:flex;align-items:center;gap:6px;font-size:12px;color:#8B7B70}
+.wv-gm b{font-size:14px;color:#3B2F2A}
+.wv-gm em{font-style:normal;font-size:12px;font-weight:700;color:#5E7C63;background:#EAF2E8;border-radius:99px;padding:1px 7px}
+.wv-g p{margin:3px 0 0;font-size:14px}
+.wv-gh{display:flex;align-items:center;gap:4px;font-size:12px;color:#C9A898;padding-top:2px}
+.wv-gh.on{color:#E98A6E}
+.wv-form{display:flex;gap:8px;margin-top:14px;align-items:center}
+.wv-form input{flex:1;min-width:0;height:46px;border:none;border-radius:99px;background:#FBF3EC;padding:0 16px;font:inherit;font-size:14px;color:#3B2F2A}
+.wv-form button{height:46px;padding:0 18px;border:none;border-radius:99px;background:#3B2F2A;color:#fff;font:inherit;font-size:14px;font-weight:800}
+.wv-links{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wv-lk{display:flex;flex-direction:column;gap:10px;background:#fff;border-radius:22px;padding:14px;text-decoration:none;color:#3B2F2A;box-shadow:0 12px 24px -20px rgba(120,70,40,.6);min-height:112px}
+.wv-lk i{width:38px;height:38px;border-radius:13px;background:#FBF3EC;color:#C26A4F;display:flex;align-items:center;justify-content:center}
+.wv-lk b{font-size:14px;line-height:1.3;display:flex;justify-content:space-between;align-items:flex-end;gap:6px}
+.wv-lk b small{display:block;font-weight:400;font-size:12px;color:#8B7B70}
+.wv-lk b svg{color:#D0B5A6;flex:none}
+.wv-foot{text-align:center;font-size:12px;color:#BFAEA3;margin-top:28px}
+
+</style>
+</helmet>
+<div class="wv">
+<div class="wv-bar"><div class="wv-logo">knock!</div><div class="wv-cnt">오늘<b>4</b><i></i>지금까지<b>112</b><span class="wv-now">파도 타는 중</span></div></div>
+
+<div class="wv-hero"><svg class="wv-osvg" width="358" height="418" viewBox="0 0 358 418">
+<defs>
+<radialGradient id="wv-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF7E6"/><stop offset=".7" stop-color="#FFEBD6" stop-opacity=".6"/><stop offset="1" stop-color="#FFEBD6" stop-opacity="0"/></radialGradient>
+</defs>
+<circle cx="179" cy="214" r="150" fill="url(#wv-glow)"/>
+<g fill="none" stroke="#F1CDB8" stroke-width="1.2">
+<ellipse cx="179" cy="214" rx="150" ry="132" stroke-dasharray="3 6" opacity=".9"/>
+<ellipse cx="179" cy="214" rx="98" ry="88" opacity=".55"/>
+</g>
+<path d="M179,174 Q142,143 62,96" fill="none" stroke="#E4B79F" stroke-width="1.5" stroke-dasharray="1 5" stroke-linecap="round"/><path d="M179,174 Q259,165 296,92" fill="none" stroke="#E4B79F" stroke-width="1.5" stroke-dasharray="1 5" stroke-linecap="round"/><path d="M179,174 Q106,209 40,232" fill="none" stroke="#E4B79F" stroke-width="1.5" stroke-dasharray="1 5" stroke-linecap="round"/><path d="M179,174 Q246,235 318,228" fill="none" stroke="#E4B79F" stroke-width="1.5" stroke-dasharray="1 5" stroke-linecap="round"/><path d="M179,174 Q110,268 86,340" fill="none" stroke="#E4B79F" stroke-width="1.5" stroke-dasharray="1 5" stroke-linecap="round"/>
+<path transform="translate(118 150) scale(.55)" d="M0,8 C-7,3 -9,-1 -8,-4 C-7,-8 -2,-9 0,-5 C2,-9 7,-8 8,-4 C9,-1 7,3 0,8Z" fill="#E98A6E"/><path transform="translate(246 148) scale(.55)" d="M0,8 C-7,3 -9,-1 -8,-4 C-7,-8 -2,-9 0,-5 C2,-9 7,-8 8,-4 C9,-1 7,3 0,8Z" fill="#F2B5A0"/><path transform="translate(120 268) scale(.55)" d="M0,8 C-7,3 -9,-1 -8,-4 C-7,-8 -2,-9 0,-5 C2,-9 7,-8 8,-4 C9,-1 7,3 0,8Z" fill="#F2B5A0"/><path transform="translate(250 272) scale(.55)" d="M0,8 C-7,3 -9,-1 -8,-4 C-7,-8 -2,-9 0,-5 C2,-9 7,-8 8,-4 C9,-1 7,3 0,8Z" fill="#E98A6E"/>
+<ellipse cx="179" cy="284" rx="46" ry="9" fill="rgba(140,90,60,.13)"/>
+<g transform="translate(179 284) scale(1.36)"><path d="M-14,-26 L-13.5,-7 L-2,-7 L-1,-19 L1,-19 L2,-7 L13.5,-7 L14,-26 Z" fill="#7E9FCC" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-7.5,-20 L-7.5,-9 M7.5,-20 L7.5,-9" stroke="#6888B8" stroke-width="1" fill="none"/>
+<path d="M-15,-7.5 h12 a2,2 0 0 1 2,2 v2 a2,2 0 0 1 -2,2 h-13 a3.5,3.5 0 0 1 -3.5,-3.5 v0 a2.5,2.5 0 0 1 2.5,-2.5Z" fill="#FFFDF8" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M15,-7.5 h-12 a2,2 0 0 0 -2,2 v2 a2,2 0 0 0 2,2 h13 a3.5,3.5 0 0 0 3.5,-3.5 v0 a2.5,2.5 0 0 0 -2.5,-2.5Z" fill="#FFFDF8" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-29,-62 C-33,-92 -22,-110 0,-110 C22,-110 33,-92 29,-62 Q27.5,-57 22.5,-59 L-22.5,-59 Q-27.5,-57 -29,-62 Z" fill="#4B3529" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-15,-50 C-17,-60 -9,-64 0,-64 C9,-64 17,-60 15,-50 Z" fill="#A9ADB7" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-17.5,-27 L-17.5,-46 C-17.5,-54 -10,-57.5 0,-57.5 C10,-57.5 17.5,-54 17.5,-46 L17.5,-27 Q17.5,-23.5 14,-23.5 L-14,-23.5 Q-17.5,-23.5 -17.5,-27 Z" fill="#C3C6CE" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-17.5,-28.5 H17.5" stroke="#3B2F2A" stroke-width="1" opacity=".5"/>
+<path d="M-9,-29 L-7,-37 H7 L9,-29" fill="none" stroke="#3B2F2A" stroke-width="1.1" opacity=".55"/>
+<path d="M-4,-56 V-45 M4,-56 V-45" stroke="#3B2F2A" stroke-width="1.1"/>
+<circle cx="-4" cy="-44" r="1.4" fill="#FFF" stroke="#3B2F2A" stroke-width="1"/><circle cx="4" cy="-44" r="1.4" fill="#FFF" stroke="#3B2F2A" stroke-width="1"/>
+<path d="M-14,-51 C-23,-52 -30,-56 -35,-63 L-30,-67.5 C-26,-62 -20,-59 -12,-58 Z" fill="#C3C6CE" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="-35.5" cy="-68.5" r="4.4" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-42,-76 l-3,-2.5 M-40,-80 l-1.5,-3.5 M-44.5,-71 l-3.5,-.6" stroke="#3B2F2A" stroke-width="1.12" stroke-linecap="round"/>
+<circle cx="0" cy="-81" r="25" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M-25.5,-83 C-27,-101 -14,-108 0,-108 C14,-108 27,-101 25.5,-83 C21,-87.5 15,-85.5 11,-90 C7,-86 -1,-86.5 -4,-91 C-8,-86 -18,-88 -25.5,-83 Z" fill="#4B3529" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="12" y="-99" width="10" height="4.6" rx="2.3" transform="rotate(-24 17 -96.7)" fill="#FFD95E" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<ellipse cx="-9" cy="-75" rx="2.7" ry="3.5" fill="#3B2F2A"/><ellipse cx="9" cy="-75" rx="2.7" ry="3.5" fill="#3B2F2A"/>
+<circle cx="-8" cy="-76.4" r="1" fill="#fff"/><circle cx="10" cy="-76.4" r="1" fill="#fff"/>
+<ellipse cx="-15.5" cy="-67.5" rx="4.6" ry="2.6" fill="#FFB2A3" opacity=".75"/><ellipse cx="15.5" cy="-67.5" rx="4.6" ry="2.6" fill="#FFB2A3" opacity=".75"/>
+<path d="M-3,-67 Q0,-64.2 3,-67" fill="none" stroke="#3B2F2A" stroke-width="1.3" stroke-linecap="round"/>
+<path d="M16,-53 C21,-48 23,-40 23,-33 L17.5,-32 C17.5,-38 16,-44 13,-48 Z" fill="#C3C6CE" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="20.5" cy="-30" r="4" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></g>
+</svg>
+<div class="wv-ht"><h1>지우의 일촌<span>18</span></h1><em><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 19c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M6 10c0-3 2.5-5 5.5-5 2 0 3.4 1 4 2.4-1.8-.4-3.5.6-3.5 2.6"/></svg>서로 놀러 가요</em></div>
+<div class="wv-fr" style="left:33px;top:67px"><svg width="58" height="58" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FFE9DC"/><clipPath id="fc-long6B4632"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-long6B4632)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11,40 C8,22 13,9 24,9 C35,9 40,22 37,40 Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11.5,26 C10,14 16,10.5 24,10.5 C32,10.5 38,14 36.5,26 C33,22 29,23 27,18.5 C24,22 16,21 11.5,26Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><b>민지</b><small>고딩 짝꿍</small></div><div class="wv-fr" style="left:267px;top:63px"><svg width="58" height="58" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#E3EEDF"/><clipPath id="fc-short2F2724"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-short2F2724)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M12,23 C11,13 17,10 24,10 C31,10 37,13 36,23 C33,18 27,19 24,15.5 C21,18.5 15,18 12,23Z" fill="#2F2724" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><b>하준</b><small>과동기</small></div><div class="wv-fr" style="left:11px;top:203px"><svg width="58" height="58" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FFF1C9"/><clipPath id="fc-ponyA0623F"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-ponyA0623F)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M33,14 C42,14 43,26 37,31 C39,24 37,19 32,18Z" fill="#A0623F" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M12,24 C11,14 17,11 24,11 C31,11 37,14 36,24 C34,19 30,17.5 24,17.5 C18,17.5 14,19 12,24Z" fill="#A0623F" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><b>서아</b><small>필름 메이트</small></div><div class="wv-fr" style="left:289px;top:199px"><svg width="58" height="58" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#E8F0F4"/><clipPath id="fc-cap7D9A82"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-cap7D9A82)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11.5,22 C11.5,13 17,9.5 24,9.5 C31,9.5 36.5,13 36.5,22 Z" fill="#7D9A82" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M24,22 L41,22 Q43,22 42,24 L36.5,24" fill="#7D9A82" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="10" r="1.6" fill="#7D9A82" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><b>도윤</b><small>동네 친구</small></div><div class="wv-fr" style="left:57px;top:311px"><svg width="58" height="58" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#F6E4EC"/><clipPath id="fc-buns3A2C2A"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-buns3A2C2A)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="13" cy="11" r="5.5" fill="#3A2C2A" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="35" cy="11" r="5.5" fill="#3A2C2A" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M12,24 C11,14 17,11 24,11 C31,11 37,14 36,24 C34,19 30,17.5 24,17.5 C18,17.5 14,19 12,24Z" fill="#3A2C2A" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><b>유나</b><small>카페 메이트</small></div>
+<div class="wv-more">+13<small>더 보기</small></div>
+<div class="wv-bub"><small>오늘 기분</small>시험 D-3, 커피 수혈 중</div>
+<div class="wv-me">나, 지우</div>
+</div>
+
+<div class="wv-card">
+<div class="wv-prow"><div class="wv-pic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="3.6"/><path d="M5 20c1.2-3.6 4-5.4 7-5.4s5.8 1.8 7 5.4"/></svg>프로필</div><div><div class="wv-name">지우<span>ENFP</span></div><div class="wv-intro">똑똑, 들어와도 돼</div></div></div>
+<div class="wv-tags"><span><b>♥</b>필름카메라</span><span><b>♥</b>떡볶이</span><span><b>♥</b>비 오는 날 카페</span><span><b>♥</b>키링 모으기</span></div>
+<button class="wv-knock"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11V6.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 10.5V5a1.5 1.5 0 0 1 3 0v5.5"/><path d="M14 10.5V6.5a1.5 1.5 0 0 1 3 0V13c0 4-2.6 7-6.5 7-2.6 0-4.4-1.3-5.6-3.4L3.6 14a1.6 1.6 0 0 1 2.6-1.8L8 14"/></svg><b>똑똑, 노크하기<small>지우한테 왔다고 알려줘요</small></b><em>27<small>번</small></em></button>
+</div>
+
+<div class="wv-sec">
+<div class="wv-st"><h2>일촌평</h2><span>친구들이 본 지우</span></div>
+<div class="wv-row">
+<div class="wv-pc"><div class="wv-pch"><svg width="38" height="38" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#E3EEDF"/><clipPath id="fc-short2F2724"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-short2F2724)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M12,23 C11,13 17,10 24,10 C31,10 37,13 36,23 C33,18 27,19 24,15.5 C21,18.5 15,18 12,23Z" fill="#2F2724" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><div><b>하준</b><small>과동기</small></div></div><p>떡볶이 맛집은 지우한테 물어보면 다 나와요</p></div>
+<div class="wv-pc c2"><div class="wv-pch"><svg width="38" height="38" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FFF1C9"/><clipPath id="fc-ponyA0623F"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-ponyA0623F)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M33,14 C42,14 43,26 37,31 C39,24 37,19 32,18Z" fill="#A0623F" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M12,24 C11,14 17,11 24,11 C31,11 37,14 36,24 C34,19 30,17.5 24,17.5 C18,17.5 14,19 12,24Z" fill="#A0623F" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><div><b>서아</b><small>필름 메이트</small></div></div><p>비 오는 날 연락 오면 카페 가자는 뜻이에요</p></div>
+<div class="wv-pc c3"><div class="wv-pch"><svg width="38" height="38" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FFE9DC"/><clipPath id="fc-long6B4632"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-long6B4632)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11,40 C8,22 13,9 24,9 C35,9 40,22 37,40 Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11.5,26 C10,14 16,10.5 24,10.5 C32,10.5 38,14 36.5,26 C33,22 29,23 27,18.5 C24,22 16,21 11.5,26Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><div><b>민지</b><small>고딩 짝꿍</small></div></div><p>키링 또 샀대요</p></div>
+</div>
+</div>
+
+<div class="wv-sec" style="margin-top:12px">
+<div class="wv-surf">
+<h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 19c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M6 10c0-3 2.5-5 5.5-5 2 0 3.4 1 4 2.4-1.8-.4-3.5.6-3.5 2.6"/></svg>파도 타고 놀러가기</h3><p>지우 친구들 방에도 노크해 봐요</p>
+<div class="wv-chips">
+<span class="wv-chip"><svg width="34" height="34" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FFE9DC"/><clipPath id="fc-long6B4632"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-long6B4632)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11,40 C8,22 13,9 24,9 C35,9 40,22 37,40 Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11.5,26 C10,14 16,10.5 24,10.5 C32,10.5 38,14 36.5,26 C33,22 29,23 27,18.5 C24,22 16,21 11.5,26Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg>민지네 방<i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></i></span>
+<span class="wv-chip"><svg width="34" height="34" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#E3EEDF"/><clipPath id="fc-short2F2724"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-short2F2724)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M12,23 C11,13 17,10 24,10 C31,10 37,13 36,23 C33,18 27,19 24,15.5 C21,18.5 15,18 12,23Z" fill="#2F2724" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg>하준네 방<i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></i></span>
+<span class="wv-chip"><svg width="34" height="34" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#F6E4EC"/><clipPath id="fc-buns3A2C2A"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-buns3A2C2A)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="13" cy="11" r="5.5" fill="#3A2C2A" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="35" cy="11" r="5.5" fill="#3A2C2A" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M12,24 C11,14 17,11 24,11 C31,11 37,14 36,24 C34,19 30,17.5 24,17.5 C18,17.5 14,19 12,24Z" fill="#3A2C2A" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg>유나네 방<i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></i></span>
+<span class="wv-chip rnd"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M2 19c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M6 10c0-3 2.5-5 5.5-5 2 0 3.4 1 4 2.4-1.8-.4-3.5.6-3.5 2.6"/></svg></i>아무 방이나 가기</span>
+</div>
+</div>
+</div>
+
+<div class="wv-sec">
+<div class="wv-st"><h2>요즘 지우</h2><span>10.7 업데이트</span></div>
+<div class="wv-today">
+<div class="wv-t"><small><i style="background:#FFF1E6;color:#C26A4F"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9Z"/><path d="M16 10.5h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M9 3.5c-.6.9-.6 1.8 0 2.7M12.5 3.5c-.6.9-.6 1.8 0 2.7"/></svg></i>오늘의 기분</small><p>시험 D-3,<br>커피 수혈 중</p></div>
+<div class="wv-t"><small><i style="background:#EAF2E8;color:#5E7C63"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg></i>요즘 듣는 노래</small><p>좋은 날<br><span>아이유</span></p></div>
+<div class="wv-t"><small><i style="background:#FFF6D6;color:#B48A1E"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></i>D-day</small><p class="wv-dd">D-12</p><p><span>생일까지</span></p></div>
+<div class="wv-t"><small><i style="background:#F2EEFA;color:#7C6BA8"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.6"/><path d="M12 17h.01"/></svg></i>요즘 질문</small><p style="font-size:14px">제일 좋아하는 편의점 간식은?</p><span class="wv-ans">답하러 가기 →</span></div>
+</div>
+</div>
+
+<div class="wv-sec">
+<div class="wv-st"><h2>같이 찍은 사진</h2><span>3장</span></div>
+<div class="wv-ph">
+<div class="wv-phb big"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이 올린 사진<div class="wv-tagged"><span><svg width="22" height="22" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FFE9DC"/><clipPath id="fc-long6B4632"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-long6B4632)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11,40 C8,22 13,9 24,9 C35,9 40,22 37,40 Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11.5,26 C10,14 16,10.5 24,10.5 C32,10.5 38,14 36.5,26 C33,22 29,23 27,18.5 C24,22 16,21 11.5,26Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><svg width="22" height="22" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FFF1C9"/><clipPath id="fc-ponyA0623F"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-ponyA0623F)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M33,14 C42,14 43,26 37,31 C39,24 37,19 32,18Z" fill="#A0623F" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M12,24 C11,14 17,11 24,11 C31,11 37,14 36,24 C34,19 30,17.5 24,17.5 C18,17.5 14,19 12,24Z" fill="#A0623F" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg></span>민지, 서아</div></div>
+<div class="wv-col">
+<div class="wv-phb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>사진</div>
+<div class="wv-lock"><i><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></i><b>비밀 일기 3<small>친구만 보기</small></b></div>
+</div>
+</div>
+</div>
+
+<div class="wv-sec">
+<div class="wv-st"><h2>방명록</h2><span>2개</span></div>
+<div class="wv-gb">
+<div class="wv-g"><svg width="40" height="40" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#FFE9DC"/><clipPath id="fc-long6B4632"><circle cx="24" cy="24" r="24"/></clipPath><g clip-path="url(#fc-long6B4632)"><path d="M8,52 C9,41 16,37 24,37 C32,37 39,41 40,52Z" fill="#FFFFFF" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11,40 C8,22 13,9 24,9 C35,9 40,22 37,40 Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="25" r="12" fill="#FFE4D2" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><path d="M11.5,26 C10,14 16,10.5 24,10.5 C32,10.5 38,14 36.5,26 C33,22 29,23 27,18.5 C24,22 16,21 11.5,26Z" fill="#6B4632" stroke="#3B2F2A" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="19.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="28.5" cy="27" rx="1.4" ry="1.8" fill="#3B2F2A"/><ellipse cx="16" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><ellipse cx="32" cy="31" rx="2.4" ry="1.4" fill="#FFB2A3" opacity=".7"/><path d="M22.3,31.5 Q24,33 25.7,31.5" fill="none" stroke="#3B2F2A" stroke-width="1.2" stroke-linecap="round"/></g></svg><div class="wv-gx"><div class="wv-gm"><b>민지</b><em>일촌</em>10.4</div><p>케이스 뭐야 너무 귀엽잖아</p></div><div class="wv-gh on"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.5s-7.5-4.6-9.2-9.2C1.6 8 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.5 4.2 6.8-1.7 4.6-9.2 9.2-9.2 9.2Z"/></svg>1</div></div>
+<div class="wv-g"><svg width="40" height="40" viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#F6EFEA"/><circle cx="24" cy="24" r="13" fill="#FFFFFF" stroke="#A8968B" stroke-width="1.3" stroke-dasharray="2.4 2.6"/><text x="24" y="29" text-anchor="middle" font-size="14" font-weight="800" fill="#A8968B" font-family="Noto Sans KR, sans-serif">?</text></svg><div class="wv-gx"><div class="wv-gm"><b>익명</b>10.2</div><p>도서관에서 찍고 감</p></div><div class="wv-gh"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 20.5s-7.5-4.6-9.2-9.2C1.6 8 3.6 4.5 7 4.5c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.5 4.2 6.8-1.7 4.6-9.2 9.2-9.2 9.2Z"/></svg></div></div>
+<div class="wv-form"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+</div>
+</div>
+
+<div class="wv-sec wv-links">
+<a class="wv-lk" href="#"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></i><b><span>인스타그램<small>@jiwoo.room</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></b></a>
+<a class="wv-lk" href="#"><i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="3"/><circle cx="12" cy="12.5" r="3.6"/><path d="M8 6l1.5-2h5L16 6"/></svg></i><b><span>필름 사진 모아둔 곳<small>블로그</small></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></b></a>
+</div>
+<div class="wv-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>

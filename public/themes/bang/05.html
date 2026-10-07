@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 05 · 미니홈피 감성</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Gowun+Dodum&amp;family=Hi+Melody&amp;family=Silkscreen&amp;display=swap">
+<style>
+body{margin:0}
+.mh-root{width:390px;min-height:1059px;box-sizing:border-box;position:relative;color:#3B3550;font-family:'Gowun Dodum','Noto Sans KR',sans-serif;font-size:13px;line-height:1.5;word-break:keep-all;padding:14px 12px 26px;
+  background-color:#E8E4F6;
+  background-image:linear-gradient(rgba(255,255,255,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.55) 1px,transparent 1px);
+  background-size:16px 16px}
+.mh-root *{box-sizing:border-box}
+.mh-px{font-family:'Silkscreen','IBM Plex Mono',monospace;letter-spacing:.02em}
+.mh-cute{font-family:'Hi Melody','Gowun Dodum',sans-serif}
+
+.mh-top{display:flex;justify-content:space-between;align-items:center;height:34px;padding:0 2px 0 4px;margin-bottom:10px}
+.mh-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;letter-spacing:-.04em;color:#3B3550}
+.mh-cnt{display:flex;align-items:stretch;border:1.5px solid #3B3550;border-radius:8px;overflow:hidden;background:#FFFDF6;box-shadow:2px 2px 0 #3B3550}
+.mh-cnt span{display:flex;align-items:center;gap:6px;padding:4px 10px;font-size:12px}
+.mh-cnt span+span{border-left:1.5px dashed #B7A6EC}
+.mh-cnt b{font-family:'Silkscreen','IBM Plex Mono',monospace;font-weight:400;font-size:14px;color:#2E9C80}
+.mh-cnt span:first-child b{color:#E06A94}
+
+.mh-wrap{position:relative;padding-right:32px}
+.mh-book{position:relative;background:#B7A6EC;border-radius:20px;padding:7px;box-shadow:3px 4px 0 rgba(59,53,80,.18)}
+.mh-book:before{content:"";position:absolute;inset:4px;border:1.5px dashed rgba(255,255,255,.75);border-radius:16px;pointer-events:none}
+.mh-paper{position:relative;background:#FFFDF6;border-radius:14px;padding:14px 14px 16px;min-height:200px}
+
+.mh-tabs{position:absolute;right:2px;top:150px;display:flex;flex-direction:column;gap:6px}
+.mh-tab{width:34px;height:70px;border-radius:0 12px 12px 0;display:flex;align-items:center;justify-content:center;font-size:13px;writing-mode:vertical-rl;text-orientation:upright;letter-spacing:2px;color:#3B3550;text-decoration:none;box-shadow:2px 2px 0 rgba(59,53,80,.14)}
+.mh-tab.on{background:#FFFDF6;font-weight:700;width:36px;margin-left:-2px;color:#6E5BB8;border:1.5px solid #B7A6EC;border-left:0}
+.mh-tab.p{background:#BFEBDD}
+.mh-tab.g{background:#F6D3E1}
+
+.mh-head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:10px;border-bottom:1.5px dotted #CFC4F2}
+.mh-head h1{margin:0;font-size:26px;font-weight:400;line-height:1.1;color:#6E5BB8;display:flex;align-items:center;gap:6px}
+.mh-head small{font-size:12px;color:#8E87A6}
+
+.mh-bgm{display:flex;align-items:center;gap:8px;margin-top:10px;height:44px;padding:0 8px 0 6px;border-radius:12px;background:linear-gradient(180deg,#5B4E8E,#463B74);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.mh-bgm .mh-tag{font-size:11px;background:#9FE3CF;color:#24534A;padding:2px 6px;border-radius:5px}
+.mh-bgm .mh-song{flex:1;min-width:0;font-size:13px;white-space:nowrap;overflow:hidden;display:flex;align-items:center;gap:6px}
+.mh-bgm .mh-song em{font-style:normal;color:#CFC4F2}
+.mh-eq{display:flex;align-items:flex-end;gap:2px;height:14px}
+.mh-eq i{width:3px;background:#9FE3CF;border-radius:1px}
+.mh-bgm .mh-b{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;flex:none}
+
+.mh-cols{display:grid;grid-template-columns:118px 1fr;gap:12px;margin-top:14px}
+.mh-ph{border:1.5px dashed #BDB2E4;background:repeating-linear-gradient(45deg,#FAF8FF 0 6px,#F4F1FD 6px 12px);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#8E87A6;font-size:12px;text-align:center}
+.mh-prof{height:136px}
+.mh-name{margin:10px 0 0;font-size:16px;font-weight:700;display:flex;align-items:center;gap:4px}
+.mh-name span{font-size:12px;font-weight:400;color:#8E87A6}
+.mh-bio{margin:2px 0 0;font-size:13px;color:#5C5574}
+.mh-links{margin-top:10px;padding-top:8px;border-top:1.5px dotted #CFC4F2;display:flex;flex-direction:column;gap:6px}
+.mh-links a{display:flex;align-items:center;gap:6px;color:#6E5BB8;text-decoration:none;font-size:13px;line-height:1.3;min-height:30px}
+.mh-links a i{width:22px;height:22px;border-radius:7px;background:#EEE9FC;display:flex;align-items:center;justify-content:center;flex:none}
+.mh-links a small{display:block;font-size:12px;color:#8E87A6}
+
+.mh-box{border:1.5px solid #CFC4F2;border-radius:10px;overflow:hidden;background:#fff}
+.mh-box+.mh-box{margin-top:10px}
+.mh-bh{display:flex;justify-content:space-between;align-items:center;padding:4px 10px;background:#EEE9FC;font-size:12px;color:#6E5BB8;font-weight:700}
+.mh-bh.m{background:#DDF5EC;color:#2E7E69}
+.mh-bh.k{background:#FCE6EF;color:#B44E78}
+.mh-bb{padding:9px 10px}
+.mh-mood{display:flex;align-items:center;gap:8px}
+.mh-face{width:34px;height:34px;border-radius:50%;background:#FFF3C9;border:1.5px solid #3B3550;flex:none;display:flex;align-items:center;justify-content:center}
+.mh-mood p{margin:0;font-size:14px;font-weight:700;line-height:1.35}
+.mh-dday{display:flex;align-items:baseline;justify-content:space-between}
+.mh-dday b{font-family:'Silkscreen','IBM Plex Mono',monospace;font-weight:400;font-size:24px;color:#2E9C80;line-height:1}
+.mh-dday span{font-size:13px}
+.mh-q p{margin:0;font-size:14px;font-weight:700;line-height:1.35}
+
+.mh-knock{display:flex;align-items:center;gap:10px;margin-top:16px}
+.mh-kbtn{flex:1;height:54px;border:1.5px solid #3B3550;border-radius:999px;font:inherit;font-size:17px;font-weight:700;color:#24534A;cursor:pointer;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:linear-gradient(180deg,#D4F7EC 0%,#A6E8D5 48%,#86DCC3 52%,#9FE3CF 100%);box-shadow:2px 3px 0 #3B3550}
+.mh-kbtn:before{content:"";position:absolute;left:14px;right:14px;top:4px;height:14px;border-radius:99px;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,0))}
+.mh-kbtn span{position:relative}
+.mh-kc{flex:none;width:78px;height:54px;border:1.5px solid #3B3550;border-radius:12px;background:#3B3550;color:#9FE3CF;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.1;box-shadow:2px 3px 0 rgba(59,53,80,.25)}
+.mh-kc b{font-family:'Silkscreen','IBM Plex Mono',monospace;font-weight:400;font-size:22px;letter-spacing:.06em}
+.mh-kc span{font-size:11px;color:#CFC4F2}
+
+.mh-sec{margin-top:18px}
+.mh-sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.mh-sh h2{margin:0;font-size:20px;font-weight:400;color:#6E5BB8;display:flex;align-items:center;gap:6px}
+.mh-sh h2 .mh-new{font-family:'Silkscreen','IBM Plex Mono',monospace;font-size:10px;color:#fff;background:#E06A94;border-radius:4px;padding:1px 4px;line-height:1.4}
+.mh-sh small{font-size:12px;color:#8E87A6}
+.mh-album{display:grid;grid-template-columns:1.4fr 1fr;gap:8px}
+.mh-album .mh-ph{height:150px}
+.mh-album .mh-ph.s{height:150px}
+.mh-cap{margin:6px 2px 0;font-size:12px;color:#8E87A6;display:flex;justify-content:space-between}
+
+.mh-line{border:1.5px solid #CFC4F2;border-radius:10px;background:#fff;overflow:hidden}
+.mh-cm{display:flex;align-items:center;gap:8px;padding:9px 10px;font-size:13px}
+.mh-cm+.mh-cm{border-top:1.5px dotted #E3DCF8}
+.mh-cm i{width:6px;height:6px;border-radius:50%;flex:none}
+.mh-cm p{margin:0;flex:1;min-width:0;font-size:14px}
+.mh-cm b{font-weight:700;color:#6E5BB8;font-size:13px}
+.mh-cm small{font-size:12px;color:#A39CBB;font-family:'Silkscreen','IBM Plex Mono',monospace}
+.mh-in{display:flex;gap:6px;padding:8px;border-top:1.5px solid #CFC4F2;background:#F8F6FF}
+.mh-in span{flex:1;height:44px;border:1.5px solid #CFC4F2;border-radius:8px;background:#fff;display:flex;align-items:center;padding:0 10px;color:#A39CBB;font-size:13px}
+.mh-in button{height:44px;padding:0 14px;border:1.5px solid #3B3550;border-radius:8px;background:#B7A6EC;color:#2A2440;font:inherit;font-size:13px;font-weight:700;cursor:pointer;box-shadow:2px 2px 0 #3B3550}
+
+.mh-foot{text-align:center;font-size:12px;color:#8E87A6;margin:26px 0 0}
+.mh-foot a{color:#5C5574;text-decoration:none;font-weight:700}
+</style>
+</helmet>
+<div class="mh-root">
+  <div class="mh-top">
+    <span class="mh-logo">knock!</span>
+    <span class="mh-cnt"><span>오늘 <b>4</b></span><span>지금까지 <b>112</b></span></span>
+  </div>
+
+  <div class="mh-wrap">
+    <div class="mh-tabs">
+      <a href="#" class="mh-tab on">홈</a>
+      <a href="#" class="mh-tab p">사진첩</a>
+      <a href="#" class="mh-tab g">방명록</a>
+    </div>
+    <div class="mh-book"><div class="mh-paper">
+      <div class="mh-head">
+        <h1 class="mh-cute">지우의 방 <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" fill="#9FE3CF" stroke="#3B3550" stroke-width="1.2" stroke-linejoin="round"/></svg></h1>
+        <small>since 2026.09</small>
+      </div>
+
+      <div class="mh-bgm">
+        <span class="mh-tag mh-px">BGM</span>
+        <span class="mh-song"><span class="mh-eq" aria-hidden="true"><i style="height:6px"></i><i style="height:13px"></i><i style="height:9px"></i><i style="height:12px"></i></span>좋은 날 <em>· 아이유</em></span>
+        <span class="mh-b"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></span>
+        <span class="mh-b" style="background:#9FE3CF"><svg width="12" height="12" viewBox="0 0 24 24" fill="#24534A" aria-hidden="true"><path d="M7 4h4v16H7zM14 4h4v16h-4z"/></svg></span>
+        <span class="mh-b"><svg width="12" height="12" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></span>
+      </div>
+
+      <div class="mh-cols">
+        <div>
+          <div class="mh-ph mh-prof" role="img" aria-label="프로필 사진 자리"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A99FD0" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="9" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg>프로필 사진</div>
+          <p class="mh-name">지우 <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-9.3-9A5.3 5.3 0 0112 6.6 5.3 5.3 0 0121.3 12C19 16.6 12 21 12 21z" fill="#F6B3CB" stroke="#3B3550" stroke-width="1.6"/></svg></p>
+          <p class="mh-bio">똑똑, 들어와도 돼</p>
+          <div class="mh-links">
+            <a href="#"><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E5BB8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/></svg></i><span>인스타그램<small>@jiwoo.room</small></span></a>
+            <a href="#"><i><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6E5BB8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1"/><path d="M14 11a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1"/></svg></i><span>필름 사진<small>블로그</small></span></a>
+          </div>
+        </div>
+        <div>
+          <div class="mh-box">
+            <div class="mh-bh k"><span>TODAY IS…</span><span class="mh-px" style="font-weight:400">10.6</span></div>
+            <div class="mh-bb mh-mood"><span class="mh-face"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3B3550" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M7 10h3M14 10h3M9 15.5c1.8 1 4.2 1 6 0"/></svg></span><p>시험 D-3,<br>커피 수혈 중</p></div>
+          </div>
+          <div class="mh-box">
+            <div class="mh-bh m"><span>D-day</span></div>
+            <div class="mh-bb mh-dday"><span>생일까지</span><b>D-12</b></div>
+          </div>
+          <div class="mh-box">
+            <div class="mh-bh"><span>요즘 질문</span><span>Q.</span></div>
+            <div class="mh-bb mh-q"><p>제일 좋아하는 편의점 간식은?</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mh-knock">
+        <button type="button" class="mh-kbtn"><span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#24534A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-4px;margin-right:6px"><path d="M7 11V7a2 2 0 014 0v4M11 10V6a2 2 0 014 0v5M15 10a2 2 0 014 0v3a7 7 0 01-7 7h-1a6 6 0 01-5.2-3L4 14a2 2 0 013.4-2L9 13"/></svg>노크하기</span></button>
+        <div class="mh-kc"><b>027</b><span>지금까지</span></div>
+      </div>
+
+      <div class="mh-sec">
+        <div class="mh-sh"><h2 class="mh-cute">사진첩 <span class="mh-new">NEW</span></h2><small>2장</small></div>
+        <div class="mh-album">
+          <div><div class="mh-ph" role="img" aria-label="주인이 올린 사진 자리"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A99FD0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>주인이 올린 사진</div><p class="mh-cap"><span>도서관 창가</span><span>10.3</span></p></div>
+          <div><div class="mh-ph s" role="img" aria-label="주인이 올린 사진 자리"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A99FD0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/></svg>사진</div><p class="mh-cap"><span>필름 한 롤</span><span>9.28</span></p></div>
+        </div>
+      </div>
+
+      <div class="mh-sec">
+        <div class="mh-sh"><h2 class="mh-cute">한 줄 방명록</h2><small>2개</small></div>
+        <div class="mh-line">
+          <div class="mh-cm"><i style="background:#9FE3CF"></i><p>케이스 뭐야 너무 귀엽잖아 <b>민지</b></p><small>10.4</small></div>
+          <div class="mh-cm"><i style="background:#F6B3CB"></i><p>도서관에서 찍고 감 <b>익명</b></p><small>10.2</small></div>
+          <div class="mh-in"><span>한 줄 남기기</span><button type="button">남기기</button></div>
+        </div>
+      </div>
+    </div></div>
+  </div>
+
+  <p class="mh-foot">knock! · <a href="#">나도 knock 만들기</a></p>
+</div>
+</x-dc>
+
+</body>
+</html>

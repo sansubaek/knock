@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>knock! 테마 19 · 지우 일보</title>
+
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&amp;family=Noto+Serif+KR:wght@400;500;700;900&amp;family=Noto+Sans+KR:wght@400;500;700&amp;family=Song+Myung&amp;display=swap">
+<style>
+body{margin:0}
+.np{width:390px;min-height:1796px;box-sizing:border-box;position:relative;background:#F2EDE1;color:#1B1A17;font-family:'Noto Serif KR',serif;font-size:14px;line-height:1.55;word-break:keep-all;padding:0 18px 24px;
+background-image:radial-gradient(rgba(80,60,30,.05) 1px,transparent 1.4px),linear-gradient(180deg,rgba(255,255,255,.25),rgba(0,0,0,.02));background-size:5px 5px,100% 100%}
+.np *{box-sizing:border-box}
+.np-sans{font-family:'Noto Sans KR',sans-serif}
+.np-red{color:#B3261E}
+.np-top{display:flex;justify-content:space-between;align-items:center;height:44px;font-size:12px}
+.np-logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-.04em;font-size:16px}
+.np-top .np-sans{color:#4A463E}
+.np-top b{font-weight:700;color:#1B1A17}
+.np-mast{border-top:4px solid #1B1A17;padding-top:3px;position:relative}
+.np-mast::before{content:'';display:block;border-top:1px solid #1B1A17}
+.np-mrow{display:flex;align-items:center;justify-content:center;gap:12px;padding:12px 0 8px}
+.np-title{font-family:'Song Myung','Noto Serif KR',serif;font-weight:900;font-size:62px;line-height:1;letter-spacing:.04em}
+.np-brief{margin-top:14px;border-top:1px solid #1B1A17;padding-top:8px}
+.np-brief div{display:flex;gap:8px;font-size:13px;line-height:1.5;padding:4px 0}
+.np-brief div b{font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:700;color:#B3261E;flex:none;margin-top:1px}
+.np-xseal{width:42px;height:42px;border:2.5px solid #B3261E;color:#B3261E;border-radius:6px;display:grid;grid-template-columns:1fr 1fr;align-items:center;justify-items:center;font-weight:900;font-size:15px;line-height:1;padding:3px;transform:rotate(-6deg);opacity:.9}
+.np-ear{position:absolute;top:22px;font-size:12px;line-height:1.35;color:#4A463E;text-align:center;width:52px}
+.np-ear b{display:block;font-size:13px;color:#1B1A17}
+.np-ed{display:flex;justify-content:space-between;font-size:12px;border-top:1px solid #1B1A17;border-bottom:3px double #1B1A17;padding:5px 0;color:#2E2B26}
+.np-tick{display:flex;align-items:center;height:34px;background:#1B1A17;color:#F2EDE1;margin-top:10px;overflow:hidden;font-size:13px;white-space:nowrap}
+.np-tick b{background:#B3261E;color:#fff;height:100%;display:flex;align-items:center;padding:0 10px;font-weight:900;flex:none}
+.np-tick span{padding-left:12px}
+.np-tick i{font-style:normal;color:#E8A49E;margin:0 8px}
+.np-kick{display:flex;align-items:center;gap:8px;margin-top:20px;font-size:13px;font-weight:700}
+.np-kick em{font-style:normal;background:#B3261E;color:#fff;padding:1px 8px;font-weight:900}
+.np-h1{margin:8px 0 0;font-size:35px;line-height:1.2;font-weight:900;letter-spacing:-.025em}
+.np-sub{margin:12px 0 0;padding-left:10px;border-left:3px solid #1B1A17;font-size:15px;font-weight:700;line-height:1.45;color:#2E2B26}
+.np-knock{margin-top:18px;width:100%;height:62px;border:none;background:#B3261E;color:#fff;font:inherit;cursor:pointer;display:flex;align-items:center;gap:12px;padding:0 16px;box-shadow:0 0 0 1px #1B1A17,4px 4px 0 #1B1A17}
+.np-knock .np-k1{font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:700;background:#fff;color:#B3261E;padding:2px 7px;flex:none}
+.np-knock .np-k2{font-size:20px;font-weight:900;letter-spacing:-.01em}
+.np-knock .np-k3{margin-left:auto;display:flex;align-items:baseline;gap:3px;font-weight:900;font-size:26px;font-family:'Bricolage Grotesque',sans-serif}
+.np-knock .np-k3 small{font-family:'Noto Sans KR',sans-serif;font-size:12px;font-weight:500;opacity:.9}
+.np-knote{font-size:12px;color:#4A463E;margin-top:8px;text-align:right}
+.np-photo{margin-top:20px}
+.np-ph{height:212px;border:1.5px dashed #6E685C;background:repeating-linear-gradient(135deg,rgba(0,0,0,.025) 0 8px,transparent 8px 16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:13px;color:#4A463E}
+.np-cap{font-size:12px;color:#2E2B26;margin-top:6px;padding-bottom:10px;border-bottom:1px solid #1B1A17}
+.np-cols{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:14px}
+.np-col{padding-right:12px;font-size:13px;line-height:1.7;text-align:justify;word-break:break-all}
+.np-col+.np-col{padding:0 0 0 12px;border-left:1px solid #9A9384}
+.np-col p{margin:0 0 8px}
+.np-by{display:flex;gap:8px;align-items:center;margin-bottom:10px;padding-bottom:10px;border-bottom:1px dotted #9A9384}
+.np-pf{width:52px;height:62px;border:1.5px dashed #6E685C;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;line-height:1.2;color:#4A463E;flex:none;text-align:center;font-family:'Noto Sans KR',sans-serif}
+.np-by b{display:block;font-size:13px}
+.np-by span{font-size:12px;color:#4A463E;line-height:1.4;display:block}
+.np-drop::first-letter{float:left;font-size:42px;line-height:1;font-weight:900;margin:3px 6px 0 0}
+.np-quote{word-break:keep-all;font-weight:700;font-size:14px;line-height:1.5;margin:6px 0 10px;padding:8px 0;border-top:2px solid #1B1A17;border-bottom:1px solid #1B1A17;text-align:left}
+.np-rule{border-top:3px double #1B1A17;margin-top:18px}
+.np-sec{display:flex;align-items:center;gap:8px;margin:14px 0 10px;font-size:13px;font-weight:900;letter-spacing:.04em}
+.np-sec::after{content:'';flex:1;border-top:1px solid #1B1A17}
+.np-boxes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.np-box{border:1px solid #1B1A17;padding:10px 12px 12px;background:rgba(255,255,255,.35)}
+.np-box h3{margin:0 0 8px;font-size:12px;font-weight:900;font-family:'Noto Sans KR',sans-serif;display:flex;justify-content:space-between;border-bottom:1px solid #1B1A17;padding-bottom:5px;letter-spacing:.04em}
+.np-chart{display:flex;gap:10px;align-items:flex-start}
+.np-chart .np-rk{font-size:34px;font-weight:900;line-height:1}
+.np-chart b{display:block;font-size:16px;line-height:1.3}
+.np-chart span{font-size:13px;color:#4A463E}
+.np-chart small{display:block;font-size:12px;margin-top:4px;font-family:'Noto Sans KR',sans-serif;color:#B3261E;font-weight:700}
+.np-notice{border:3px double #1B1A17;text-align:center;padding:10px 8px 12px}
+.np-notice h3{justify-content:center;border:none;padding:0;margin-bottom:2px;letter-spacing:.3em}
+.np-notice .np-d{font-size:34px;font-weight:900;line-height:1.1;color:#B3261E;letter-spacing:-.02em}
+.np-notice p{margin:4px 0 0;font-size:12px;line-height:1.5}
+.np-qbox{margin-top:10px;background:#1B1A17;color:#F2EDE1;padding:14px 16px;display:flex;gap:12px;align-items:center}
+.np-qbox .np-qq{font-size:40px;font-weight:900;line-height:1;color:#E8695F;flex:none}
+.np-qbox small{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#CFC8B8;display:block}
+.np-qbox b{font-size:17px;line-height:1.4;display:block}
+.np-links a{display:flex;align-items:center;gap:10px;min-height:50px;border-bottom:1px solid #C9C2B2;text-decoration:none;color:#1B1A17;font-size:15px;font-weight:700}
+.np-links a span{flex:1}
+.np-links a small{font-family:'Noto Sans KR',sans-serif;font-size:12px;color:#4A463E;font-weight:400}
+.np-links .np-ic{width:30px;height:30px;border:1px solid #1B1A17;display:flex;align-items:center;justify-content:center;flex:none}
+.np-letter{padding:12px 0;border-bottom:1px dotted #9A9384}
+.np-letter p{margin:0;font-size:16px;font-weight:700;line-height:1.45}
+.np-letter p::before{content:'“';color:#B3261E;font-weight:900}
+.np-letter p::after{content:'”';color:#B3261E;font-weight:900}
+.np-letter small{display:block;font-size:12px;color:#4A463E;margin-top:2px;font-family:'Noto Sans KR',sans-serif}
+.np-form{display:flex;gap:8px;margin-top:14px}
+.np-form input{flex:1;min-width:0;height:48px;border:1px solid #1B1A17;background:#FBF8F1;font:inherit;font-size:14px;padding:0 12px;color:#1B1A17;outline:none}
+.np-form input::placeholder{color:#7A7467}
+.np-form button{height:48px;padding:0 18px;border:none;background:#1B1A17;color:#F2EDE1;font:inherit;font-weight:900;font-size:15px;cursor:pointer}
+.np-foot{text-align:center;font-size:12px;color:#9A9384;margin-top:26px;font-family:'Noto Sans KR',sans-serif}
+</style>
+</helmet>
+<div class="np">
+<div class="np-top"><span class="np-logo">knock!</span><span class="np-sans">오늘 <b>4명</b> · 지금까지 <b>112명</b> 읽었어요</span></div>
+
+<div class="np-mast">
+<div class="np-ear np-sans" style="left:0">창간<b>2026</b></div>
+<div class="np-ear np-sans" style="right:0">제<b>112호</b></div>
+<div class="np-mrow"><span class="np-title">지우 일보</span></div>
+<div class="np-ed"><span>2026년 10월 6일 화요일</span><span>흐림, 가끔 카페인</span></div>
+</div>
+
+<div class="np-tick np-sans"><b>속보</b><span>노크 27회 돌파<i>|</i>방명록 2건 접수<i>|</i>생일 D-12<i>|</i>오늘 방문 4명</span></div>
+
+<div class="np-kick np-sans"><em>단독</em>시험 기간 특집</div>
+<h1 class="np-h1">지우, 시험 D-3…<br>커피 수혈 중</h1>
+<p class="np-sub">“똑똑, 들어와도 돼”… 바쁜 와중에도 손님은 언제나 환영이래요</p>
+
+<button class="np-knock"><span class="np-k1">속보</span><span class="np-k2">노크하기</span><span class="np-k3">27<small>회</small></span></button>
+<div class="np-knote np-sans">지금까지 27번 노크했어요</div>
+
+<div class="np-photo">
+<div class="np-ph np-sans"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4A463E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><circle cx="9" cy="10" r="1.8"/><path d="m21 16-5-5-9 9"/></svg>주인이 올린 사진</div>
+<div class="np-cap">▲ 도서관 창가 자리에서 포착된 지우 씨의 책상. 10월 5일.</div>
+</div>
+
+<div class="np-cols">
+<div class="np-col">
+<div class="np-by"><div class="np-pf">프로필<br>사진</div><div><b>지우 기자</b><span>똑똑, 들어와도 돼</span></div></div>
+<p class="np-drop">시험을 사흘 앞둔 지우 씨가 오늘도 커피로 하루를 버티고 있어요. 관계자에 따르면 오늘만 벌써 네 잔째예요.</p>
+</div>
+<div class="np-col">
+<div class="np-quote">“끝나면 늦잠부터 잘 거예요”</div>
+<p>지우 씨는 시험이 끝나는 금요일까지 도서관에서 지낼 예정이에요. 한편 지우 씨의 방에는 지금까지 27번의 노크가 이어졌어요.</p>
+</div>
+</div>
+
+<div class="np-brief">
+<div><b>단신</b><span>편의점 신상 젤리, 지우 씨 장바구니에 또 담겼어요</span></div>
+<div><b>날씨</b><span>토요일엔 늦잠 예보, 하루 종일 맑겠어요</span></div>
+</div>
+<div class="np-rule"></div>
+<div class="np-sec np-sans">생활 · 문화</div>
+<div class="np-boxes">
+<div class="np-box">
+<h3><span>오늘의 노래</span><span class="np-red">▲</span></h3>
+<div class="np-chart"><span class="np-rk">1</span><div><b>좋은 날</b><span>아이유</span><small>3일째 반복 재생</small></div></div>
+</div>
+<div class="np-box np-notice">
+<h3>공 고</h3>
+<div class="np-d">D-12</div>
+<p>10월 18일 일요일은<br>지우 생일이에요</p>
+</div>
+</div>
+<div class="np-qbox">
+<span class="np-qq">Q</span>
+<div><small>독자 질문 · 답은 독자 투고로</small><b>제일 좋아하는 편의점 간식은?</b></div>
+</div>
+
+<div class="np-sec np-sans">관련 기사</div>
+<div class="np-links">
+<a href="#"><span class="np-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B1A17" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></svg></span><span>인스타그램</span><small>@jiwoo.room ›</small></a>
+<a href="#"><span class="np-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B1A17" stroke-width="2" stroke-linecap="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg></span><span>필름 사진 모아둔 곳</span><small>블로그 ›</small></a>
+</div>
+
+<div class="np-sec np-sans">독자 투고 <span class="np-red" style="font-weight:700">2건</span></div>
+<div class="np-letter"><p>케이스 뭐야 너무 귀엽잖아</p><small>민지 독자 · 10.4</small></div>
+<div class="np-letter"><p>도서관에서 찍고 감</p><small>익명 독자 · 10.2</small></div>
+<div class="np-form np-sans"><input placeholder="한 줄 남기기"><button>남기기</button></div>
+
+<div class="np-foot">knock! · 나도 knock 만들기</div>
+</div>
+</x-dc>
+
+</body>
+</html>
