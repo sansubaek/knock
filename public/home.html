@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<script>
+/* 로그인·비밀번호 찾기 메일 링크가 홈으로 떨어진 경우 알맞은 곳으로 넘긴다 */
+(function(){var h=location.hash,q=new URLSearchParams(location.search);
+if(/(^|[#&])(access_token|error_code)=/.test(h)){location.replace('/auth/recovery'+h);return}
+if(q.get('code')){location.replace('/auth/callback?code='+encodeURIComponent(q.get('code'))+'&next=%2Fmy')}})();
+</script>
 <link rel="icon" href="/favicon.svg">
 <meta name="description" content="케이스 QR을 찍으면 열리는 나만의 공간. knock! 와 knock.">
 <title>knock 홈페이지</title>

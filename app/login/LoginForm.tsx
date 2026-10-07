@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { getBrowserClient } from '@/lib/supabase/browser'
+import { getBrowserClient, sendRecoveryMail } from '@/lib/supabase/browser'
 
 export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
   const router = useRouter()
@@ -36,9 +36,7 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
     e.preventDefault()
     setBusy(true)
     setMsg(null)
-    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-      redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent('/account/password')}`,
-    })
+    const { error } = await sendRecoveryMail(email.trim())
     setBusy(false)
     if (error) {
       setMsg({
@@ -67,7 +65,7 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
           <p>
             {email}로 온 메일의 버튼을 누르면 새 창에서 비밀번호를 만드는 화면이 열려요. 이 창은 닫아도 돼요.
           </p>
-          <p className="auth-fine">이 폰(이 브라우저)에서 메일을 열어야 해요. 메일이 안 보이면 스팸함도 확인해 주세요.</p>
+          <p className="auth-fine">링크는 1시간 안에 한 번만 쓸 수 있어요. 메일이 안 보이면 스팸함도 확인해 주세요.</p>
         </div>
         <button type="button" className="link-btn" onClick={() => setMode('login')}>
           로그인으로 돌아가기
