@@ -140,6 +140,9 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
           <button type="submit" disabled={busy}>
             {busy ? '보내는 중…' : '코드 받기'}
           </button>
+          <button type="button" className="link-btn" onClick={() => { if (!email.trim()) { setMsg({ ok: false, text: '이메일을 먼저 적어주세요.' }); return } setCode(''); setMsg(null); setMode('sent') }}>
+            이미 받은 코드가 있어요
+          </button>
         </form>
       )}
 
