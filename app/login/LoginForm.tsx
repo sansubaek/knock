@@ -11,6 +11,7 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
   const [mode, setMode] = useState<'login' | 'reset' | 'sent'>('login')
   const [busy, setBusy] = useState(false)
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null)
+  const [code, setCode] = useState('')
   const supabase = getBrowserClient()
 
   async function login(e: React.FormEvent) {
@@ -23,7 +24,7 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
       setMsg({
         ok: false,
         text: /confirm/i.test(error.message)
-          ? '가입 확인 메일의 링크를 먼저 눌러주세요.'
+          ? '가입 확인이 아직 안 끝났어요. 회원가입 화면에서 메일로 받은 코드를 넣어주세요.'
           : '이메일이나 비밀번호가 맞지 않아요. 비밀번호를 만든 적이 없다면 아래 "비밀번호 찾기"로 새로 만들어주세요.',
       })
       return
@@ -45,7 +46,23 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
       })
       return
     }
+    setCode('')
     setMode('sent')
+  }
+
+  async function checkCode(e: React.FormEvent) {
+    e.preventDefault()
+    const token = code.replace(/\D/g, '')
+    if (token.length < 6) return setMsg({ ok: false, text: '메일에 온 숫자 코드를 그대로 넣어주세요.' })
+    setBusy(true)
+    setMsg(null)
+    const { error } = await supabase.auth.verifyOtp({ email: email.trim(), token, type: 'recovery' })
+    setBusy(false)
+    if (error) {
+      setMsg({ ok: false, text: /expired|invalid/i.test(error.message) ? '코드가 맞지 않거나 시간이 지났어요. 가장 최근 메일의 코드를 넣어주세요.' : '확인하지 못했어요. 잠시 뒤에 다시 해주세요.' })
+      return
+    }
+    window.location.replace('/account/password')
   }
 
   async function withKakao() {
@@ -60,16 +77,36 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
   if (mode === 'sent') {
     return (
       <div className="auth-forms">
-        <div className="auth-sent">
-          <b>메일을 보냈어요</b>
-          <p>
-            {email}로 온 메일의 버튼을 누르면 새 창에서 비밀번호를 만드는 화면이 열려요. 이 창은 닫아도 돼요.
+        <form onSubmit={checkCode} className="auth-form">
+          <p className="auth-p">
+            <b>{email}</b>로 숫자 코드를 보냈어요. 메일에 있는 코드를 넣으면 비밀번호를 새로 만들 수 있어요.
           </p>
-          <p className="auth-fine">링크는 1시간 안에 한 번만 쓸 수 있어요. 메일이 안 보이면 스팸함도 확인해 주세요.</p>
+          <label htmlFor="code">메일로 받은 코드</label>
+          <input
+            id="code"
+            className="code-input"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            maxLength={8}
+            required
+            value={code}
+            onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
+            placeholder="숫자 6자리"
+          />
+          <button type="submit" disabled={busy}>
+            {busy ? '확인 중…' : '확인'}
+          </button>
+        </form>
+        {msg && <p className={`v-msg ${msg.ok ? 'ok' : 'err'}`}>{msg.text}</p>}
+        <p className="auth-fine">코드는 1시간 동안 쓸 수 있어요. 메일이 안 보이면 스팸함도 확인해 주세요. 메일 속 버튼을 눌러도 돼요.</p>
+        <div className="auth-links">
+          <button type="button" className="link-btn" onClick={() => { setMode('reset'); setMsg(null) }}>
+            메일 다시 받기
+          </button>
+          <button type="button" className="link-btn" onClick={() => { setMode('login'); setMsg(null) }}>
+            로그인으로 돌아가기
+          </button>
         </div>
-        <button type="button" className="link-btn" onClick={() => setMode('login')}>
-          로그인으로 돌아가기
-        </button>
       </div>
     )
   }
@@ -97,11 +134,11 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
         </form>
       ) : (
         <form onSubmit={sendReset} className="auth-form">
-          <p className="auth-p">가입한 이메일을 적으면 비밀번호를 새로 만드는 링크를 보내드려요.</p>
+          <p className="auth-p">가입한 이메일을 적으면 비밀번호를 새로 만드는 숫자 코드를 보내드려요.</p>
           <label htmlFor="email">이메일</label>
           <input id="email" type="email" required autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="me@example.com" />
           <button type="submit" disabled={busy}>
-            {busy ? '보내는 중…' : '링크 받기'}
+            {busy ? '보내는 중…' : '코드 받기'}
           </button>
         </form>
       )}

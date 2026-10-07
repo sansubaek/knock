@@ -2371,3 +2371,10 @@ button:disabled {
   font-size: 16px;
   text-decoration: none;
 }
+
+.auth-form input.code-input {
+  font-family: var(--mono);
+  font-size: 24px;
+  letter-spacing: 0.3em;
+  text-align: center;
+}

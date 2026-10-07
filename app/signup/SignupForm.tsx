@@ -12,6 +12,7 @@ export function SignupForm({ next, kakao }: { next: string; kakao: boolean }) {
   const [busy, setBusy] = useState(false)
   const [sent, setSent] = useState(false)
   const [msg, setMsg] = useState<string | null>(null)
+  const [code, setCode] = useState('')
   const supabase = getBrowserClient()
 
   async function signup(e: React.FormEvent) {
@@ -45,6 +46,19 @@ export function SignupForm({ next, kakao }: { next: string; kakao: boolean }) {
     setSent(true)
   }
 
+  async function checkCode(e: React.FormEvent) {
+    e.preventDefault()
+    const token = code.replace(/\D/g, '')
+    if (token.length < 6) return setMsg('메일에 온 숫자 코드를 그대로 넣어주세요.')
+    setBusy(true)
+    setMsg(null)
+    const { error } = await supabase.auth.verifyOtp({ email: email.trim(), token, type: 'signup' })
+    setBusy(false)
+    if (error) return setMsg(/expired|invalid/i.test(error.message) ? '코드가 맞지 않거나 시간이 지났어요. 가장 최근 메일의 코드를 넣어주세요.' : '확인하지 못했어요. 잠시 뒤에 다시 해주세요.')
+    router.replace(next)
+    router.refresh()
+  }
+
   async function withKakao() {
     await supabase.auth.signInWithOAuth({
       provider: 'kakao',
@@ -57,11 +71,28 @@ export function SignupForm({ next, kakao }: { next: string; kakao: boolean }) {
   if (sent) {
     return (
       <div className="auth-forms">
-        <div className="auth-sent">
-          <b>가입 확인 메일을 보냈어요</b>
-          <p>{email}로 온 메일의 버튼을 누르면 가입이 끝나고 바로 시작할 수 있어요. 이 창은 닫아도 돼요.</p>
-          <p className="auth-fine">메일이 안 보이면 스팸함도 확인해 주세요.</p>
-        </div>
+        <form onSubmit={checkCode} className="auth-form">
+          <p className="auth-p">
+            <b>{email}</b>로 숫자 코드를 보냈어요. 코드를 넣으면 가입이 끝나요.
+          </p>
+          <label htmlFor="code">메일로 받은 코드</label>
+          <input
+            id="code"
+            className="code-input"
+            inputMode="numeric"
+            autoComplete="one-time-code"
+            maxLength={8}
+            required
+            value={code}
+            onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
+            placeholder="숫자 6자리"
+          />
+          <button type="submit" disabled={busy}>
+            {busy ? '확인 중…' : '가입 마치기'}
+          </button>
+        </form>
+        {msg && <p className="v-msg err">{msg}</p>}
+        <p className="auth-fine">메일이 안 보이면 스팸함도 확인해 주세요. 메일 속 버튼을 눌러도 돼요.</p>
         <a className="auth-alt" href={loginHref}>
           로그인 화면으로
         </a>
