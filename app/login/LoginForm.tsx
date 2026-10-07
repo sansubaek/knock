@@ -42,7 +42,7 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
     if (error) {
       setMsg({
         ok: false,
-        text: /rate|seconds/i.test(error.message) ? '메일을 너무 자주 보냈어요. 잠시 뒤에 다시 해주세요.' : '메일을 보내지 못했어요. 주소를 확인해 주세요.',
+        text: /rate|seconds/i.test(error.message) ? '메일을 너무 자주 보냈어요. 잠시 뒤에 다시 해주세요.' : /sending|smtp|unexpected/i.test(error.message) ? '지금 메일을 보낼 수 없어요. 잠시 뒤에 다시 해주세요.' : '메일을 보내지 못했어요. 주소를 확인해 주세요.',
       })
       return
     }
@@ -91,7 +91,7 @@ export function LoginForm({ next, kakao }: { next: string; kakao: boolean }) {
             required
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
-            placeholder="숫자 6자리"
+            placeholder="메일 속 숫자"
           />
           <button type="submit" disabled={busy}>
             {busy ? '확인 중…' : '확인'}

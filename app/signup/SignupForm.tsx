@@ -85,7 +85,7 @@ export function SignupForm({ next, kakao }: { next: string; kakao: boolean }) {
             required
             value={code}
             onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
-            placeholder="숫자 6자리"
+            placeholder="메일 속 숫자"
           />
           <button type="submit" disabled={busy}>
             {busy ? '확인 중…' : '가입 마치기'}
