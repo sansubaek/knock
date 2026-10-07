@@ -6,7 +6,7 @@
 <script>
 /* 로그인·비밀번호 찾기 메일 링크가 홈으로 떨어진 경우 알맞은 곳으로 넘긴다 */
 (function(){var h=location.hash,q=new URLSearchParams(location.search);
-if(/(^|[#&])(access_token|error_code)=/.test(h)){location.replace('/auth/recovery'+h);return}
+if(/(^|[#&])(access_token|error_code)=/.test(h)){try{navigator.sendBeacon('/api/auth-debug',new Blob([JSON.stringify({stage:'home_forward',detail:/access_token=/.test(h)?'token':'error',ua:navigator.userAgent.slice(0,160)})],{type:'application/json'}))}catch(e){}location.replace('/auth/recovery'+h);return}
 if(q.get('code')){location.replace('/auth/callback?code='+encodeURIComponent(q.get('code'))+'&next=%2Fmy')}})();
 </script>
 <link rel="icon" href="/favicon.svg">
