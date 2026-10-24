@@ -15,6 +15,8 @@ if(q.get('code')){location.replace('/auth/callback?code='+encodeURIComponent(q.g
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&family=Jua&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Serif+KR:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;800&family=Instrument+Serif:ital@0;1&family=Caveat:wght@700&display=swap">
 <style>
 /* Layout: 두 개의 문. 첫 화면에서 갈라지고, 문을 열면 knock!(크림·말랑) / knock.(모노·정제) 각자의 세계로 */
 :root{
@@ -463,6 +465,232 @@ a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
 .ln-prods.wide{grid-template-columns:repeat(3,minmax(0,1fr))}
 .ln-prods.wide .ln-prod img{height:auto;aspect-ratio:4/3;object-fit:cover}
 @media (max-width:640px){.ln-prods.wide{grid-template-columns:1fr}.ln-prods.wide .ln-prod img{width:120px;height:90px;aspect-ratio:auto}}
+
+/* ═════════ A안 · 페이퍼 에디션 (knock! / knock. 안쪽) ═════════ */
+.a2-bang{--a-bg:#FFF7EC;--a-ink:#2A1C15;--a-mute:#806A5C;--a-acc:#FF5A79;--a-acc-ink:#fff;--a-yel:#FFD84D;--a-chip:#FFE7A3;--a-line:#EADCCB;--a-card:#fff;--a-scr:#FFFCF6;--a-scard:#FFF1DC}
+.a2-dot{--a-bg:#F6F5F1;--a-ink:#141414;--a-mute:#77746D;--a-acc:#141414;--a-acc-ink:#F6F5F1;--a-yel:#141414;--a-chip:#ECEAE4;--a-line:#E1DED7;--a-card:#fff;--a-scr:#fff;--a-scard:#F2F1ED}
+.a2{background:var(--a-bg);color:var(--a-ink);font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;word-break:keep-all;line-height:1.5}
+.a2 a{color:inherit;text-decoration:none}
+.a2 .w{max-width:1120px;margin:0 auto;padding:0 20px}
+.a2 h1,.a2 h2,.a2 h3,.a2 p{margin:0}
+/* hero */
+.a2-hero{padding:26px 0 44px}
+.a2-hero .w{display:grid;gap:34px}
+.a2-en{display:block;margin-bottom:8px}
+.a2-bang .a2-en{font:700 25px Caveat,cursive;color:var(--a-acc);transform:rotate(-3deg);transform-origin:left}
+.a2-dot .a2-en{font:italic 400 23px "Instrument Serif",serif;color:var(--a-mute)}
+.a2-eyebrow{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:700;color:var(--a-mute)}
+.a2-eyebrow i{font:800 12.5px "Inter Tight",sans-serif;font-style:normal;padding:3px 9px;border-radius:999px;background:var(--a-chip);color:var(--a-ink)}
+.a2-dot .a2-eyebrow i{border-radius:4px}
+.a2 h1{font-size:42px;line-height:1.13;letter-spacing:-.045em;font-weight:800;margin:14px 0 14px}
+.a2-dot h1{font-weight:700}
+.a2-bang h1 em{font-style:normal;background:linear-gradient(transparent 60%,var(--a-yel) 60%);padding:0 3px}
+.a2-dot h1 em{font-style:normal}
+.a2-lead{font-size:16px;line-height:1.65;color:var(--a-mute);max-width:30em}
+.a2-ctas{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.a2-btn{height:50px;padding:0 22px;border-radius:999px;font-weight:700;font-size:15.5px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;border:2px solid var(--a-ink);transition:transform .15s,box-shadow .15s;cursor:pointer}
+.a2-btn.pri{background:var(--a-acc);color:var(--a-acc-ink)}
+.a2-btn.sec{background:var(--a-card);color:var(--a-ink)}
+.a2-dot .a2-btn.sec{background:transparent}
+.a2-bang .a2-btn{box-shadow:3px 3px 0 var(--a-ink)}
+.a2-bang .a2-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--a-ink)}
+.a2-dot .a2-btn:hover{transform:translateY(-1px)}
+.a2-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.a2-chips span{font-size:13px;font-weight:600;padding:7px 12px;border-radius:999px;border:1.5px solid var(--a-ink);background:var(--a-card)}
+.a2-bang .a2-chips span:nth-child(odd){transform:rotate(-2deg)}
+.a2-bang .a2-chips span:nth-child(even){transform:rotate(2deg);background:var(--a-chip)}
+.a2-dot .a2-chips span{border-width:1px;border-radius:4px;background:transparent}
+/* hero visual */
+.a2-vis{position:relative;width:100%;max-width:500px;justify-self:center;margin:6px 0 10px}
+.a2-vis img{display:block;width:100%;aspect-ratio:4/4.4;object-fit:cover;border-radius:24px}
+.a2-bang .a2-vis img{border:2px solid var(--a-ink);transform:rotate(-1.6deg)}
+.a2-dot .a2-vis img{border-radius:6px}
+.a2-tape{position:absolute;top:-13px;left:38%;width:96px;height:27px;background:rgba(255,216,77,.85);transform:rotate(-5deg);z-index:2}
+.a2-badge{position:absolute;z-index:2;font-weight:800}
+.a2-bang .a2-badge{right:-6px;top:26px;background:var(--a-acc);color:#fff;padding:9px 16px;border-radius:999px;border:2px solid var(--a-ink);transform:rotate(9deg);box-shadow:2px 2px 0 var(--a-ink);font-size:14px}
+.a2-dot .a2-badge{left:14px;top:14px;background:#F6F5F1;color:#141414;padding:7px 10px;border-radius:4px;font:600 11px "Inter Tight",sans-serif;letter-spacing:.12em}
+.a2-float{position:absolute;z-index:3;background:var(--a-card);color:var(--a-ink);font-size:13px;line-height:1.45}
+.a2-bang .a2-float{left:-8px;bottom:-16px;border:2px solid var(--a-ink);border-radius:16px;padding:10px 14px;box-shadow:3px 3px 0 var(--a-ink);transform:rotate(-3deg);max-width:230px}
+.a2-bang .a2-float small{display:block;font-size:11px;color:var(--a-mute);font-weight:700;margin-bottom:2px}
+.a2-dot .a2-float{right:-8px;bottom:-18px;border:1px solid var(--a-ink);border-radius:6px;padding:14px 16px;min-width:190px;box-shadow:0 18px 30px -18px rgba(0,0,0,.35)}
+.a2-dot .a2-float b{display:block;font-size:17px;letter-spacing:-.02em}
+.a2-dot .a2-float span{display:block;font-size:11.5px;color:var(--a-mute)}
+.a2-dot .a2-float em{display:inline-block;margin-top:10px;font-style:normal;font-size:12px;font-weight:700;background:#141414;color:#fff;padding:7px 12px;border-radius:999px}
+/* sections */
+.a2-sec{padding:52px 0;border-top:1px solid var(--a-line)}
+.a2-sh{display:flex;gap:12px;align-items:baseline}
+.a2-num{font:600 12.5px "Inter Tight",sans-serif;color:var(--a-mute);letter-spacing:.04em;flex:none}
+.a2-dot .a2-num{font:italic 400 18px "Instrument Serif",serif}
+.a2 h2{font-size:28px;letter-spacing:-.04em;font-weight:800;line-height:1.24}
+.a2-dot h2{font-weight:700}
+.a2-sub{font-size:15px;color:var(--a-mute);margin-top:10px;line-height:1.6}
+/* 01 demo */
+.a2-demo{display:grid;gap:34px}
+.a2-feats{display:grid;gap:10px;margin-top:24px}
+.a2-feats li{list-style:none;display:flex;gap:12px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--a-line)}
+.a2-dot .a2-feats li{border-bottom-style:solid}
+.a2-feats{padding:0;margin-bottom:0}
+.a2-feats b{display:block;font-size:16px;margin-bottom:2px}
+.a2-feats span{font-size:14px;color:var(--a-mute);line-height:1.55}
+.a2-feats i{font-style:normal;flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font:800 12px "Inter Tight",sans-serif;background:var(--a-chip);color:var(--a-ink);margin-top:1px}
+.a2-dot .a2-feats i{background:transparent;border:1px solid var(--a-ink);border-radius:4px}
+.a2-phone-wrap{text-align:center}
+.a2-phone{display:block;width:268px;margin:0 auto;border-radius:42px;border:9px solid var(--a-ink);background:var(--a-scr);padding:18px 15px 18px;text-align:left;font-size:12.5px;color:var(--a-ink)}
+.a2-bang .a2-phone{box-shadow:6px 6px 0 var(--a-ink)}
+.a2-dot .a2-phone{box-shadow:0 30px 50px -28px rgba(0,0,0,.45)}
+.a2-notch{width:72px;height:19px;border-radius:99px;background:var(--a-ink);margin:-9px auto 12px}
+.a2-themes{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.a2-themes span{font-size:12px;font-weight:600;padding:6px 11px;border-radius:999px;border:1px solid var(--a-line);color:var(--a-mute);background:var(--a-card)}
+.a2-themes span:first-child{background:var(--a-ink);color:var(--a-bg);border-color:var(--a-ink)}
+.a2-dot .a2-themes span{border-radius:4px}
+.a2-more{display:inline-block;margin-top:14px;font-size:14px;font-weight:700;border-bottom:1.5px solid currentColor}
+/* phone screen: room */
+.r-top{display:flex;justify-content:space-between;font-size:10.5px;color:var(--a-mute)}
+.r-prof{display:flex;gap:10px;align-items:center;margin:14px 0 12px}
+.r-av{width:46px;height:46px;border-radius:50%;background:#FFD3DC;border:2px solid var(--a-ink)}
+.r-prof b{font-size:15.5px;display:block}
+.r-prof span{font-size:11px;color:var(--a-mute)}
+.r-card{background:var(--a-scard);border-radius:14px;padding:10px 12px;margin-bottom:7px}
+.r-card small{display:block;font-size:10px;color:var(--a-mute);margin-bottom:2px}
+.r-knock{text-align:center;background:var(--a-acc);color:#fff;border-radius:999px;padding:10px;font-weight:800;font-size:13px;margin:10px 0 8px;border:2px solid var(--a-ink)}
+.r-gb{font-size:11.5px;padding:7px 0;border-top:1px dashed var(--a-line)}
+.r-gb b{margin-right:6px}
+/* phone screen: card */
+.c-logo{font:800 14px "Inter Tight",sans-serif;letter-spacing:-.04em}
+.c-name{font-size:25px;font-weight:800;letter-spacing:-.03em;margin:28px 0 2px}
+.c-role{font-size:12px;color:var(--a-mute)}
+.c-row{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--a-scard);font-size:11.5px}
+.c-row small{width:32px;color:var(--a-mute);font-size:10px;padding-top:1px;letter-spacing:.06em}
+.c-btns{display:flex;gap:6px;margin-top:16px}
+.c-btns span{flex:1;text-align:center;padding:10px 0;border-radius:10px;font-weight:700;font-size:11.5px;background:var(--a-scard)}
+.c-btns span:first-child{background:#141414;color:#fff}
+.c-hist{margin-top:18px;font-size:11px;line-height:1.9;color:var(--a-mute)}
+.c-hist b{color:var(--a-ink);display:block;font:italic 400 14px "Instrument Serif",serif;letter-spacing:.02em}
+/* 02 cases */
+.a2-group{margin-top:28px}
+.a2-group h3{font-size:14px;font-weight:700;color:var(--a-mute);margin-bottom:12px;display:flex;gap:8px;align-items:center}
+.a2-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.a2-tile{display:block}
+.a2-tile img{display:block;width:100%;aspect-ratio:3/3.7;object-fit:cover;border-radius:18px;transition:transform .2s}
+.a2-grid.land .a2-tile img{aspect-ratio:4/3}
+.a2-bang .a2-tile img{border:2px solid var(--a-ink)}
+.a2-bang .a2-tile:nth-child(odd) img{transform:rotate(-1.2deg)}
+.a2-bang .a2-tile:nth-child(even) img{transform:rotate(1.2deg)}
+.a2-bang .a2-tile:hover img{transform:rotate(0) translateY(-3px)}
+.a2-tile b{display:block;font-size:15px;margin-top:10px;letter-spacing:-.02em}
+.a2-tile small{font-size:12.5px;color:var(--a-mute)}
+.a2-pill{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--a-chip);color:var(--a-ink);margin-left:5px;vertical-align:2px}
+.a2-price-tag{font:800 14px "Inter Tight",sans-serif;padding:3px 10px;border-radius:999px;background:var(--a-ink);color:var(--a-bg)}
+.a2-one{display:grid;gap:22px;margin-top:26px}
+.a2-one img{display:block;width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:6px;border:1px solid var(--a-line)}
+.a2-spec{border:1px solid var(--a-ink);border-radius:6px;padding:22px;background:var(--a-card)}
+.a2-spec dl{margin:14px 0 0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:14px}
+.a2-spec dt{color:var(--a-mute);font:italic 400 16px "Instrument Serif",serif}
+.a2-spec dd{margin:0}
+/* 03 steps + price */
+.a2-how{display:grid;gap:14px;margin-top:26px}
+.a2-steps{display:grid;gap:12px;padding:0;margin:0}
+.a2-steps li{list-style:none;display:flex;gap:14px;align-items:flex-start;background:var(--a-card);border:2px solid var(--a-ink);border-radius:18px;padding:18px}
+.a2-bang .a2-steps li{box-shadow:4px 4px 0 var(--a-ink)}
+.a2-dot .a2-steps li{border-width:1px;border-radius:6px}
+.a2-steps i{font:800 13px "Inter Tight",sans-serif;font-style:normal;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--a-ink);color:var(--a-bg);flex:none}
+.a2-steps b{display:block;font-size:16px;margin-bottom:3px}
+.a2-steps span{font-size:14px;color:var(--a-mute);line-height:1.55}
+.a2-price{background:var(--a-card);border:2px solid var(--a-ink);border-radius:22px;padding:24px}
+.a2-bang .a2-price{box-shadow:4px 4px 0 var(--a-ink)}
+.a2-dot .a2-price{border-width:1px;border-radius:6px}
+.a2-price .amt{font-size:38px;font-weight:800;letter-spacing:-.04em}
+.a2-price .amt small{font-size:15px;font-weight:600;color:var(--a-mute);margin-left:4px}
+.a2-price ul{margin:16px 0 0;padding:0;display:grid;gap:9px}
+.a2-price li{list-style:none;font-size:14.5px;display:flex;gap:9px;align-items:baseline}
+.a2-price li:before{content:"✓";font-weight:800;color:var(--a-acc)}
+.a2-dot .a2-price li:before{color:var(--a-ink)}
+/* 04 faq */
+.a2-faq{margin-top:22px}
+.a2-faq details{border-bottom:1px solid var(--a-line);padding:4px 0}
+.a2-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;padding:15px 0;font-size:16px;font-weight:700}
+.a2-faq summary::-webkit-details-marker{display:none}
+.a2-faq summary:after{content:"+";font:400 22px "Inter Tight",sans-serif;line-height:1;color:var(--a-mute)}
+.a2-faq details[open] summary:after{content:"–"}
+.a2-faq p{font-size:14.5px;color:var(--a-mute);padding:0 0 16px;line-height:1.65}
+/* final */
+.a2-final{padding:56px 0 48px}
+.a2-bang .a2-final{background:var(--a-acc);color:#fff}
+.a2-dot .a2-final{background:#141414;color:#F6F5F1}
+.a2-final h2{font-size:32px;letter-spacing:-.045em;line-height:1.22}
+.a2-final p{font-size:15px;opacity:.82;margin-top:12px;line-height:1.6}
+.a2-final .a2-btn{margin-top:24px}
+.a2-bang .a2-final .a2-btn{background:var(--a-ink);color:#fff}
+.a2-dot .a2-final .a2-btn{background:#F6F5F1;color:#141414;border-color:#F6F5F1}
+.a2-switch{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.35);font-size:15px;font-weight:700}
+.a2-dock{display:none}
+@media (max-width:959px){
+  .a2-dock{display:block;position:sticky;bottom:0;z-index:15;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--a-bg);border-top:1px solid var(--a-line)}
+  .a2-dock .a2-btn{width:100%;height:52px}
+  .a2-bang .a2-dock .a2-btn{box-shadow:none}
+}
+/* desktop */
+@media (min-width:960px){
+  .a2-hero{padding:64px 0 96px}
+  .a2-hero .w{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center;gap:72px}
+  .a2 h1{font-size:66px}
+  .a2-en{margin-bottom:12px}
+  .a2-bang .a2-en{font-size:32px}
+  .a2-dot .a2-en{font-size:30px}
+  .a2-lead{font-size:18px}
+  .a2-ctas{margin-top:32px}
+  .a2-btn{height:56px;padding:0 28px;font-size:16.5px}
+  .a2-sec{padding:104px 0}
+  .a2 h2{font-size:44px}
+  .a2-sub{font-size:17px}
+  .a2-num{font-size:14px}
+  .a2-dot .a2-num{font-size:24px}
+  .a2-demo{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:72px}
+  .a2-phone{width:300px}
+  .a2-grid{grid-template-columns:repeat(3,1fr);gap:28px}
+  .a2-grid.land{grid-template-columns:repeat(5,1fr);gap:18px}
+  .a2-grid.land .a2-tile small{font-size:12px}
+  .a2-one{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:stretch;gap:32px}
+  .a2-how{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:start}
+  .a2-faq{columns:2;column-gap:56px}
+  .a2-faq details{break-inside:avoid}
+  .a2-final{padding:96px 0 72px}
+  .a2-final .w{display:grid;grid-template-columns:minmax(0,1.3fr) auto;align-items:end;gap:40px}
+  .a2-final h2{font-size:52px}
+  .a2-switch{grid-column:1/-1}
+  .a2-bang .a2-float{left:-36px;bottom:-24px}
+  .a2-dot .a2-float{right:-36px}
+}
+/* header · 공통 영역이 안쪽 페이지 톤을 따라가게 */
+.a2-seg{display:none;background:rgba(0,0,0,.06);border-radius:999px;padding:3px;gap:0}
+.a2-seg a{padding:6px 12px;border-radius:999px;font:800 13px "Inter Tight",sans-serif;letter-spacing:-.02em;color:inherit;opacity:.55;text-decoration:none}
+body.on-bang .a2-seg,body.on-dot .a2-seg{display:inline-flex}
+body.on-bang .a2-seg a[href="#bang"],body.on-dot .a2-seg a[href="#dot"]{background:currentColor;opacity:1}
+body.on-bang .a2-seg a[href="#bang"] span{color:#FFF7EC}
+body.on-dot .a2-seg a[href="#dot"] span{color:#F6F5F1}
+body.on-bang .top{background:#FFF7EC;border-color:#EADCCB;color:#2A1C15}
+body.on-dot .top{background:#F6F5F1;border-color:#E1DED7;color:#141414;backdrop-filter:none}
+body.on-bang .top .nav a,body.on-dot .top .nav a{color:inherit}
+body.on-bang .top .btn{background:#fff;color:#2A1C15;border:2px solid #2A1C15;box-shadow:2px 2px 0 #2A1C15}
+body.on-dot .top .btn{background:transparent;color:#141414;border:1px solid #141414}
+body.on-dot .vote-bar{background:#141414;color:#F6F5F1}
+body.on-dot .vote-pill{background:#F6F5F1;color:#141414}
+body.on-bang #beta{background:#FFF7EC;color:#2A1C15;border-top:1px solid #EADCCB}
+body.on-dot #beta{background:#F6F5F1;color:#141414;border-top:1px solid #E1DED7}
+body.on-bang #beta,body.on-dot #beta,body.on-bang footer,body.on-dot footer{font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;word-break:keep-all}
+body.on-bang #beta :is(h2,p,label,legend,input,select,button,span),body.on-dot #beta :is(h2,p,label,legend,input,select,button,span){font-family:inherit}
+body.on-bang #beta .sec-h,body.on-dot #beta .sec-h{letter-spacing:-.04em;font-weight:800}
+body.on-bang #beta .eyebrow{color:#FF5A79}
+body.on-dot #beta .eyebrow{font-family:"Instrument Serif",serif;font-style:italic;font-size:18px;letter-spacing:0;text-transform:none;color:#77746D}
+body.on-bang #beta .btn.blue{background:#FF5A79;border:2px solid #2A1C15;box-shadow:3px 3px 0 #2A1C15;color:#fff}
+body.on-dot #beta .btn.blue{background:#141414;border-color:#141414;color:#F6F5F1}
+body.on-bang footer{background:#FFF7EC;color:#806A5C}
+body.on-dot footer{background:#F6F5F1;color:#77746D}
+@media (max-width:640px){
+  body.on-bang .top .nav a[href="#beta"],body.on-dot .top .nav a[href="#beta"]{display:none}
+  .a2-seg a{padding:6px 10px;font-size:12.5px}
+}
+
 </style>
 
 </head>
@@ -471,6 +699,7 @@ a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
   <div class="wrap">
     <a class="logo" id="logo" href="#home">knock</a>
     <nav class="nav" aria-label="주요 메뉴">
+      <span class="a2-seg" aria-label="라인 바꾸기"><a href="#bang"><span>knock!</span></a><a href="#dot"><span>knock.</span></a></span>
       <a href="#home" class="hide-sm" id="navHome">처음으로</a>
       <a href="/vote" class="nav-vote">테마 투표</a>
       <a href="#lost" class="hide-sm">분실</a>
@@ -531,7 +760,7 @@ a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
           <span class="step-n">STEP 1</span>
           <h3>케이스가 도착해요</h3>
           <p>케이스마다 세상에 하나뿐인 QR 주소가 인쇄돼 있어요. 상자 안 카드에는 6자리 코드가 들어 있어요.</p>
-          <span class="url">knock.im/c/A7K2QX</span>
+          <span class="url">knockqr.kr/c/A7K2QX</span>
         </div>
         <div class="step">
           <span class="step-n">STEP 2</span>
@@ -586,6 +815,227 @@ a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
     </div>
   </section>
 
+</main>
+
+<!-- ═════════ knock! (A안 · 페이퍼) ═════════ -->
+<main class="view a2 a2-bang" id="v-bang" hidden>
+  <section class="a2-hero">
+    <div class="w">
+      <div>
+        <span class="a2-en">Knock knock, come on in!</span>
+        <div class="a2-eyebrow"><i>knock!</i>친구에게 보여주는 내 방</div>
+        <h1>찍으면,<br><em>내 방</em>이 열려요</h1>
+        <p class="a2-lead">사진, 음악, 오늘의 기분으로 꾸민 내 방. 친구는 앱 없이 카메라로 찍고 들어와서 노크하고 방명록을 남겨요.</p>
+        <div class="a2-ctas"><a class="a2-btn pri" href="#beta" data-line="bang">베타로 먼저 받기</a><a class="a2-btn sec" href="/demo/bang">예시 방 구경</a></div>
+        <div class="a2-chips"><span>자유 꾸미기</span><span>노크 반응</span><span>익명 방명록</span><span>분실 모드</span></div>
+      </div>
+      <div class="a2-vis">
+        <span class="a2-tape" aria-hidden="true"></span>
+        <img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스">
+        <span class="a2-badge" aria-hidden="true">똑똑!</span>
+        <div class="a2-float" aria-hidden="true"><small>방명록 · 민지</small>케이스 뭐야 너무 귀엽잖아</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-sec" id="bang-demo">
+    <div class="w a2-demo">
+      <div>
+        <div class="a2-sh"><span class="a2-num">01</span><h2>찍은 친구에겐<br>이 방이 열려요</h2></div>
+        <p class="a2-sub">케이스 QR은 그대로, 방은 내 마음대로 바꿔요.</p>
+        <ul class="a2-feats">
+          <li><i>1</i><div><b>자유 꾸미기</b><span>사진, 오늘의 기분, 요즘 듣는 노래, 링크를 블록처럼 쌓아요.</span></div></li>
+          <li><i>2</i><div><b>노크 반응</b><span>찍은 친구가 똑똑 노크하면 숫자가 올라가요.</span></div></li>
+          <li><i>3</i><div><b>익명 방명록</b><span>친구는 로그인 없이 한 줄 남기고 가요.</span></div></li>
+          <li><i>4</i><div><b>공개 범위</b><span>전체 공개, 링크 공개, 암호 잠금, 비공개 중에서 골라요.</span></div></li>
+        </ul>
+      </div>
+      <div class="a2-phone-wrap">
+        <a class="a2-phone" href="/demo/bang" aria-label="예시 방 크게 보기">
+          <div class="a2-notch"></div>
+          <div class="r-top"><span>knock!</span><span>오늘 4 · 전체 112</span></div>
+          <div class="r-prof"><div class="r-av"></div><div><b>지우의 방</b><span>똑똑, 들어와도 돼</span></div></div>
+          <div class="r-card"><small>오늘의 기분</small>중간고사 D-3, 카페인 충전 중</div>
+          <div class="r-card"><small>요즘 듣는 노래</small>♪ 좋은 날 · 아이유</div>
+          <div class="r-knock">똑똑 노크하기 · 27</div>
+          <div class="r-gb"><b>민지</b>케이스 뭐야 너무 귀엽잖아</div>
+          <div class="r-gb"><b>익명</b>도서관에서 찍고 감 ㅋㅋ</div>
+        </a>
+        <div class="a2-themes"><span>클린</span><span>미니홈피</span><span>다이어리</span><span>Y2K</span><span>밤하늘</span></div>
+        <a class="a2-more" href="/vote">테마 40개 중 고르기 투표 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-sec" id="bang-col">
+    <div class="w">
+      <div class="a2-sh"><span class="a2-num">02</span><h2>케이스 고르기</h2></div>
+      <p class="a2-sub">케이스마다 세상에 하나뿐인 QR이 인쇄돼요. 마음에 드는 디자인을 누르면 베타 신청서에 바로 담겨요.</p>
+      <div class="a2-group">
+        <h3>기본 <span class="a2-price-tag">19,900원</span></h3>
+        <div class="a2-grid">
+          <a class="a2-tile" href="#beta" data-line="bang" data-design="깅엄 knock!"><img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스" loading="lazy"><b>깅엄</b><small>분홍 체크, 레이스 프레임 QR</small></a>
+          <a class="a2-tile" href="#beta" data-line="bang" data-design="스티커 knock!"><img src="/img/sticker.jpg" alt="스티커가 붙은 크림색 knock! 케이스" loading="lazy"><b>스티커</b><small>말풍선, 발자국, 별 스티커</small></a>
+          <a class="a2-tile" href="#beta" data-line="bang" data-design="똑똑 문 knock!"><img src="/img/door.jpg" alt="문 모양 안에 QR이 들어간 knock! 케이스" loading="lazy"><b>똑똑 문</b><small>문 한가운데 QR</small></a>
+        </div>
+      </div>
+      <div class="a2-group">
+        <h3>MZ <span class="a2-pill">시안</span></h3>
+        <div class="a2-grid land">
+          <a class="a2-tile" href="#beta" data-line="bang" data-design="가리키는 냥 knock! (MZ)"><img src="/img/mz-cat.webp" alt="가리키는 냥 knock! 케이스 시안" loading="lazy"><b>가리키는 냥</b><small>선글라스 고양이가 QR을 쓱 가리켜요</small></a>
+          <a class="a2-tile" href="#beta" data-line="bang" data-design="석고상 knock! (MZ)"><img src="/img/mz-david.webp" alt="석고상 knock! 케이스 시안" loading="lazy"><b>석고상</b><small>픽셀 선글라스 낀 석고상이 QR을 들고 있어요</small></a>
+          <a class="a2-tile" href="#beta" data-line="bang" data-design="서빙 knock! (MZ)"><img src="/img/mz-butler.webp" alt="서빙 knock! 케이스 시안" loading="lazy"><b>서빙</b><small>QR을 쟁반에 받쳐 내밀어요</small></a>
+          <a class="a2-tile" href="#beta" data-line="bang" data-design="여기요 knock! (MZ)"><img src="/img/mz-hands.webp" alt="여기요 knock! 케이스 시안" loading="lazy"><b>여기요</b><small>두 손이 가운데 QR을 가리켜요</small></a>
+          <a class="a2-tile" href="#beta" data-line="bang" data-design="SCAN ME knock! (MZ)"><img src="/img/mz-window.webp" alt="SCAN ME knock! 케이스 시안" loading="lazy"><b>SCAN ME</b><small>옛날 컴퓨터 창 속에 QR이 떠 있어요</small></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-sec" id="bang-how">
+    <div class="w">
+      <div class="a2-sh"><span class="a2-num">03</span><h2>이렇게 써요</h2></div>
+      <div class="a2-how">
+        <ol class="a2-steps">
+          <li><i>1</i><div><b>QR 찍고 코드 넣기</b><span>상자 속 카드의 6자리 코드를 넣으면 이 케이스가 내 것이 돼요.</span></div></li>
+          <li><i>2</i><div><b>내 방 꾸미기</b><span>사진, 오늘의 기분, 요즘 듣는 노래, 링크를 채우고 테마를 골라요.</span></div></li>
+          <li><i>3</i><div><b>친구가 노크</b><span>찍은 친구는 로그인 없이 노크하고 방명록을 남겨요.</span></div></li>
+        </ol>
+        <div class="a2-price">
+          <div class="amt">19,900원</div>
+          <ul><li>구매일부터 3년 동안 QR 연결 보장</li><li>찍는 사람은 앱 설치 필요 없음</li><li>잃어버리면 같은 QR이 주인 찾기 화면으로</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-sec" id="bang-faq">
+    <div class="w">
+      <div class="a2-sh"><span class="a2-num">04</span><h2>자주 묻는 질문</h2></div>
+      <div class="a2-faq">
+        <details><summary>폰을 잃어버리면 어떻게 돼요?</summary><p>다른 폰이나 PC에서 로그인해 분실 모드를 켜면, QR을 찍은 사람에게 주인 찾기 화면이 떠요. 내 번호는 공개되지 않아요.</p></details>
+        <details><summary>아무나 내 방을 볼 수 있나요?</summary><p>공개 범위를 직접 골라요. 전체 공개, 링크 공개, 암호 잠금, 비공개 중 하나예요.</p></details>
+        <details><summary>서비스가 없어지면 QR은요?</summary><p>산 날부터 3년 동안 QR 연결을 보장해요.</p></details>
+        <details><summary>케이스 기종은 뭐가 있나요?</summary><p>아이폰과 갤럭시 주요 기종으로 준비하고 있어요. 베타 신청할 때 쓰는 폰을 골라주세요.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-final">
+    <div class="w">
+      <div><h2>첫 노크를 두드려 줄<br>20명을 찾아요</h2><p>케이스를 무료로 받아 2주 동안 써보고, 짧은 설문 두 번에 답해주세요.</p></div>
+      <a class="a2-btn" href="#beta" data-line="bang">베타 신청하기</a>
+      <a class="a2-switch" href="#dot"><span>일할 때 쓰는 knock. 보러 가기</span><span>→</span></a>
+    </div>
+  </section>
+  <div class="a2-dock"><a class="a2-btn pri" href="#beta" data-line="bang">베타로 먼저 받기</a></div>
+</main>
+
+<!-- ═════════ knock. (A안 · 페이퍼) ═════════ -->
+<main class="view a2 a2-dot" id="v-dot" hidden>
+  <section class="a2-hero">
+    <div class="w">
+      <div>
+        <span class="a2-en">Your card, on your case.</span>
+        <div class="a2-eyebrow"><i>knock.</i>일할 때 건네는 내 명함</div>
+        <h1>내밀면,<br>명함 교환 끝.</h1>
+        <p class="a2-lead">종이 명함 대신 폰 뒷면을 보여주세요. 상대는 앱 없이 찍어서 내 연락처를 저장하고, 자기 명함도 남겨요.</p>
+        <div class="a2-ctas"><a class="a2-btn pri" href="#beta" data-line="dot">베타로 먼저 받기</a><a class="a2-btn sec" href="/demo/dot">예시 명함 보기</a></div>
+        <div class="a2-chips"><span>연락처 한 번에 저장</span><span>받은 명함 모음</span><span>이직해도 그대로</span><span>분실 모드</span></div>
+      </div>
+      <div class="a2-vis">
+        <img src="/img/clear.jpg" alt="QR 플레이트가 붙은 투명 knock. 케이스">
+        <span class="a2-badge" aria-hidden="true">No.0001 · CLEAR</span>
+        <div class="a2-float" aria-hidden="true"><b>주건우</b><span>Founder · knock</span><em>연락처 저장</em></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-sec" id="dot-demo">
+    <div class="w a2-demo">
+      <div>
+        <div class="a2-sh"><span class="a2-num">01</span><h2>찍은 사람에겐<br>이 명함이 열려요</h2></div>
+        <p class="a2-sub">한 번 만들어 두면 케이스가 명함 지갑이 돼요.</p>
+        <ul class="a2-feats">
+          <li><i>1</i><div><b>연락처 한 번에 저장</b><span>이름, 직함, 소속, 이메일이 상대 폰 연락처로 바로 들어가요.</span></div></li>
+          <li><i>2</i><div><b>명함 맞교환</b><span>상대가 자기 명함을 남기면 내 '받은 명함'에 쌓여요.</span></div></li>
+          <li><i>3</i><div><b>이직해도 그대로</b><span>케이스는 그대로, 페이지 내용만 바꾸면 돼요.</span></div></li>
+          <li><i>4</i><div><b>공개 범위</b><span>전체 공개, 링크 공개, 암호 잠금, 비공개 중에서 골라요.</span></div></li>
+        </ul>
+      </div>
+      <div class="a2-phone-wrap">
+        <a class="a2-phone" href="/demo/dot" aria-label="예시 명함 크게 보기">
+          <div class="a2-notch"></div>
+          <div class="c-logo">knock.</div>
+          <div class="c-name">주건우</div>
+          <div class="c-role">Founder · knock</div>
+          <div class="c-row" style="margin-top:14px"><small>MAIL</small>hello.knock.team@gmail.com</div>
+          <div class="c-row"><small>WEB</small>knockqr.kr</div>
+          <div class="c-btns"><span>연락처 저장</span><span>내 명함 남기기</span></div>
+          <div class="c-hist"><b>Career</b>2026 knock 창업<br>2026 모두의창업 선정<br>인하대학교</div>
+        </a>
+        <div class="a2-themes"><span>클린</span><span>모노</span><span>아이보리</span><span>블랙</span></div>
+        <a class="a2-more" href="/demo/dot">예시 명함 크게 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-sec" id="dot-col">
+    <div class="w">
+      <div class="a2-sh"><span class="a2-num">02</span><h2>케이스</h2></div>
+      <div class="a2-one">
+        <a href="#beta" data-line="dot" data-design="Clear knock."><img src="/img/clear.jpg" alt="투명 knock. 케이스" loading="lazy"></a>
+        <div class="a2-spec">
+          <div class="a2-eyebrow"><i>Clear</i>투명 케이스 + QR 플레이트</div>
+          <dl><dt>Price</dt><dd>19,900원</dd><dt>QR</dt><dd>케이스마다 하나뿐인 주소, 3년 연결 보장</dd><dt>Scan</dt><dd>기본 카메라로 바로, 앱 필요 없음</dd></dl>
+          <p class="a2-sub" style="margin-top:18px">지금은 Clear 한 가지예요. 다음 마감은 베타 피드백으로 정해요.</p>
+          <div class="a2-ctas"><a class="a2-btn pri" href="#beta" data-line="dot" data-design="Clear knock.">이 케이스로 신청</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-sec" id="dot-how">
+    <div class="w">
+      <div class="a2-sh"><span class="a2-num">03</span><h2>이렇게 써요</h2></div>
+      <div class="a2-how">
+        <ol class="a2-steps">
+          <li><i>1</i><div><b>QR 찍고 코드 넣기</b><span>상자 속 카드의 6자리 코드를 넣으면 이 케이스가 내 것이 돼요.</span></div></li>
+          <li><i>2</i><div><b>명함 채우기</b><span>이름, 직함, 소속, 연락처, 포트폴리오 링크를 넣어요.</span></div></li>
+          <li><i>3</i><div><b>내밀면 끝</b><span>상대가 찍으면 연락처가 저장되고, 상대 명함은 내 knock.에 쌓여요.</span></div></li>
+        </ol>
+        <div class="a2-price">
+          <div class="amt">19,900원</div>
+          <ul><li>구매일부터 3년 동안 QR 연결 보장</li><li>찍는 사람은 앱 설치 필요 없음</li><li>잃어버리면 같은 QR이 주인 찾기 화면으로</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-sec" id="dot-faq">
+    <div class="w">
+      <div class="a2-sh"><span class="a2-num">04</span><h2>자주 묻는 질문</h2></div>
+      <div class="a2-faq">
+        <details><summary>상대 폰에 앱이 없어도 되나요?</summary><p>네. 기본 카메라로 찍으면 바로 열려요.</p></details>
+        <details><summary>받은 명함은 누가 볼 수 있나요?</summary><p>나만 볼 수 있어요. 내 knock에 로그인해야 보여요.</p></details>
+        <details><summary>이직하면 명함 정보는요?</summary><p>케이스는 그대로, 페이지 내용만 바꾸면 돼요.</p></details>
+        <details><summary>폰을 잃어버리면요?</summary><p>다른 폰이나 PC에서 로그인해 분실 모드를 켜면, QR을 찍은 사람에게 주인 찾기 화면이 떠요. 내 번호는 공개되지 않아요.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="a2-final">
+    <div class="w">
+      <div><h2>명함 교환을 먼저<br>써볼 분을 찾아요</h2><p>대외활동, 창업, 인턴처럼 명함을 자주 주고받는 분이면 좋아요.</p></div>
+      <a class="a2-btn" href="#beta" data-line="dot">베타 신청하기</a>
+      <a class="a2-switch" href="#bang"><span>친구랑 쓰는 knock! 보러 가기</span><span>→</span></a>
+    </div>
+  </section>
+  <div class="a2-dock"><a class="a2-btn pri" href="#beta" data-line="dot">베타로 먼저 받기</a></div>
+</main>
+
+
+<!-- ═════════ 베타 신청 (모든 화면 공통) ═════════ -->
   <section id="beta">
     <div class="wrap beta">
       <div>
@@ -621,121 +1071,6 @@ a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
       </form>
     </div>
   </section>
-</main>
-
-<!-- ═════════ knock! (B안) ═════════ -->
-<main class="view ln ln-bang" id="v-bang" hidden>
-  <div class="ln-main">
-  <section class="ln-card ln-hero">
-    <div class="ln-hero-t">
-      <h1>케이스 QR을 찍으면<br>내가 꾸민 방이 열려요</h1>
-      <p>친구는 앱 설치 없이 카메라로 찍기만 하면 돼요. 방명록, 노크, 오늘의 기분까지 한 페이지에.</p>
-      <div class="ln-btns"><a class="ln-btn solid" href="#beta" data-line="bang">베타로 무료로 받아보기</a><a class="ln-btn" href="/demo/bang">예시 방 보기</a></div>
-    </div>
-    <img class="ln-hero-img" src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스">
-  </section>
-
-  <section class="ln-card" id="bang-how">
-    <h2>이렇게 써요</h2>
-    <div class="ln-steps">
-      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 18h2"/></svg></span><div><b>QR 찍고 6자리 코드 넣기</b><span>케이스와 함께 온 카드의 숫자를 넣으면 이 케이스가 내 것이 돼요.</span></div></div>
-      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span><div><b>내 방 꾸미기</b><span>사진, 오늘의 기분, 요즘 듣는 노래, 링크를 올리고 테마를 골라요.</span></div></div>
-      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><div><b>친구가 노크와 방명록</b><span>찍은 친구는 로그인 없이 바로 흔적을 남겨요.</span></div></div>
-    </div>
-  </section>
-
-  <section class="ln-card" id="bang-col">
-    <div class="ln-head"><h2>케이스 <small>전부 19,900원</small></h2>
-      <div class="ln-tabs" role="tablist" aria-label="knock! 라인업">
-        <button class="b-tab" role="tab" id="tab-basic" aria-controls="panel-basic" aria-selected="true">기본</button>
-        <button class="b-tab" role="tab" id="tab-mz" aria-controls="panel-mz" aria-selected="false">MZ</button>
-        <button class="b-tab" role="tab" id="tab-clear" aria-controls="panel-clear" aria-selected="false">클리어</button>
-      </div>
-    </div>
-    <div class="ln-prods" role="tabpanel" id="panel-basic" aria-labelledby="tab-basic">
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="깅엄 knock!"><img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스" loading="lazy"><div><b>깅엄 knock!</b><span>분홍 체크, 레이스 프레임 QR</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="스티커 knock!"><img src="/img/sticker.jpg" alt="스티커가 붙은 크림색 knock! 케이스" loading="lazy"><div><b>스티커 knock!</b><span>말풍선, 발자국, 별 스티커</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="똑똑 문 knock!"><img src="/img/door.jpg" alt="문 모양 안에 QR이 들어간 knock! 케이스" loading="lazy"><div><b>똑똑 문 knock!</b><span>문 한가운데 QR</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <div class="ln-prod soon"><span class="ln-ph " aria-hidden="true"></span><div><b>새 디자인</b><span>준비 중이에요</span></div></div>
-    </div>
-    <div class="ln-prods wide" role="tabpanel" id="panel-mz" aria-labelledby="tab-mz" hidden>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="가리키는 냥 knock! (MZ)"><img src="/img/mz-cat.webp" alt="가리키는 냥 knock! 케이스 시안: 선글라스 고양이가 QR을 쓱 가리켜요" width="508" height="381" loading="lazy"><div><b>가리키는 냥 knock!</b><span>선글라스 고양이가 QR을 쓱 가리켜요 · 시안</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="석고상 knock! (MZ)"><img src="/img/mz-david.webp" alt="석고상 knock! 케이스 시안: 픽셀 선글라스 낀 석고상이 QR을 들고 있어요" width="508" height="381" loading="lazy"><div><b>석고상 knock!</b><span>픽셀 선글라스 낀 석고상이 QR을 들고 있어요 · 시안</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="서빙 knock! (MZ)"><img src="/img/mz-butler.webp" alt="서빙 knock! 케이스 시안: QR을 쟁반에 받쳐 내밀어요" width="508" height="381" loading="lazy"><div><b>서빙 knock!</b><span>QR을 쟁반에 받쳐 내밀어요 · 시안</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="여기요 knock! (MZ)"><img src="/img/mz-hands.webp" alt="여기요 knock! 케이스 시안: 두 손이 가운데 QR을 가리켜요" width="508" height="381" loading="lazy"><div><b>여기요 knock!</b><span>두 손이 가운데 QR을 가리켜요 · 시안</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="SCAN ME knock! (MZ)"><img src="/img/mz-window.webp" alt="SCAN ME knock! 케이스 시안: 옛날 컴퓨터 창 속에 QR이 떠 있어요" width="508" height="381" loading="lazy"><div><b>SCAN ME knock!</b><span>옛날 컴퓨터 창 속에 QR이 떠 있어요 · 시안</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-    </div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="ln-prods" role="tabpanel" id="panel-clear" aria-labelledby="tab-clear" hidden>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="클리어 knock!"><span class="ln-ph line" aria-hidden="true"></span><div><b>클리어 knock!</b><span>투명 케이스에 작은 QR 플레이트</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <a class="ln-prod" href="#beta" data-line="bang" data-design="빅 QR knock!"><span class="ln-ph line" aria-hidden="true"></span><div><b>빅 QR knock!</b><span>QR을 크게 넣은 분실 방지형</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-    </div>
-  </section>
-
-  <div class="ln-split">
-    <section class="ln-card" id="bang-faq">
-      <h2>자주 묻는 질문</h2>
-      <details class="ln-q"><summary><span>폰을 잃어버리면 어떻게 돼요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>다른 폰이나 PC에서 로그인해 분실 모드를 켜면, QR을 찍은 사람에게 주인 찾기 화면이 떠요. 내 번호는 공개되지 않아요.</p></details><details class="ln-q"><summary><span>아무나 내 페이지를 볼 수 있나요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>공개 범위를 직접 골라요. 전체 공개, 링크 공개, 암호 잠금, 비공개 중 하나예요.</p></details><details class="ln-q"><summary><span>서비스가 없어지면 QR은요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>산 날부터 3년 동안 QR 연결을 보장해요.</p></details><details class="ln-q"><summary><span>케이스 기종은 뭐가 있나요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>아이폰과 갤럭시 주요 기종으로 준비하고 있어요. 베타 신청할 때 쓰는 폰을 골라주세요.</p></details>
-      <p class="ln-note">산 날부터 3년 동안 QR 연결을 보장해요.</p>
-    </section>
-    <section class="ln-card ln-dark">
-      <h2>첫 노크를 두드려 줄<br>20명을 찾아요</h2>
-      <p>케이스를 무료로 받고 2주 동안 써본 뒤 짧은 설문에 두 번 답해주세요.</p>
-      <a class="ln-btn solid" href="#beta" data-line="bang">베타 신청하기</a>
-      <a class="ln-other" href="#dot">일할 때 쓰는 knock. 보러 가기 →</a>
-    </section>
-  </div>
-  </div>
-  <div class="ln-dock"><a class="ln-btn solid" href="#beta" data-line="bang">베타로 무료로 받아보기</a></div>
-</main>
-
-<!-- ═════════ knock. (B안) ═════════ -->
-<main class="view ln ln-dot" id="v-dot" hidden>
-  <div class="ln-main">
-  <section class="ln-card ln-hero">
-    <div class="ln-hero-t">
-      <h1>케이스를 내밀면<br>명함 교환이 끝나요</h1>
-      <p>상대가 찍으면 내 연락처가 저장되고, 상대의 명함도 그 자리에서 내 '받은 명함'으로 들어와요.</p>
-      <div class="ln-btns"><a class="ln-btn solid" href="#beta" data-line="dot">베타 신청하기</a><a class="ln-btn" href="/demo/dot">예시 명함 보기</a></div>
-    </div>
-    <img class="ln-hero-img" src="/img/clear.jpg" alt="QR 플레이트가 붙은 투명 knock. 케이스">
-  </section>
-
-  <section class="ln-card" id="dot-how">
-    <h2>세 번이면 끝</h2>
-    <div class="ln-steps">
-      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7V5a2 2 0 012-2h2M17 3h2a2 2 0 012 2v2M21 17v2a2 2 0 01-2 2h-2M7 21H5a2 2 0 01-2-2v-2"/><path d="M7 12h10"/></svg></span><div><b>상대가 카메라로 찍기</b><span>앱도, NFC 설정도 필요 없어요.</span></div></div>
-      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></span><div><b>연락처 저장</b><span>이름, 직함, 소속, 이메일이 한 번에 들어가요.</span></div></div>
-      <div class="ln-step"><span class="ln-ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 10h6M7 14h10"/></svg></span><div><b>받은 명함에 쌓기</b><span>상대가 남긴 연락처와 만난 곳이 내 knock에 모여요.</span></div></div>
-    </div>
-  </section>
-
-  <section class="ln-card" id="dot-col">
-    <div class="ln-head"><h2>케이스 <small>19,900원</small></h2></div>
-    <div class="ln-prods">
-      <a class="ln-prod" href="#beta" data-line="dot" data-design="Clear knock."><img src="/img/clear.jpg" alt="투명 knock. 케이스" loading="lazy"><div><b>Clear</b><span>투명 케이스 + QR 플레이트</span></div><svg class="ln-go" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-      <div class="ln-prod soon"><span class="ln-ph white" aria-hidden="true"></span><div><b>Mono White</b><span>준비 중</span></div></div>
-      <div class="ln-prod soon"><span class="ln-ph black" aria-hidden="true"></span><div><b>Black Plate</b><span>준비 중</span></div></div>
-      <div class="ln-prod soon"><span class="ln-ph two" aria-hidden="true"></span><div><b>Two-tone</b><span>준비 중</span></div></div>
-    </div>
-  </section>
-
-  <div class="ln-split">
-    <section class="ln-card" id="dot-faq">
-      <h2>자주 묻는 질문</h2>
-      <details class="ln-q"><summary><span>상대 폰에 앱이 없어도 되나요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>네. 기본 카메라로 찍으면 바로 열려요.</p></details><details class="ln-q"><summary><span>받은 명함은 누가 볼 수 있나요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>나만 볼 수 있어요. 내 knock에 로그인해야 보여요.</p></details><details class="ln-q"><summary><span>이직하면 명함 정보는요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>케이스는 그대로, 페이지 내용만 바꾸면 돼요.</p></details><details class="ln-q"><summary><span>폰을 잃어버리면요?</span><svg class="ln-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B0B8C1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><p>다른 폰이나 PC에서 로그인해 분실 모드를 켜면, QR을 찍은 사람에게 주인 찾기 화면이 떠요. 내 번호는 공개되지 않아요.</p></details>
-      <p class="ln-note">산 날부터 3년 동안 QR 연결을 보장해요.</p>
-    </section>
-    <section class="ln-card ln-dark">
-      <h2>명함 교환을 먼저 써볼<br>5명을 찾아요</h2>
-      <p>대외활동, 창업, 인턴처럼 명함을 자주 주고받는 분이면 좋아요.</p>
-      <a class="ln-btn light" href="#beta" data-line="dot">베타 신청하기</a>
-      <a class="ln-other" href="#bang">친구랑 쓰는 knock! 보러 가기 →</a>
-    </section>
-  </div>
-  </div>
-  <div class="ln-dock"><a class="ln-btn solid" href="#beta" data-line="dot">베타 신청하기</a></div>
-</main>
 
 <footer>
   <div class="wrap">
@@ -753,15 +1088,19 @@ a.ln-prod:hover img,a.ln-prod:hover .ln-ph{transform:translateY(-3px)}
 (function(){
   const views={home:document.getElementById('v-home'),bang:document.getElementById('v-bang'),dot:document.getElementById('v-dot')};
   const logo=document.getElementById('logo');
+  let cur='home';
   function route(){
     const h=location.hash.slice(1);
     const el=h?document.getElementById(h):null;
-    let v='home';
-    if(h==='bang'||h==='dot'){v=h;}
+    let v=cur;
+    if(!h||h==='home'){v='home';}
+    else if(h==='bang'||h==='dot'){v=h;}
     else if(el&&el.closest('.view')){v=el.closest('.view').id.slice(2);}
+    cur=v;
     Object.keys(views).forEach(k=>views[k].hidden=(k!==v));
     document.body.classList.toggle('on-bang',v==='bang');
-    logo.textContent=v==='bang'?'knock!':v==='dot'?'knock.':'knock';
+    document.body.classList.toggle('on-dot',v==='dot');
+    if(v!=='home'){const r=document.getElementById(v==='dot'?'lineDot':'lineBang');if(r)r.checked=true;}
     const target=(h&&h!=='home'&&h!=='bang'&&h!=='dot')?el:null;
     if(target){target.scrollIntoView();}else{window.scrollTo(0,0);}
   }
