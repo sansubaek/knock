@@ -691,6 +691,40 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
   .a2-seg a{padding:6px 10px;font-size:12.5px}
 }
 
+
+/* ── 히어로 케이스 캐러셀 ── */
+.a2-stage{position:relative}
+.a2-car .a2-frame{position:relative;border-radius:24px;overflow:hidden}
+.a2-bang .a2-car .a2-frame{border:2px solid var(--a-ink);transform:rotate(-1.6deg);background:#F3E5D3}
+.a2-dot .a2-car .a2-frame{border-radius:6px;background:#E6E5E1}
+.a2-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.a2-track::-webkit-scrollbar{display:none}
+.a2-slide{flex:0 0 100%;margin:0;scroll-snap-align:center;scroll-snap-stop:always;aspect-ratio:4/4.4}
+.a2-car .a2-slide img{display:block;width:100%;height:100%;object-fit:cover;border:0;border-radius:0;transform:none;aspect-ratio:auto}
+.a2-car .a2-slide.land img{object-fit:contain}
+.a2-arr{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font:400 28px/1 "Inter Tight",sans-serif;padding:0 0 3px;cursor:pointer;z-index:2;background:var(--a-card);color:var(--a-ink);border:2px solid var(--a-ink)}
+.a2-arr.prev{left:12px}.a2-arr.next{right:12px}
+.a2-bang .a2-arr{box-shadow:2px 2px 0 var(--a-ink)}
+.a2-dot .a2-arr{border-width:1px;border-radius:4px;background:rgba(246,245,241,.92)}
+.a2-arr[disabled]{opacity:0;pointer-events:none}
+@media (hover:none){.a2-arr{display:none}}
+.a2-cap{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:30px}
+.a2-cap-n{font-size:18px;letter-spacing:-.02em}
+.a2-cap-t{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--a-chip);margin-left:6px;vertical-align:3px}
+.a2-cap-d{display:block;font-size:13.5px;color:var(--a-mute);margin-top:2px}
+.a2-count{font:600 13px "Inter Tight",sans-serif;color:var(--a-mute);white-space:nowrap}
+.a2-dot .a2-count{font:italic 400 17px "Instrument Serif",serif}
+.a2-dots{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.a2-dots button{width:8px;height:8px;border-radius:99px;border:0;background:var(--a-line);padding:0;cursor:pointer;transition:width .2s,background .2s}
+.a2-dots button[aria-selected="true"]{width:22px;background:var(--a-ink)}
+.a2-dot .a2-dots button{border-radius:1px;height:3px;width:14px}
+.a2-dot .a2-dots button[aria-selected="true"]{width:28px}
+.a2-bang .a2-cap{margin-top:46px}
+.a2-pick{display:inline-block;margin-top:14px;font-size:14px;font-weight:700;border-bottom:1.5px solid currentColor}
+.a2-grid.sq .a2-tile img{aspect-ratio:1/1}
+.a2-dot .a2-tile img{border-radius:6px}
+.a2-dot .a2-spec{margin-top:26px}
+@media (min-width:960px){.a2-grid.sq{grid-template-columns:repeat(4,1fr);gap:22px}}
 </style>
 
 </head>
@@ -829,11 +863,13 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
         <div class="a2-ctas"><a class="a2-btn pri" href="#beta" data-line="bang">베타로 먼저 받기</a><a class="a2-btn sec" href="/demo/bang">예시 방 구경</a></div>
         <div class="a2-chips"><span>자유 꾸미기</span><span>노크 반응</span><span>익명 방명록</span><span>분실 모드</span></div>
       </div>
-      <div class="a2-vis">
-        <span class="a2-tape" aria-hidden="true"></span>
-        <img src="/img/gingham.jpg" alt="분홍 깅엄 체크 knock! 케이스">
-        <span class="a2-badge" aria-hidden="true">똑똑!</span>
-        <div class="a2-float" aria-hidden="true"><small>방명록 · 민지</small>케이스 뭐야 너무 귀엽잖아</div>
+      <div class="a2-vis a2-car" data-car="bang">
+        <div class="a2-stage"><span class="a2-tape" aria-hidden="true"></span><span class="a2-badge" aria-hidden="true">똑똑!</span><div class="a2-float" aria-hidden="true"><small>방명록 · 민지</small>케이스 뭐야 너무 귀엽잖아</div><div class="a2-frame"><div class="a2-track"><figure class="a2-slide" data-name="깅엄" data-desc="분홍 체크, 레이스 프레임 QR" data-design="깅엄 knock!"><img src="/img/gingham.jpg" alt="깅엄 knock! 케이스"></figure><figure class="a2-slide" data-name="스티커" data-desc="말풍선, 발자국, 별 스티커" data-design="스티커 knock!"><img src="/img/sticker.jpg" alt="스티커 knock! 케이스" loading="lazy"></figure><figure class="a2-slide" data-name="똑똑 문" data-desc="문 한가운데 QR" data-design="똑똑 문 knock!"><img src="/img/door.jpg" alt="똑똑 문 knock! 케이스" loading="lazy"></figure><figure class="a2-slide land" data-name="가리키는 냥" data-desc="선글라스 고양이가 QR을 쓱 가리켜요" data-design="가리키는 냥 knock! (MZ)" data-tag="시안"><img src="/img/mz-cat.webp" alt="가리키는 냥 knock! 케이스 시안" loading="lazy"></figure><figure class="a2-slide land" data-name="석고상" data-desc="픽셀 선글라스 낀 석고상이 QR을 들고 있어요" data-design="석고상 knock! (MZ)" data-tag="시안"><img src="/img/mz-david.webp" alt="석고상 knock! 케이스 시안" loading="lazy"></figure><figure class="a2-slide land" data-name="서빙" data-desc="QR을 쟁반에 받쳐 내밀어요" data-design="서빙 knock! (MZ)" data-tag="시안"><img src="/img/mz-butler.webp" alt="서빙 knock! 케이스 시안" loading="lazy"></figure><figure class="a2-slide land" data-name="여기요" data-desc="두 손이 가운데 QR을 가리켜요" data-design="여기요 knock! (MZ)" data-tag="시안"><img src="/img/mz-hands.webp" alt="여기요 knock! 케이스 시안" loading="lazy"></figure><figure class="a2-slide land" data-name="SCAN ME" data-desc="옛날 컴퓨터 창 속에 QR이 떠 있어요" data-design="SCAN ME knock! (MZ)" data-tag="시안"><img src="/img/mz-window.webp" alt="SCAN ME knock! 케이스 시안" loading="lazy"></figure></div>
+          <button class="a2-arr prev" type="button" aria-label="이전 디자인">‹</button><button class="a2-arr next" type="button" aria-label="다음 디자인">›</button></div></div>
+        
+        <div class="a2-cap"><div><b class="a2-cap-n"></b><span class="a2-cap-t"></span><small class="a2-cap-d"></small></div><span class="a2-count"></span></div>
+        <div class="a2-dots" role="tablist" aria-label="케이스 디자인"></div>
+        <a class="a2-pick" href="#beta" data-line="bang">이 디자인으로 베타 신청 →</a>
       </div>
     </div>
   </section>
@@ -943,10 +979,13 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
         <div class="a2-ctas"><a class="a2-btn pri" href="#beta" data-line="dot">베타로 먼저 받기</a><a class="a2-btn sec" href="/demo/dot">예시 명함 보기</a></div>
         <div class="a2-chips"><span>연락처 한 번에 저장</span><span>받은 명함 모음</span><span>이직해도 그대로</span><span>분실 모드</span></div>
       </div>
-      <div class="a2-vis">
-        <img src="/img/clear.jpg" alt="QR 플레이트가 붙은 투명 knock. 케이스">
-        <span class="a2-badge" aria-hidden="true">No.0001 · CLEAR</span>
-        <div class="a2-float" aria-hidden="true"><b>주건우</b><span>Founder · knock</span><em>연락처 저장</em></div>
+      <div class="a2-vis a2-car" data-car="dot">
+        <div class="a2-stage"><span class="a2-badge" aria-hidden="true">No.0001</span><div class="a2-float" aria-hidden="true"><b>주건우</b><span>Founder · knock</span><em>연락처 저장</em></div><div class="a2-frame"><div class="a2-track"><figure class="a2-slide" data-name="Clear" data-desc="투명 케이스 + QR 플레이트" data-design="Clear knock."><img src="/img/clear.jpg" alt="Clear knock. 케이스"></figure><figure class="a2-slide" data-name="Mono Black" data-desc="매트 블랙 + 브러시드 실버 QR 플레이트" data-design="Mono Black knock." data-tag="시안"><img src="/img/dot-black.jpg" alt="Mono Black knock. 케이스 시안" loading="lazy"></figure><figure class="a2-slide" data-name="Stone Ivory" data-desc="아이보리 린넨 + 샴페인 골드 플레이트" data-design="Stone Ivory knock." data-tag="시안"><img src="/img/dot-ivory.jpg" alt="Stone Ivory knock. 케이스 시안" loading="lazy"></figure><figure class="a2-slide" data-name="Navy Leather" data-desc="네이비 비건 레더 + 실버 플레이트" data-design="Navy Leather knock." data-tag="시안"><img src="/img/dot-navy.jpg" alt="Navy Leather knock. 케이스 시안" loading="lazy"></figure></div>
+          <button class="a2-arr prev" type="button" aria-label="이전 디자인">‹</button><button class="a2-arr next" type="button" aria-label="다음 디자인">›</button></div></div>
+        
+        <div class="a2-cap"><div><b class="a2-cap-n"></b><span class="a2-cap-t"></span><small class="a2-cap-d"></small></div><span class="a2-count"></span></div>
+        <div class="a2-dots" role="tablist" aria-label="케이스 디자인"></div>
+        <a class="a2-pick" href="#beta" data-line="dot">이 디자인으로 베타 신청 →</a>
       </div>
     </div>
   </section>
@@ -983,15 +1022,11 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
   <section class="a2-sec" id="dot-col">
     <div class="w">
       <div class="a2-sh"><span class="a2-num">02</span><h2>케이스</h2></div>
-      <div class="a2-one">
-        <a href="#beta" data-line="dot" data-design="Clear knock."><img src="/img/clear.jpg" alt="투명 knock. 케이스" loading="lazy"></a>
-        <div class="a2-spec">
-          <div class="a2-eyebrow"><i>Clear</i>투명 케이스 + QR 플레이트</div>
-          <dl><dt>Price</dt><dd>19,900원</dd><dt>QR</dt><dd>케이스마다 하나뿐인 주소, 3년 연결 보장</dd><dt>Scan</dt><dd>기본 카메라로 바로, 앱 필요 없음</dd></dl>
-          <p class="a2-sub" style="margin-top:18px">지금은 Clear 한 가지예요. 다음 마감은 베타 피드백으로 정해요.</p>
-          <div class="a2-ctas"><a class="a2-btn pri" href="#beta" data-line="dot" data-design="Clear knock.">이 케이스로 신청</a></div>
-        </div>
+      <p class="a2-sub">케이스마다 세상에 하나뿐인 QR 플레이트가 붙어요. 마감은 베타 피드백으로 최종 결정해요.</p>
+      <div class="a2-group"><h3>전 마감 <span class="a2-price-tag">19,900원</span></h3>
+        <div class="a2-grid sq"><a class="a2-tile" href="#beta" data-line="dot" data-design="Clear knock."><img src="/img/clear.jpg" alt="Clear knock. 케이스" loading="lazy"><b>Clear</b><small>투명 케이스 + QR 플레이트</small></a><a class="a2-tile" href="#beta" data-line="dot" data-design="Mono Black knock."><img src="/img/dot-black.jpg" alt="Mono Black knock. 케이스 시안" loading="lazy"><b>Mono Black<span class="a2-pill">시안</span></b><small>매트 블랙 + 브러시드 실버 QR 플레이트</small></a><a class="a2-tile" href="#beta" data-line="dot" data-design="Stone Ivory knock."><img src="/img/dot-ivory.jpg" alt="Stone Ivory knock. 케이스 시안" loading="lazy"><b>Stone Ivory<span class="a2-pill">시안</span></b><small>아이보리 린넨 + 샴페인 골드 플레이트</small></a><a class="a2-tile" href="#beta" data-line="dot" data-design="Navy Leather knock."><img src="/img/dot-navy.jpg" alt="Navy Leather knock. 케이스 시안" loading="lazy"><b>Navy Leather<span class="a2-pill">시안</span></b><small>네이비 비건 레더 + 실버 플레이트</small></a></div>
       </div>
+      <div class="a2-spec"><dl><dt>QR</dt><dd>케이스마다 하나뿐인 주소, 3년 연결 보장</dd><dt>Scan</dt><dd>기본 카메라로 바로, 앱 필요 없음</dd><dt>Card</dt><dd>연락처 저장 · 명함 맞교환 · 이직해도 그대로</dd></dl></div>
     </div>
   </section>
 
@@ -1129,6 +1164,26 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
     b.addEventListener('keydown',e=>{if(e.key==='Backspace'&&!b.value&&i>0)boxes[i-1].focus();});
   });
 
+
+  document.querySelectorAll('.a2-car').forEach(car=>{
+    const tr=car.querySelector('.a2-track'),sl=[...tr.children],dots=car.querySelector('.a2-dots'),pick=car.querySelector('.a2-pick');
+    const n=car.querySelector('.a2-cap-n'),t=car.querySelector('.a2-cap-t'),d=car.querySelector('.a2-cap-d'),c=car.querySelector('.a2-count');
+    const prev=car.querySelector('.a2-arr.prev'),next=car.querySelector('.a2-arr.next');
+    let cur=-1;
+    const go=i=>tr.scrollTo({left:i*tr.clientWidth,behavior:'smooth'});
+    sl.forEach((s,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-label',s.dataset.name);b.addEventListener('click',()=>go(i));dots.appendChild(b);});
+    function set(i){
+      if(i===cur||!sl[i])return;cur=i;const s=sl[i];
+      n.textContent=s.dataset.name;t.textContent=s.dataset.tag||'';t.hidden=!s.dataset.tag;d.textContent=s.dataset.desc;
+      c.textContent=(i+1)+' / '+sl.length;pick.dataset.design=s.dataset.design;
+      [...dots.children].forEach((b,j)=>b.setAttribute('aria-selected',j===i?'true':'false'));
+      prev.disabled=i===0;next.disabled=i===sl.length-1;
+    }
+    prev.addEventListener('click',()=>go(Math.max(0,cur-1)));
+    next.addEventListener('click',()=>go(Math.min(sl.length-1,cur+1)));
+    tr.addEventListener('scroll',()=>{if(tr.clientWidth)set(Math.round(tr.scrollLeft/tr.clientWidth));},{passive:true});
+    set(0);
+  });
 
   const betaForm=document.getElementById('betaForm');
   betaForm.addEventListener('submit',async e=>{
