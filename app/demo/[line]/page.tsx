@@ -36,10 +36,10 @@ const SAMPLE: Record<Line, Omit<ViewData, 'template'>> = {
     theme: {},
     guestbook_mode: 'off',
     blocks: [
-      { id: '1', type: 'card', data: { name: '주건우', title: 'Founder', org: 'knock', email: 'hello.knock.team@gmail.com', website: 'https://knock-sansubaek.vercel.app' } },
+      { id: '1', type: 'card', data: { name: '홍길동', title: 'Designer', org: 'Studio Hong', email: 'hello@example.com', website: 'https://knockqr.kr' } },
       { id: '2', type: 'text', data: { text: '케이스를 찍으면 명함이 저장됩니다.\n종이 명함 대신 knock.' } },
-      { id: '3', type: 'career', data: { lines: '2026 — knock 창업\n2026 — 모두의창업 선정\n인하대학교' } },
-      { id: '4', type: 'link', data: { label: '포트폴리오', url: 'https://knock-sansubaek.vercel.app' } },
+      { id: '3', type: 'career', data: { lines: '2025 — Studio Hong 디자이너\n2023 — 한국대학교 졸업' } },
+      { id: '4', type: 'link', data: { label: '포트폴리오', url: 'https://knockqr.kr' } },
     ],
     decor: [],
     guestbook: [],
