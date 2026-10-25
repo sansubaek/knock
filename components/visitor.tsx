@@ -135,7 +135,7 @@ export function LostForm({ qrId }: { qrId: string }) {
       <Honeypot />
       <label>
         주인에게 남길 말
-        <textarea name="message" maxLength={300} rows={3} required placeholder="예: 인하대 정문 앞 카페에 맡겨둘게요" />
+        <textarea name="message" maxLength={300} rows={3} required placeholder="예: 학교 정문 앞 카페에 맡겨둘게요" />
       </label>
       <label>
         발견한 곳 (선택)
