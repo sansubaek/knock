@@ -25,7 +25,7 @@ export const BLOCK_DEFS: Record<BlockType, { label: string; lines: Line[]; field
     hint: '연락처 저장 버튼에 이 정보가 들어가요',
     fields: [
       { key: 'avatar', label: '사진 (선택)', kind: 'image', max: 500 },
-      { key: 'name', label: '이름', kind: 'text', max: 20, placeholder: '주건우' },
+      { key: 'name', label: '이름', kind: 'text', max: 20, placeholder: '홍길동' },
       { key: 'title', label: '직함', kind: 'text', max: 30, placeholder: 'Product Designer' },
       { key: 'org', label: '소속', kind: 'text', max: 40, placeholder: 'knock' },
       { key: 'phone', label: '전화번호', kind: 'tel', max: 20, placeholder: '010-0000-0000' },
