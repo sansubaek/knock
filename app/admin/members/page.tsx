@@ -27,21 +27,21 @@ export default async function AdminMembers({ searchParams }: { searchParams: Pro
     <>
       <PageHead title="회원" desc="가입한 사람 목록이에요. 관리자 지정·해제는 보안 때문에 이 화면에서는 못 하고, Claude에게 요청하거나 Supabase에서 해요." />
 
-      <div className="ad-listbar">
-        <span className="ad-sub">총 {users.length}명{q && ` 중 ${shown.length}명`}</span>
-        <form className="ad-search" action="/admin/members">
-          <input className="ad-input" name="q" defaultValue={q} placeholder="이메일·닉네임 검색" aria-label="회원 검색" />
+      <div className="adm-listbar">
+        <span className="adm-sub">총 {users.length}명{q && ` 중 ${shown.length}명`}</span>
+        <form className="adm-search" action="/admin/members">
+          <input className="adm-input" name="q" defaultValue={q} placeholder="이메일·닉네임 검색" aria-label="회원 검색" />
         </form>
       </div>
 
       {shown.length === 0 ? (
-        <div className="ad-card">
+        <div className="adm-card">
           <Empty title={q ? `'${q}'에 맞는 회원이 없어요` : '아직 회원이 없어요'} />
         </div>
       ) : (
-        <div className="ad-card flush">
-          <div className="ad-scroll">
-            <table className="ad-table">
+        <div className="adm-card flush">
+          <div className="adm-scroll">
+            <table className="adm-table">
               <thead>
                 <tr>
                   <th>닉네임</th>
@@ -66,11 +66,11 @@ export default async function AdminMembers({ searchParams }: { searchParams: Pro
                           </>
                         )}
                       </td>
-                      <td className="ad-sub">{u.email ?? u.app_metadata?.provider}</td>
+                      <td className="adm-sub">{u.email ?? u.app_metadata?.provider}</td>
                       <td>{p?.role === 'admin' ? <Badge tone="blue">관리자</Badge> : <Badge>회원</Badge>}</td>
                       <td>{qcount.get(u.id) ?? 0}개</td>
-                      <td className="ad-sub">{kstDate(u.created_at)}</td>
-                      <td className="ad-sub">{kstDate(u.last_sign_in_at)}</td>
+                      <td className="adm-sub">{kstDate(u.created_at)}</td>
+                      <td className="adm-sub">{kstDate(u.last_sign_in_at)}</td>
                     </tr>
                   )
                 })}
@@ -81,14 +81,14 @@ export default async function AdminMembers({ searchParams }: { searchParams: Pro
       )}
 
       {(page > 1 || users.length === 100) && (
-        <div className="ad-pager">
+        <div className="adm-pager">
           {page > 1 && (
-            <a className="ad-btn sm" href={`/admin/members?page=${page - 1}`}>
+            <a className="adm-btn sm" href={`/admin/members?page=${page - 1}`}>
               ← 이전
             </a>
           )}
           {users.length === 100 && (
-            <a className="ad-btn sm" href={`/admin/members?page=${page + 1}`}>
+            <a className="adm-btn sm" href={`/admin/members?page=${page + 1}`}>
               다음 →
             </a>
           )}
