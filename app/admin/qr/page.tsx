@@ -33,10 +33,10 @@ export default async function AdminQr({ searchParams }: { searchParams: Promise<
     <>
       <PageHead title="QR 발급 · 관리" desc="케이스에 넣을 QR과 6자리 활성화 코드를 만들고, 만든 QR의 상태를 확인해요." />
 
-      <div className="ad-stack">
-        <section className="ad-card">
-          <h2 className="ad-card-h no-print">새로 발급하기</h2>
-          <ol className="ad-steps no-print">
+      <div className="adm-stack">
+        <section className="adm-card">
+          <h2 className="adm-card-h no-print">새로 발급하기</h2>
+          <ol className="adm-steps no-print">
             <li>
               <b>발급</b>라인과 개수를 고르고 버튼
             </li>
@@ -53,16 +53,16 @@ export default async function AdminQr({ searchParams }: { searchParams: Promise<
           <BatchIssue />
         </section>
 
-        <section className="ad-card no-print">
-          <details className="ad-details">
+        <section className="adm-card no-print">
+          <details className="adm-details">
             <summary>고객이 코드 카드를 잃어버렸을 때 (코드 재발급)</summary>
-            <p className="ad-hint">아직 등록 전인 케이스만 가능해요. 새 코드를 만들면 이전 코드는 바로 못 쓰게 돼요.</p>
+            <p className="adm-hint">아직 등록 전인 케이스만 가능해요. 새 코드를 만들면 이전 코드는 바로 못 쓰게 돼요.</p>
             <Reissue />
           </details>
         </section>
 
         <section className="no-print">
-          <div className="ad-listbar">
+          <div className="adm-listbar">
             <Tabs
               current={status}
               items={[
@@ -71,26 +71,26 @@ export default async function AdminQr({ searchParams }: { searchParams: Promise<
                 { key: 'lost', label: '분실 모드', href: tabHref('lost'), count: cnt('lost') },
               ]}
             />
-            <form className="ad-search" action="/admin/qr">
+            <form className="adm-search" action="/admin/qr">
               {status !== 'all' && <input type="hidden" name="status" value={status} />}
-              <input className="ad-input mono" name="q" defaultValue={q} placeholder="QR ID 검색" aria-label="QR ID 검색" />
+              <input className="adm-input mono" name="q" defaultValue={q} placeholder="QR ID 검색" aria-label="QR ID 검색" />
             </form>
           </div>
 
           {issuedIds.length > 0 && (
-            <form action={markPrinted} className="ad-bulk">
+            <form action={markPrinted} className="adm-bulk">
               <input type="hidden" name="ids" value={issuedIds.join(',')} />
               <span>
                 &lsquo;발급됨&rsquo; 상태 <b>{issuedIds.length}개</b>를 업체에 넘겼다면
               </span>
-              <button className="ad-btn sm" type="submit">
+              <button className="adm-btn sm" type="submit">
                 인쇄 넘김으로 한 번에 바꾸기
               </button>
             </form>
           )}
 
           {rows.length === 0 ? (
-            <div className="ad-card">
+            <div className="adm-card">
               <Empty title={q ? `'${q}'에 맞는 QR이 없어요` : '여기에 해당하는 QR이 없어요'} />
             </div>
           ) : (

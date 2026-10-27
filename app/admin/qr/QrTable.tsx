@@ -59,7 +59,7 @@ export function QrTable({ rows }: { rows: QrRow[] }) {
         <input key={id} type="hidden" name="ids" value={id} />
       ))}
 
-      <div className={`ad-selbar${sel.size ? ' on' : ''}`}>
+      <div className={`adm-selbar${sel.size ? ' on' : ''}`}>
         <span>
           {sel.size ? (
             <>
@@ -70,13 +70,13 @@ export function QrTable({ rows }: { rows: QrRow[] }) {
           )}
         </span>
         {sel.size > 0 && (
-          <span className="ad-selbar-btns">
-            <button type="button" className="ad-btn sm" onClick={() => setSel(new Set())}>
+          <span className="adm-selbar-btns">
+            <button type="button" className="adm-btn sm" onClick={() => setSel(new Set())}>
               선택 해제
             </button>
             <button
               type="submit"
-              className="ad-btn sm"
+              className="adm-btn sm"
               formAction={retAction}
               disabled={busy || canRetire === 0}
               title={canRetire === 0 ? '발급됨·인쇄 넘김 상태만 폐기할 수 있어요' : undefined}
@@ -88,7 +88,7 @@ export function QrTable({ rows }: { rows: QrRow[] }) {
             </button>
             <button
               type="submit"
-              className="ad-btn sm danger"
+              className="adm-btn sm danger"
               formAction={delAction}
               disabled={busy}
               onClick={(e) => {
@@ -105,14 +105,14 @@ export function QrTable({ rows }: { rows: QrRow[] }) {
           </span>
         )}
       </div>
-      {msg && <p className={`ad-flash ${msg.ok ? 'ok' : 'err'}`}>{msg.message}</p>}
+      {msg && <p className={`adm-flash ${msg.ok ? 'ok' : 'err'}`}>{msg.message}</p>}
 
-      <div className="ad-card flush">
-        <div className="ad-scroll">
-          <table className="ad-table">
+      <div className="adm-card flush">
+        <div className="adm-scroll">
+          <table className="adm-table">
             <thead>
               <tr>
-                <th className="ad-check">
+                <th className="adm-check">
                   <input type="checkbox" checked={allOn} onChange={toggleAll} disabled={!selectable.length} aria-label="전체 선택" />
                 </th>
                 <th>QR ID</th>
@@ -134,7 +134,7 @@ export function QrTable({ rows }: { rows: QrRow[] }) {
                     if (t.closest('a,button,input')) return
                     toggle(r.id)
                   }}>
-                    <td className="ad-check">
+                    <td className="adm-check">
                       <input
                         type="checkbox"
                         checked={sel.has(r.id)}
@@ -145,22 +145,22 @@ export function QrTable({ rows }: { rows: QrRow[] }) {
                       />
                     </td>
                     <td>
-                      <a className="ad-id" href={`/c/${r.id}`} target="_blank" rel="noreferrer" title="QR 찍은 화면 열기">
+                      <a className="adm-id" href={`/c/${r.id}`} target="_blank" rel="noreferrer" title="QR 찍은 화면 열기">
                         {r.id} ↗
                       </a>
                     </td>
                     <td>{lineName(r.line)}</td>
                     <td>
-                      <span className="ad-badges">
+                      <span className="adm-badges">
                         <Badge tone={QR_TONE[r.status]}>{QR_STATUS[r.status]}</Badge>
                         {r.lost_mode && <Badge tone="purple">분실 모드</Badge>}
                         {r.order_id && <Badge tone="blue">주문 연결</Badge>}
                       </span>
                     </td>
-                    <td className="ad-sub">{kstDate(r.created_at)}</td>
-                    <td className="ad-sub">{kstDate(r.code_used_at)}</td>
+                    <td className="adm-sub">{kstDate(r.created_at)}</td>
+                    <td className="adm-sub">{kstDate(r.code_used_at)}</td>
                     <td>
-                      {r.failed_attempts ? r.failed_attempts : <span className="ad-sub">0</span>}
+                      {r.failed_attempts ? r.failed_attempts : <span className="adm-sub">0</span>}
                       {locked && (
                         <>
                           {' '}
