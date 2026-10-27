@@ -26,7 +26,7 @@ export default async function AdminOrders({ searchParams }: { searchParams: Prom
         desc="베타 신청과 주문을 보고 진행 상태를 바꿔요. 접수된 건에 'QR 발급'을 누르면 자동으로 제작 요청 상태가 돼요."
       />
 
-      <div className="ad-listbar">
+      <div className="adm-listbar">
         <Tabs
           current={status}
           items={[
@@ -37,23 +37,23 @@ export default async function AdminOrders({ searchParams }: { searchParams: Prom
       </div>
 
       {list.length === 0 ? (
-        <div className="ad-card">
+        <div className="adm-card">
           <Empty title={status === 'all' ? '아직 신청이 없어요' : `'${ORDER_STATUS[status]}' 상태인 건이 없어요`}>
             베타 신청 페이지(/beta)로 들어온 신청이 여기에 쌓여요.
           </Empty>
         </div>
       ) : (
-        <div className="ad-stack">
+        <div className="adm-stack">
           {list.map((o) => (
-            <article key={o.id} className="ad-card ad-order">
-              <div className="ad-order-top">
+            <article key={o.id} className="adm-card adm-order">
+              <div className="adm-order-top">
                 <div>
-                  <div className="ad-order-name">
+                  <div className="adm-order-name">
                     {o.applicant_name}
                     <Badge tone="gray">{KIND[o.kind] ?? o.kind}</Badge>
                     <Badge tone={o.line === 'dot' ? 'gray' : 'blue'}>{lineName(o.line)}</Badge>
                   </div>
-                  <dl className="ad-meta">
+                  <dl className="adm-meta">
                     <div>
                       <dt>연락처</dt>
                       <dd>{o.contact}</dd>
@@ -75,11 +75,11 @@ export default async function AdminOrders({ searchParams }: { searchParams: Prom
                 <Badge tone={ORDER_TONE[o.status]}>{ORDER_STATUS[o.status] ?? o.status}</Badge>
               </div>
 
-              <form action={updateOrder} className="ad-form ad-order-form">
+              <form action={updateOrder} className="adm-form adm-order-form">
                 <input type="hidden" name="order" value={o.id} />
-                <label className="ad-field">
+                <label className="adm-field">
                   <span>상태</span>
-                  <select className="ad-input" name="status" defaultValue={o.status}>
+                  <select className="adm-input" name="status" defaultValue={o.status}>
                     {Object.entries(ORDER_STATUS).map(([k, v]) => (
                       <option key={k} value={k}>
                         {v}
@@ -87,11 +87,11 @@ export default async function AdminOrders({ searchParams }: { searchParams: Prom
                     ))}
                   </select>
                 </label>
-                <label className="ad-field grow">
+                <label className="adm-field grow">
                   <span>메모 (송장번호, 특이사항)</span>
-                  <input className="ad-input" name="memo" defaultValue={o.admin_memo ?? ''} placeholder="예: CJ 1234-5678" />
+                  <input className="adm-input" name="memo" defaultValue={o.admin_memo ?? ''} placeholder="예: CJ 1234-5678" />
                 </label>
-                <button className="ad-btn primary" type="submit">
+                <button className="adm-btn primary" type="submit">
                   저장
                 </button>
               </form>
