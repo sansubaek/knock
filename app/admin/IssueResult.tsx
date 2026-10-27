@@ -20,23 +20,23 @@ export function IssueResult({ items }: { items: IssuedItem[] }) {
       'text/csv;charset=utf-8',
     )
   return (
-    <div className="ad-issue">
-      <div className="ad-note warn no-print">
+    <div className="adm-issue">
+      <div className="adm-note warn no-print">
         <b>활성화 코드는 지금 이 화면에서만 보여요.</b> 새로고침하면 다시 볼 수 없으니 CSV부터 받아두세요.
       </div>
-      <div className="ad-issue-acts no-print">
-        <button type="button" className="ad-btn primary" onClick={csv}>
+      <div className="adm-issue-acts no-print">
+        <button type="button" className="adm-btn primary" onClick={csv}>
           ① CSV 받기 (코드 포함)
         </button>
-        <button type="button" className="ad-btn" onClick={() => window.print()}>
+        <button type="button" className="adm-btn" onClick={() => window.print()}>
           ② 웰컴 카드 인쇄
         </button>
-        <span className="ad-hint">인쇄 설정: A4, 배율 100%. 업체에는 아래 SVG 파일을 보내요.</span>
+        <span className="adm-hint">인쇄 설정: A4, 배율 100%. 업체에는 아래 SVG 파일을 보내요.</span>
       </div>
 
-      <div className="ad-card flush no-print">
-        <div className="ad-scroll">
-          <table className="ad-table">
+      <div className="adm-card flush no-print">
+        <div className="adm-scroll">
+          <table className="adm-table">
             <thead>
               <tr>
                 <th>QR</th>
@@ -50,18 +50,18 @@ export function IssueResult({ items }: { items: IssuedItem[] }) {
               {items.map((i) => (
                 <tr key={i.id}>
                   <td>
-                    <span className="ad-qr" dangerouslySetInnerHTML={{ __html: i.svg }} />
+                    <span className="adm-qr" dangerouslySetInnerHTML={{ __html: i.svg }} />
                   </td>
                   <td>
                     <b className="mono">{i.id}</b>
-                    {i.label && <div className="ad-sub">{i.label}</div>}
+                    {i.label && <div className="adm-sub">{i.label}</div>}
                   </td>
                   <td>{i.line === 'dot' ? 'knock.' : 'knock!'}</td>
                   <td>
-                    <span className="ad-code">{i.code}</span>
+                    <span className="adm-code">{i.code}</span>
                   </td>
                   <td>
-                    <button type="button" className="ad-btn sm" onClick={() => download(`${i.id}.svg`, i.svg, 'image/svg+xml')}>
+                    <button type="button" className="adm-btn sm" onClick={() => download(`${i.id}.svg`, i.svg, 'image/svg+xml')}>
                       SVG 받기
                     </button>
                   </td>
