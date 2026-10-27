@@ -60,7 +60,7 @@ export default async function AdminVotes({ searchParams }: { searchParams: Promi
           </>
         }
       >
-        <a className="ad-btn" href="/vote" target="_blank" rel="noreferrer">
+        <a className="adm-btn" href="/vote" target="_blank" rel="noreferrer">
           투표 화면 열기 ↗
         </a>
       </PageHead>
@@ -73,48 +73,48 @@ export default async function AdminVotes({ searchParams }: { searchParams: Promi
         ]}
       />
 
-      <nav className="ad-chips no-print" aria-label="나이대">
+      <nav className="adm-chips no-print" aria-label="나이대">
         {[{ key: 'all', label: '전체' }, ...AGE_BANDS].map((b) => (
           <a key={b.key} href={q({ age: b.key })} className={age === b.key ? 'on' : undefined}>
             {b.label}
             <span>{b.key === 'all' ? (all ?? []).length : ageCount.get(b.key) ?? 0}</span>
           </a>
         ))}
-        <span className="ad-sub">나이대 안 고름 {ageCount.get('none') ?? 0}</span>
+        <span className="adm-sub">나이대 안 고름 {ageCount.get('none') ?? 0}</span>
       </nav>
 
-      <section className="ad-stats">
-        <div className="ad-stat">
-          <span className="ad-stat-l">투표한 사람</span>
-          <b className="ad-stat-n">{rows.length.toLocaleString()}</b>
-          <span className="ad-stat-s">브라우저 기준 (같은 사람이 폰·PC로 내면 2명)</span>
+      <section className="adm-stats">
+        <div className="adm-stat">
+          <span className="adm-stat-l">투표한 사람</span>
+          <b className="adm-stat-n">{rows.length.toLocaleString()}</b>
+          <span className="adm-stat-s">브라우저 기준 (같은 사람이 폰·PC로 내면 2명)</span>
         </div>
-        <div className="ad-stat">
-          <span className="ad-stat-l">지금 1위</span>
-          <b className="ad-stat-n">{rows.length ? `${pad2(ranked[0].no)} ${ranked[0].name}` : '-'}</b>
-          <span className="ad-stat-s">{rows.length ? `${ranked[0].points}점 · 1위 표 ${ranked[0].first}개` : '아직 표가 없어요'}</span>
+        <div className="adm-stat">
+          <span className="adm-stat-l">지금 1위</span>
+          <b className="adm-stat-n">{rows.length ? `${pad2(ranked[0].no)} ${ranked[0].name}` : '-'}</b>
+          <span className="adm-stat-s">{rows.length ? `${ranked[0].points}점 · 1위 표 ${ranked[0].first}개` : '아직 표가 없어요'}</span>
         </div>
-        <div className="ad-stat">
-          <span className="ad-stat-l">한 사람이 고른 개수</span>
-          <b className="ad-stat-n">{avgPicks ? avgPicks.toFixed(1) : '-'}</b>
-          <span className="ad-stat-s">평균, 최대 5개</span>
+        <div className="adm-stat">
+          <span className="adm-stat-l">한 사람이 고른 개수</span>
+          <b className="adm-stat-n">{avgPicks ? avgPicks.toFixed(1) : '-'}</b>
+          <span className="adm-stat-s">평균, 최대 5개</span>
         </div>
       </section>
 
       {heavy.length > 0 && (
-        <div className="ad-card ad-warn">
+        <div className="adm-card adm-warn">
           같은 네트워크에서 8표 넘게 들어온 곳이 {heavy.length}곳 있어요 (가장 많은 곳 {heavy[0]}표). 학교·카페 와이파이일 수도 있고 한 사람이 여러 번 냈을 수도 있어요.
         </div>
       )}
 
       {rows.length === 0 ? (
-        <div className="ad-card">
+        <div className="adm-card">
           <Empty title="아직 표가 없어요">홈 위쪽 띠나 메뉴의 &lsquo;테마 투표&rsquo;로 들어가서 투표할 수 있어요.</Empty>
         </div>
       ) : (
-        <div className="ad-card flush">
-          <div className="ad-scroll">
-            <table className="ad-table ad-vote">
+        <div className="adm-card flush">
+          <div className="adm-scroll">
+            <table className="adm-table adm-vote">
               <thead>
                 <tr>
                   <th>순위</th>
@@ -128,9 +128,9 @@ export default async function AdminVotes({ searchParams }: { searchParams: Promi
               <tbody>
                 {ranked.map((s, i) => (
                   <tr key={s.no}>
-                    <td className="ad-vrank">{s.points ? i + 1 : '-'}</td>
+                    <td className="adm-vrank">{s.points ? i + 1 : '-'}</td>
                     <td>
-                      <a className="ad-vtheme" href={themeSrc(line, s.no)} target="_blank" rel="noreferrer">
+                      <a className="adm-vtheme" href={themeSrc(line, s.no)} target="_blank" rel="noreferrer">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img src={themeThumb(line, s.no)} alt="" loading="lazy" />
                         <span>
@@ -142,7 +142,7 @@ export default async function AdminVotes({ searchParams }: { searchParams: Promi
                       </a>
                     </td>
                     <td>
-                      <div className="ad-vbar">
+                      <div className="adm-vbar">
                         <i style={{ width: `${(s.points / maxPts) * 100}%` }} />
                         <b>{s.points}</b>
                       </div>
@@ -150,7 +150,7 @@ export default async function AdminVotes({ searchParams }: { searchParams: Promi
                     <td>{s.first}</td>
                     <td>
                       {s.top5}
-                      <small className="ad-sub"> ({Math.round((s.top5 / rows.length) * 100)}%)</small>
+                      <small className="adm-sub"> ({Math.round((s.top5 / rows.length) * 100)}%)</small>
                     </td>
                     <td>{s.top5 ? (s.rankSum / s.top5).toFixed(1) : '-'}</td>
                   </tr>
@@ -162,15 +162,15 @@ export default async function AdminVotes({ searchParams }: { searchParams: Promi
       )}
 
       {rows.length > 0 && (
-        <div className="ad-card">
-          <div className="ad-card-h">
+        <div className="adm-card">
+          <div className="adm-card-h">
             <span>최근 투표</span>
-            <span className="ad-sub">최근 20개 · 누가 냈는지는 알 수 없어요</span>
+            <span className="adm-sub">최근 20개 · 누가 냈는지는 알 수 없어요</span>
           </div>
-          <ul className="ad-vrecent">
+          <ul className="adm-vrecent">
             {rows.slice(0, 20).map((r, i) => (
               <li key={i}>
-                <span className="ad-sub">{kst(r.updated_at)}</span>
+                <span className="adm-sub">{kst(r.updated_at)}</span>
                 <span>{AGE_BANDS.find((b) => b.key === r.age_band)?.label ?? '나이대 없음'}</span>
                 <span>
                   {r.picks.map((no, j) => (
