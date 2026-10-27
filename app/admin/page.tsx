@@ -56,17 +56,17 @@ export default async function AdminHome() {
     <>
       <PageHead title={`안녕하세요, ${profile.nickname ?? '관리자'}님`} desc={`${today} 기준 knock 현황이에요.`} />
 
-      <div className="ad-stack">
-        <section className="ad-card">
-          <h2 className="ad-card-h">지금 할 일</h2>
+      <div className="adm-stack">
+        <section className="adm-card">
+          <h2 className="adm-card-h">지금 할 일</h2>
           {todos.length === 0 ? (
-            <p className="ad-calm">처리할 일이 없어요. 새 신청이나 문의가 오면 여기에 떠요.</p>
+            <p className="adm-calm">처리할 일이 없어요. 새 신청이나 문의가 오면 여기에 떠요.</p>
           ) : (
-            <ul className="ad-todo">
+            <ul className="adm-todo">
               {todos.map((t) => (
                 <li key={t.text}>
                   <Link href={t.href}>
-                    <i className={`ad-dot ${t.tone}`} />
+                    <i className={`adm-dot ${t.tone}`} />
                     <span>{t.text}</span>
                     <b>{t.cta} →</b>
                   </Link>
@@ -76,24 +76,24 @@ export default async function AdminHome() {
           )}
         </section>
 
-        <section className="ad-stats">
+        <section className="adm-stats">
           {stats.map((s) => (
-            <Link key={s.label} href={s.href} className="ad-stat">
-              <span className="ad-stat-l">{s.label}</span>
-              <b className="ad-stat-n">{s.value.toLocaleString()}</b>
-              <span className="ad-stat-s">{s.sub}</span>
+            <Link key={s.label} href={s.href} className="adm-stat">
+              <span className="adm-stat-l">{s.label}</span>
+              <b className="adm-stat-n">{s.value.toLocaleString()}</b>
+              <span className="adm-stat-s">{s.sub}</span>
             </Link>
           ))}
         </section>
 
-        <section className="ad-card">
-          <h2 className="ad-card-h">
+        <section className="adm-card">
+          <h2 className="adm-card-h">
             주문 흐름
-            <Link href="/admin/orders" className="ad-more">
+            <Link href="/admin/orders" className="adm-more">
               전체 보기
             </Link>
           </h2>
-          <ol className="ad-flow">
+          <ol className="adm-flow">
             {FLOW.map((s) => (
               <li key={s}>
                 <Link href={`/admin/orders?status=${s}`}>
@@ -103,15 +103,15 @@ export default async function AdminHome() {
               </li>
             ))}
           </ol>
-          <p className="ad-hint">접수 → QR 발급(자동으로 제작 요청) → 업체 제작 → 발송 → 고객이 코드를 넣으면 활성화 완료</p>
+          <p className="adm-hint">접수 → QR 발급(자동으로 제작 요청) → 업체 제작 → 발송 → 고객이 코드를 넣으면 활성화 완료</p>
         </section>
 
-        <section className="ad-card">
-          <h2 className="ad-card-h">최근 작업 기록</h2>
+        <section className="adm-card">
+          <h2 className="adm-card-h">최근 작업 기록</h2>
           {logs.length === 0 ? (
-            <p className="ad-calm">아직 기록이 없어요.</p>
+            <p className="adm-calm">아직 기록이 없어요.</p>
           ) : (
-            <ul className="ad-log">
+            <ul className="adm-log">
               {logs.map((l, i) => (
                 <li key={i}>
                   <span>{describeLog(l.action, l.target)}</span>

@@ -19,9 +19,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   ])
 
   return (
-    <div className="ad">
-      <aside className="ad-side">
-        <Link href="/admin" className="ad-brand">
+    <div className="adm">
+      <aside className="adm-side">
+        <Link href="/admin" className="adm-brand">
           knock<small>관리자</small>
         </Link>
         <AdminNav
@@ -34,7 +34,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             ...(VOTE_OPEN || votes ? [{ href: '/admin/votes', label: '테마 투표' }] : []),
           ]}
         />
-        <div className="ad-side-foot">
+        <div className="adm-side-foot">
           <Link href="/my">← 내 knock으로</Link>
           <a href="/" target="_blank" rel="noreferrer">
             사이트 열기 ↗
@@ -42,7 +42,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           <span title={user.email ?? ''}>{profile.nickname ?? user.email}</span>
         </div>
       </aside>
-      <main className="ad-main">{children}</main>
+      <main className="adm-main">{children}</main>
     </div>
   )
 }
