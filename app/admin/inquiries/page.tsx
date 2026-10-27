@@ -26,7 +26,7 @@ export default async function AdminInquiries({ searchParams }: { searchParams: P
         title="문의"
         desc="답변을 저장하면 회원은 '내 knock'에서 볼 수 있어요. 메일 자동 발송은 아직 없어서, 비회원은 이메일 주소를 눌러 직접 답장해 주세요."
       />
-      <div className="ad-listbar">
+      <div className="adm-listbar">
         <Tabs
           current={all ? 'all' : 'open'}
           items={[
@@ -37,44 +37,44 @@ export default async function AdminInquiries({ searchParams }: { searchParams: P
       </div>
 
       {list.length === 0 ? (
-        <div className="ad-card">
+        <div className="adm-card">
           <Empty title={all ? '아직 문의가 없어요' : '답할 문의가 없어요'} />
         </div>
       ) : (
-        <div className="ad-stack">
+        <div className="adm-stack">
           {list.map((i) => {
             const [sLabel, sTone] = STATUS[i.status] ?? [i.status, 'gray']
             return (
-              <article key={i.id} className="ad-card ad-inq">
-                <div className="ad-order-top">
-                  <div className="ad-badges">
+              <article key={i.id} className="adm-card adm-inq">
+                <div className="adm-order-top">
+                  <div className="adm-badges">
                     <Badge tone={TYPE_TONE[i.type] ?? 'gray'}>{TYPE[i.type] ?? i.type}</Badge>
-                    <a className="ad-link" href={`mailto:${i.email}?subject=${encodeURIComponent('[knock] 문의 답변')}`}>
+                    <a className="adm-link" href={`mailto:${i.email}?subject=${encodeURIComponent('[knock] 문의 답변')}`}>
                       {i.email}
                     </a>
                     {i.target_id && (
-                      <a className="ad-id" href={`/admin/qr?q=${encodeURIComponent(i.target_id)}`} title="QR 목록에서 보기">
+                      <a className="adm-id" href={`/admin/qr?q=${encodeURIComponent(i.target_id)}`} title="QR 목록에서 보기">
                         {i.target_id}
                       </a>
                     )}
-                    <span className="ad-sub">{kst(i.created_at)}</span>
+                    <span className="adm-sub">{kst(i.created_at)}</span>
                   </div>
                   <Badge tone={sTone}>{sLabel}</Badge>
                 </div>
-                <blockquote className="ad-quote">{i.body}</blockquote>
-                <form action={replyInquiry} className="ad-form col">
+                <blockquote className="adm-quote">{i.body}</blockquote>
+                <form action={replyInquiry} className="adm-form col">
                   <input type="hidden" name="id" value={i.id} />
-                  <label className="ad-field">
+                  <label className="adm-field">
                     <span>답변</span>
-                    <textarea className="ad-input" name="reply" rows={3} defaultValue={i.reply ?? ''} placeholder="고객에게 보일 답변을 적어주세요" />
+                    <textarea className="adm-input" name="reply" rows={3} defaultValue={i.reply ?? ''} placeholder="고객에게 보일 답변을 적어주세요" />
                   </label>
-                  <div className="ad-form">
-                    <select className="ad-input" name="status" defaultValue={i.status === 'open' ? 'answered' : i.status} aria-label="상태">
+                  <div className="adm-form">
+                    <select className="adm-input" name="status" defaultValue={i.status === 'open' ? 'answered' : i.status} aria-label="상태">
                       <option value="open">답변 전</option>
                       <option value="answered">답변 완료</option>
                       <option value="closed">종료</option>
                     </select>
-                    <button className="ad-btn primary" type="submit">
+                    <button className="adm-btn primary" type="submit">
                       답변 저장
                     </button>
                   </div>
