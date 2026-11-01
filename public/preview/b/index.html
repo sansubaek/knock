@@ -1,0 +1,80 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1440"><title>knock. — A quiet door</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=Anton&family=Space+Grotesk:wght@300;400;500;700&family=Caveat:wght@500;700&family=Noto+Serif+KR:wght@300;400;600&display=swap"><style>*{box-sizing:border-box;margin:0;padding:0}a{color:inherit;text-decoration:none}body{background:#F3EFE8;color:#2E2B28;font-family:Pretendard,sans-serif}
+.nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px 56px;background:rgba(243,239,232,.92);backdrop-filter:blur(8px);font:400 14px Pretendard}
+.nav .lg{font:500 30px 'Cormorant Garamond'}.nav nav a{margin-left:34px;opacity:.75}.nav nav a:hover{opacity:1}.nav .mk{border:1px solid #2E2B28;padding:9px 18px;margin-left:34px;opacity:1}
+.btn{display:inline-block;padding:15px 30px;border:1px solid #2E2B28;font:500 14px Pretendard;letter-spacing:.06em;margin-right:10px}.btn.f{background:#2E2B28;color:#F3EFE8}
+.sec{padding:96px 56px}.eyebrow{font:500 12px 'Space Grotesk';letter-spacing:.28em;text-transform:uppercase;opacity:.6;margin-bottom:16px}
+.h2{font:400 54px/1.05 'Cormorant Garamond'}.h2 em{font-style:italic}
+footer{padding:56px;border-top:1px solid #d9d1c4;display:flex;justify-content:space-between;font:300 13px Pretendard;opacity:.7}
+.phone{width:350px;border-radius:52px;padding:9px;background:#111;box-shadow:0 26px 60px rgba(0,0,0,.2)}.screen{width:332px;height:720px;border-radius:44px;overflow:hidden;position:relative}
+.hero{position:relative;height:820px;background:url(img/hero_C1_quiet.jpg) center/cover}
+.hero .tx{position:absolute;left:72px;top:16%}.hero h1{font:400 96px/1 'Cormorant Garamond';letter-spacing:-.01em}.hero h1 em{font-style:italic}
+.hero p{font:300 19px/1.75 Pretendard;margin:26px 0 38px;max-width:420px}
+.hero .sc{position:absolute;left:72px;bottom:40px;font:500 11px 'Space Grotesk';letter-spacing:.3em;opacity:.6}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.col{position:relative;height:420px;overflow:hidden;display:block}.col .bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s}.col:hover .bg{transform:scale(1.04)}
+.col .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 28px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff}
+.col .cap b{display:block;font:400 34px 'Cormorant Garamond'}.col .cap span{font:300 14px Pretendard;opacity:.9}.col .cap i{float:right;font:500 12px 'Space Grotesk';letter-spacing:.2em;font-style:normal;margin-top:-30px}
+.rooms{display:block}
+.rooms .ph{display:flex;gap:40px;justify-content:center;margin-top:48px}.rooms p{font:300 16px/1.85 Pretendard;margin-top:22px;max-width:620px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #d9d1c4;margin-top:40px}.steps div{padding:34px 34px 0 0}.steps b{font:400 54px 'Cormorant Garamond';display:block}.steps h4{font:500 17px Pretendard;margin:8px 0}.steps p{font:300 14px/1.7 Pretendard;opacity:.8}
+.picks{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:40px}.picks img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}.picks h4{font:400 21px 'Cormorant Garamond';margin:14px 0 2px}.picks p{font:300 13px Pretendard;opacity:.7}
+.head{display:flex;justify-content:space-between;align-items:end}
+.sw{transform:scale(.851);transform-origin:top left;width:390px;height:846px;position:relative}
+
+.t1{background:#F3EFE8;height:100%;padding:58px 28px 0;color:#2E2B28;font-family:Pretendard}
+
+.t1 .ph{height:300px;border-radius:2px;background:url(img/hero_C1_quiet.jpg) 70% center/cover;margin-bottom:24px}
+
+.t1 h2{font:400 40px 'Cormorant Garamond'}
+.t1 .sub{font:300 13px Pretendard;opacity:.65;margin-top:4px}
+
+.t1 .q{font:italic 400 21px/1.4 'Cormorant Garamond';margin:22px 0;padding:18px 0;border-top:1px solid #cfc6b8;border-bottom:1px solid #cfc6b8}
+
+.t1 .gb div{display:flex;justify-content:space-between;font:300 13px Pretendard;padding:9px 0;border-bottom:1px solid #e2dbd0}
+
+.t1 .kb{position:absolute;left:28px;right:28px;bottom:34px;border:1px solid #2E2B28;text-align:center;padding:16px;font:500 14px Pretendard;letter-spacing:.12em}
+
+.t2{background:#EFE6D2;height:100%;padding:56px 22px 0;font-family:'IBM Plex Mono';color:#1C1B19}
+
+.t2 .tk{border:1.5px solid #1C1B19;padding:18px;position:relative}
+.t2 .tk:after{content:'';position:absolute;left:-1px;right:-1px;bottom:-14px;border-bottom:2px dashed #1C1B19}
+
+.t2 .tk small{font-size:11px;letter-spacing:.18em}
+.t2 .tk h2{font:600 34px 'IBM Plex Mono';letter-spacing:-.03em;margin:8px 0}
+
+.t2 .tk .r{display:flex;justify-content:space-between;font-size:12px;margin-top:10px}
+
+.t2 .ph{height:170px;margin:30px 0 18px;background:url(img/hero_C2_archive.jpg) center/cover;filter:sepia(.25)}
+
+.t2 .lg div{font-size:12px;padding:8px 0;border-bottom:1px dashed #8d846f;display:flex;justify-content:space-between}
+
+.t2 .stp{position:absolute;right:26px;top:210px;color:#A23B2A;border:2px solid #A23B2A;border-radius:50%;width:84px;height:84px;display:flex;align-items:center;justify-content:center;font:600 11px/1.2 'IBM Plex Mono';text-align:center;transform:rotate(-12deg)}
+
+.t2 .kb{position:absolute;left:22px;right:22px;bottom:30px;background:#1C1B19;color:#EFE6D2;text-align:center;padding:16px;font:600 14px 'IBM Plex Mono';letter-spacing:.1em}
+
+.t4{background:linear-gradient(#FBF3E8,#F6E6D6);height:100%;padding:54px 24px 0;color:#5A4636;font-family:Pretendard}
+
+.t4 .pol{background:#fff;padding:12px 12px 14px;box-shadow:0 12px 26px rgba(90,70,54,.18);transform:rotate(-2.5deg);width:250px;margin:0 auto}
+
+.t4 .pol div{height:230px;background:url(img/hero_C4_film.jpg) 62% center/cover}
+.t4 .pol p{font:500 24px Caveat;margin-top:8px}
+
+.t4 h2{font:italic 400 40px 'Instrument Serif';text-align:center;margin:20px 0 4px}
+.t4 .md{text-align:center;font-size:13px;opacity:.75}
+
+.t4 .md b{background:#F4E3A1;padding:3px 10px;border-radius:99px;font-weight:500}
+
+.t4 .gb{margin-top:18px}
+.t4 .gb div{background:#fff;border-radius:16px;padding:10px 14px;margin-bottom:8px;font:500 19px Caveat}
+
+.t4 .kb{position:absolute;left:24px;right:24px;bottom:30px;background:#5A4636;color:#FBF3E8;text-align:center;padding:16px;border-radius:99px;font:500 15px Pretendard}</style></head><body>
+<div class="nav"><a class="lg" href="index.html">knock.</a><nav><a href="lineup.html">Collections</a><a href="#rooms">Rooms</a><a href="#how">How it works</a><a class="mk" href="#">My knock</a></nav></div>
+<section class="hero"><div class="tx"><div class="eyebrow">Phone case · QR · Your room</div><h1>A quiet door,<br><em>on the back</em><br>of your phone.</h1><p>폰 뒤에 단 작은 문. 누군가 두드리면, 내가 고른 만큼만 열려요.</p><a class="btn f" href="lineup.html">컬렉션 보기</a><a class="btn" href="#rooms">내 방 둘러보기</a></div><div class="sc">SCROLL ↓</div></section>
+<section class="sec"><div class="head"><div><div class="eyebrow">Collections</div><h2 class="h2">취향마다, <em>다른 문.</em></h2></div><a class="btn" href="lineup.html">전체 보기 →</a></div>
+<div class="cols"><a class="col" href="lineup.html#quiet"><div class="bg" style="background-image:url(img/hero_C1_quiet.jpg)"></div><div class="cap"><b>Quiet Room</b><span>조용히 두드리면, 천천히 열리는 방</span><i>VIEW →</i></div></a><a class="col" href="lineup.html#archive"><div class="bg" style="background-image:url(img/hero_C2_archive.jpg)"></div><div class="cap"><b>Archive</b><span>다녀간 순간을 티켓처럼 보관해요</span><i>VIEW →</i></div></a><a class="col" href="lineup.html#collage"><div class="bg" style="background-image:url(img/hero_C3_collage.jpg)"></div><div class="cap"><b>Collage Club</b><span>내 취향을 오려 붙인 방</span><i>VIEW →</i></div></a><a class="col" href="lineup.html#film"><div class="bg" style="background-image:url(img/hero_C4_film.jpg)"></div><div class="cap"><b>Soft Film</b><span>햇살 드는 오후처럼, 편하게</span><i>VIEW →</i></div></a><a class="col" href="lineup.html#gallery"><div class="bg" style="background-image:url(img/hero_C5_gallery.jpg)"></div><div class="cap"><b>Gallery No.3</b><span>나라는 전시, 입장은 노크 한 번</span><i>VIEW →</i></div></a><a class="col" href="lineup.html#night"><div class="bg" style="background-image:url(img/hero_C6_night.jpg)"></div><div class="cap"><b>Night Room</b><span>불을 낮추고, 문은 열어둘게요</span><i>VIEW →</i></div></a></div></section>
+<section class="sec" style="background:#EBE5DB"><div class="head"><div><div class="eyebrow">This week</div><h2 class="h2">새로 열린 <em>문들</em></h2></div></div>
+<div class="picks"><a href="lineup.html"><img src="img/v3_W07_바다세리프.jpg"><h4>Slow day</h4><p>바다 · 화이트 · 19,900원</p></a><a href="lineup.html"><img src="img/v3_W01_티켓콜라주.jpg"><h4>KNOCK AIR</h4><p>탑승권 콜라주 · 19,900원</p></a><a href="lineup.html"><img src="img/v3_W09_고양이노크.jpg"><h4>you knocked first.</h4><p>고양이 노크 · 19,900원</p></a><a href="lineup.html"><img src="img/bb_05_미술관라벨.jpg"><h4>Untitled (My Room)</h4><p>미술관 라벨 · 19,900원</p></a></div></section>
+<section class="sec" id="rooms"><div class="rooms"><div><div class="eyebrow">Rooms</div><h2 class="h2">찍으면 열리는,<br><em>내 방.</em></h2><p>케이스 뒤 QR을 친구가 찍으면 내 방이 열려요. 사진, 오늘의 한 줄, 방명록. 컬렉션마다 어울리는 방 테마가 함께 와요. 앱 설치도 로그인도 필요 없어요.</p></div>
+<div class="ph"><div class="phone"><div class="screen"><div class="sw"><div class="t1"><div class="ph"></div><h2>Jiwoo</h2><div class="sub">조용한 방 · 서울</div><div class="q">“오늘은 천천히 걸었어요.”</div><div class="gb"><div><span>민지 — 사진 너무 좋다</span><span>10.31</span></div><div><span>현우 — 바다 언제 가?</span><span>10.30</span></div><div><span>익명 — knock knock</span><span>10.29</span></div></div><div class="kb">KNOCK · 31</div></div></div></div></div><div class="phone"><div class="screen"><div class="sw"><div class="t2"><div class="tk"><small>ADMIT ONE · ROOM 0031</small><h2>JIWOO'S ROOM</h2><div class="r"><span>OPEN 24H</span><span>VISITOR NO. 0128</span></div></div><div class="ph"></div><div class="stp">VISITED<br>10.31</div><div class="lg"><div><span>10.31 14:02 · MINJI</span><span>“티켓 귀여워”</span></div><div><span>10.30 22:41 · HYUNWOO</span><span>“다음 주 영화 ㄱ”</span></div><div><span>10.29 09:10 · ANON</span><span>“knock knock”</span></div><div><span>10.28 18:33 · SEO</span><span>“기록 잘 보고감”</span></div></div><div class="kb">[ KNOCK ] — STAMP MY VISIT</div></div></div></div></div><div class="phone"><div class="screen"><div class="sw"><div class="t4"><div class="pol"><div></div><p>slow morning ☁</p></div><h2>jiwoo's room</h2><div class="md">오늘 기분 <b>말랑말랑</b> · 듣는 중 <b>Lauv - Paris</b></div><div class="gb"><div>민지 · 사진 색감 뭐야 ㅠㅠ</div><div>현우 · 고양이 이름 뭐야?</div><div>익명 · knock knock 🐾</div></div><div class="kb">똑똑, 들어가도 돼?</div></div></div></div></div></div></div></section>
+<section class="sec" id="how" style="padding-top:20px"><div class="eyebrow">How it works</div><h2 class="h2">세 번이면, <em>문이 생겨요.</em></h2><div class="steps"><div><b>01</b><h4>문을 고르세요</h4><p>컬렉션에서 마음에 드는 디자인을 내 기종으로.</p></div><div><b>02</b><h4>방을 꾸미세요</h4><p>케이스와 함께 온 코드로 내 방을 열고, 사진과 한 줄을 채워요.</p></div><div><b>03</b><h4>노크를 받으세요</h4><p>친구가 찍으면 방이 열리고, 방명록에 노크가 남아요.</p></div></div></section>
+<footer><span>knock. — 인하대학교 창업 프로젝트</span><span>knockqr.kr</span></footer></body></html>
