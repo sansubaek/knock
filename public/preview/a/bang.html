@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Pretendard;-webkit-font-smoothing:antialiased;background:#FBF4EA;color:#2b1e18}
+section{position:relative;height:100vh;min-height:760px;overflow:hidden;background:#FBF4EA}
+.nav{position:absolute;top:0;left:0;right:0;z-index:9;display:flex;justify-content:space-between;align-items:center;padding:22px 40px;font-family:'Inter Tight',Pretendard;font-size:14px;font-weight:500}
+.nav ul{display:flex;gap:26px;list-style:none}
+.mark{font-family:Archivo;font-style:italic;font-weight:900;font-size:24px;letter-spacing:-.03em}
+.word{font-family:Archivo;font-style:italic;font-weight:900;letter-spacing:-.055em;line-height:.8;white-space:nowrap}
+.copy h1{font-size:30px;line-height:1.3;letter-spacing:-.03em;font-weight:800}
+.copy p{font-size:15px;line-height:1.6;color:#6b5a4f;margin-top:10px;max-width:24em}
+.btns{display:flex;gap:8px;margin-top:20px}
+.btn{padding:13px 20px;border-radius:99px;font-weight:700;font-size:14px}
+.pri{background:#2b1e18;color:#fff}.sec{background:#fff;border:1px solid #eadccb}
+.pink{background:#ff5c8a;color:#fff;font-weight:800;font-size:13px;padding:7px 13px;border-radius:99px;display:inline-block}
+.tag{position:absolute;right:16px;bottom:16px;z-index:20;background:#17171a;color:#fff;font:700 12px Pretendard;padding:6px 10px;border-radius:99px}
+
+/* 1 object */
+#s1 .word{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);font-size:27vw;color:#2b1e18;z-index:1}
+#s1 .obj{position:absolute;left:50%;top:53%;transform:translate(-50%,-50%);width:min(78vh,700px);z-index:2;filter:drop-shadow(0 40px 40px rgba(90,60,40,.22))}
+#s1 .copy{position:absolute;left:40px;bottom:44px;z-index:3}
+#s1 .copy h1{font-size:24px}
+#s1 .right{position:absolute;right:40px;bottom:50px;z-index:3}
+
+/* 2 bento */
+#s2 .grid{position:absolute;right:40px;top:96px;bottom:40px;width:54%;display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:12px}
+#s2 .grid img{width:100%;height:100%;object-fit:cover;border-radius:22px}
+#s2 .grid img:first-child{grid-row:1/3}
+#s2 .copy{position:absolute;left:40px;top:150px;width:38%}
+#s2 .word{position:absolute;left:30px;bottom:30px;font-size:12.5vw}
+
+/* 3 inset frame */
+#s3 .frame{position:absolute;right:40px;top:96px;width:44%;height:calc(100% - 136px);border-radius:28px;overflow:hidden}
+#s3 .frame img{width:100%;height:100%;object-fit:cover}
+#s3 .word{position:absolute;left:28px;bottom:36px;font-size:18vw;z-index:3;color:#2b1e18}
+#s3 .word span{color:#fff;mix-blend-mode:difference}
+#s3 .copy{position:absolute;left:40px;top:150px;width:40%}
+
+/* 4 filmstrip */
+#s4 .word{position:absolute;left:50%;top:150px;transform:translateX(-50%);font-size:20vw;color:#2b1e18}
+#s4 .strip{position:absolute;left:0;right:0;bottom:120px;display:flex;gap:16px;padding-left:40px;animation:mq 30s linear infinite;width:max-content}
+#s4 .strip img{width:250px;height:320px;object-fit:cover;border-radius:20px;box-shadow:0 18px 40px rgba(80,50,30,.15)}
+#s4 .strip img:nth-child(odd){transform:translateY(-24px) rotate(-2deg)}#s4 .strip img:nth-child(even){transform:rotate(2deg)}
+@keyframes mq{to{transform:translateX(-30%)}}
+#s4 .copy{position:absolute;left:40px;bottom:36px;display:flex;align-items:center;gap:24px}
+#s4 .copy h1{font-size:20px}
+</style></head><body>
+
+<section id="s1">
+  <nav class="nav"><span class="mark">knock!</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><span>내 knock</span></nav>
+  <div class="word">knock!</div>
+  <img class="obj" src="img/float-bang-cut.png">
+  <div class="copy"><span class="pink">NEW · 우주인</span><h1 style="margin-top:10px">친구가 찍으면, 내 방이 열려요</h1></div>
+  <div class="right btns"><a class="btn pri">내 케이스 만들어보기</a><a class="btn sec">디자인 보기</a></div>
+  <span class="tag">1 · 오브젝트 (케이스만 둥둥)</span>
+</section>
+
+<section id="s2">
+  <nav class="nav"><span class="mark">knock!</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><span>내 knock</span></nav>
+  <div class="copy"><span class="pink">NEW · 우주인</span><h1 style="margin-top:12px">친구가 찍으면,<br>내 방이 열려요</h1><p>케이스 뒤 QR 하나로 사진, 음악, 오늘의 기분까지. 친구는 노크하고 방명록을 남겨요.</p><div class="btns"><a class="btn pri">내 케이스 만들어보기</a><a class="btn sec">디자인 보기</a></div></div>
+  <div class="grid"><img src="img/hero-astro.png"><img src="img/hero-door.png"><img src="img/hero-collection.png"></div>
+  <div class="word">knock!</div>
+  <span class="tag">2 · 벤토 콜라주 (작은 사진 3장)</span>
+</section>
+
+<section id="s3">
+  <nav class="nav"><span class="mark">knock!</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><span>내 knock</span></nav>
+  <div class="copy"><span class="pink">NEW · 우주인</span><h1 style="margin-top:12px">친구가 찍으면,<br>내 방이 열려요</h1><p>케이스 뒤 QR 하나로 사진, 음악, 오늘의 기분까지.</p><div class="btns"><a class="btn pri">내 케이스 만들어보기</a><a class="btn sec">디자인 보기</a></div></div>
+  <div class="frame"><img src="img/hero-astro.png"></div>
+  <div class="word">knock!</div>
+  <span class="tag">3 · 액자 (사진 1장을 창문처럼)</span>
+</section>
+
+<section id="s4">
+  <nav class="nav"><span class="mark">knock!</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><span>내 knock</span></nav>
+  <div class="word">knock!</div>
+  <div class="strip"><img src="img/hero-astro.png"><img src="img/hero-door.png"><img src="img/grid-sticker.jpg"><img src="img/grid-mz-butler-qr.webp"><img src="img/hero-collection.png"><img src="img/grid-mz-david-qr.webp"><img src="img/grid-gingham.jpg"><img src="img/hero-astro.png"></div>
+  <div class="copy"><h1>친구가 찍으면, 내 방이 열려요</h1><div class="btns" style="margin-top:0"><a class="btn pri">내 케이스 만들어보기</a></div></div>
+  <span class="tag">4 · 필름 스트립 (흘러가는 카드)</span>
+</section>
+<script>if(location.hash){const id=location.hash.slice(1);document.querySelectorAll('section').forEach(s=>{if(s.id!==id)s.style.display='none'})}</script>
+<script>(function(){var K="s1";if(K){document.querySelectorAll('section').forEach(function(s){if(s.id!==K)s.remove();});}
+document.querySelectorAll('body *').forEach(function(el){if(el.children.length)return;var t=(el.textContent||'').trim();if(/(^|\s)(S?\d)\s·\s/.test(t)&&t.length<40){el.style.display='none';}});
+function go(el,h){el.style.cursor='pointer';el.addEventListener('click',function(e){e.preventDefault();location.href=h;});}
+document.querySelectorAll('li,a,span,div,button').forEach(function(el){var t=(el.textContent||'').trim();if(el.children.length&&!(el.tagName==='A'))return;
+if(t==='라인업'||t==='디자인'||t==='디자인 보기')go(el,'lineup.html');
+else if(t==='knock! 만들어보기'||t==='내 케이스 만들어보기'||t==='이 디자인으로 만들기 →')go(el,'lineup.html');
+else if(t==='knock. 만들어보기')go(el,'dot.html');
+else if(t==='knock!'&&el.closest('.sw'))go(el,'bang.html');
+else if(t==='knock.'&&el.closest('.sw'))go(el,'dot.html');
+else if((t==='knock'||t==='knock!'||t==='knock.')&&el.closest('nav'))go(el,'index.html');});
+document.querySelectorAll('.door,.side,.half,[class*="door"]').forEach(function(){});})();</script></body></html>

@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,900&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141414;--mute:#7a7873;--line:#ecebe8;--bg:#fff;--soft:#f5f4f1;--bl:#2547f4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Pretendard;-webkit-font-smoothing:antialiased;color:var(--ink);background:var(--bg)}
+a{color:inherit;text-decoration:none}
+section{position:relative;min-height:100vh;padding-bottom:60px;border-bottom:8px solid #ddd}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;font-family:'Inter Tight',Pretendard;font-size:14px;font-weight:500}
+.nav ul{display:flex;gap:26px;list-style:none}
+.it{font-family:Archivo;font-style:italic;font-weight:900;letter-spacing:-.05em;line-height:.85}
+.sw{display:flex;gap:4px;background:var(--soft);padding:4px;border-radius:99px;font-weight:700}
+.sw a{padding:7px 13px;border-radius:99px}.sw .on{background:var(--ink);color:#fff}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:9px 15px;border-radius:99px;font-size:14px;font-weight:600;border:1px solid var(--line);background:#fff}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.card .ph{position:relative;border-radius:18px;overflow:hidden;background:var(--soft)}
+.card .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.card .tag{position:absolute;left:12px;top:12px;font-size:11px;font-weight:800;padding:5px 9px;border-radius:99px;background:#fff}
+.card .meta{display:flex;justify-content:space-between;margin-top:10px;font-size:15px;font-weight:700}
+.card .sub{font-size:13px;color:var(--mute);margin-top:2px;font-weight:500}
+.card .price{font-weight:600;font-size:14px}
+.lbl{position:absolute;right:16px;top:16px;z-index:30;background:#2547f4;color:#fff;font:700 12px Pretendard;padding:6px 10px;border-radius:99px}
+
+/* S1 Glossier grid */
+#s1 .head{padding:40px 40px 0;display:flex;justify-content:space-between;align-items:flex-end}
+#s1 .head .it{font-size:150px}
+#s1 .head p{color:var(--mute);font-size:15px;max-width:22em;line-height:1.6;text-align:right}
+#s1 .bar{display:flex;justify-content:space-between;align-items:center;padding:28px 40px 22px;border-bottom:1px solid var(--line);margin-bottom:24px}
+#s1 .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;padding:0 40px}
+#s1 .ph{aspect-ratio:3/4}
+
+/* S2 feature + grid */
+#s2 .feat{display:grid;grid-template-columns:1.25fr 1fr;gap:0;margin:0 40px;border-radius:28px;overflow:hidden;background:var(--soft);height:520px}
+#s2 .feat img{width:100%;height:100%;object-fit:cover}
+#s2 .feat .tx{padding:56px 52px;display:flex;flex-direction:column;justify-content:space-between}
+#s2 .feat .it{font-size:110px}
+#s2 .feat h2{font-size:30px;letter-spacing:-.03em;margin-top:10px}
+#s2 .feat p{color:var(--mute);margin-top:10px;line-height:1.6}
+#s2 .feat .btn{display:inline-block;margin-top:22px;padding:13px 20px;border-radius:99px;background:var(--ink);color:#fff;font-weight:700;font-size:14px}
+#s2 .row{display:flex;justify-content:space-between;align-items:center;padding:40px 40px 18px}
+#s2 .row h3{font-size:22px;letter-spacing:-.02em}
+#s2 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:0 40px}
+#s2 .ph{aspect-ratio:4/5}
+
+/* S3 hince-style circle lineup */
+#s3 .top{text-align:center;padding:30px 40px 10px}
+#s3 .top .it{font-size:120px}
+#s3 .top p{color:var(--mute);margin-top:14px}
+#s3 .circles{display:flex;justify-content:center;gap:34px;padding:34px 40px 30px}
+#s3 .ci{text-align:center;font-size:13px;font-weight:700}
+#s3 .ci .o{width:104px;height:104px;border-radius:50%;overflow:hidden;background:var(--soft);margin-bottom:10px;border:2px solid transparent}
+#s3 .ci.on .o{border-color:var(--ink)}
+#s3 .ci .o img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+#s3 .ci .soon{display:block;font-size:11px;color:var(--mute);font-weight:600}
+#s3 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:10px 40px}
+#s3 .ph{aspect-ratio:655/1024}
+
+/* S4 rows by theme (horizontal) */
+#s4 .head{padding:30px 40px 6px;display:flex;align-items:flex-end;gap:24px}
+#s4 .head .it{font-size:120px}
+#s4 .head p{color:var(--mute);padding-bottom:12px}
+#s4 .rowh{display:flex;justify-content:space-between;align-items:baseline;padding:30px 40px 14px}
+#s4 .rowh h3{font-size:26px;letter-spacing:-.03em}
+#s4 .rowh span{color:var(--mute);font-size:14px}
+#s4 .track{display:flex;gap:16px;padding:0 40px;overflow:hidden}
+#s4 .track .card{flex:0 0 230px}
+#s4 .ph{aspect-ratio:655/1024}
+#s4 .dark{background:#E9E7E3;margin-top:34px;padding-bottom:30px}
+#s4 .dark .dw{font-family:'Inter Tight';font-weight:500;letter-spacing:-.07em;font-size:60px}
+#s4 .dark .dw i{font-style:normal;color:var(--bl)}
+#s4 .dark .ph img{filter:grayscale(1)}
+</style></head><body>
+
+<!-- S1 -->
+<section id="s1"><span class="lbl">S1 · 그리드 (Glossier식)</span>
+ <nav class="nav"><span class="it" style="font-size:22px">knock!</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><div class="sw"><a class="on">knock!</a><a>knock.</a></div></nav>
+ <div class="head"><div class="it">Cases</div><p>친구가 찍으면 내 방이 열리는 케이스.<br>마음에 드는 문을 골라, 내 기종으로 만들어보세요.</p></div>
+ <div class="bar"><div class="chips"><span class="chip on">전체 10</span><span class="chip">투명</span><span class="chip">하드</span><span class="chip">MZ</span><span class="chip">기본</span><span class="chip">NEW</span></div><div class="chips"><span class="chip">아이폰 15 Pro ▾</span><span class="chip">인기순 ▾</span></div></div>
+ <div class="grid" id="g1"></div>
+</section>
+
+<!-- S2 -->
+<section id="s2"><span class="lbl">S2 · 대표 1개 + 그리드</span>
+ <nav class="nav"><span class="it" style="font-size:22px">knock!</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><div class="sw"><a class="on">knock!</a><a>knock.</a></div></nav>
+ <div class="feat"><img src="img/pal2-white.png"><div class="tx"><div><span class="chip on" style="display:inline-block">NEW</span><h2>우주인</h2><p>표정 없는 우주인이 QR 박스를 번쩍 들고 있어요.<br>화이트 · 실버 폰에 가장 잘 어울려요.</p><a class="btn">이 디자인으로 만들기 →</a></div><div class="it">knock!</div></div></div>
+ <div class="row"><h3>전체 디자인</h3><div class="chips"><span class="chip on">전체</span><span class="chip">투명</span><span class="chip">하드</span><span class="chip">MZ</span><span class="chip">기본</span></div></div>
+ <div class="grid" id="g2"></div>
+</section>
+
+<!-- S3 -->
+<section id="s3"><span class="lbl">S3 · 라인업 동그라미 (hince식)</span>
+ <nav class="nav"><span class="it" style="font-size:22px">knock!</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><div class="sw"><a class="on">knock!</a><a>knock.</a></div></nav>
+ <div class="top"><div class="it">knock!</div><p>폰 뒤의 작은 문. 케이스부터 스티커까지</p></div>
+ <div class="circles">
+  <div class="ci on"><div class="o"><img src="img/case-astro.png"></div>투명 케이스</div>
+  <div class="ci"><div class="o"><img src="img/case-door.jpg"></div>하드 케이스</div>
+  <div class="ci"><div class="o"><img src="img/case-mz-david-qr.webp"></div>MZ</div>
+  <div class="ci"><div class="o"><img src="img/case-sticker.jpg"></div>기본</div>
+  <div class="ci"><div class="o" style="display:grid;place-items:center;font-size:30px">🎧</div>에어팟 케이스<span class="soon">Coming soon</span></div>
+  <div class="ci"><div class="o" style="display:grid;place-items:center;font-size:30px">🏷️</div>QR 스티커<span class="soon">Coming soon</span></div>
+  <div class="ci"><div class="o" style="display:grid;place-items:center;font-size:30px">🔑</div>QR 키링<span class="soon">Coming soon</span></div>
+ </div>
+ <div class="grid" id="g3"></div>
+</section>
+
+<!-- S4 -->
+<section id="s4"><span class="lbl">S4 · 테마별 가로 줄</span>
+ <nav class="nav"><span class="it" style="font-size:22px">knock!</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><div class="sw"><a class="on">knock!</a><a>knock.</a></div></nav>
+ <div class="head"><div class="it">Cases</div><p>테마별로 둘러보고, 마음에 들면 바로 만들어보세요.</p></div>
+ <div class="rowh"><h3>MZ · 장난스러운 문</h3><span>6개 · 전체 보기 →</span></div><div class="track" id="t1"></div>
+ <div class="rowh"><h3>기본 · 포근한 문</h3><span>3개 · 전체 보기 →</span></div><div class="track" id="t2"></div>
+ <div class="dark"><div class="rowh"><h3 class="dw">knock<i>.</i></h3><span>명함 케이스 · 전체 보기 →</span></div><div class="track" id="t3"></div></div>
+</section>
+
+<script>
+const C=[['우주인','case-astro.png','투명 · NEW','둥실 떠서 문을 들고 있어요'],['서빙','case-mz-butler-qr.webp','투명','쟁반에 QR을 받쳐 드려요'],['석고상','case-mz-david-qr.webp','투명','선글라스 낀 다비드'],['가리키는 냥','case-mz-cat-qr.webp','투명','여기 찍으라냥'],['두 손','case-mz-hands-qr.webp','투명','QR을 소중하게'],['SCAN ME','case-mz-window-qr.webp','투명','레트로 윈도우 창'],['똑똑 문','case-door.jpg','하드','knock의 시작, 나무 문'],['크림 체크','case-gingham.jpg','하드','포근한 체크 위 레이스'],['스티커','case-sticker.jpg','하드','다이어리 꾸미듯'],['knock. Clear','case-clear.jpg','투명','명함처럼 단정하게']];
+const card=(c,price=true)=>'<a class="card"><div class="ph"><img src="img/'+c[1]+'"><span class="tag">'+c[2]+'</span></div><div class="meta"><span>'+c[0]+'</span>'+(price?'<span class="price">19,900원</span>':'')+'</div><div class="sub">'+c[3]+'</div></a>';
+const bang=C.slice(0,9);
+document.getElementById('g1').innerHTML=bang.concat([C[0]]).slice(0,10).map(c=>card(c)).join('');
+document.getElementById('g2').innerHTML=bang.slice(1,9).map(c=>card(c)).join('');
+document.getElementById('g3').innerHTML=bang.slice(0,8).map(c=>card(c)).join('');
+document.getElementById('t1').innerHTML=bang.slice(0,6).map(c=>card(c)).join('');
+document.getElementById('t2').innerHTML=bang.slice(6,9).map(c=>card(c)).join('');
+const D=[['Clear Box','hero-card.png','투명','박스 하나, 로고 하나'],['White Desk','dot-white.png','투명','화이트 폰에 가장 깔끔하게'],['Ivory Navy','dot-ivory.png','하드','아이보리 위 네이비 QR'],['Card Tag','case-clear.jpg','투명','명함 카드 한 장처럼']];
+document.getElementById('t3').innerHTML=D.map(c=>card(c)).join('');
+if(location.hash){const id=location.hash.slice(1);document.querySelectorAll('section').forEach(s=>{if(s.id!==id)s.style.display='none'})}
+</script><script>(function(){var K="s3";if(K){document.querySelectorAll('section').forEach(function(s){if(s.id!==K)s.remove();});}
+document.querySelectorAll('body *').forEach(function(el){if(el.children.length)return;var t=(el.textContent||'').trim();if(/(^|\s)(S?\d)\s·\s/.test(t)&&t.length<40){el.style.display='none';}});
+function go(el,h){el.style.cursor='pointer';el.addEventListener('click',function(e){e.preventDefault();location.href=h;});}
+document.querySelectorAll('li,a,span,div,button').forEach(function(el){var t=(el.textContent||'').trim();if(el.children.length&&!(el.tagName==='A'))return;
+if(t==='라인업'||t==='디자인'||t==='디자인 보기')go(el,'lineup.html');
+else if(t==='knock! 만들어보기'||t==='내 케이스 만들어보기'||t==='이 디자인으로 만들기 →')go(el,'lineup.html');
+else if(t==='knock. 만들어보기')go(el,'dot.html');
+else if(t==='knock!'&&el.closest('.sw'))go(el,'bang.html');
+else if(t==='knock.'&&el.closest('.sw'))go(el,'dot.html');
+else if((t==='knock'||t==='knock!'||t==='knock.')&&el.closest('nav'))go(el,'index.html');});
+document.querySelectorAll('.door,.side,.half,[class*="door"]').forEach(function(){});})();</script></body></html>

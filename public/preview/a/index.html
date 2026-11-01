@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,900&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Pretendard;-webkit-font-smoothing:antialiased}
+.wrap{display:grid;grid-template-columns:1fr 1fr;height:100vh;min-height:760px}
+.half{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:0 44px 44px}
+.bang{background:#FBF4EA;color:#2b1e18}
+.dot{background:#E9E7E3;color:#1F1E1C}
+.word{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);white-space:nowrap;line-height:.8;z-index:1}
+.bang .word{font-family:Archivo;font-style:italic;font-weight:900;font-size:15.5vw;letter-spacing:-.055em}
+.dot .word{font-family:'Inter Tight';font-weight:500;font-size:16vw;letter-spacing:-.075em}
+.dot .word i{font-style:normal;color:#2547f4}
+.obj{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);width:min(64vh,560px);z-index:2}
+.bang .obj{filter:drop-shadow(0 34px 34px rgba(90,60,40,.22))}
+.dot .obj{filter:drop-shadow(0 34px 34px rgba(40,38,35,.25))}
+.copy{position:relative;z-index:3}
+.copy small{font-size:13px;font-weight:700;opacity:.65}
+.copy h2{font-size:26px;letter-spacing:-.03em;font-weight:800;margin-top:6px}
+.btns{display:flex;gap:8px;margin-top:16px}
+.btn{padding:12px 18px;border-radius:99px;font-weight:700;font-size:14px}
+.bang .pri{background:#2b1e18;color:#fff}.bang .sec{background:#fff;border:1px solid #eadccb}
+.dot .pri{background:#1F1E1C;color:#EDEBE7}.dot .sec{border:1px solid #bdb9b2}
+.nav{position:absolute;top:0;left:0;right:0;z-index:9;display:flex;justify-content:space-between;align-items:center;padding:22px 44px;font-family:'Inter Tight',Pretendard;font-weight:500;font-size:14px}
+.nav .logo{font-family:'Inter Tight';font-weight:600;font-size:22px;letter-spacing:-.05em}
+.nav ul{display:flex;gap:24px;list-style:none;background:rgba(255,255,255,.55);backdrop-filter:blur(10px);padding:10px 20px;border-radius:99px}
+.pink{display:inline-block;background:#ff5c8a;color:#fff;font-size:12px;font-weight:800;padding:5px 10px;border-radius:99px;margin-bottom:8px}
+.blue{display:inline-block;background:#1F1E1C;color:#EDEBE7;font-size:12px;font-weight:800;padding:5px 10px;border-radius:99px;margin-bottom:8px}
+</style></head><body>
+<nav class="nav"><span class="logo">knock</span><ul><li>디자인</li><li>만들어보기</li><li>이렇게 써요</li><li>라인업</li></ul><span>내 knock</span></nav>
+<div class="wrap">
+  <div class="half bang">
+    <div class="word">knock!</div><img class="obj" src="img/float-bang-cut.png">
+    <div class="copy"><span class="pink">친구 · 내 방</span><h2>친구가 찍으면, 내 방이 열려요</h2><div class="btns"><a class="btn pri">knock! 만들어보기</a><a class="btn sec">디자인 보기</a></div></div>
+  </div>
+  <div class="half dot">
+    <div class="word">knock<i>.</i></div><img class="obj" src="img/float-dot-cut.png">
+    <div class="copy"><span class="blue">일 · 내 명함</span><h2>건네는 순간, 명함이 저장돼요</h2><div class="btns"><a class="btn pri">knock. 만들어보기</a><a class="btn sec">디자인 보기</a></div></div>
+  </div>
+</div>
+<script>(function(){var K=null;if(K){document.querySelectorAll('section').forEach(function(s){if(s.id!==K)s.remove();});}
+document.querySelectorAll('body *').forEach(function(el){if(el.children.length)return;var t=(el.textContent||'').trim();if(/(^|\s)(S?\d)\s·\s/.test(t)&&t.length<40){el.style.display='none';}});
+function go(el,h){el.style.cursor='pointer';el.addEventListener('click',function(e){e.preventDefault();location.href=h;});}
+document.querySelectorAll('li,a,span,div,button').forEach(function(el){var t=(el.textContent||'').trim();if(el.children.length&&!(el.tagName==='A'))return;
+if(t==='라인업'||t==='디자인'||t==='디자인 보기')go(el,'lineup.html');
+else if(t==='knock! 만들어보기'||t==='내 케이스 만들어보기'||t==='이 디자인으로 만들기 →')go(el,'lineup.html');
+else if(t==='knock. 만들어보기')go(el,'dot.html');
+else if(t==='knock!'&&el.closest('.sw'))go(el,'bang.html');
+else if(t==='knock.'&&el.closest('.sw'))go(el,'dot.html');
+else if((t==='knock'||t==='knock!'||t==='knock.')&&el.closest('nav'))go(el,'index.html');});
+document.querySelectorAll('.door,.side,.half,[class*="door"]').forEach(function(){});})();</script><script>document.querySelector('.half.bang').style.cursor='pointer';document.querySelector('.half.bang').addEventListener('click',function(e){if(!e.target.closest('.btns'))location.href='bang.html'});document.querySelector('.half.dot').style.cursor='pointer';document.querySelector('.half.dot').addEventListener('click',function(e){if(!e.target.closest('.btns'))location.href='dot.html'});</script></body></html>
