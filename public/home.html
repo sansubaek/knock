@@ -733,8 +733,78 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
 .a2-tile img,.a2-grid.land .a2-tile img,.a2-grid.sq .a2-tile img{object-fit:contain;background:var(--a-scard)}
 .a2-bang .a2-tile img{background:#F3E5D3}
 .a2-dot .a2-tile img{background:#E6E5E1}
+
+/* ===== kx: A안 리뉴얼 (2026-11-02) ===== */
+.kx-entry{position:relative;display:grid;grid-template-columns:1fr 1fr;height:calc(100svh - 107px);min-height:620px;word-break:keep-all}
+.kx-half{position:relative;overflow:hidden;display:block;color:inherit;text-decoration:none}
+.kx-b{background:#FBF4EA;color:#2b1e18}.kx-d{background:#E9E7E3;color:#1F1E1C}
+.kx-word{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);white-space:nowrap;line-height:.8;z-index:1;pointer-events:none;user-select:none}
+.kx-b .kx-word{font-family:Archivo,sans-serif;font-style:italic;font-weight:900;letter-spacing:-.055em}
+.kx-d .kx-word{font-family:'Inter Tight',sans-serif;font-weight:500;letter-spacing:-.075em}
+.kx-d .kx-word i{font-style:normal;color:#2547f4}
+.kx-entry .kx-b .kx-word{font-size:15.5vw}.kx-entry .kx-d .kx-word{font-size:16vw}
+.kx-obj{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:2;height:min(68%,620px);width:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.kx-b .kx-obj{filter:drop-shadow(0 34px 34px rgba(90,60,40,.22))}.kx-d .kx-obj{filter:drop-shadow(0 34px 34px rgba(40,38,35,.25))}
+@media (hover:hover){.kx-half:hover .kx-obj{transform:translate(-50%,-52%) rotate(-2deg)}}
+.kx-copy{position:absolute;bottom:40px;z-index:3;padding:0 44px;width:50%}
+.kx-cb{left:0;color:#2b1e18}.kx-cd{left:50%;color:#1F1E1C}
+.kx-copy h1,.kx-copy h2{font-size:clamp(22px,2vw,28px);letter-spacing:-.03em;font-weight:800;margin:8px 0 0;line-height:1.3}
+.kx-pill{display:inline-block;background:#2b1e18;color:#FBF4EA;font-size:12px;font-weight:800;padding:5px 11px;border-radius:99px}
+.kx-pill.dk{background:#1F1E1C;color:#EDEBE7}
+.kx-btns{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.kx-btn{display:inline-flex;align-items:center;height:46px;padding:0 20px;border-radius:99px;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap}
+.kx-cb .kx-btn.pri,.kx-hero.kx-b .kx-btn.pri{background:#2b1e18;color:#fff}
+.kx-cb .kx-btn.sec,.kx-hero.kx-b .kx-btn.sec{background:#fff;border:1px solid #eadccb;color:#2b1e18}
+.kx-cd .kx-btn.pri,.kx-hero.kx-d .kx-btn.pri{background:#1F1E1C;color:#EDEBE7}
+.kx-cd .kx-btn.sec,.kx-hero.kx-d .kx-btn.sec{background:transparent;border:1px solid #bdb9b2;color:#1F1E1C}
+.kx-hero{position:relative;height:calc(100svh - 107px);min-height:640px;overflow:hidden;word-break:keep-all}
+.kx-hero .kx-word{font-size:20vw;top:45%}
+.kx-hero .kx-obj{height:min(76%,740px)}
+.kx-hcopy{position:absolute;left:44px;bottom:40px;z-index:3;max-width:520px}
+.kx-hcopy h1{font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;font-weight:800;margin:10px 0 0;line-height:1.3}
+.kx-hcopy p{font-size:15px;line-height:1.6;opacity:.72;margin:8px 0 0;max-width:30em}
+.kx-hbtns{position:absolute;right:44px;bottom:44px;z-index:3;margin:0}
+.kx-cats{display:flex;gap:14px;overflow-x:auto;padding:6px 2px 10px;margin:22px 0 20px;scrollbar-width:none}
+.kx-cats::-webkit-scrollbar{display:none}
+.kx-cat{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;cursor:pointer;font:inherit;color:inherit;width:96px;text-align:center;padding:0}
+.kx-ci{width:84px;height:84px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#F1ECE4;border:2px solid transparent;box-shadow:inset 0 0 0 3px #fff;transition:border-color .2s}
+.kx-ci img{width:100%;height:100%;object-fit:cover}
+.kx-cat.on .kx-ci{border-color:currentColor}
+.kx-cat b{font-size:13px;font-weight:700}.kx-cat small{font-size:11px;opacity:.55;margin-top:-6px}
+.kx-cat.soon{cursor:default;opacity:.65}.kx-soon,.kx-all{font:600 12px 'Inter Tight',sans-serif;letter-spacing:.06em;opacity:.7}
+.kx-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 18px}
+.kx-tile{position:relative;display:block;color:inherit;text-decoration:none}
+.kx-tile[hidden]{display:none}
+.kx-ph{display:block;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:#eee}
+.kx-ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+@media (hover:hover){.kx-tile:hover .kx-ph img{transform:scale(1.04)}}
+.kx-tile b{display:block;margin-top:10px;font-size:15px}.kx-tile small{display:block;font-size:13px;opacity:.6;margin-top:2px;line-height:1.4}
+.kx-badge{position:absolute;left:10px;top:10px;z-index:2;background:rgba(255,255,255,.92);color:#222;font-size:11px;font-weight:700;padding:4px 9px;border-radius:99px}
+.kx-badge.hot{background:#1F1E1C;color:#fff}
+.kx-note{font-size:13px;opacity:.6;margin-top:20px}
+@media (max-width:960px){.kx-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){
+.kx-entry{display:flex;flex-direction:column;height:auto;min-height:0}
+.kx-b{order:1}.kx-cb{order:2}.kx-d{order:3}.kx-cd{order:4}
+.kx-half{height:min(92vw,460px)}
+.kx-entry .kx-b .kx-word{font-size:30vw}.kx-entry .kx-d .kx-word{font-size:31vw}
+.kx-obj{height:90%}
+.kx-copy{position:static;width:auto;padding:4px 20px 30px}
+.kx-cb{background:#FBF4EA}.kx-cd{background:#E9E7E3}
+.kx-copy h1,.kx-copy h2{font-size:22px}
+.kx-hero{height:auto;min-height:0;padding:12px 0 30px}
+.kx-hero .kx-word{font-size:30vw;top:calc(12px + 47vw)}
+.kx-hero .kx-obj{position:relative;left:auto;top:auto;transform:none;display:block;margin:0 auto;height:auto;width:min(86vw,440px)}
+.kx-hcopy{position:static;padding:10px 20px 0;max-width:none}
+.kx-hcopy h1{font-size:24px}
+.kx-hbtns{position:static;padding:14px 20px 0}
+.kx-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}
+.kx-ci{width:68px;height:68px}.kx-cat{width:78px}
+}
+.a2-dock a{background:#2b1e18!important;color:#fff!important;border-color:#2b1e18!important}.a2-dot .a2-dock a{background:#1F1E1C!important;border-color:#1F1E1C!important}
 </style>
 
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,900&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <header class="top">
@@ -754,42 +824,17 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
 
 <!-- ═════════ HOME ═════════ -->
 <main class="view" id="v-home">
-  <div class="k7">
-    <input type="radio" name="k7door" id="k7none" checked aria-label="둘 다 보기">
-    <input type="radio" name="k7door" id="k7bang" aria-label="knock! 열기">
-    <input type="radio" name="k7door" id="k7dot" aria-label="knock. 열기">
-    <div class="k7-doors">
-      <section class="k7-door k7-bang">
-        <label class="k7-hit" for="k7bang"><span class="sr">knock! 열기</span></label>
-        <label class="k7-back" for="k7none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>둘 다 보기</label>
-        <span class="k7-excl" aria-hidden="true"><i class="k7-stem"></i><i class="k7-ball"></i></span>
-        <div class="k7-in k7-row"><span class="k7-name">knock!</span><span class="k7-tag">친구에게 보여주는 내 방</span></div>
-        <div class="k7-in">
-          <h1>찍으면 내 방이 열려요</h1>
-          <p class="k7-sub">사진, 음악, 오늘의 기분으로 꾸민 내 방. 친구는 노크하고 방명록을 남겨요.</p>
-          <label class="k7-open" for="k7bang">knock! 열어보기</label>
-          <div class="k7-more"><div>
-            <div class="k7-chips"><span>자유 꾸미기</span><span>익명 방명록</span><span>노크 반응</span></div>
-            <div class="k7-ctas"><a class="k7-cta a" href="#bang">knock! 둘러보기</a><a class="k7-cta b" href="#beta" data-line="bang">베타 신청</a></div>
-          </div></div>
-        </div>
-      </section>
-      <section class="k7-door k7-dot">
-        <label class="k7-hit" for="k7dot"><span class="sr">knock. 열기</span></label>
-        <label class="k7-back" for="k7none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>둘 다 보기</label>
-        <span class="k7-orb" aria-hidden="true"></span>
-        <div class="k7-in k7-row"><span class="k7-name">knock.</span><span class="k7-tag">일할 때 건네는 내 명함</span></div>
-        <div class="k7-in">
-          <h2>찍으면 명함이 저장돼요</h2>
-          <p class="k7-sub">종이 명함 없이 폰만 내밀면 끝. 상대의 연락처도 그 자리에서 받아요.</p>
-          <label class="k7-open" for="k7dot">knock. 열어보기</label>
-          <div class="k7-more"><div>
-            <div class="k7-chips"><span>연락처 저장</span><span>명함 교환</span><span>포트폴리오</span></div>
-            <div class="k7-ctas"><a class="k7-cta a" href="#dot">knock. 둘러보기</a><a class="k7-cta b" href="#beta" data-line="dot">베타 신청</a></div>
-          </div></div>
-        </div>
-      </section>
-    </div>
+  <div class="kx-entry">
+    <a class="kx-half kx-b" href="#bang" aria-label="knock! 둘러보기">
+      <span class="kx-word" aria-hidden="true">knock!</span>
+      <img class="kx-obj" src="/img/n/hero-bang.webp" alt="고양이, 강아지 폴라로이드가 인쇄된 knock! 투명 케이스">
+    </a>
+    <a class="kx-half kx-d" href="#dot" aria-label="knock. 둘러보기">
+      <span class="kx-word" aria-hidden="true">knock<i>.</i></span>
+      <img class="kx-obj" src="/img/n/hero-dot.webp" alt="Slow day knock twice 문구와 컬러칩이 인쇄된 knock. 케이스">
+    </a>
+    <div class="kx-copy kx-cb"><span class="kx-pill">친구 · 내 방</span><h1>친구가 찍으면, 내 방이 열려요</h1><div class="kx-btns"><a class="kx-btn pri" href="#bang">knock! 둘러보기</a><a class="kx-btn sec" href="#bang-col">디자인 보기</a></div></div>
+    <div class="kx-copy kx-cd"><span class="kx-pill dk">일 · 내 명함</span><h2>건네는 순간, 명함이 저장돼요</h2><div class="kx-btns"><a class="kx-btn pri" href="#dot">knock. 둘러보기</a><a class="kx-btn sec" href="#dot-col">디자인 보기</a></div></div>
   </div>
 
   <section id="how">
@@ -861,25 +906,11 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
 
 <!-- ═════════ knock! (A안 · 페이퍼) ═════════ -->
 <main class="view a2 a2-bang" id="v-bang" hidden>
-  <section class="a2-hero">
-    <div class="w">
-      <div>
-        <span class="a2-en">Knock knock, come on in!</span>
-        <div class="a2-eyebrow"><i>knock!</i>친구에게 보여주는 내 방</div>
-        <h1>찍으면,<br><em>내 방</em>이 열려요</h1>
-        <p class="a2-lead">사진, 음악, 오늘의 기분으로 꾸민 내 방. 친구는 앱 없이 카메라로 찍고 들어와서 노크하고 방명록을 남겨요.</p>
-        <div class="a2-ctas"><a class="a2-btn pri" href="#beta" data-line="bang">베타로 먼저 받기</a><a class="a2-btn sec" href="/demo/bang">예시 방 구경</a></div>
-        <div class="a2-chips"><span>자유 꾸미기</span><span>노크 반응</span><span>익명 방명록</span><span>분실 모드</span></div>
-      </div>
-      <div class="a2-vis a2-car" data-car="bang">
-        <div class="a2-stage"><span class="a2-tape" aria-hidden="true"></span><span class="a2-badge" aria-hidden="true">똑똑!</span><div class="a2-float" aria-hidden="true"><small>방명록 · 민지</small>케이스 뭐야 너무 귀엽잖아</div><div class="a2-frame"><div class="a2-track"><figure class="a2-slide" data-name="크림 체크" data-desc="크림 체크, 레이스 프레임 QR" data-design="크림 체크 knock!" style="--img:url('/img/gingham.jpg')"><img src="/img/gingham.jpg" alt="크림 체크 knock! 케이스"></figure><figure class="a2-slide" data-name="스티커" data-desc="말풍선, 발자국, 별 스티커" data-design="스티커 knock!" style="--img:url('/img/sticker.jpg')"><img src="/img/sticker.jpg" alt="스티커 knock! 케이스" loading="lazy"></figure><figure class="a2-slide" data-name="똑똑 문" data-desc="문 한가운데 QR" data-design="똑똑 문 knock!" style="--img:url('/img/door.jpg')"><img src="/img/door.jpg" alt="똑똑 문 knock! 케이스" loading="lazy"></figure><figure class="a2-slide land" data-name="가리키는 냥" data-desc="선글라스 고양이가 QR을 쓱 가리켜요" data-design="가리키는 냥 knock! (MZ)" data-tag="시안" style="--img:url('/img/mz-cat-qr.webp')"><img src="/img/mz-cat-qr.webp" alt="가리키는 냥 knock! 케이스 시안" loading="lazy"></figure><figure class="a2-slide land" data-name="석고상" data-desc="픽셀 선글라스 낀 석고상이 QR을 들고 있어요" data-design="석고상 knock! (MZ)" data-tag="시안" style="--img:url('/img/mz-david-qr.webp')"><img src="/img/mz-david-qr.webp" alt="석고상 knock! 케이스 시안" loading="lazy"></figure><figure class="a2-slide land" data-name="서빙" data-desc="QR을 쟁반에 받쳐 내밀어요" data-design="서빙 knock! (MZ)" data-tag="시안" style="--img:url('/img/mz-butler-qr.webp')"><img src="/img/mz-butler-qr.webp" alt="서빙 knock! 케이스 시안" loading="lazy"></figure><figure class="a2-slide land" data-name="여기요" data-desc="두 손이 가운데 QR을 가리켜요" data-design="여기요 knock! (MZ)" data-tag="시안" style="--img:url('/img/mz-hands-qr.webp')"><img src="/img/mz-hands-qr.webp" alt="여기요 knock! 케이스 시안" loading="lazy"></figure><figure class="a2-slide land" data-name="SCAN ME" data-desc="옛날 컴퓨터 창 속에 QR이 떠 있어요" data-design="SCAN ME knock! (MZ)" data-tag="시안" style="--img:url('/img/mz-window-qr.webp')"><img src="/img/mz-window-qr.webp" alt="SCAN ME knock! 케이스 시안" loading="lazy"></figure></div>
-          <button class="a2-arr prev" type="button" aria-label="이전 디자인">‹</button><button class="a2-arr next" type="button" aria-label="다음 디자인">›</button></div></div>
-        
-        <div class="a2-cap"><div><b class="a2-cap-n"></b><span class="a2-cap-t"></span><small class="a2-cap-d"></small></div><span class="a2-count"></span></div>
-        <div class="a2-dots" role="tablist" aria-label="케이스 디자인"></div>
-        <a class="a2-pick" href="#beta" data-line="bang">이 디자인으로 베타 신청 →</a>
-      </div>
-    </div>
+  <section class="kx-hero kx-b">
+    <span class="kx-word" aria-hidden="true">knock!</span>
+    <img class="kx-obj" src="/img/n/hero-bang.webp" alt="고양이, 강아지 폴라로이드가 인쇄된 knock! 투명 케이스">
+    <div class="kx-hcopy"><span class="kx-pill">NEW · 폴라로이드 노크</span><h1>친구가 찍으면, 내 방이 열려요</h1><p>사진, 음악, 오늘의 기분으로 꾸민 내 방. 친구는 앱 없이 찍고 들어와 노크해요.</p></div>
+    <div class="kx-btns kx-hbtns"><a class="kx-btn pri" href="#beta" data-line="bang" data-design="고양이 노크 knock!">베타로 먼저 받기</a><a class="kx-btn sec" href="#bang-col">디자인 보기</a></div>
   </section>
 
   <section class="a2-sec" id="bang-demo">
@@ -911,28 +942,14 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
     </div>
   </section>
 
-  <section class="a2-sec" id="bang-col">
+  <section class="a2-sec kx-line" id="bang-col">
     <div class="w">
       <div class="a2-sh"><span class="a2-num">02</span><h2>케이스 고르기</h2></div>
       <p class="a2-sub">케이스마다 세상에 하나뿐인 QR이 인쇄돼요. 마음에 드는 디자인을 누르면 베타 신청서에 바로 담겨요.</p>
-      <div class="a2-group">
-        <h3>기본 <span class="a2-price-tag">19,900원</span></h3>
-        <div class="a2-grid">
-          <a class="a2-tile" href="#beta" data-line="bang" data-design="크림 체크 knock!"><img src="/img/gingham.jpg" alt="크림 체크 knock! 케이스" loading="lazy"><b>크림 체크</b><small>크림 체크, 레이스 프레임 QR</small></a>
-          <a class="a2-tile" href="#beta" data-line="bang" data-design="스티커 knock!"><img src="/img/sticker.jpg" alt="스티커가 붙은 크림색 knock! 케이스" loading="lazy"><b>스티커</b><small>말풍선, 발자국, 별 스티커</small></a>
-          <a class="a2-tile" href="#beta" data-line="bang" data-design="똑똑 문 knock!"><img src="/img/door.jpg" alt="문 모양 안에 QR이 들어간 knock! 케이스" loading="lazy"><b>똑똑 문</b><small>문 한가운데 QR</small></a>
-        </div>
-      </div>
-      <div class="a2-group">
-        <h3>MZ <span class="a2-pill">시안</span></h3>
-        <div class="a2-grid land">
-          <a class="a2-tile" href="#beta" data-line="bang" data-design="가리키는 냥 knock! (MZ)"><img src="/img/mz-cat-qr.webp" alt="가리키는 냥 knock! 케이스 시안" loading="lazy"><b>가리키는 냥</b><small>선글라스 고양이가 QR을 쓱 가리켜요</small></a>
-          <a class="a2-tile" href="#beta" data-line="bang" data-design="석고상 knock! (MZ)"><img src="/img/mz-david-qr.webp" alt="석고상 knock! 케이스 시안" loading="lazy"><b>석고상</b><small>픽셀 선글라스 낀 석고상이 QR을 들고 있어요</small></a>
-          <a class="a2-tile" href="#beta" data-line="bang" data-design="서빙 knock! (MZ)"><img src="/img/mz-butler-qr.webp" alt="서빙 knock! 케이스 시안" loading="lazy"><b>서빙</b><small>QR을 쟁반에 받쳐 내밀어요</small></a>
-          <a class="a2-tile" href="#beta" data-line="bang" data-design="여기요 knock! (MZ)"><img src="/img/mz-hands-qr.webp" alt="여기요 knock! 케이스 시안" loading="lazy"><b>여기요</b><small>두 손이 가운데 QR을 가리켜요</small></a>
-          <a class="a2-tile" href="#beta" data-line="bang" data-design="SCAN ME knock! (MZ)"><img src="/img/mz-window-qr.webp" alt="SCAN ME knock! 케이스 시안" loading="lazy"><b>SCAN ME</b><small>옛날 컴퓨터 창 속에 QR이 떠 있어요</small></a>
-        </div>
-      </div>
+      <div class="kx-cats" role="tablist" aria-label="컬렉션"><button type="button" class="kx-cat on" data-g="all"><span class="kx-ci kx-all">ALL</span><b>전체</b></button><button type="button" class="kx-cat" data-g="pol"><span class="kx-ci"><img src="/img/n/b-cat.jpg" alt=""></span><b>펫 포토</b></button><button type="button" class="kx-cat" data-g="story"><span class="kx-ci"><img src="/img/n/r-astro.jpg" alt=""></span><b>다시 그린 이야기</b></button><button type="button" class="kx-cat" data-g="obj"><span class="kx-ci"><img src="/img/n/s-sticker.jpg" alt=""></span><b>스티커 · 오브제</b></button><span class="kx-cat soon"><span class="kx-ci kx-soon">soon</span><b>에어팟 케이스</b><small>Coming soon</small></span><span class="kx-cat soon"><span class="kx-ci kx-soon">soon</span><b>QR 스티커</b><small>Coming soon</small></span><span class="kx-cat soon"><span class="kx-ci kx-soon">soon</span><b>QR 키링</b><small>Coming soon</small></span></div>
+      <div class="kx-grid"><a class="kx-tile" href="#beta" data-line="bang" data-g="pol" data-design="고양이 노크 knock!"><span class="kx-badge hot">샘플 제작 중</span><span class="kx-ph"><img src="/img/n/b-cat.jpg" alt="고양이 노크 knock! 케이스 " loading="lazy"></span><b>고양이 노크</b><small>창문에 매달린 고양이 사진 + 작은 QR</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="pol" data-design="강아지 노크 knock!"><span class="kx-badge hot">샘플 제작 중</span><span class="kx-ph"><img src="/img/n/b-dog.jpg" alt="강아지 노크 knock! 케이스 " loading="lazy"></span><b>강아지 노크</b><small>폴짝 뛰는 강아지 사진 + 작은 QR</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="pol" data-design="고양이 노크 · 블랙 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/b-cat-dark.jpg" alt="고양이 노크 · 블랙 knock! 케이스 시안" loading="lazy"></span><b>고양이 노크 · 블랙</b><small>검은 폰 위 고양이 사진</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="pol" data-design="강아지 노크 2 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/b-dog2.jpg" alt="강아지 노크 2 knock! 케이스 시안" loading="lazy"></span><b>강아지 노크 2</b><small>창가의 강아지 한 컷</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="story" data-design="똑똑 문 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/r-door.jpg" alt="똑똑 문 knock! 케이스 시안" loading="lazy"></span><b>똑똑 문</b><small>QR이 문패가 돼요</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="story" data-design="서빙 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/r-serve.jpg" alt="서빙 knock! 케이스 시안" loading="lazy"></span><b>서빙</b><small>쟁반 위 자리 카드에 QR</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="story" data-design="두 손 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/r-hands.jpg" alt="두 손 knock! 케이스 시안" loading="lazy"></span><b>두 손</b><small>건네는 카드 한 장</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="story" data-design="우주인 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/r-astro.jpg" alt="우주인 knock! 케이스 시안" loading="lazy"></span><b>우주인</b><small>QR이 우주인의 ID 태그</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="story" data-design="석고상 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/r-bust.jpg" alt="석고상 knock! 케이스 시안" loading="lazy"></span><b>석고상</b><small>미술관 라벨처럼 붙은 QR</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="story" data-design="가리키는 냥 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/r-cat.jpg" alt="가리키는 냥 knock! 케이스 시안" loading="lazy"></span><b>가리키는 냥</b><small>여기 찍으라고 가리키는 고양이</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="obj" data-design="흑백 스티커 knock!"><span class="kx-badge hot">샘플 제작 중</span><span class="kx-ph"><img src="/img/n/s-sticker.jpg" alt="흑백 스티커 knock! 케이스 " loading="lazy"></span><b>흑백 스티커</b><small>필름, 카세트, 도시 스티커 콜라주</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="obj" data-design="흑백 스티커 · 블랙 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/s-sticker-dark.jpg" alt="흑백 스티커 · 블랙 knock! 케이스 시안" loading="lazy"></span><b>흑백 스티커 · 블랙</b><small>검은 폰 위 스티커 콜라주</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="obj" data-design="레트로 오브제 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/s-retro.jpg" alt="레트로 오브제 knock! 케이스 시안" loading="lazy"></span><b>레트로 오브제</b><small>카메라, 레코드, 오래된 물건들</small></a><a class="kx-tile" href="#beta" data-line="bang" data-g="obj" data-design="티켓 콜라주 knock!"><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/s-ticket.jpg" alt="티켓 콜라주 knock! 케이스 시안" loading="lazy"></span><b>티켓 콜라주</b><small>입장권과 영수증을 겹쳐 붙인 느낌</small></a></div>
+      <p class="kx-note">전 디자인 19,900원 · 사진은 시안(목업)이에요. 샘플을 받으면 실물 사진으로 바꿔요.</p>
+      
     </div>
   </section>
 
@@ -977,25 +994,11 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
 
 <!-- ═════════ knock. (A안 · 페이퍼) ═════════ -->
 <main class="view a2 a2-dot" id="v-dot" hidden>
-  <section class="a2-hero">
-    <div class="w">
-      <div>
-        <span class="a2-en">Your card, on your case.</span>
-        <div class="a2-eyebrow"><i>knock.</i>일할 때 건네는 내 명함</div>
-        <h1>내밀면,<br>명함 교환 끝.</h1>
-        <p class="a2-lead">종이 명함 대신 폰 뒷면을 보여주세요. 상대는 앱 없이 찍어서 내 연락처를 저장하고, 자기 명함도 남겨요.</p>
-        <div class="a2-ctas"><a class="a2-btn pri" href="#beta" data-line="dot">베타로 먼저 받기</a><a class="a2-btn sec" href="/demo/dot">예시 명함 보기</a></div>
-        <div class="a2-chips"><span>연락처 한 번에 저장</span><span>받은 명함 모음</span><span>이직해도 그대로</span><span>분실 모드</span></div>
-      </div>
-      <div class="a2-vis a2-car" data-car="dot">
-        <div class="a2-stage"><span class="a2-badge" aria-hidden="true">No.0001</span><div class="a2-float" aria-hidden="true"><b>주건우</b><span>Founder · knock</span><em>연락처 저장</em></div><div class="a2-frame"><div class="a2-track"><figure class="a2-slide" data-name="Clear" data-desc="투명 케이스 + QR 플레이트" data-design="Clear knock." style="--img:url('/img/clear.jpg')"><img src="/img/clear.jpg" alt="Clear knock. 케이스"></figure><figure class="a2-slide" data-name="Mono Black" data-desc="매트 블랙 + 브러시드 실버 QR 플레이트" data-design="Mono Black knock." data-tag="시안" style="--img:url('/img/dot-black.jpg')"><img src="/img/dot-black.jpg" alt="Mono Black knock. 케이스 시안" loading="lazy"></figure><figure class="a2-slide" data-name="Stone Ivory" data-desc="아이보리 린넨 + 샴페인 골드 플레이트" data-design="Stone Ivory knock." data-tag="시안" style="--img:url('/img/dot-ivory.jpg')"><img src="/img/dot-ivory.jpg" alt="Stone Ivory knock. 케이스 시안" loading="lazy"></figure><figure class="a2-slide" data-name="Navy Leather" data-desc="네이비 비건 레더 + 실버 플레이트" data-design="Navy Leather knock." data-tag="시안" style="--img:url('/img/dot-navy.jpg')"><img src="/img/dot-navy.jpg" alt="Navy Leather knock. 케이스 시안" loading="lazy"></figure></div>
-          <button class="a2-arr prev" type="button" aria-label="이전 디자인">‹</button><button class="a2-arr next" type="button" aria-label="다음 디자인">›</button></div></div>
-        
-        <div class="a2-cap"><div><b class="a2-cap-n"></b><span class="a2-cap-t"></span><small class="a2-cap-d"></small></div><span class="a2-count"></span></div>
-        <div class="a2-dots" role="tablist" aria-label="케이스 디자인"></div>
-        <a class="a2-pick" href="#beta" data-line="dot">이 디자인으로 베타 신청 →</a>
-      </div>
-    </div>
+  <section class="kx-hero kx-d">
+    <span class="kx-word" aria-hidden="true">knock<i>.</i></span>
+    <img class="kx-obj" src="/img/n/hero-dot.webp" alt="Slow day knock twice 문구와 컬러칩이 인쇄된 knock. 케이스">
+    <div class="kx-hcopy"><span class="kx-pill dk">NEW · Slow day</span><h1>건네는 순간, 명함이 저장돼요</h1><p>종이 명함 대신 폰 뒷면을. 상대는 앱 없이 찍어서 내 연락처를 저장해요.</p></div>
+    <div class="kx-btns kx-hbtns"><a class="kx-btn pri" href="#beta" data-line="dot" data-design="바다 세리프 knock.">베타로 먼저 받기</a><a class="kx-btn sec" href="#dot-col">디자인 보기</a></div>
   </section>
 
   <section class="a2-sec" id="dot-demo">
@@ -1027,13 +1030,13 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
     </div>
   </section>
 
-  <section class="a2-sec" id="dot-col">
+  <section class="a2-sec kx-line" id="dot-col">
     <div class="w">
       <div class="a2-sh"><span class="a2-num">02</span><h2>케이스</h2></div>
-      <p class="a2-sub">케이스마다 세상에 하나뿐인 QR 플레이트가 붙어요. 마감은 베타 피드백으로 최종 결정해요.</p>
-      <div class="a2-group"><h3>전 마감 <span class="a2-price-tag">19,900원</span></h3>
-        <div class="a2-grid sq"><a class="a2-tile" href="#beta" data-line="dot" data-design="Clear knock."><img src="/img/clear.jpg" alt="Clear knock. 케이스" loading="lazy"><b>Clear</b><small>투명 케이스 + QR 플레이트</small></a><a class="a2-tile" href="#beta" data-line="dot" data-design="Mono Black knock."><img src="/img/dot-black.jpg" alt="Mono Black knock. 케이스 시안" loading="lazy"><b>Mono Black<span class="a2-pill">시안</span></b><small>매트 블랙 + 브러시드 실버 QR 플레이트</small></a><a class="a2-tile" href="#beta" data-line="dot" data-design="Stone Ivory knock."><img src="/img/dot-ivory.jpg" alt="Stone Ivory knock. 케이스 시안" loading="lazy"><b>Stone Ivory<span class="a2-pill">시안</span></b><small>아이보리 린넨 + 샴페인 골드 플레이트</small></a><a class="a2-tile" href="#beta" data-line="dot" data-design="Navy Leather knock."><img src="/img/dot-navy.jpg" alt="Navy Leather knock. 케이스 시안" loading="lazy"><b>Navy Leather<span class="a2-pill">시안</span></b><small>네이비 비건 레더 + 실버 플레이트</small></a></div>
-      </div>
+      <p class="a2-sub">케이스마다 세상에 하나뿐인 QR이 들어가요. 디자인을 누르면 베타 신청서에 바로 담겨요.</p>
+      <div class="kx-cats" role="tablist" aria-label="컬렉션"><button type="button" class="kx-cat on" data-g="all"><span class="kx-ci kx-all">ALL</span><b>전체</b></button><button type="button" class="kx-cat" data-g="edit"><span class="kx-ci"><img src="/img/n/e-sea.jpg" alt=""></span><b>에디토리얼</b></button><button type="button" class="kx-cat" data-g="card"><span class="kx-ci"><img src="/img/n/t-card.jpg" alt=""></span><b>티켓 · 카드</b></button><button type="button" class="kx-cat" data-g="mono"><span class="kx-ci"><img src="/img/n/m-city.jpg" alt=""></span><b>모노</b></button><span class="kx-cat soon"><span class="kx-ci kx-soon">soon</span><b>카드지갑 케이스</b><small>Coming soon</small></span><span class="kx-cat soon"><span class="kx-ci kx-soon">soon</span><b>QR 키링</b><small>Coming soon</small></span></div>
+      <div class="kx-grid"><a class="kx-tile" href="#beta" data-line="dot" data-g="edit" data-design="바다 세리프 knock."><span class="kx-badge hot">샘플 제작 중</span><span class="kx-ph"><img src="/img/n/e-sea.jpg" alt="바다 세리프 knock. 케이스 " loading="lazy"></span><b>바다 세리프</b><small>Slow day, knock twice.</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="edit" data-design="컬러칩 · 블랙 knock."><span class="kx-badge hot">샘플 제작 중</span><span class="kx-ph"><img src="/img/n/e-chip-dark.jpg" alt="컬러칩 · 블랙 knock. 케이스 " loading="lazy"></span><b>컬러칩 · 블랙</b><small>글라스, 네이비, 올리브 컬러칩</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="edit" data-design="숲 세리프 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/e-forest.jpg" alt="숲 세리프 knock. 케이스 시안" loading="lazy"></span><b>숲 세리프</b><small>안개 낀 숲 + 세리프 한 줄</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="edit" data-design="컬러칩 · 화이트 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/e-chip.jpg" alt="컬러칩 · 화이트 knock. 케이스 시안" loading="lazy"></span><b>컬러칩 · 화이트</b><small>밝은 폰 위 컬러칩</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="card" data-design="명함 카드 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/t-card.jpg" alt="명함 카드 knock. 케이스 시안" loading="lazy"></span><b>명함 카드</b><small>케이스 위 작은 명함 한 장</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="card" data-design="탑승권 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/t-pass.jpg" alt="탑승권 knock. 케이스 시안" loading="lazy"></span><b>탑승권</b><small>보딩패스 속 QR</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="card" data-design="극장 티켓 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/t-theater.jpg" alt="극장 티켓 knock. 케이스 시안" loading="lazy"></span><b>극장 티켓</b><small>오래된 극장 티켓</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="card" data-design="호텔 도어택 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/t-hotel.jpg" alt="호텔 도어택 knock. 케이스 시안" loading="lazy"></span><b>호텔 도어택</b><small>문고리에 거는 택</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="mono" data-design="흑백 도시 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/m-city.jpg" alt="흑백 도시 knock. 케이스 시안" loading="lazy"></span><b>흑백 도시</b><small>흑백 도시 사진 + 작은 QR</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="mono" data-design="흑백 도시 · 블랙 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/m-city-dark.jpg" alt="흑백 도시 · 블랙 knock. 케이스 시안" loading="lazy"></span><b>흑백 도시 · 블랙</b><small>검은 폰 위 도시 사진</small></a><a class="kx-tile" href="#beta" data-line="dot" data-g="mono" data-design="영수증 knock."><span class="kx-badge">시안</span><span class="kx-ph"><img src="/img/n/m-receipt.jpg" alt="영수증 knock. 케이스 시안" loading="lazy"></span><b>영수증</b><small>영수증 한 장에 숨은 QR</small></a></div>
+      <p class="kx-note">전 디자인 19,900원 · 사진은 시안(목업)이에요. 샘플을 받으면 실물 사진으로 바꿔요.</p>
       <div class="a2-spec"><dl><dt>QR</dt><dd>케이스마다 하나뿐인 주소, 3년 연결 보장</dd><dt>Scan</dt><dd>기본 카메라로 바로, 앱 필요 없음</dd><dt>Card</dt><dd>연락처 저장 · 명함 맞교환 · 이직해도 그대로</dd></dl></div>
     </div>
   </section>
@@ -1094,7 +1097,7 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
             <label><input type="radio" name="line" id="lineDot" value="dot"><span>knock.</span></label>
           </div>
         </fieldset>
-        <div class="field"><label for="bDesign">원하는 디자인</label><input id="bDesign" placeholder="예: 크림 체크 knock!"></div>
+        <div class="field"><label for="bDesign">원하는 디자인</label><input id="bDesign" placeholder="예: 고양이 노크 knock!"></div>
         <div class="row2">
           <div class="field"><label for="bName">이름 또는 닉네임</label><input id="bName" autocomplete="nickname" required></div>
           <div class="field">
@@ -1191,6 +1194,11 @@ body.on-dot footer{background:#F6F5F1;color:#77746D}
     next.addEventListener('click',()=>go(Math.min(sl.length-1,cur+1)));
     tr.addEventListener('scroll',()=>{if(tr.clientWidth)set(Math.round(tr.scrollLeft/tr.clientWidth));},{passive:true});
     set(0);
+  });
+
+  document.querySelectorAll('.kx-line').forEach(sec=>{
+    const cats=[...sec.querySelectorAll('.kx-cat[data-g]')],tiles=[...sec.querySelectorAll('.kx-tile')];
+    cats.forEach(c=>c.addEventListener('click',()=>{cats.forEach(o=>o.classList.toggle('on',o===c));tiles.forEach(t=>{t.hidden=!(c.dataset.g==='all'||t.dataset.g===c.dataset.g);});}));
   });
 
   const betaForm=document.getElementById('betaForm');
