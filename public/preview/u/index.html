@@ -1,0 +1,163 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>knock! · 통합안 예시</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@1,800;1,900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Pretendard,sans-serif;background:#FBF4EA;color:#161514;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+.w{max-width:1180px;margin:0 auto;padding:0 28px}
+.mk{font-family:Archivo,sans-serif;font-style:italic;font-weight:900;letter-spacing:-.055em}
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,244,234,.86);backdrop-filter:blur(12px);border-bottom:1px solid rgba(22,21,20,.06)}
+.nav .w{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;padding:0 40px}
+.nav .mk{font-size:26px}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:15px;font-weight:500}
+.nav .me{border:1.5px solid #161514;border-radius:99px;padding:8px 16px;font-weight:700;font-size:14px}
+.hero{position:relative;height:calc(100svh - 64px);min-height:640px;overflow:hidden}
+.hero .big{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);font-size:24vw;line-height:.8;white-space:nowrap;z-index:1;user-select:none}
+.hero .obj{position:absolute;left:50%;bottom:110px;transform:translateX(-50%);height:min(64%,640px);z-index:2;filter:drop-shadow(0 34px 36px rgba(90,60,40,.24))}
+.hero .copy{position:absolute;left:40px;bottom:40px;z-index:3;max-width:460px}
+.pill{display:inline-block;background:#161514;color:#FBF4EA;font-size:12px;font-weight:800;padding:5px 11px;border-radius:99px}
+.hero h1{font-size:clamp(26px,2.6vw,36px);letter-spacing:-.035em;font-weight:800;margin-top:10px;line-height:1.25}
+.hero p{font-size:15px;line-height:1.6;color:#6b5a4f;margin-top:8px}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.hero .btns{position:absolute;right:40px;bottom:44px;z-index:3}
+.btn{display:inline-flex;align-items:center;height:48px;padding:0 22px;border-radius:99px;font-weight:700;font-size:15px;white-space:nowrap}
+.pri{background:#161514;color:#fff}.sec{background:#fff;border:1px solid #eadccb}
+section.s{padding:120px 0}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:10px}
+.sh .n{font-size:28px;color:#b9a994}
+.sh h2{font-size:clamp(30px,3.4vw,46px);letter-spacing:-.04em;font-weight:800}
+.sub{font-size:17px;line-height:1.6;color:#6b5a4f;max-width:36em}
+/* one case two doors */
+.two{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:22px;margin-top:56px}
+.two .case{border-radius:24px;overflow:hidden;aspect-ratio:3/4}.two .case img{width:100%;height:100%;object-fit:cover}
+.arrow{font-size:34px;color:#b9a994}
+.door{text-align:center}.door b{display:block;font-size:18px;margin-top:14px}.door small{display:block;font-size:14px;color:#6b5a4f;margin-top:4px}
+.u-phone{margin:0}
+.u-scr{width:100%;max-width:230px;margin:0 auto;aspect-ratio:585/960;border-radius:30px;overflow:hidden;border:7px solid #161514;background:#fff;box-shadow:0 20px 40px rgba(60,40,20,.16)}
+.u-scr img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.u-phone figcaption{text-align:center;font-size:13px;color:#6b5a4f;margin-top:10px}
+.stack{display:flex;flex-direction:column;align-items:center;gap:6px}
+/* designs */
+.cats{display:flex;gap:14px;overflow-x:auto;margin:34px 0 26px;padding:4px 2px 8px;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
+.cat{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:8px;width:92px;background:none;border:0;cursor:pointer;font:inherit;color:inherit}
+.ci{width:80px;height:80px;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#F1E8DB;border:2px solid transparent;box-shadow:inset 0 0 0 3px #FBF4EA}
+.ci img{width:100%;height:100%;object-fit:cover}.cat.on .ci{border-color:#161514}.cat b{font-size:13px}
+.all{font:900 italic 14px Archivo,sans-serif}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:26px 18px}
+.u-tile{position:relative;display:block}.u-tile[hidden]{display:none}
+.grid:not(.open) .u-tile.more{display:none}
+.u-ph{display:block;aspect-ratio:3/4;border-radius:20px;overflow:hidden;background:#eee}.u-ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+@media(hover:hover){.u-tile:hover .u-ph img{transform:scale(1.04)}}
+.u-tile b{display:block;font-size:15px;margin-top:10px}.u-tile small{display:block;font-size:13px;color:#6b5a4f;margin-top:2px}
+.u-badge{position:absolute;left:10px;top:10px;z-index:2;background:rgba(255,255,255,.92);font-size:11px;font-weight:700;padding:4px 9px;border-radius:99px}.u-badge.hot{background:#161514;color:#fff}
+.morebtn{display:flex;justify-content:center;margin-top:34px}
+/* themes */
+.tg{display:inline-flex;background:#F1E8DB;border-radius:99px;padding:4px;margin:30px 0 30px}
+.tg button{border:0;background:none;font:inherit;font-weight:700;font-size:15px;padding:10px 22px;border-radius:99px;cursor:pointer;color:#6b5a4f}
+.tg button.on{background:#161514;color:#fff}
+.rail{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.rail[hidden]{display:none}
+.pair{margin-top:34px;font-size:15px;color:#6b5a4f}
+.pair b{color:#161514}
+/* how */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:56px}
+.step .num{font-size:96px;line-height:.85}
+.step b{display:block;font-size:22px;letter-spacing:-.03em;margin-top:16px}
+.step span{display:block;font-size:16px;line-height:1.6;color:#6b5a4f;margin-top:8px}
+/* products */
+.prods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}
+/* beta */
+.beta{background:#161514;color:#FBF4EA;position:relative;overflow:hidden;padding:130px 0}
+.beta .ghost{position:absolute;right:-2vw;bottom:-3vw;font-size:26vw;line-height:.8;color:rgba(251,244,234,.06);white-space:nowrap}
+.beta h2{font-size:clamp(32px,4vw,56px);letter-spacing:-.04em;font-weight:800;line-height:1.2;position:relative}
+.beta p{font-size:17px;opacity:.7;margin-top:14px;position:relative}
+.beta .btn{background:#FBF4EA;color:#161514;margin-top:30px;position:relative}
+footer{padding:30px 0 50px;font-size:13px;color:#8a7b6c}
+.flag{position:fixed;right:14px;bottom:14px;z-index:99;background:#161514;color:#fff;font-size:12px;font-weight:700;padding:7px 12px;border-radius:99px;opacity:.85}
+@media (max-width:960px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.rail{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:720px){
+.nav .w{padding:0 18px}.nav ul{display:none}.nav .mk{font-size:22px}
+.hero{height:auto;min-height:0;padding:22px 0 34px}
+.hero .big{top:calc(22px + 12vw);transform:translateX(-50%);font-size:32vw}
+.hero .obj{position:relative;left:auto;bottom:auto;transform:none;display:block;margin:20vw auto 0;height:auto;width:min(84vw,420px)}
+.hero .copy{position:static;padding:14px 20px 0;max-width:none}
+.hero .btns{position:static;padding:16px 20px 0}
+.w{padding:0 20px}section.s{padding:80px 0}
+.two{grid-template-columns:1fr 1fr;gap:14px}.two .arrow{display:none}.two .case{grid-column:1/-1;max-width:260px;margin:0 auto 6px}
+.u-scr{border-width:5px;border-radius:22px}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}
+.rail{grid-template-columns:repeat(2,minmax(0,1fr))}
+.steps{grid-template-columns:1fr;gap:34px}.step .num{font-size:72px}
+.prods{grid-template-columns:repeat(2,minmax(0,1fr))}
+.beta{padding:90px 0}
+}
+</style></head><body>
+<nav class="nav"><div class="w"><a class="mk" href="#top">knock!</a><ul><li><a href="#design">디자인</a></li><li><a href="#theme">테마</a></li><li><a href="#how">이렇게 써요</a></li><li><a href="#beta">베타 신청</a></li></ul><a class="me" href="#beta">내 knock</a></div></nav>
+
+<header class="hero" id="top">
+  <span class="big mk" aria-hidden="true">knock!</span>
+  <img class="obj" src="/img/n/hero-one.webp" alt="숲 세리프, 고양이 폴라로이드 knock! 케이스">
+  <div class="copy"><span class="pill">폰 뒤의 작은 문</span><h1>찍으면, 내가 열려요</h1><p>케이스를 고르고, 열릴 페이지를 고르면 끝.<br>친구에겐 내 방이, 일할 땐 내 명함이 열려요.</p></div>
+  <div class="btns"><a class="btn pri" href="#design">디자인 고르기</a><a class="btn sec" href="#beta">베타로 먼저 받기</a></div>
+</header>
+
+<section class="s" id="one"><div class="w">
+  <div class="sh"><span class="n mk">00</span><h2>케이스 하나, 문 두 개</h2></div>
+  <p class="sub">케이스를 따로 살 필요 없어요. 같은 QR로 열리는 페이지만 바꾸면 돼요.</p>
+  <div class="two">
+    <div class="case"><img src="/img/n/e-forest.jpg" alt="숲 세리프 knock! 케이스"></div>
+    <span class="arrow">→</span>
+    <div class="door"><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/bang-13.webp" alt=" 테마" loading="lazy"></div><figcaption></figcaption></figure><b>친구가 찍으면, 내 방</b><small>사진, 노래, 오늘의 기분, 방명록</small></div>
+    <span class="arrow">or</span>
+    <div class="door"><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/dot-09.webp" alt=" 테마" loading="lazy"></div><figcaption></figcaption></figure><b>일할 때 내밀면, 내 명함</b><small>연락처 저장, 명함 맞교환</small></div>
+  </div>
+</div></section>
+
+<section class="s" id="design" style="padding-top:40px"><div class="w">
+  <div class="sh"><span class="n mk">01</span><h2>디자인 고르기</h2></div>
+  <p class="sub">케이스마다 세상에 하나뿐인 QR이 인쇄돼요. 모든 디자인 19,900원.</p>
+  <div class="cats"><button class="cat on" data-g="all"><span class="ci all">ALL</span><b>전체</b></button><button class="cat" data-g="pet"><span class="ci"><img src="/img/n/b-cat.jpg" alt=""></span><b>펫 포토</b></button><button class="cat" data-g="edit"><span class="ci"><img src="/img/n/e-forest.jpg" alt=""></span><b>에디토리얼</b></button><button class="cat" data-g="card"><span class="ci"><img src="/img/n/t-card.jpg" alt=""></span><b>티켓 · 카드</b></button><button class="cat" data-g="obj"><span class="ci"><img src="/img/n/s-sticker.jpg" alt=""></span><b>스티커 · 오브제</b></button><button class="cat" data-g="mono"><span class="ci"><img src="/img/n/r-bust.jpg" alt=""></span><b>모노</b></button></div>
+  <div class="grid" id="grid"><a class="u-tile" href="#beta" data-g="pet"><span class="u-badge hot">샘플 제작 중</span><span class="u-ph"><img src="/img/n/b-cat.jpg" alt="고양이 노크" loading="lazy"></span><b>고양이 노크</b><small>창문에 매달린 고양이 사진 + 작은 QR</small></a><a class="u-tile" href="#beta" data-g="pet"><span class="u-badge hot">샘플 제작 중</span><span class="u-ph"><img src="/img/n/b-dog.jpg" alt="강아지 노크" loading="lazy"></span><b>강아지 노크</b><small>폴짝 뛰는 강아지 사진 + 작은 QR</small></a><a class="u-tile" href="#beta" data-g="pet"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/b-cat-dark.jpg" alt="고양이 노크 · 블랙" loading="lazy"></span><b>고양이 노크 · 블랙</b><small>검은 폰 위 고양이 사진</small></a><a class="u-tile" href="#beta" data-g="pet"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/b-dog2.jpg" alt="강아지 노크 2" loading="lazy"></span><b>강아지 노크 2</b><small>창가의 강아지 한 컷</small></a><a class="u-tile" href="#beta" data-g="edit"><span class="u-badge hot">샘플 제작 중</span><span class="u-ph"><img src="/img/n/e-sea.jpg" alt="바다 세리프" loading="lazy"></span><b>바다 세리프</b><small>Slow day, knock twice.</small></a><a class="u-tile" href="#beta" data-g="edit"><span class="u-badge hot">샘플 제작 중</span><span class="u-ph"><img src="/img/n/e-chip-dark.jpg" alt="컬러칩 · 블랙" loading="lazy"></span><b>컬러칩 · 블랙</b><small>글라스, 네이비, 올리브 컬러칩</small></a><a class="u-tile" href="#beta" data-g="edit"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/e-forest.jpg" alt="숲 세리프" loading="lazy"></span><b>숲 세리프</b><small>안개 낀 숲 + 세리프 한 줄</small></a><a class="u-tile" href="#beta" data-g="edit"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/e-chip.jpg" alt="컬러칩 · 화이트" loading="lazy"></span><b>컬러칩 · 화이트</b><small>밝은 폰 위 컬러칩</small></a><a class="u-tile more" href="#beta" data-g="card"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/t-card.jpg" alt="명함 카드" loading="lazy"></span><b>명함 카드</b><small>케이스 위 작은 카드 한 장</small></a><a class="u-tile more" href="#beta" data-g="card"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/t-pass.jpg" alt="탑승권" loading="lazy"></span><b>탑승권</b><small>보딩패스 속 QR</small></a><a class="u-tile more" href="#beta" data-g="card"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/t-theater.jpg" alt="극장 티켓" loading="lazy"></span><b>극장 티켓</b><small>오래된 극장 티켓</small></a><a class="u-tile more" href="#beta" data-g="card"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/t-hotel.jpg" alt="호텔 도어택" loading="lazy"></span><b>호텔 도어택</b><small>문고리에 거는 택</small></a><a class="u-tile more" href="#beta" data-g="obj"><span class="u-badge hot">샘플 제작 중</span><span class="u-ph"><img src="/img/n/s-sticker.jpg" alt="흑백 스티커" loading="lazy"></span><b>흑백 스티커</b><small>필름, 카세트, 도시 스티커 콜라주</small></a><a class="u-tile more" href="#beta" data-g="obj"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/s-sticker-dark.jpg" alt="흑백 스티커 · 블랙" loading="lazy"></span><b>흑백 스티커 · 블랙</b><small>검은 폰 위 스티커 콜라주</small></a><a class="u-tile more" href="#beta" data-g="obj"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/s-retro.jpg" alt="레트로 오브제" loading="lazy"></span><b>레트로 오브제</b><small>카메라, 레코드, 오래된 물건들</small></a><a class="u-tile more" href="#beta" data-g="obj"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/s-ticket.jpg" alt="티켓 콜라주" loading="lazy"></span><b>티켓 콜라주</b><small>입장권과 영수증을 겹쳐 붙인 느낌</small></a><a class="u-tile more" href="#beta" data-g="mono"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/r-bust.jpg" alt="석고상" loading="lazy"></span><b>석고상</b><small>미술관 라벨처럼 붙은 QR</small></a><a class="u-tile more" href="#beta" data-g="mono"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/r-cat.jpg" alt="가리키는 냥" loading="lazy"></span><b>가리키는 냥</b><small>여기 찍으라고 가리키는 고양이</small></a><a class="u-tile more" href="#beta" data-g="mono"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/m-city.jpg" alt="흑백 도시" loading="lazy"></span><b>흑백 도시</b><small>흑백 도시 사진 + 작은 QR</small></a><a class="u-tile more" href="#beta" data-g="mono"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/m-city-dark.jpg" alt="흑백 도시 · 블랙" loading="lazy"></span><b>흑백 도시 · 블랙</b><small>검은 폰 위 도시 사진</small></a><a class="u-tile more" href="#beta" data-g="mono"><span class="u-badge">시안</span><span class="u-ph"><img src="/img/n/m-receipt.jpg" alt="영수증" loading="lazy"></span><b>영수증</b><small>영수증 한 장에 숨은 QR</small></a></div>
+  <div class="morebtn"><button class="btn sec" id="more" type="button" style="cursor:pointer;font:inherit;font-weight:700">디자인 21개 전부 보기</button></div>
+</div></section>
+
+<section class="s" id="theme" style="background:#F4EADC"><div class="w">
+  <div class="sh"><span class="n mk">02</span><h2>테마 고르기</h2></div>
+  <p class="sub">QR을 찍으면 열리는 페이지의 옷이에요. 케이스는 그대로, 테마는 언제든 바꿔요.</p>
+  <div class="tg" role="tablist"><button class="on" data-r="room" type="button">내 방 테마</button><button data-r="card" type="button">명함 테마</button></div>
+  <div class="rail" data-r="room"><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/bang-13.webp" alt="매거진 테마" loading="lazy"></div><figcaption>매거진</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/bang-19.webp" alt="일보 테마" loading="lazy"></div><figcaption>일보</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/bang-15.webp" alt="엽서 테마" loading="lazy"></div><figcaption>엽서</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/bang-10.webp" alt="밤하늘 테마" loading="lazy"></div><figcaption>밤하늘</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/bang-17.webp" alt="스티커 방 테마" loading="lazy"></div><figcaption>스티커 방</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/bang-33.webp" alt="책상 위 테마" loading="lazy"></div><figcaption>책상 위</figcaption></figure></div>
+  <div class="rail" data-r="card" hidden><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/dot-02.webp" alt="큰 이름 테마" loading="lazy"></div><figcaption>큰 이름</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/dot-09.webp" alt="바코드 카드 테마" loading="lazy"></div><figcaption>바코드 카드</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/dot-13.webp" alt="스태프 목걸이 테마" loading="lazy"></div><figcaption>스태프 목걸이</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/dot-20.webp" alt="종이 택 테마" loading="lazy"></div><figcaption>종이 택</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/dot-18.webp" alt="티켓 테마" loading="lazy"></div><figcaption>티켓</figcaption></figure><figure class="u-phone "><div class="u-scr"><img src="/themes/thumb/dot-12.webp" alt="명함 겹치기 테마" loading="lazy"></div><figcaption>명함 겹치기</figcaption></figure></div>
+  <p class="pair"><b>짝 맞추기</b> · 티켓 케이스엔 티켓 테마, 에디토리얼 케이스엔 매거진 테마처럼 케이스랑 테마를 맞추면 더 예뻐요.</p>
+</div></section>
+
+<section class="s" id="how"><div class="w">
+  <div class="sh"><span class="n mk">03</span><h2>이렇게 써요</h2></div>
+  <div class="steps">
+    <div class="step"><span class="num mk">01</span><b>케이스가 도착해요</b><span>상자 속 카드의 6자리 코드를 넣으면 이 케이스가 내 것이 돼요.</span></div>
+    <div class="step"><span class="num mk">02</span><b>내 페이지를 꾸며요</b><span>테마를 고르고 사진, 노래, 한 줄, 연락처를 채워요.</span></div>
+    <div class="step"><span class="num mk">03</span><b>찍으면 열려요</b><span>찍는 사람은 앱 없이 카메라로 끝. 노크하고, 방명록 남기고, 연락처 저장까지.</span></div>
+  </div>
+</div></section>
+
+<section class="s" id="more-things" style="padding-top:20px"><div class="w">
+  <div class="sh"><span class="n mk">04</span><h2>같은 QR, 다른 물건</h2></div>
+  <p class="sub">케이스랑 같은 디자인으로 맞출 수 있어요. 곧 나와요.</p>
+  <div class="prods"><a class="u-tile" href="#beta" data-g="air"><span class="u-badge">출시 예정</span><span class="u-ph"><img src="/img/n/p-airpods.jpg" alt="에어팟 케이스" loading="lazy"></span><b>에어팟 케이스</b><small>케이스랑 같은 디자인, 같은 QR</small></a><a class="u-tile" href="#beta" data-g="stk"><span class="u-badge">출시 예정</span><span class="u-ph"><img src="/img/n/p-sticker.jpg" alt="QR 스티커" loading="lazy"></span><b>QR 스티커</b><small>노트북, 텀블러, 다이어리 어디든</small></a><a class="u-tile" href="#beta" data-g="key"><span class="u-badge">출시 예정</span><span class="u-ph"><img src="/img/n/p-keyring.jpg" alt="QR 키링" loading="lazy"></span><b>QR 키링</b><small>가방에 다는 작은 내 방 문</small></a></div>
+</div></section>
+
+<section class="beta" id="beta"><span class="ghost mk" aria-hidden="true">knock!</span><div class="w">
+  <h2>첫 노크를 두드려 줄<br>20명을 찾아요</h2>
+  <p>케이스를 받아 2주 써보고, 짧은 설문 두 번에 답해주세요.</p>
+  <a class="btn" href="#beta">베타 신청하기</a>
+</div></section>
+<footer><div class="w">knock! · 구매일로부터 3년 동안 QR 연결 보장</div></footer>
+<span class="flag">통합안 예시 페이지</span>
+<script>
+const grid=document.getElementById('grid'),more=document.getElementById('more');
+document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.cat').forEach(o=>o.classList.toggle('on',o===c));grid.classList.add('open');more.parentElement.style.display='none';grid.querySelectorAll('.u-tile').forEach(t=>t.hidden=!(c.dataset.g==='all'||t.dataset.g===c.dataset.g));}));
+more.addEventListener('click',()=>{grid.classList.add('open');more.parentElement.style.display='none';});
+document.querySelectorAll('.tg button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tg button').forEach(o=>o.classList.toggle('on',o===b));document.querySelectorAll('.rail').forEach(r=>r.hidden=r.dataset.r!==b.dataset.r);}));
+</script>
+</body></html>
