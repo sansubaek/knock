@@ -1,0 +1,175 @@
+<!doctype html><html><head><meta name="robots" content="noindex"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{--foreground:#191919;--muted-foreground:#888;--border:#ddd;--surface-primary:#f3f3f3;--primary:#191919;--primary-foreground:#fff}body{margin:16px;font:14px/1.5 system-ui,sans-serif;background:#fafafa}</style><title>knock! 새 편집기 체험판</title>
+<style>
+.wrap{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+.side{flex:1 1 200px;min-width:200px;font-size:13px;line-height:1.6}
+.side .h{font-size:11px;color:var(--muted-foreground);margin:0 0 6px}
+.side ol{margin:0;padding-left:18px}
+.side li{margin-bottom:6px}
+.side b{font-weight:600}
+.phone{flex:0 0 340px;width:340px;height:680px;border-radius:40px;overflow:hidden;position:relative;outline:1px solid var(--border);font-family:system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif}
+.scr{position:absolute;inset:0 0 64px 0;overflow-y:auto;padding:14px 14px 40px;box-sizing:border-box;color:var(--ink);background:var(--bg);transition:background .4s}
+.scr::-webkit-scrollbar{display:none}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:11px;margin-bottom:12px}
+.wm{font-weight:800;font-style:italic;font-size:15px;letter-spacing:-.03em}
+.cnt{background:var(--glass);padding:4px 8px;border-radius:999px}
+.ed .tap{outline:1.5px dashed transparent;outline-offset:3px;border-radius:10px;cursor:pointer;transition:outline-color .2s}
+.ed .tap:hover{outline-color:var(--mute)}
+.ed .tap.sel{outline:2px solid var(--ink)}
+.hid{display:none!important}
+.ed .ghost{display:block!important;opacity:.28}
+.ph{position:relative;margin:0 auto 12px;overflow:hidden;background:var(--glass);transition:all .3s}
+.ph.big{width:100%;height:290px;border-radius:24px}
+.ph.circle{width:150px;height:150px;border-radius:50%}
+.ph.pola{width:200px;height:240px;border-radius:4px;padding:10px 10px 46px;background:#fff;transform:rotate(-2deg);box-sizing:border-box;box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.ph .in{position:relative;width:100%;height:100%;overflow:hidden;border-radius:inherit;background:var(--glass)}
+.ph.pola .in{border-radius:2px;background:#EEECE8}
+.ph .in .img,.cell .img{position:absolute;inset:0;background-size:cover;background-position:50% 50%}
+.ph .pc{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:13px;color:#555}
+.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mute)}
+.nm{text-align:center;font-size:24px;font-weight:800;letter-spacing:-.03em;margin:2px auto;padding:0 6px;width:max-content;max-width:100%}
+.bio{text-align:center;font-size:12px;color:var(--mute);margin:0 auto 14px;padding:0 6px;width:max-content;max-width:100%}
+[contenteditable]:focus{outline:2px solid var(--ink);outline-offset:3px;border-radius:8px}
+.list{display:flex;flex-direction:column;gap:8px}
+.blk{position:relative;background:var(--glass);border-radius:18px;padding:12px;border:1px solid var(--glass2)}
+.blk .k{font-size:10px;color:var(--mute);margin-bottom:4px}
+.blk .v{font-size:14px;font-weight:600;line-height:1.35}
+.blk .big{font-size:26px;font-weight:800;letter-spacing:-.03em}
+.handle{display:none;position:absolute;right:8px;top:8px;width:26px;height:26px;border-radius:8px;align-items:center;justify-content:center;font-size:14px;color:var(--mute);cursor:grab;touch-action:none;user-select:none}
+.ed .handle{display:flex}
+.blk.drag{opacity:.6;transform:scale(.98)}
+.grid{display:grid;gap:4px;padding:4px!important}
+.grid.g1{grid-template-columns:1fr}.grid.g2{grid-template-columns:1fr 1fr}.grid.g3{grid-template-columns:1fr 1fr 1fr}
+.cell{position:relative;aspect-ratio:1;border-radius:14px;overflow:hidden;background:var(--glass2)}
+.grid.g1 .cell{aspect-ratio:4/3}
+.scr:not(.ed) .cell .empty{display:none}
+.scr:not(.ed) .blk.grid:not(:has(.img)){display:none}
+.cell .empty{font-size:18px}
+.add{display:none;width:100%;border:1.5px dashed var(--mute);background:transparent;color:var(--mute);border-radius:16px;padding:10px;font:inherit;font-size:13px;cursor:pointer;margin-top:8px}
+.ed .add{display:block}
+.kn{width:100%;border:0;border-radius:18px;padding:14px;font:inherit;font-weight:800;font-size:15px;display:flex;justify-content:space-between;margin:10px 0 0;cursor:pointer}
+.bar{position:absolute;left:0;right:0;bottom:0;height:64px;display:flex;justify-content:space-around;align-items:center;background:rgba(20,20,22,.92);color:#fff;font-size:11px}
+.bar button{background:none;border:0;color:#fff;font:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;opacity:.85}
+.bar button.on{opacity:1;font-weight:700}
+.bar i{font-style:normal;font-size:17px}
+.sheet{position:absolute;left:0;right:0;bottom:64px;background:#fff;color:#191919;border-radius:22px 22px 0 0;padding:14px 16px 16px;box-shadow:0 -8px 30px rgba(0,0,0,.15);transform:translateY(calc(100% + 90px));transition:transform .25s ease-out;max-height:70%;overflow-y:auto;font-size:13px;z-index:5}
+.sheet.open{transform:none}
+.sheet .tt{font-weight:700;font-size:15px;margin-bottom:10px;display:flex;justify-content:space-between}
+.sheet .tt button{background:none;border:0;font-size:13px;color:#888;cursor:pointer}
+.sheet .lb{font-size:11px;color:#888;margin:12px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid #ddd;background:#fff;border-radius:999px;padding:6px 11px;font:inherit;font-size:12px;cursor:pointer;color:#191919}
+.chip.on{background:#191919;color:#fff;border-color:#191919}
+.sw{width:32px;height:32px;border-radius:50%;border:2px solid #fff;outline:1px solid #ddd;cursor:pointer;padding:0}
+.sw.on{outline:2px solid #191919}
+.zoom{width:100%}
+.tabs{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tc{border:0;background:none;padding:0;text-align:left;font:inherit;font-size:11px;cursor:pointer;color:#191919}
+.tc .th{aspect-ratio:3/5;border-radius:12px;overflow:hidden;background:#eee center top/cover;position:relative;outline:1px solid #e5e5e5}
+.tc.on .th{outline:2px solid #191919}
+.tc .soon{position:absolute;left:4px;bottom:4px;background:rgba(0,0,0,.65);color:#fff;font-size:9px;padding:2px 6px;border-radius:999px}
+.tc .best{position:absolute;left:4px;top:4px;background:#191919;color:#fff;font-size:9px;padding:2px 6px;border-radius:999px}
+.toast{position:absolute;left:50%;bottom:84px;transform:translateX(-50%);background:#191919;color:#fff;font-size:12px;padding:8px 12px;border-radius:999px;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;z-index:9}
+.toast.on{opacity:1}
+.static{position:absolute;inset:0 0 64px 0;background:#eee center top/cover;display:none}
+.static.on{display:block}
+.static .note{position:absolute;left:12px;right:12px;bottom:12px;background:rgba(0,0,0,.75);color:#fff;font-size:12px;padding:10px 12px;border-radius:14px}
+.row2{display:flex;gap:8px;align-items:center}
+.btn{border:0;background:#191919;color:#fff;border-radius:12px;padding:9px 12px;font:inherit;font-size:12px;cursor:pointer}
+.btn.l{background:#f1f1f1;color:#191919}
+input[type=file]{display:none}
+</style></head><body>
+<div class="wrap">
+<div class="phone" id="phone">
+ <div class="scr ed" id="scr">
+  <div class="top"><span class="wm">knock!</span><span class="cnt tap" data-el="cnt" id="cnt">오늘 4 · 지금까지 112</span></div>
+  <div class="ph big tap" data-el="photo" id="ph"><div class="in" id="phin"><div class="img" id="phimg"></div><div class="empty" id="phe">눌러서 사진 넣기</div></div><div class="pc" id="pc"></div></div>
+  <div class="nm tap" data-el="name" id="nm" contenteditable="false">지우</div>
+  <div class="bio tap" data-el="bio" id="bio" contenteditable="false">똑똑, 들어와도 돼</div>
+  <div class="list" id="list"></div>
+  <button class="add" id="add">+ 칸 추가</button>
+  <button class="kn" id="kn">똑똑, 노크하기 <span id="kc">27번</span></button>
+ </div>
+ <div class="static" id="static"><div class="note" id="stn"></div></div>
+ <div class="sheet" id="sheet"></div>
+ <div class="toast" id="toast"></div>
+ <div class="bar">
+  <button id="bTheme"><i>▦</i>테마</button>
+  <button id="bColor"><i>◐</i>색</button>
+  <button id="bView"><i>◉</i>미리보기</button>
+ </div>
+ <input type="file" accept="image/*" id="file">
+</div>
+<div class="side">
+ <p class="h">해볼 것</p>
+ <ol>
+  <li><b>화면에서 바로 누르기:</b> 사진, 이름, 소개, 칸을 누르면 아래에서 메뉴가 올라와요</li>
+  <li><b>사진:</b> 넣기, 끌어서 위치 옮기기, 확대, 모양 바꾸기, 숨기기</li>
+  <li><b>이름·소개·방문자 수:</b> 글자 고치기, 숨기기</li>
+  <li><b>+ 칸 추가:</b> 사진 1·2·3칸, D-day, 한 줄, 링크. 칸마다 사진을 넣을 수 있어요</li>
+  <li><b>⋮⋮ 끌기:</b> 칸 순서 바꾸기</li>
+  <li><b>테마:</b> 추천 / 컬러·사진 / 그라데이션 / 전체. 아직 안 만든 테마는 "곧 열려요"</li>
+  <li><b>미리보기:</b> 방문자 눈에 보이는 모습</li>
+ </ol>
+</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const PAL=[
+['버터 오라','linear-gradient(165deg,#FFF6D2,#FFE2B4 45%,#F5D8EC)','#3A2E22','#8A7766',0],
+['라벤더 미스트','linear-gradient(165deg,#F1ECFF,#DCD6FF 50%,#D3E6FF)','#2B2550','#6E68A0',0],
+['피치 선셋','linear-gradient(165deg,#FFE9DC,#FFCDB8 50%,#EBC9E6)','#4A2A22','#94695C',0],
+['민트 소다','linear-gradient(165deg,#E4FAF1,#CFF0E6 45%,#CFE6FF)','#163A33','#5B8178',0],
+['스카이','linear-gradient(180deg,#D6E8FF,#EEF4FF 60%,#FFFFFF)','#1D2B45','#62708C',0],
+['미드나잇','linear-gradient(165deg,#191B3A,#2C2660 55%,#4A2F6B)','#F3F0FF','#A9A3D1',1],
+['크림','#F6F1E6','#3B3128','#8C8073',0],
+['세이지','#DFE6D8','#26321F','#6B7A63',0],
+['모카','#3A2F29','#F5ECE3','#BBA899',1],
+['차콜','#151517','#F4F4F5','#9C9CA6',1]];
+const T='https://knockqr.kr/themes/thumb/';
+const THEMES={
+ '추천':[['bang-21','아이소 미니룸',1],['bang-37','로파이 창가방',1],['bang-30','그 방 2.0',1],['bang-31','최애존',1],['bang-40','펫 방',1],['dot-04','블랙 프리미엄',1],['dot-12','명함첩',1],['dot-13','사원증',1]],
+ '컬러·사진':[['cp','컬러·사진',0]],
+ '그라데이션':[['bang-39','오라 그라데이션',0],['bang-29','말랑 젤리',0],['bang-38','크롬 Y2K',0],['bang-10','Y2K 밤하늘',0]],
+ '전체':[['bang-03','포스트잇 보드',2],['bang-07','다꾸 다이어리',2],['bang-11','감열지 영수증',2],['bang-12','RPG 상태창',2],['bang-24','네컷 포토부스',2],['bang-25','포카 바인더',2],['bang-33','데스크테리어',2],['bang-36','일촌 파도타기',2],['bang-20','냉장고 문',2]]};
+let st={pal:0,shape:'big',img:null,zoom:100,px:50,py:50,hide:{},theme:'cp',view:false,tab:'추천',want:{}};
+let blocks=[{id:1,t:'text',k:'오늘의 기분',v:'시험 D-3, 커피 수혈 중'},{id:2,t:'dday',k:'생일까지',v:'D-12'},{id:3,t:'grid',n:2,imgs:[]},{id:4,t:'text',k:'요즘 듣는 노래',v:'좋은 날 · 아이유'}];
+let nid=10,pickTarget=null,sel=null;
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),1600)}
+function applyPal(){const p=PAL[st.pal],s=$('scr');s.style.setProperty('--bg',p[1]);s.style.setProperty('--ink',p[2]);s.style.setProperty('--mute',p[3]);s.style.setProperty('--glass',p[4]?'rgba(255,255,255,.09)':'rgba(255,255,255,.55)');s.style.setProperty('--glass2',p[4]?'rgba(255,255,255,.15)':'rgba(255,255,255,.85)');$('kn').style.background=p[2];$('kn').style.color=p[4]?'#111':'#fff'}
+function drawPhoto(){const ph=$('ph');ph.className='ph tap '+st.shape+(sel==='photo'?' sel':'');$('pc').textContent=st.shape==='pola'?'오늘의 나':'';const im=$('phimg');if(st.img){im.style.backgroundImage='url('+st.img+')';im.style.backgroundSize=st.zoom+'%';im.style.backgroundPosition=st.px+'% '+st.py+'%';$('phe').style.display='none'}else{im.style.backgroundImage='';$('phe').style.display='flex'}}
+function drawHide(){['photo','name','bio','cnt'].forEach(k=>{const el={photo:$('ph'),name:$('nm'),bio:$('bio'),cnt:$('cnt')}[k];el.classList.toggle('hid',!!st.hide[k]);el.classList.toggle('ghost',!!st.hide[k]&&!st.view)})}
+function drawList(){const L=$('list');L.innerHTML='';blocks.forEach(b=>{const d=document.createElement('div');d.className='blk tap'+(b.t==='grid'?' grid g'+b.n:'')+(sel===b.id?' sel':'');d.dataset.id=b.id;
+ if(b.t==='grid'){for(let i=0;i<b.n;i++){const c=document.createElement('div');c.className='cell';c.innerHTML=b.imgs[i]?'<div class="img" style="background-image:url('+b.imgs[i]+')"></div>':'<div class="empty">+</div>';c.onclick=e=>{if(st.view)return;e.stopPropagation();pickTarget={b:b.id,i};$('file').click()};d.appendChild(c)}}
+ else{d.innerHTML='<div class="k">'+b.k+'</div><div class="'+(b.t==='dday'?'big':'v')+'">'+b.v+'</div>'}
+ const h=document.createElement('div');h.className='handle';h.textContent='⋮⋮';h.onpointerdown=e=>startDrag(e,d,b.id);d.appendChild(h);
+ d.onclick=()=>{if(st.view)return;select(b.id)};L.appendChild(d)})}
+function startDrag(e,el,id){e.preventDefault();e.stopPropagation();el.classList.add('drag');const L=$('list');const move=ev=>{const y=ev.clientY;const items=[...L.children].filter(x=>x!==el);let before=null;for(const it of items){const r=it.getBoundingClientRect();if(y<r.top+r.height/2){before=it;break}}L.insertBefore(el,before)};const up=()=>{el.classList.remove('drag');document.removeEventListener('pointermove',move);document.removeEventListener('pointerup',up);const order=[...L.children].map(x=>+x.dataset.id);blocks.sort((a,b)=>order.indexOf(a.id)-order.indexOf(b.id));drawList();toast('순서 바꿨어요')};document.addEventListener('pointermove',move);document.addEventListener('pointerup',up)}
+function sheet(html){const s=$('sheet');s.innerHTML=html;s.classList.add('open');const c=s.querySelector('[data-close]');if(c)c.onclick=closeSheet}
+function closeSheet(){$('sheet').classList.remove('open');sel=null;$('nm').contentEditable=false;$('bio').contentEditable=false;drawPhoto();drawList();document.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'))}
+function chipRow(items,cur,fn){return '<div class="chips">'+items.map(([v,l])=>'<button class="chip'+(v===cur?' on':'')+'" data-v="'+v+'">'+l+'</button>').join('')+'</div>'}
+function bindChips(sel2,fn){$('sheet').querySelectorAll(sel2+' .chip').forEach(b=>b.onclick=()=>fn(b.dataset.v))}
+function select(what){if(st.view)return;sel=what;document.querySelectorAll('.sel').forEach(x=>x.classList.remove('sel'));
+ if(what==='photo'){$('ph').classList.add('sel');sheet('<div class="tt">사진<button data-close>완료</button></div><div class="row2"><button class="btn" id="sPick">'+(st.img?'사진 바꾸기':'사진 넣기')+'</button><button class="btn l" id="sHide">'+(st.hide.photo?'다시 보이기':'숨기기')+'</button></div><div class="lb">모양</div><div id="sShape">'+chipRow([['big','크게'],['circle','동그라미'],['pola','폴라로이드']],st.shape)+'</div><div class="lb">확대 (사진은 화면에서 끌어서 위치 옮기기)</div><input type="range" class="zoom" id="sZoom" min="100" max="250" value="'+st.zoom+'">');
+  $('sPick').onclick=()=>{pickTarget='main';$('file').click()};$('sHide').onclick=()=>{st.hide.photo=!st.hide.photo;drawHide();select('photo')};bindChips('#sShape',v=>{st.shape=v;drawPhoto();select('photo')});$('sZoom').oninput=e=>{st.zoom=+e.target.value;drawPhoto()}}
+ else if(what==='name'||what==='bio'||what==='cnt'){const el=$(what==='name'?'nm':what==='bio'?'bio':'cnt');el.classList.add('sel');const lab={name:'이름',bio:'한 줄 소개',cnt:'방문자 수'}[what];if(what!=='cnt'){el.contentEditable=true;el.focus()}
+  sheet('<div class="tt">'+lab+'<button data-close>완료</button></div>'+(what!=='cnt'?'<div style="color:#888;font-size:12px;margin-bottom:10px">화면에서 바로 글자를 고치면 돼요</div>':'')+'<button class="btn l" id="sHide">'+(st.hide[what]?'다시 보이기':lab+' 숨기기')+'</button>');$('sHide').onclick=()=>{st.hide[what]=!st.hide[what];drawHide();toast(st.hide[what]?lab+' 숨겼어요 (미리보기에서 사라져요)':'다시 보여요');select(what)}}
+ else{const b=blocks.find(x=>x.id===what);drawList();
+  if(b.t==='grid'){sheet('<div class="tt">사진 칸<button data-close>완료</button></div><div class="lb">칸 수</div><div id="sN">'+chipRow([['1','1장'],['2','2칸'],['3','3칸']],String(b.n))+'</div><div class="lb">빈 칸을 누르면 사진을 넣어요</div><button class="btn l" id="sDel">이 칸 삭제</button>');bindChips('#sN',v=>{b.n=+v;drawList();select(b.id)})}
+  else{sheet('<div class="tt">'+b.k+'<button data-close>완료</button></div><div class="lb">제목</div><input id="sK" value="'+b.k+'" style="width:100%;box-sizing:border-box;padding:9px;border:1px solid #ddd;border-radius:10px;font:inherit"><div class="lb">내용</div><input id="sV" value="'+b.v+'" style="width:100%;box-sizing:border-box;padding:9px;border:1px solid #ddd;border-radius:10px;font:inherit"><div class="lb"></div><button class="btn l" id="sDel">이 칸 삭제</button>');$('sK').oninput=e=>{b.k=e.target.value;drawList()};$('sV').oninput=e=>{b.v=e.target.value;drawList()}}
+  $('sDel').onclick=()=>{blocks=blocks.filter(x=>x!==b);closeSheet();toast('삭제했어요')}}}
+$('ph').onclick=()=>select('photo');$('nm').onclick=()=>select('name');$('bio').onclick=()=>select('bio');$('cnt').onclick=()=>select('cnt');
+let dragP=null;$('phin').onpointerdown=e=>{if(st.view||!st.img||sel!=='photo')return;dragP={x:e.clientX,y:e.clientY,px:st.px,py:st.py};e.preventDefault()};
+document.addEventListener('pointermove',e=>{if(!dragP)return;st.px=Math.max(0,Math.min(100,dragP.px-(e.clientX-dragP.x)/2));st.py=Math.max(0,Math.min(100,dragP.py-(e.clientY-dragP.y)/2));drawPhoto()});document.addEventListener('pointerup',()=>dragP=null);
+$('add').onclick=()=>{sheet('<div class="tt">칸 추가<button data-close>닫기</button></div><div class="chips" id="sAdd"><button class="chip" data-v="g1">사진 1장</button><button class="chip" data-v="g2">사진 2칸</button><button class="chip" data-v="g3">사진 3칸</button><button class="chip" data-v="dday">D-day</button><button class="chip" data-v="text">한 줄</button><button class="chip" data-v="link">링크</button></div>');bindChips('#sAdd',v=>{const id=nid++;if(v[0]==='g')blocks.push({id,t:'grid',n:+v[1],imgs:[]});else if(v==='dday')blocks.push({id,t:'dday',k:'우리 만난 지',v:'D+100'});else if(v==='link')blocks.push({id,t:'text',k:'인스타그램',v:'@jiwoo.room ↗'});else blocks.push({id,t:'text',k:'한 줄',v:'여기에 적어요'});closeSheet();toast('칸을 추가했어요');setTimeout(()=>$('scr').scrollTo({top:9999,behavior:'smooth'}),50)})};
+$('file').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{if(pickTarget==='main'){st.img=r.result;drawPhoto();select('photo');toast('사진을 끌어서 위치를 옮겨봐요')}else if(pickTarget){const b=blocks.find(x=>x.id===pickTarget.b);b.imgs[pickTarget.i]=r.result;drawList()}e.target.value=''};r.readAsDataURL(f)};
+function themeSheet(){let h='<div class="tt">테마<button data-close>닫기</button></div><div class="tabs">'+Object.keys(THEMES).map(k=>'<button class="chip'+(k===st.tab?' on':'')+'" data-tab="'+k+'">'+k+'</button>').join('')+'</div><div class="tg">';
+ THEMES[st.tab].forEach(([f,n,s])=>{const bg=f==='cp'?PAL[st.pal][1]:'url('+T+f+'.webp)';h+='<button class="tc'+(st.theme===f?' on':'')+'" data-f="'+f+'" data-s="'+s+'" data-n="'+n+'"><div class="th" style="background:'+bg+(f==='cp'?'':' center top/cover')+'">'+(st.tab==='추천'?'<span class="best">BEST</span>':'')+(s===2?'<span class="soon">곧 열려요</span>':'')+'</div>'+n+(s===2&&st.want[f]?' · 요청함':'')+'</button>'});
+ h+='</div>';sheet(h);$('sheet').querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{st.tab=b.dataset.tab;themeSheet()});
+ $('sheet').querySelectorAll('.tc').forEach(b=>b.onclick=()=>{const f=b.dataset.f,s=+b.dataset.s,n=b.dataset.n;if(s===2){st.want[f]=1;toast('"'+n+'" 먼저 만들어달라고 요청했어요');themeSheet();return}st.theme=f;if(f==='cp'){$('static').classList.remove('on');$('scr').style.visibility='visible'}else{$('static').style.backgroundImage='url('+T+f+'.webp)';$('stn').textContent='"'+n+'" 시안 그림이에요. 실제로는 이 모습 그대로 사진·글·칸을 바꿀 수 있게 만들어요. 컬러·사진으로 돌아가면 편집해볼 수 있어요.';$('static').classList.add('on')}themeSheet()})}
+$('bTheme').onclick=themeSheet;
+$('bColor').onclick=()=>{sheet('<div class="tt">색<button data-close>완료</button></div><div class="lb">그라데이션</div><div class="chips" id="g1">'+PAL.slice(0,6).map((p,i)=>'<button class="sw'+(i===st.pal?' on':'')+'" data-i="'+i+'" style="background:'+p[1]+'" title="'+p[0]+'"></button>').join('')+'</div><div class="lb">단색</div><div class="chips" id="g2">'+PAL.slice(6).map((p,i)=>'<button class="sw'+(i+6===st.pal?' on':'')+'" data-i="'+(i+6)+'" style="background:'+p[1]+'" title="'+p[0]+'"></button>').join('')+'</div><div class="lb" id="pn">'+PAL[st.pal][0]+'</div>');$('sheet').querySelectorAll('.sw').forEach(b=>b.onclick=()=>{st.pal=+b.dataset.i;applyPal();$('bColor').onclick()})};
+$('bView').onclick=()=>{st.view=!st.view;closeSheet();$('scr').classList.toggle('ed',!st.view);$('bView').classList.toggle('on',st.view);$('bView').innerHTML='<i>'+(st.view?'✎':'◉')+'</i>'+(st.view?'편집으로':'미리보기');drawHide();toast(st.view?'방문자가 보는 화면이에요':'편집 모드')};
+$('kn').onclick=()=>{if(!st.view){toast('미리보기에서 눌러봐요');return}const n=parseInt($('kc').textContent)+1;$('kc').textContent=n+'번';toast('똑똑! 노크했어요')};
+applyPal();drawPhoto();drawList();drawHide();
+</script></body></html>
