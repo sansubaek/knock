@@ -1,7 +1,7 @@
 'use client'
 
 import { useActionState, useEffect, useMemo, useRef, useState } from 'react'
-import { AGE_BANDS, MAX_PICKS, THEMES, pad2, themeSrc, themeThumb, type Line } from '@/lib/vote'
+import { AGE_BANDS, MAX_PICKS, THEMES, pad2, themeSrc, themeThumb, visibleNos, type Line } from '@/lib/vote'
 import type { MyVotes, VoteState } from '@/lib/vote-server'
 import { voteAction } from './actions'
 
@@ -10,8 +10,8 @@ const LINES: { key: Line; name: string; tag: string; about: string }[] = [
   { key: 'dot', name: 'knock.', tag: '명함', about: '일할 때 건네는 명함이에요. 찍으면 연락처가 바로 저장돼요.' },
 ]
 
-function shuffled(n: number) {
-  const a = Array.from({ length: n }, (_, i) => i + 1)
+function shuffled(list: number[]) {
+  const a = [...list]
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     ;[a[i], a[j]] = [a[j], a[i]]
@@ -24,8 +24,8 @@ export function VoteClient({ initial, startLine }: { initial: MyVotes; startLine
   const [picks, setPicks] = useState<Record<Line, number[]>>({ bang: initial.bang, dot: initial.dot })
   const [age, setAge] = useState<string>(initial.age ?? '')
   const [order, setOrder] = useState<Record<Line, number[]>>({
-    bang: THEMES.bang.map((t) => t.no),
-    dot: THEMES.dot.map((t) => t.no),
+    bang: visibleNos('bang'),
+    dot: visibleNos('dot'),
   })
   const [byNumber, setByNumber] = useState(false)
   const [view, setView] = useState<number | null>(null)
@@ -41,11 +41,11 @@ export function VoteClient({ initial, startLine }: { initial: MyVotes; startLine
 
   // 앞 번호에 표가 몰리지 않게 사람마다 순서를 섞어서 보여준다
   useEffect(() => {
-    random.current = { bang: shuffled(THEMES.bang.length), dot: shuffled(THEMES.dot.length) }
+    random.current = { bang: shuffled(visibleNos('bang')), dot: shuffled(visibleNos('dot')) }
     setOrder(random.current)
   }, [])
   useEffect(() => {
-    if (byNumber) setOrder({ bang: THEMES.bang.map((t) => t.no), dot: THEMES.dot.map((t) => t.no) })
+    if (byNumber) setOrder({ bang: visibleNos('bang'), dot: visibleNos('dot') })
     else if (random.current) setOrder(random.current)
   }, [byNumber])
   useEffect(() => {
@@ -135,7 +135,7 @@ export function VoteClient({ initial, startLine }: { initial: MyVotes; startLine
           >
             <b>{l.name}</b>
             <span>
-              {l.tag} · {THEMES[l.key].length}개
+              {l.tag} · {visibleNos(l.key).length}개
             </span>
             <em className={picks[l.key].length === MAX_PICKS ? 'full' : ''}>
               {picks[l.key].length}/{MAX_PICKS}
