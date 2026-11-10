@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>knock 살아있는 방 프로토타입</title>
+<style>
+:root{--ink:#1F1E1C;--paper:#F4EFE6;--wall:#EDE5D6;--floor:#D9C3A1;--acc:#7C8F6A;--wood:#B8935F}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:#E9E7E3;font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:var(--ink)}
+.app{max-width:430px;margin:0 auto;min-height:100vh;background:var(--paper);display:flex;flex-direction:column}
+header{display:flex;align-items:baseline;justify-content:space-between;padding:14px 18px 8px;border-bottom:1px solid #1F1E1C1f}
+.wm{font-weight:900;font-style:italic;font-size:22px;letter-spacing:-.04em}
+.tag{font-size:11px;color:#1F1E1C99}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:8px 18px;font-size:12px;color:#1F1E1Cb3}
+.dots{display:flex;gap:5px}
+.dots i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink);display:block}
+.dots i.on{background:var(--ink)}
+.stage{position:relative;width:100%;touch-action:manipulation;user-select:none;-webkit-user-select:none}
+.stage svg{display:block;width:100%;height:auto}
+.view{display:none}.view.on{display:block}
+.hint{padding:2px 18px 10px;font-size:13px;line-height:1.5;min-height:50px}
+.hint b{font-weight:700}
+nav{margin-top:auto;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #1F1E1C1f}
+nav button{appearance:none;border:0;background:none;padding:14px 0 18px;font:inherit;font-size:13px;color:#1F1E1C80}
+nav button.on{color:var(--ink);font-weight:700}
+.bubble{position:absolute;transform:translate(-50%,-100%);background:#fff;border:1.5px solid var(--ink);border-radius:14px;padding:7px 11px;font-size:13px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .15s}
+.bubble.on{opacity:1}
+.bubble:after{content:"";position:absolute;left:50%;bottom:-6px;width:9px;height:9px;background:#fff;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:translateX(-50%) rotate(45deg)}
+.fx{position:absolute;pointer-events:none;font-size:16px;font-weight:800;animation:up 1s ease-out forwards;transform:translate(-50%,-50%)}
+@keyframes up{to{transform:translate(-50%,-190%);opacity:0}}
+/* svg motion */
+#charBody,#eyes,#disc,#doorLeaf,.sway{transform-box:fill-box}
+#charBody{transform-origin:50% 100%}
+#charBody.hop{animation:hop .38s ease-out}
+@keyframes hop{40%{transform:translateY(-20px) scale(.97,1.04)}}
+#charBody.dizzy{animation:dizzy .25s linear 6}
+@keyframes dizzy{25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+#charBody.walk{animation:walk .28s linear infinite}
+@keyframes walk{50%{transform:translateY(-4px) rotate(2deg)}}
+#eyes{transform-origin:50% 50%;animation:blink 4s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
+#disc{transform-origin:50% 50%}
+#disc.spin{animation:spin 1.6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#doorLeaf{transform-origin:0 50%;transition:transform .5s ease-in}
+#doorLeaf.kn{animation:kn .16s linear 2}
+@keyframes kn{50%{transform:translateX(3px)}}
+#doorLeaf.open{transform:scaleX(.08)}
+.sway{transform-origin:50% 100%;animation:sway 5s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(2.5deg)}}
+.tap{cursor:pointer}
+#char{touch-action:none}
+.pulse{transform-box:fill-box;transform-origin:50% 50%;animation:pulse 1.4s ease-out infinite}
+@keyframes pulse{0%{transform:scale(.5);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+/* alley */
+.alley{display:flex;gap:14px;overflow-x:auto;padding:26px 18px 18px;scroll-snap-type:x mandatory}
+.house{flex:0 0 150px;scroll-snap-align:center;text-align:left;border:0;background:none;padding:0;font:inherit;color:inherit}
+.house svg{width:150px;height:auto;display:block}
+.house .nm{font-weight:800;font-size:15px;margin-top:8px}
+.house .sub{font-size:11.5px;color:#1F1E1C99;margin-top:2px;line-height:1.4}
+.alleyTop{padding:18px 18px 0;font-size:13px;line-height:1.55}
+.alleyTop b{font-size:17px;display:block;margin-bottom:2px}
+/* sheet */
+.sheet{position:fixed;left:50%;bottom:0;transform:translate(-50%,105%);width:100%;max-width:430px;background:#fff;border-top:1.5px solid var(--ink);padding:16px 18px 22px;transition:transform .25s;z-index:5}
+.sheet.on{transform:translate(-50%,0)}
+.sheet h3{margin:0 0 8px;font-size:15px;display:flex;justify-content:space-between}
+.sheet h3 button{border:0;background:none;font:inherit;font-size:13px;color:#1F1E1C99}
+.sheet ul{list-style:none;margin:0 0 10px;padding:0;max-height:150px;overflow:auto}
+.sheet li{padding:8px 0;border-bottom:1px solid #1F1E1C1a;font-size:13.5px}
+.sheet li b{margin-right:6px}
+.sheet form{display:flex;gap:8px}
+.sheet input{flex:1;border:1.5px solid var(--ink);border-radius:999px;padding:9px 14px;font:inherit;font-size:14px;outline:0}
+.sheet form button{border:0;border-radius:999px;background:var(--ink);color:#fff;padding:0 16px;font:inherit;font-size:13px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="app">
+  <header><span class="wm">knock!</span><span class="tag">프로토타입 · 그림은 임시 · 저장 안 됨</span></header>
+  <div class="bar"><span id="where">두부네 문 앞</span><span style="display:flex;gap:8px;align-items:center">찾은 반응 <span class="dots" id="dots"></span></span></div>
+
+  <div class="hint" id="hint"></div>
+  <div class="stage" id="stage">
+    <!-- 문 -->
+    <div class="view on" id="vDoor">
+      <svg viewBox="0 0 390 520">
+        <rect width="390" height="400" fill="var(--wall)"/><rect y="400" width="390" height="120" fill="var(--floor)"/>
+        <rect y="396" width="390" height="5" fill="#1F1E1C" opacity=".12"/>
+        <rect x="112" y="78" width="166" height="322" fill="#1F1E1C"/>
+        <rect x="120" y="86" width="150" height="314" fill="#2B2722"/>
+        <g id="doorLeaf" class="tap">
+          <rect x="120" y="86" width="150" height="314" fill="var(--acc)" stroke="#1F1E1C" stroke-width="2"/>
+          <rect x="136" y="104" width="118" height="120" fill="none" stroke="#1F1E1C" stroke-opacity=".35" stroke-width="2"/>
+          <rect x="136" y="244" width="118" height="136" fill="none" stroke="#1F1E1C" stroke-opacity=".35" stroke-width="2"/>
+          <circle cx="250" cy="250" r="7" fill="#E8D9B0" stroke="#1F1E1C" stroke-width="2"/>
+          <circle id="pulse" class="pulse" cx="195" cy="300" r="30" fill="none" stroke="#fff" stroke-width="3"/>
+          <text id="tapTxt" x="195" y="305" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">여기를 톡톡</text>
+          <g transform="translate(169,134)">
+            <rect width="52" height="62" rx="6" fill="#fff" stroke="#1F1E1C" stroke-width="1.5"/>
+            <g fill="#1F1E1C"><rect x="8" y="8" width="12" height="12"/><rect x="32" y="8" width="12" height="12"/><rect x="8" y="32" width="12" height="12"/><rect x="24" y="12" width="4" height="4"/><rect x="24" y="24" width="6" height="6"/><rect x="34" y="28" width="4" height="4"/><rect x="40" y="36" width="4" height="8"/><rect x="26" y="38" width="8" height="4"/></g>
+            <text x="26" y="56" text-anchor="middle" font-size="7" font-weight="800" font-style="italic" fill="#1F1E1C">knock!</text>
+          </g>
+        </g>
+        <rect x="140" y="408" width="110" height="26" rx="4" fill="#1F1E1C" opacity=".14"/>
+        <text id="doorName" x="195" y="62" text-anchor="middle" font-size="15" font-weight="800" fill="#1F1E1C">두부네</text>
+        <g class="sway"><rect x="40" y="350" width="30" height="50" rx="4" fill="#B8935F" stroke="#1F1E1C" stroke-width="1.5"/><path d="M55 350 q-16-30 -4-56 M55 350 q14-26 6-48 M55 350 q0-20 -1-40" fill="none" stroke="#5C7052" stroke-width="5" stroke-linecap="round"/></g>
+      </svg>
+    </div>
+
+    <!-- 방 -->
+    <div class="view" id="vRoom">
+      <svg viewBox="0 0 390 520" id="room">
+        <defs><radialGradient id="glow"><stop offset="0" stop-color="#FFD98A" stop-opacity=".75"/><stop offset="1" stop-color="#FFD98A" stop-opacity="0"/></radialGradient></defs>
+        <rect width="390" height="350" fill="var(--wall)"/>
+        <rect id="floor" y="350" width="390" height="170" fill="var(--floor)"/>
+        <rect y="346" width="390" height="6" fill="#1F1E1C" opacity=".12"/>
+        <!-- 창문 -->
+        <g id="win" class="tap">
+          <rect x="34" y="56" width="128" height="118" fill="#1F1E1C"/>
+          <rect id="sky" x="40" y="62" width="116" height="106" fill="#CFE3EE"/>
+          <g id="sun"><circle cx="128" cy="92" r="13" fill="#F3D27A"/><path d="M52 150 q22-22 44 0 q18-18 40 0 v18 h-84z" fill="#fff" opacity=".85"/></g>
+          <g id="moon" style="display:none"><circle cx="126" cy="92" r="12" fill="#F4EFE6"/><circle cx="132" cy="88" r="11" fill="#23283A"/><g fill="#F4EFE6"><circle cx="60" cy="84" r="1.6"/><circle cx="84" cy="120" r="1.4"/><circle cx="104" cy="74" r="1.4"/><circle cx="66" cy="142" r="1.5"/><circle cx="140" cy="140" r="1.4"/></g></g>
+          <path d="M98 62v106M40 115h116" stroke="#1F1E1C" stroke-width="3"/>
+          <rect x="28" y="172" width="140" height="8" fill="#1F1E1C"/>
+        </g>
+        <!-- 액자 -->
+        <g><rect x="196" y="64" width="54" height="66" fill="#fff" stroke="#1F1E1C" stroke-width="2"/><rect x="203" y="71" width="40" height="40" fill="var(--acc)" opacity=".45"/><text x="223" y="124" text-anchor="middle" font-size="7" fill="#1F1E1C">내 사진 자리</text></g>
+        <!-- 선반 + 턴테이블 -->
+        <g id="deck" class="tap">
+          <rect x="236" y="216" width="124" height="7" fill="#1F1E1C"/>
+          <rect x="250" y="176" width="92" height="40" rx="5" fill="var(--wood)" stroke="#1F1E1C" stroke-width="2"/>
+          <g id="disc"><circle cx="284" cy="196" r="15" fill="#1F1E1C"/><circle cx="284" cy="196" r="4.5" fill="var(--acc)"/><rect x="283" y="183" width="2" height="5" fill="#fff" opacity=".6"/></g>
+          <path d="M326 184 l-16 14" stroke="#1F1E1C" stroke-width="3" stroke-linecap="round"/><circle cx="328" cy="183" r="4" fill="#1F1E1C"/>
+        </g>
+        <!-- 스탠드 -->
+        <g id="lamp" class="tap">
+          <rect x="346" y="262" width="4" height="150" fill="#1F1E1C"/><ellipse cx="348" cy="414" rx="18" ry="5" fill="#1F1E1C"/>
+          <path id="shade" d="M330 262 l8-34 h20 l8 34z" fill="#fff" stroke="#1F1E1C" stroke-width="2"/>
+        </g>
+        <!-- 러그 -->
+        <ellipse cx="195" cy="462" rx="120" ry="30" fill="var(--acc)" opacity=".22"/>
+        <!-- 화분 -->
+        <g id="plant" class="tap">
+          <g class="sway">
+            <g id="lv1"><path d="M58 404 v-22" stroke="#5C7052" stroke-width="4" stroke-linecap="round"/><path d="M58 386 q-16-4 -18-18 q16 0 18 18z M58 390 q14-6 16-20 q-15 3 -16 20z" fill="#7C8F6A" stroke="#1F1E1C" stroke-width="1.2"/></g>
+            <g id="lv2"><path d="M58 382 v-26" stroke="#5C7052" stroke-width="4" stroke-linecap="round"/><path d="M58 362 q-20-2 -24-20 q20 0 24 20z M58 366 q18-6 20-24 q-18 4 -20 24z" fill="#7C8F6A" stroke="#1F1E1C" stroke-width="1.2"/></g>
+            <g id="lv3"><path d="M58 356 v-26" stroke="#5C7052" stroke-width="4" stroke-linecap="round"/><path d="M58 336 q-20-2 -24-22 q20 2 24 22z M58 340 q18-8 20-26 q-18 6 -20 26z" fill="#8FA37C" stroke="#1F1E1C" stroke-width="1.2"/></g>
+            <g id="lv4"><path d="M58 330 v-16" stroke="#5C7052" stroke-width="4" stroke-linecap="round"/><circle cx="58" cy="306" r="10" fill="#F3D27A" stroke="#1F1E1C" stroke-width="1.5"/><circle cx="58" cy="306" r="3.5" fill="#1F1E1C"/></g>
+          </g>
+          <path d="M38 404 h40 l-5 40 h-30z" fill="var(--wood)" stroke="#1F1E1C" stroke-width="2"/>
+          <rect x="34" y="398" width="48" height="9" rx="2" fill="var(--wood)" stroke="#1F1E1C" stroke-width="2"/>
+          <text id="waterTxt" x="58" y="462" text-anchor="middle" font-size="9" fill="#1F1E1C" opacity=".7"></text>
+        </g>
+        <!-- 우편함 -->
+        <g id="mail" class="tap" transform="translate(-40,4)">
+          <rect x="296" y="434" width="6" height="56" fill="#1F1E1C"/>
+          <path d="M270 404 h50 a12 12 0 0 1 12 12 v22 h-62z" fill="#fff" stroke="#1F1E1C" stroke-width="2"/>
+          <rect x="282" y="418" width="26" height="4" fill="#1F1E1C"/>
+          <path d="M332 412 v-16 h12 v8 h-12" fill="var(--acc)" stroke="#1F1E1C" stroke-width="1.5"/>
+          <text id="mailTxt" x="301" y="506" text-anchor="middle" font-size="9" fill="#1F1E1C" opacity=".7"></text>
+        </g>
+        <!-- 다녀간 사람 -->
+        <g id="ghosts"></g>
+        <!-- 캐릭터 -->
+        <g id="char" class="tap" transform="translate(195,410)">
+          <ellipse cx="0" cy="64" rx="32" ry="6" fill="#1F1E1C" opacity=".15"/>
+          <g id="charBody">
+            <rect x="-23" y="10" width="46" height="52" rx="19" fill="var(--acc)" stroke="#1F1E1C" stroke-width="2"/>
+            <circle cx="0" cy="-12" r="29" fill="#F6E3CF" stroke="#1F1E1C" stroke-width="2"/>
+            <path d="M-29,-14 Q-28,-44 0,-43 Q28,-44 29,-14 Q14,-30 0,-27 Q-14,-30 -29,-14Z" fill="#1F1E1C"/>
+            <g id="eyes" fill="#1F1E1C"><circle cx="-10" cy="-6" r="3"/><circle cx="10" cy="-6" r="3"/></g>
+            <g id="eyesX" style="display:none" stroke="#1F1E1C" stroke-width="2" stroke-linecap="round"><path d="M-13-9l6 6M-7-9l-6 6M7-9l6 6M13-9l-6 6"/></g>
+            <g id="eyesZ" style="display:none" stroke="#1F1E1C" stroke-width="2" stroke-linecap="round" fill="none"><path d="M-14-6q4 3 8 0M6-6q4 3 8 0"/></g>
+            <path id="mouth" d="M-5,5 Q0,9 5,5" fill="none" stroke="#1F1E1C" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </g>
+        <!-- 밤 -->
+        <rect id="dark" width="390" height="520" fill="#141826" opacity="0" pointer-events="none" style="transition:opacity .4s"/>
+        <circle id="lampGlow" cx="348" cy="300" r="150" fill="url(#glow)" opacity="0" pointer-events="none" style="transition:opacity .3s"/>
+      </svg>
+      <div class="bubble" id="bubble"></div>
+    </div>
+
+    <!-- 골목 -->
+    <div class="view" id="vAlley">
+      <div class="alleyTop"><b>우리 골목</b>실제로 만나서 노크한 사람만 이웃이 돼. 불 켜진 집은 오늘 방이 바뀐 집.</div>
+      <div class="alley" id="alley"></div>
+    </div>
+  </div>
+
+  <nav><button data-v="door" class="on">문</button><button data-v="room">방</button><button data-v="alley">골목</button></nav>
+</div>
+
+<div class="sheet" id="sheet">
+  <h3><span id="sheetT">방명록</span><button id="sheetX">닫기</button></h3>
+  <ul id="notes"></ul>
+  <form id="noteF"><input id="noteI" maxlength="30" placeholder="한 줄 남기기"><button>남기기</button></form>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+let lastDown=0; document.addEventListener('pointerdown',()=>lastDown=Date.now(),true);
+function on(el,fn){ el.addEventListener('pointerdown',fn); el.addEventListener('click',e=>{ if(Date.now()-lastDown>700) fn(e); }); }
+const NEIGH=[
+ {id:'dubu',name:'두부',me:true,wall:'#EDE5D6',floor:'#D9C3A1',acc:'#7C8F6A',status:'과제 중',water:4,changed:true,
+  lines:['왔어?','방명록 쓰고 가','오늘 좀 피곤함','화분에 물 좀 줘','폰 주인한테 안부 전해줘'],
+  notes:[['민지','어제 왔다 감 ㅎ'],['현우','케이스 어디서 샀냐'],['익명','방 깔끔하네']],ghosts:[['민지',112],['현우',262]]},
+ {id:'minji',name:'민지',wall:'#E4E8E2',floor:'#C5CCB8',acc:'#5E7A8C',status:'알바 중',water:9,changed:true,
+  lines:['두부 친구지?','지금 알바 중이라 답 늦어','턴테이블 눌러봐','노크 고마워'],
+  notes:[['두부','물 주고 감'],['서연','주말에 보자']],ghosts:[['두부',120]]},
+ {id:'hyunwoo',name:'현우',wall:'#ECE6DA',floor:'#BFA98A',acc:'#8C6A4A',status:'헬스장',water:1,changed:false,
+  lines:['ㅇㅇ 왔냐','운동 중','화분 죽기 직전임 물 좀'],
+  notes:[['두부','화분 좀 챙겨라']],ghosts:[]},
+ {id:'seoyeon',name:'서연',wall:'#EAE7EE',floor:'#CFC8D6',acc:'#6F6A8C',status:'자는 중',water:6,changed:false,night:true,
+  lines:['…누구세요','자는 중이었는데','내일 다시 와'],
+  notes:[['민지','잘 자']],ghosts:[['민지',250]]},
+ {id:'cafe',name:'동아리방',wall:'#EFE9DC',floor:'#D6C7A6',acc:'#B07A3C',status:'금요일 정모',water:12,changed:true,
+  lines:['신입 환영','금요일 6시 정모','방명록에 이름 남겨줘'],
+  notes:[['회장','이번 주 정모 공지 확인'],['두부','참석']],ghosts:[['민지',110],['현우',270]]}
+];
+const FOUND=['knock','talk','rub','spam','window','lamp','plant','music','mail','walk'];
+const found=new Set(), S={};
+let cur=NEIGH[0], view='door', knocks=0, bubbleT, walkRAF;
+const st=()=>S[cur.id]??={night:!!cur.night,lamp:false,play:false,water:cur.water,x:195,notes:cur.notes.map(n=>[...n])};
+
+function mark(k){ if(!found.has(k)){found.add(k);drawDots();} }
+function drawDots(){ $('#dots').innerHTML=FOUND.map(k=>`<i class="${found.has(k)?'on':''}"></i>`).join(''); }
+function fx(t,x,y,color){ const s=document.createElement('span'); s.className='fx'; s.textContent=t; s.style.left=x/390*100+'%'; s.style.top=y/520*100+'%'; if(color)s.style.color=color; $('#stage').appendChild(s); setTimeout(()=>s.remove(),1000); }
+function say(t,ms=1800){ const b=$('#bubble'), s=st(); b.textContent=t; b.style.left=s.x/390*100+'%'; b.style.top=(410-52)/520*100+'%'; b.classList.add('on'); clearTimeout(bubbleT); bubbleT=setTimeout(()=>b.classList.remove('on'),ms); }
+function hint(h){ $('#hint').innerHTML=h; }
+function buzz(n){ try{navigator.vibrate&&navigator.vibrate(n)}catch(e){} }
+
+function show(v){
+  view=v; ['Door','Room','Alley'].forEach(n=>$('#v'+n).classList.toggle('on',n.toLowerCase()===v));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  $('#app')?.scrollTo?.(0,0);
+  const r=document.documentElement.style; r.setProperty('--wall',cur.wall); r.setProperty('--floor',cur.floor); r.setProperty('--acc',cur.acc);
+  if(v==='door'){ knocks=0; $('#tapTxt').textContent='여기를 톡톡'; $('#pulse').style.display=''; $('#doorLeaf').classList.remove('open'); $('#doorName').textContent=cur.name+(cur.id==='cafe'?'':'네'); $('#where').textContent=cur.name+(cur.id==='cafe'?'':'네')+' 문 앞'; hint('문을 <b>두 번</b> 두드려봐. 케이스 QR을 찍으면 이 화면이 먼저 뜨는 거야.'); }
+  if(v==='room'){ applyRoom(); $('#where').textContent=cur.name+(cur.id==='cafe'?'':'네 방')+' · '+cur.status; hint('아무거나 눌러봐. <b>캐릭터, 창문, 스탠드, 화분, 턴테이블, 우편함, 바닥</b>이 전부 반응해. 캐릭터는 문질러도 돼.'); setTimeout(()=>say(st().night&&!st().lamp?'zZ…':cur.lines[0]),350); }
+  if(v==='alley'){ drawAlley(); $('#where').textContent='골목'; hint('문을 누르면 그 집으로 가. 여긴 실시간 게임이 아니라, <b>각자 꾸며둔 방을 서로 들르는</b> 구조야.'); }
+}
+
+function applyRoom(){
+  const s=st();
+  $('#sky').setAttribute('fill',s.night?'#23283A':'#CFE3EE'); $('#sun').style.display=s.night?'none':''; $('#moon').style.display=s.night?'':'none';
+  $('#dark').setAttribute('opacity',s.night?(s.lamp?.28:.55):0); $('#lampGlow').setAttribute('opacity',s.lamp?1:0); $('#shade').setAttribute('fill',s.lamp?'#FFE7A8':'#fff');
+  $('#disc').classList.toggle('spin',s.play);
+  const lv=Math.min(4,1+Math.floor(s.water/3)); [1,2,3,4].forEach(i=>$('#lv'+i).style.display=i<=lv?'':'none');
+  $('#waterTxt').textContent='물 준 사람 '+s.water; $('#mailTxt').textContent='방명록 '+s.notes.length;
+  const sleep=s.night&&!s.lamp; $('#eyes').style.display=sleep?'none':''; $('#eyesZ').style.display=sleep?'':'none'; $('#eyesX').style.display='none';
+  $('#char').setAttribute('transform',`translate(${s.x},410)`);
+  $('#ghosts').innerHTML=cur.ghosts.map(([n,x])=>`<g class="tap" data-g="${n}" transform="translate(${x},372)" opacity=".5"><ellipse cx="0" cy="34" rx="15" ry="3" fill="#1F1E1C" opacity=".2"/><rect x="-11" y="6" width="22" height="26" rx="9" fill="#fff" stroke="#1F1E1C" stroke-width="1.5"/><circle cx="0" cy="-5" r="14" fill="#fff" stroke="#1F1E1C" stroke-width="1.5"/><circle cx="-4" cy="-4" r="1.6" fill="#1F1E1C"/><circle cx="4" cy="-4" r="1.6" fill="#1F1E1C"/><text x="0" y="-25" text-anchor="middle" font-size="9" font-weight="700" fill="#1F1E1C">${n}</text></g>`).join('');
+}
+
+/* 문 */
+on($('#doorLeaf'),e=>{
+  const d=$('#doorLeaf'); knocks++; buzz(30); $('#tapTxt').textContent=knocks<2?'한 번 더':''; if(knocks>=2)$('#pulse').style.display='none'; fx('똑',150+Math.random()*90,180+Math.random()*60);
+  d.classList.remove('kn'); void d.getBoundingClientRect(); d.classList.add('kn');
+  if(knocks>=2){ mark('knock'); setTimeout(()=>d.classList.add('open'),260); setTimeout(()=>show('room'),820); }
+});
+
+/* 방 */
+const pt=e=>{const r=$('#room').getBoundingClientRect();return{x:(e.clientX-r.left)/r.width*390,y:(e.clientY-r.top)/r.height*520}};
+let taps=[], rub=0, down=false, last=null;
+on($('#char'),e=>{
+  e.stopPropagation(); down=true; rub=0; last=pt(e); const s=st(), b=$('#charBody'), now=Date.now();
+  if(s.night&&!s.lamp){ s.lamp=true; applyRoom(); say('…누구세요'); mark('talk'); return; }
+  taps=taps.filter(t=>now-t<1600); taps.push(now);
+  b.classList.remove('hop','dizzy'); void b.getBoundingClientRect();
+  if(taps.length>=5){ taps=[]; b.classList.add('dizzy'); $('#eyes').style.display='none'; $('#eyesX').style.display=''; say('그만 눌러 ;;',1600); buzz([20,40,20]); mark('spam'); setTimeout(()=>{ $('#eyesX').style.display='none'; $('#eyes').style.display=''; },1600); }
+  else{ b.classList.add('hop'); say(cur.lines[Math.floor(Math.random()*cur.lines.length)]); mark('talk'); }
+});
+$('#room').addEventListener('pointermove',e=>{ if(!down)return; const p=pt(e); rub+=Math.hypot(p.x-last.x,p.y-last.y); last=p; if(rub>110){ rub=0; fx('♥',st().x+(Math.random()*40-20),372,'#B5533C'); say('헤헤'); mark('rub'); } });
+addEventListener('pointerup',()=>down=false);
+on($('#win'),e=>{ e.stopPropagation(); const s=st(); s.night=!s.night; applyRoom(); say(s.night?(s.lamp?'밤이네':'zZ…'):'아 눈부셔'); mark('window'); });
+on($('#lamp'),e=>{ e.stopPropagation(); const s=st(); s.lamp=!s.lamp; applyRoom(); if(s.night)say(s.lamp?'불 켜줘서 고마워':'zZ…'); mark('lamp'); });
+on($('#plant'),e=>{ e.stopPropagation(); const s=st(), before=Math.min(4,1+Math.floor(s.water/3)); s.water++; applyRoom(); fx('💧',58,330); const after=Math.min(4,1+Math.floor(s.water/3)); say(after>before?(after===4?'꽃 폈다!':'오 자랐다'):'물 고마워'); mark('plant'); });
+on($('#deck'),e=>{ e.stopPropagation(); const s=st(); s.play=!s.play; applyRoom(); if(s.play){ fx('♪',300,170); setTimeout(()=>fx('♫',318,176),250); say('요즘 듣는 노래'); } mark('music'); });
+on($('#mail'),e=>{ e.stopPropagation(); openSheet(); mark('mail'); });
+on($('#ghosts'),e=>{ const g=e.target.closest('[data-g]'); if(!g)return; e.stopPropagation(); const n=g.dataset.g, note=st().notes.find(x=>x[0]===n); fx(n+': '+(note?note[1]:'다녀감'),Math.min(300,Math.max(90,+g.getAttribute('transform').match(/\d+/)[0])),340); });
+on($('#room'),e=>{
+  const p=pt(e); if(p.y<356)return; const s=st(); if(s.night&&!s.lamp)return;
+  const to=Math.max(110,Math.min(250,p.x)), from=s.x, t0=performance.now(), dur=Math.max(250,Math.abs(to-from)*6), b=$('#charBody');
+  cancelAnimationFrame(walkRAF); b.classList.remove('hop'); b.classList.add('walk'); $('#bubble').classList.remove('on');
+  (function step(t){ const k=Math.min(1,(t-t0)/dur); s.x=from+(to-from)*k; $('#char').setAttribute('transform',`translate(${s.x},410)`); if(k<1)walkRAF=requestAnimationFrame(step); else b.classList.remove('walk'); })(t0);
+  mark('walk');
+});
+
+/* 방명록 */
+function openSheet(){ const s=st(); $('#sheetT').textContent=cur.name+(cur.id==='cafe'?'':'네')+' 방명록'; $('#notes').innerHTML=s.notes.map(([n,t])=>`<li><b>${n}</b>${t}</li>`).join(''); $('#sheet').classList.add('on'); }
+$('#sheetX').onclick=()=>$('#sheet').classList.remove('on');
+$('#noteF').onsubmit=e=>{ e.preventDefault(); const v=$('#noteI').value.trim(); if(!v)return; const d=document.createElement('div'); d.textContent=v; st().notes.unshift(['나',d.innerHTML]); $('#noteI').value=''; openSheet(); applyRoom(); setTimeout(()=>{ $('#sheet').classList.remove('on'); say('잘 읽을게'); },500); };
+
+/* 골목 */
+function drawAlley(){
+  $('#alley').innerHTML=NEIGH.map((n,i)=>`<button class="house" data-i="${i}">
+    <svg viewBox="0 0 150 230"><rect width="150" height="190" fill="${n.wall}" stroke="#1F1E1C" stroke-width="2"/><rect y="190" width="150" height="40" fill="${n.floor}" stroke="#1F1E1C" stroke-width="2"/>
+    <rect x="16" y="26" width="46" height="46" fill="${n.changed?'#FFE7A8':'#23283A'}" stroke="#1F1E1C" stroke-width="2"/><path d="M39 26v46M16 49h46" stroke="#1F1E1C" stroke-width="2"/>
+    <rect x="78" y="70" width="52" height="120" fill="${n.acc}" stroke="#1F1E1C" stroke-width="2"/><circle cx="121" cy="134" r="3.5" fill="#E8D9B0" stroke="#1F1E1C" stroke-width="1.5"/>
+    <rect x="94" y="84" width="20" height="24" rx="3" fill="#fff" stroke="#1F1E1C" stroke-width="1.2"/><rect x="98" y="88" width="5" height="5"/><rect x="105" y="88" width="5" height="5"/><rect x="98" y="95" width="5" height="5"/>
+    <rect x="80" y="196" width="48" height="10" rx="2" fill="#1F1E1C" opacity=".15"/></svg>
+    <div class="nm">${n.name}${n.me?' (내 방)':''}</div><div class="sub">${n.status}<br>${n.changed?'오늘 방이 바뀜':'변화 없음'} · 방명록 ${(S[n.id]?.notes||n.notes).length}</div></button>`).join('');
+}
+$('#alley').addEventListener('click',e=>{ const h=e.target.closest('.house'); if(!h)return; cur=NEIGH[+h.dataset.i]; show('door'); });
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{ show(b.dataset.v); });
+
+drawDots(); show('door');
+</script>
+</body>
+</html>
