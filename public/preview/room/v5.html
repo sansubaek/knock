@@ -1003,6 +1003,22 @@ window.__v5y={Y,drawYard,plotTap,stageOf,save};
   document.addEventListener('dragstart',e=>e.preventDefault());
 })();
 
+/* QA patch 2: wallet persistence, popup close, label cleanup (2026-11-12) */
+(function(){
+  const KEY='knock_wallet_v5';
+  try{ const w=JSON.parse(localStorage.getItem(KEY)||'null'); if(w&&typeof w.c==='number'){ coins=w.c; bait=w.b; if(typeof hud==='function') hud(); } }catch(e){}
+  let last='';
+  setInterval(()=>{ try{ const cur=coins+'|'+bait; if(cur!==last){ last=cur; localStorage.setItem(KEY,JSON.stringify({c:coins,b:bait})); } }catch(e){} },800);
+  const css=document.createElement('style');
+  css.textContent=`
+  #yard > .pill[style*="top:66%"]{display:none!important}
+  body:has(#room.edit) #hint{display:none!important}
+  `;
+  document.head.appendChild(css);
+  const yard=document.getElementById('yard'), ypop=document.getElementById('ypop');
+  if(yard&&ypop){ document.addEventListener('pointerdown',e=>{ if(ypop.style.display && ypop.style.display!=='none' && !ypop.contains(e.target)) ypop.style.display='none'; },true); }
+})();
+
 </script>
 </body>
 </html>
