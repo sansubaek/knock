@@ -816,7 +816,7 @@ $('#decoBody').addEventListener('click',e=>{ const b=e.target.closest('[data-a5]
   if(a==='wall') SAVE5.wall=v;
   if(a==='floor') SAVE5.floor=v;
   if(a==='theme'){ const t=THEMES.find(t=>t[0]===v); SAVE5.wall=t[2]; SAVE5.floor=t[3]; SAVE5.items=mk(v); s.inBed=false; leaveSeat(); }
-  if(a==='add'){ const c=CAT[v], p=DEF_POS[c.type]; SAVE5.items.push({uid:uidN++,k:v,x:p[0]+(Math.random()*16-8),y:p[1]+(c.type==='wall'?0:Math.random()*6-3),flip:0}); }
+  if(a==='add'){ const c=CAT[v], p=freeSpot5(c.type); SAVE5.items.push({uid:uidN++,k:v,x:p[0],y:p[1],flip:0}); }
   if(a==='reset'){ SAVE5.items=mk('base'); s.inBed=false; leaveSeat(); }
   persist5();
   if(a==='edit'){ setEdit(true); applyRoom(); hint('가구를 <b>끌어서</b> 옮겨. 톡 누르면 뒤집기/빼기. 다 되면 <b>완료</b>.',true); return; }
@@ -826,6 +826,15 @@ $('#decoBody').addEventListener('click',e=>{ const b=e.target.closest('[data-a5]
 });
 window.__v5={SAVE5,CAT,RS,compose,setEdit,furnAct,itemOf};
 show('door');
+
+function freeSpot5(type){
+  const wall=type==='wall';
+  const cand=wall?[[30,30],[55,28],[78,27],[42,40],[66,41],[18,40],[88,40]]:[[50,74],[30,72],[70,72],[48,88],[70,90],[26,90],[58,66],[40,80],[62,82]];
+  const its=SAVE5.items.filter(i=>{const t=(CAT[i.k]||{}).type; return wall?t==='wall':t!=='wall';});
+  let best=cand[0],bd=-1;
+  cand.forEach(c=>{ const d=its.length?Math.min(...its.map(i=>Math.hypot(i.x-c[0],(i.y-c[1])*1.4))):99; if(d>bd){bd=d;best=c;} });
+  return [best[0]+(Math.random()*4-2),best[1]+(wall?0:Math.random()*2-1)];
+}
 
 /* ===== v5 part2: yard + world glue ===== */
 (function(){
