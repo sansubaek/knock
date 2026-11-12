@@ -1018,6 +1018,7 @@ window.__v5y={Y,drawYard,plotTap,stageOf,save};
   const yard=document.getElementById('yard'), ypop=document.getElementById('ypop');
   if(yard&&ypop){ document.addEventListener('pointerdown',e=>{ if(ypop.style.display && ypop.style.display!=='none' && !ypop.contains(e.target)) ypop.style.display='none'; },true); }
 })();
+(function(){ const hide=()=>document.querySelectorAll('#yard .pill').forEach(p=>{ if(/^\s*연못\s*·\s*낚시\s*$/.test(p.textContent)) p.style.setProperty('display','none','important'); }); hide(); setTimeout(hide,500); setTimeout(hide,2000); })();
 
 </script>
 </body>
