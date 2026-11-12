@@ -626,12 +626,12 @@ const CAT={
 Object.keys(CAT).forEach(k=>{ const c=CAT[k]; c.img=c.img||k; });
 const DEF_POS={floor:[50,80],flat:[50,86],wall:[60,34]};
 const SETS={
- base:[['bed_cream',16,80],['cab',30,59.5],['shelf',80,58.8],['deck',78,39.6],['lamp',60,61],['rug',50,85],['sofa_side',83,91,1]],
+ base:[['bed_cream',16,80],['cab',30,59.5],['shelf',80,58.8],['deck',78,39.6],['lamp',60,61],['rug',50,85],['sofa_side',82,79.5,1]],
  mint:[['bed_blue',84,80],['cab',30,59.5],['desk_chair',70,62],['wall_shelf_plants',72,36],['rug_check',45,86],['beanbag',20,90],['monstera',10,66],['wall_clock',56,22]],
- flower:[['bed_cream',16,80],['wardrobe',82,60],['mirror',62,61],['rug_heart',52,86],['armchair',82,90,1],['fairy_lights',68,20],['frame_cat',56,32],['plants_small',34,61]],
- modern:[['bed_blue',16,80],['tv_cabinet',66,61],['sofa_side',70,93,1],['rug_check',52,84],['frame_landscape',70,30],['light_tree',90,66],['side_table_tea',34,62]],
+ flower:[['bed_cream',16,80],['wardrobe',82,60],['mirror',62,61],['rug_heart',52,86],['armchair',82,80,1],['fairy_lights',68,20],['frame_cat',56,32],['plants_small',34,61]],
+ modern:[['bed_blue',16,80],['tv_cabinet',66,61],['sofa_side',70,80,1],['rug_check',52,84],['frame_landscape',70,30],['light_tree',90,66],['side_table_tea',34,62]],
  vintage:[['bed_cream',84,80],['piano',34,62],['shelf',68,58.8],['deck',22,40],['rug',46,86],['armchair',16,90],['radio',52,61],['corkboard',52,32],['lamp',90,68]],
- sky:[['bed_blue',16,80],['cab',30,59.5],['game_console',60,90],['beanbag',82,88],['rug_heart',50,80],['cat_tower',88,64],['hanging_plant',52,26],['wall_clock',66,22],['dog_cushion',30,94]]
+ sky:[['bed_blue',16,80],['cab',30,59.5],['game_console',60,90],['beanbag',82,80],['rug_heart',50,80],['cat_tower',88,64],['hanging_plant',52,26],['wall_clock',66,22],['dog_cushion',30,94]]
 };
 const THEMES=[['base','기본','base','base'],['mint','민트','mint','palewood'],['flower','꽃무늬','pinkflower','palewood'],['modern','모던','white','graytile'],['vintage','빈티지','darkgreen','walnut'],['sky','하늘','bluestripe','checker']];
 const HEADS=[['head_girl_bob_front','단발'],['head_girl_pony_front','포니테일'],['head_girl_pinbob_front','핀 단발'],['head_girl_buns_brown','양갈래 번'],['head_girl_pony_blonde_tan','금발 포니'],['head_girl_bob_freckle_smile','주근깨 웃음'],['head_girl_bob_sleepy','졸린 눈'],['head_boy_short_front','짧은 머리'],['head_boy_curly_brown','곱슬'],['head_boy_glasses','안경'],['head_boy_tan_sparkle','반짝 눈']];
@@ -982,6 +982,8 @@ window.__v5y={Y,drawYard,plotTap,stageOf,save};
   #yard > .pill[style*="top:66%"]{left:auto!important;right:24%!important;top:73%!important}
   #yard.night img:not(#charYImg){filter:brightness(.62) saturate(.85)}
   #yard.night .yo.lamp img{filter:brightness(1.05) drop-shadow(0 0 calc(var(--u)*3) rgba(255,214,130,.9))}
+  #toYard,#toHome{width:calc(var(--u)*23)!important}
+  #toYard span,#toHome span{font-size:calc(var(--u)*2.9)!important}
   .furn,.yo{-webkit-user-drag:none;user-select:none}
   #room.edit .furn, #yard .yo{touch-action:none}
   `;
