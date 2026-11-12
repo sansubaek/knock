@@ -39,7 +39,7 @@ html,body{margin:0;height:100%;background:#2b2620;font-family:-apple-system,"App
 const HEADS=['head_girl_bob_front','head_girl_pony_front','head_girl_pinbob_front','head_girl_buns_brown','head_girl_pony_blonde_tan','head_girl_bob_freckle_smile','head_girl_bob_sleepy','head_boy_short_front','head_boy_curly_brown','head_boy_glasses','head_boy_tan_sparkle'];
 const SIDE={head_girl_bob_front:'head_girl_bob_side',head_boy_short_front:'head_boy_short_side'};
 /* part sizes in "U" (same units as the original 252px-wide head art) */
-const PART={"f_torso":[164,152],"f_arm_l":[50,120],"f_arm_r":[50,120],"f_leg_l":[62,96],"f_leg_r":[62,96],"f_pelvis":[110,40],"s_torso":[140,166],"s_arm_n":[54,114],"s_arm_f":[54,114],"s_thigh_n":[62,58],"s_thigh_f":[62,58],"s_shin_n":[56,62],"s_shin_f":[56,62]};
+const PART={"f_torso":[164,152],"f_arm_l":[50,120],"f_arm_r":[50,120],"f_leg_l":[62,96],"f_leg_r":[62,96],"f_pelvis":[110,40],"s_torso":[140,166],"s_arm_n":[54,114],"s_arm_f":[54,114],"s_thigh_n":[62,58],"s_thigh_f":[62,58],"s_shin_n":[56,62],"s_shin_f":[56,62],"fs_legs":[130,146],"ss_legs":[200,115]};
 const IM={};
 function load(k){return new Promise(r=>{const i=new Image();i.onload=()=>{IM[k]=i;r();};i.onerror=()=>{console.warn('missing',k);r();};i.src='ra/'+k+'.webp';});}
 
@@ -67,10 +67,10 @@ function pose(){ // returns joint angles / offsets for current mode & time
     const p=t*2*Math.PI*1.7, s=Math.sin(p);
     P.bob=-Math.abs(Math.cos(p))*5+2;
     if(st.view==='front'){ P.sLL=1-0.10*Math.max(0,s); P.sLR=1-0.10*Math.max(0,-s); P.lL=-3*s; P.lR=-3*s; P.aL=7+9*s; P.aR=-7+9*s; P.headTilt=2*s; }
-    else { P.thN=26*s; P.thF=-26*s; P.kN=Math.max(0,-Math.sin(p+0.9))*38; P.kF=Math.max(0,Math.sin(p+0.9))*38; P.armN=-24*s; P.armF=24*s; P.lean=3; P.headTilt=1.5*s; }
+    else { P.thN=26*s; P.thF=-26*s; P.kN=Math.max(0,-Math.sin(p+0.9))*24; P.kF=Math.max(0,Math.sin(p+0.9))*24; P.armN=-24*s; P.armF=24*s; P.lean=3; P.headTilt=1.5*s; }
   }
-  if(st.mode==='sitF'){ P.sit=true; P.aL=-14; P.aR=14; P.sLL=.58; P.sLR=.58; P.lL=4; P.lR=-4; P.bob=br*0.8; }
-  if(st.mode==='sitS'){ P.sit=true; P.thN=-90; P.thF=-86; P.kN=90; P.kF=84; P.thLen=1.75; P.armN=-55; P.armF=-30; P.lean=-4; P.bob=br*0.8; }
+  if(st.mode==='sitF'){ P.sit=true; P.aL=-10; P.aR=10; P.bob=br*0.8; }
+  if(st.mode==='sitS'){ P.sit=true; P.armN=-50; P.armF=-36; P.lean=-3; P.bob=br*0.8; }
   if(st.wave>0){ const w=Math.sin(t*2*Math.PI*2.2); P.waveArm=-128+16*w; P.headTilt=4; }
   return P;
 }
@@ -85,9 +85,11 @@ function draw(){
   if(st.view==='front'){
     const F=R;
     // pelvis + legs (behind torso)
-    at(F.pelvis[0],F.pelvis[1],()=>part('f_pelvis',55,20,0,1,P.sit?.8:1));
-    at(F.legL[0],F.legL[1],()=>part('f_leg_l',F.legPiv[0],F.legPiv[1],P.lL,1,P.sLL));
-    at(F.legR[0],F.legR[1],()=>part('f_leg_r',F.legPiv[0],F.legPiv[1],P.lR,1,P.sLR));
+    if(P.sit){ part('fs_legs',65,-120,0); } // one soft lap+legs piece, top tucked under the hem
+    else {
+      at(F.pelvis[0],F.pelvis[1],()=>part('f_pelvis',55,20,0,1,1));
+      at(F.legL[0],F.legL[1],()=>part('f_leg_l',F.legPiv[0],F.legPiv[1],P.lL,1,P.sLL));
+      at(F.legR[0],F.legR[1],()=>part('f_leg_r',F.legPiv[0],F.legPiv[1],P.lR,1,P.sLR)); }
     // torso breathes from hip
     at(F.hip[0],F.hip[1],()=>{ g.scale(1,1+P.breath*0.012); g.translate(-F.hip[0],-F.hip[1]);
       at(0,0,()=>part('f_torso',-F.torso[0],-F.torso[1],0));
@@ -105,11 +107,11 @@ function draw(){
     const leg=(hp,th,kn,a,b)=>at(hp[0],hp[1],()=>{ g.rotate(th*Math.PI/180);
       at(S.knee[0]-S.thighPiv[0],(S.knee[1]-S.thighPiv[1])*L,()=>part(b,S.shinPiv[0],S.shinPiv[1],kn));
       part(a,S.thighPiv[0],S.thighPiv[1],0,1,L); });
-    leg(S.hipF,P.thF,P.kF,'s_thigh_f','s_shin_f');
+    if(!P.sit) leg(S.hipF,P.thF,P.kF,'s_thigh_f','s_shin_f');
+    else part('ss_legs',45,-122,0); // both legs, continuous fabric; hem drawn over its top
     at(S.hip[0],S.hip[1],()=>{ g.rotate(P.lean*Math.PI/180); g.scale(1,1+P.breath*0.012); g.translate(-S.hip[0],-S.hip[1]);
       if(!P.sit) leg(S.hip,P.thN,P.kN,'s_thigh_n','s_shin_n');
       part('s_torso',-S.torso[0],-S.torso[1],0);
-      if(P.sit) leg(S.hip,P.thN,P.kN,'s_thigh_n','s_shin_n');
       drawHead(S.head[0],S.head[1]+P.breath*-0.8,P.headTilt);
       at(S.sh[0],S.sh[1],()=>part('s_arm_n',S.armPiv[0],S.armPiv[1],P.waveArm!==null?P.waveArm:P.armN));
     });
@@ -117,7 +119,7 @@ function draw(){
 }
 
 /* ---------- scene / layout ---------- */
-const FUR={ sofaF:{el:'sofaF',x:30,y:73,w:34,seat:.38,dx:0}, sofaS:{el:'sofaS',x:74,y:66,w:34,seat:.385,dx:.1,lift:24}, bench:{el:'benchS',x:52,y:66,w:40,seat:.53,dx:.06,lift:24} };
+const FUR={ sofaF:{el:'sofaF',x:30,y:73,w:34,seat:.38,dx:0}, sofaS:{el:'sofaS',x:74,y:66,w:34,seat:.385,dx:.1,lift:72}, bench:{el:'benchS',x:52,y:66,w:40,seat:.53,dx:.06,lift:72} };
 function placeFur(){ for(const k in FUR){ const f=FUR[k], el=document.getElementById(f.el); el.style.left=f.x+'%'; el.style.top=f.y+'%'; el.style.width=f.w+'%'; el.style.zIndex=Math.round(f.y*10); } }
 function charScale(y){ return 16.6*(.86+(y-67)/24*.24); } // % of scene height for a standing (430U) character, same as v6
 function seatPoint(f){ const el=document.getElementById(f.el), W=scene.clientWidth, H=scene.clientHeight;
