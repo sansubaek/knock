@@ -975,6 +975,23 @@ if(!Y.intro){ Y.intro=1; save(); setTimeout(()=>hint('<b>노크 마을</b>에 �
 window.__v5y={Y,drawYard,plotTap,stageOf,save};
 })();
 
+/* QA patch 2026-11-12: layout + guards */
+(function(){
+  const css=document.createElement('style');
+  css.textContent=`
+  #yard > .pill[style*="top:66%"]{left:auto!important;right:24%!important;top:73%!important}
+  #yard.night img:not(#charYImg){filter:brightness(.62) saturate(.85)}
+  #yard.night .yo.lamp img{filter:brightness(1.05) drop-shadow(0 0 calc(var(--u)*3) rgba(255,214,130,.9))}
+  .furn,.yo{-webkit-user-drag:none;user-select:none}
+  #room.edit .furn, #yard .yo{touch-action:none}
+  `;
+  document.head.appendChild(css);
+  const stg=document.querySelector('.stage')||document.getElementById('stage');
+  if(stg){ stg.addEventListener('scroll',()=>{ if(stg.scrollTop||stg.scrollLeft){ stg.scrollTop=0; stg.scrollLeft=0; } }); }
+  document.querySelectorAll('.furn img,.yo img').forEach(i=>i.draggable=false);
+  document.addEventListener('dragstart',e=>e.preventDefault());
+})();
+
 </script>
 </body>
 </html>
