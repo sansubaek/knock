@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>노크 마을 · 캐릭터 리그 파일럿</title>
+<style>
+html,body{margin:0;height:100%;background:#2b2620;font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;overflow:hidden}
+#scene{position:relative;width:min(100vw,calc(100vh*390/844));height:min(100vh,calc(100vw*844/390));margin:0 auto;overflow:hidden;background:#d9c9a8}
+#bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fur{position:absolute;transform:translate(-50%,-100%);pointer-events:none;height:auto}
+#rig{position:absolute;pointer-events:none}
+#shadow{position:absolute;border-radius:50%;background:rgba(60,40,20,.18);transform:translate(-50%,-50%);pointer-events:none}
+#hud{position:absolute;left:0;right:0;bottom:0;padding:10px 10px calc(14px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:7px;justify-content:center;background:linear-gradient(transparent,rgba(43,38,32,.55) 35%)}
+#hud button{border:0;border-radius:999px;padding:9px 13px;font-size:14px;font-weight:700;color:#4a3a2a;background:#fff8ec;box-shadow:0 2px 0 #c9b28f;cursor:pointer}
+#hud button.on{background:#ffe19a}
+#tag{position:absolute;left:10px;top:10px;padding:6px 11px;border-radius:999px;background:#fff8ec;color:#4a3a2a;font-size:13px;font-weight:700;box-shadow:0 2px 0 #c9b28f}
+</style></head>
+<body>
+<div id="scene">
+  <img id="bg" alt="" src="ra/o_room_empty.webp">
+  <img id="sofaF" class="fur" alt="" src="ra/o_f_sofa.webp">
+  <img id="sofaS" class="fur" alt="" src="ra/v6_sofa_side_profile.webp">
+  <img id="benchS" class="fur" alt="" src="ra/v6_bench_side.webp" style="display:none">
+  <div id="shadow"></div>
+  <canvas id="rig"></canvas>
+  <div id="tag">리그 파일럿 · 초록 후드</div>
+  <div id="hud">
+    <button data-a="walkF">걷기(앞)</button>
+    <button data-a="walkS">걷기(옆)</button>
+    <button data-a="sitF">앞 앉기</button>
+    <button data-a="sitS">옆 앉기</button>
+    <button data-a="bench">벤치 앉기</button>
+    <button data-a="wave">손 흔들기</button>
+    <button data-a="head">머리 바꾸기</button>
+  </div>
+</div>
+<script>
+'use strict';
+/* ---------- assets ---------- */
+const HEADS=['head_girl_bob_front','head_girl_pony_front','head_girl_pinbob_front','head_girl_buns_brown','head_girl_pony_blonde_tan','head_girl_bob_freckle_smile','head_girl_bob_sleepy','head_boy_short_front','head_boy_curly_brown','head_boy_glasses','head_boy_tan_sparkle'];
+const SIDE={head_girl_bob_front:'head_girl_bob_side',head_boy_short_front:'head_boy_short_side'};
+/* part sizes in "U" (same units as the original 252px-wide head art) */
+const PART={"f_torso":[164,152],"f_arm_l":[50,120],"f_arm_r":[50,120],"f_leg_l":[62,96],"f_leg_r":[62,96],"f_pelvis":[110,40],"s_torso":[140,166],"s_arm_n":[54,114],"s_arm_f":[54,114],"s_thigh_n":[62,58],"s_thigh_f":[62,58],"s_shin_n":[56,62],"s_shin_f":[56,62]};
+const IM={};
+function load(k){return new Promise(r=>{const i=new Image();i.onload=()=>{IM[k]=i;r();};i.onerror=()=>{console.warn('missing',k);r();};i.src='ra/'+k+'.webp';});}
+
+/* ---------- skeleton (body coords: x=0 neck centre, y=0 collar, feet at y=224) ---------- */
+const RIG={
+ front:{ head:[0,12], hip:[0,134], shL:[-62,32], shR:[62,32], legL:[-30,132], legR:[30,132], armPiv:[25,10], legPiv:[31,4], torso:[-82,-4], pelvis:[0,140] },
+ side:{ head:[2,10], hip:[-8,124], sh:[-8,36], shF:[0,34], torso:[-67,-16], armPiv:[27,9], thighPiv:[31,7], knee:[31,51], shinPiv:[28,7], hipF:[0,124] }
+};
+const st={ view:'front', face:1, mode:'idle', head:0, x:50, y:70, t:0, seatScale:null, wave:0, busy:null, place:'room' };
+
+/* ---------- drawing ---------- */
+const cv=document.getElementById('rig'), g=cv.getContext('2d'), scene=document.getElementById('scene'), sh=document.getElementById('shadow');
+const CW=480, CH=660, RX=240, RY=520; // canvas in U, root point
+function part(k,px,py,ang,sx,sy){ const im=IM[k]; if(!im) return; const [w,h]=PART[k];
+  g.save(); g.rotate(ang*Math.PI/180); g.scale(sx||1,sy||1); g.drawImage(im,-px,-py,w,h); g.restore(); }
+function at(x,y,f){ g.save(); g.translate(x,y); f(); g.restore(); }
+function headKey(){ const h=HEADS[st.head]; return st.view==='side'?(SIDE[h]||h):h; }
+function drawHead(nx,ny,tilt){ const k=headKey(), im=IM[k]; if(!im) return; const w=im.naturalWidth, h=im.naturalHeight;
+  at(nx,ny,()=>{ g.rotate(tilt*Math.PI/180); g.drawImage(im,-w/2,-h,w,h); }); }
+
+function pose(){ // returns joint angles / offsets for current mode & time
+  const t=st.t, P={bob:0, lean:0, breath:0, headTilt:0, aL:7, aR:-7, lL:0, lR:0, sLL:1, sLR:1, thN:0, thF:0, kN:0, kF:0, armN:4, armF:-4, waveArm:null, sit:false};
+  const br=Math.sin(t*2*Math.PI/3.2); P.breath=br; P.bob=br*1.2;
+  if(st.mode==='walk'){
+    const p=t*2*Math.PI*1.7, s=Math.sin(p);
+    P.bob=-Math.abs(Math.cos(p))*5+2;
+    if(st.view==='front'){ P.sLL=1-0.10*Math.max(0,s); P.sLR=1-0.10*Math.max(0,-s); P.lL=-3*s; P.lR=-3*s; P.aL=7+9*s; P.aR=-7+9*s; P.headTilt=2*s; }
+    else { P.thN=26*s; P.thF=-26*s; P.kN=Math.max(0,-Math.sin(p+0.9))*38; P.kF=Math.max(0,Math.sin(p+0.9))*38; P.armN=-24*s; P.armF=24*s; P.lean=3; P.headTilt=1.5*s; }
+  }
+  if(st.mode==='sitF'){ P.sit=true; P.aL=-14; P.aR=14; P.sLL=.58; P.sLR=.58; P.lL=4; P.lR=-4; P.bob=br*0.8; }
+  if(st.mode==='sitS'){ P.sit=true; P.thN=-90; P.thF=-86; P.kN=90; P.kF=84; P.thLen=1.75; P.armN=-55; P.armF=-30; P.lean=-4; P.bob=br*0.8; }
+  if(st.wave>0){ const w=Math.sin(t*2*Math.PI*2.2); P.waveArm=-128+16*w; P.headTilt=4; }
+  return P;
+}
+function draw(){
+  const P=pose(), R=RIG[st.view];
+  g.setTransform(1,0,0,1,0,0); g.clearRect(0,0,cv.width,cv.height);
+  const k=cv.width/CW; g.setTransform(k,0,0,k,0,0);
+  g.translate(RX,RY); g.scale(st.face,1);
+  // root: feet (standing) or hip (sitting) -> convert to body coords
+  const hip=R.hip; if(P.sit) g.translate(-hip[0],-hip[1]); else g.translate(0,-224);
+  g.translate(0,P.bob);
+  if(st.view==='front'){
+    const F=R;
+    // pelvis + legs (behind torso)
+    at(F.pelvis[0],F.pelvis[1],()=>part('f_pelvis',55,20,0,1,P.sit?.8:1));
+    at(F.legL[0],F.legL[1],()=>part('f_leg_l',F.legPiv[0],F.legPiv[1],P.lL,1,P.sLL));
+    at(F.legR[0],F.legR[1],()=>part('f_leg_r',F.legPiv[0],F.legPiv[1],P.lR,1,P.sLR));
+    // torso breathes from hip
+    at(F.hip[0],F.hip[1],()=>{ g.scale(1,1+P.breath*0.012); g.translate(-F.hip[0],-F.hip[1]);
+      at(0,0,()=>part('f_torso',-F.torso[0],-F.torso[1],0));
+      const armL=()=>at(F.shL[0],F.shL[1],()=>part('f_arm_l',F.armPiv[0],F.armPiv[1],P.aL));
+      const armR=(a)=>at(F.shR[0],F.shR[1],()=>part('f_arm_r',F.armPiv[0],F.armPiv[1],a));
+      armL(); if(P.waveArm===null) armR(P.aR);
+      drawHead(F.head[0],F.head[1]+P.breath*-0.8,P.headTilt);
+      if(P.waveArm!==null) armR(P.waveArm); // raised arm goes in front of the hair
+    });
+  } else {
+    const S=R;
+    // far side (behind torso): far arm, far leg
+    at(S.shF[0],S.shF[1],()=>part('s_arm_f',S.armPiv[0],S.armPiv[1],P.armF));
+    const L=P.thLen||1;
+    const leg=(hp,th,kn,a,b)=>at(hp[0],hp[1],()=>{ g.rotate(th*Math.PI/180);
+      at(S.knee[0]-S.thighPiv[0],(S.knee[1]-S.thighPiv[1])*L,()=>part(b,S.shinPiv[0],S.shinPiv[1],kn));
+      part(a,S.thighPiv[0],S.thighPiv[1],0,1,L); });
+    leg(S.hipF,P.thF,P.kF,'s_thigh_f','s_shin_f');
+    at(S.hip[0],S.hip[1],()=>{ g.rotate(P.lean*Math.PI/180); g.scale(1,1+P.breath*0.012); g.translate(-S.hip[0],-S.hip[1]);
+      if(!P.sit) leg(S.hip,P.thN,P.kN,'s_thigh_n','s_shin_n');
+      part('s_torso',-S.torso[0],-S.torso[1],0);
+      if(P.sit) leg(S.hip,P.thN,P.kN,'s_thigh_n','s_shin_n');
+      drawHead(S.head[0],S.head[1]+P.breath*-0.8,P.headTilt);
+      at(S.sh[0],S.sh[1],()=>part('s_arm_n',S.armPiv[0],S.armPiv[1],P.waveArm!==null?P.waveArm:P.armN));
+    });
+  }
+}
+
+/* ---------- scene / layout ---------- */
+const FUR={ sofaF:{el:'sofaF',x:30,y:73,w:34,seat:.38,dx:0}, sofaS:{el:'sofaS',x:74,y:66,w:34,seat:.385,dx:.1,lift:24}, bench:{el:'benchS',x:52,y:66,w:40,seat:.53,dx:.06,lift:24} };
+function placeFur(){ for(const k in FUR){ const f=FUR[k], el=document.getElementById(f.el); el.style.left=f.x+'%'; el.style.top=f.y+'%'; el.style.width=f.w+'%'; el.style.zIndex=Math.round(f.y*10); } }
+function charScale(y){ return 16.6*(.86+(y-67)/24*.24); } // % of scene height for a standing (430U) character, same as v6
+function seatPoint(f){ const el=document.getElementById(f.el), W=scene.clientWidth, H=scene.clientHeight;
+  const w=f.w/100*W, h=w*el.naturalHeight/el.naturalWidth, top=f.y/100*H-h;
+  return {x:(f.x/100*W + f.dx*w)/W*100, y:(top+f.seat*h)/H*100}; }
+function layout(){
+  const W=scene.clientWidth, H=scene.clientHeight, sc=charScale(st.seatScale??st.y)/100*H/430; // css px per U
+  const dpr=Math.min(3,window.devicePixelRatio||1);
+  const cw=Math.round(CW*sc), ch=Math.round(CH*sc);
+  if(cv.width!==Math.round(cw*dpr)){ cv.width=Math.round(cw*dpr); cv.height=Math.round(ch*dpr); }
+  cv.style.width=cw+'px'; cv.style.height=ch+'px';
+  const px=st.x/100*W, py=st.y/100*H-(st.mode.startsWith('sit')?(st.lift||0)*sc:0);
+  cv.style.left=(px-RX*sc)+'px'; cv.style.top=(py-RY*sc)+'px';
+  cv.style.zIndex=Math.round((st.seatScale??st.y)*10)+(st.mode.startsWith('sit')?5:0);
+  const sit=st.mode.startsWith('sit');
+  sh.style.display=sit?'none':''; sh.style.left=px+'px'; sh.style.top=(py-2*sc)+'px'; sh.style.width=(150*sc)+'px'; sh.style.height=(30*sc)+'px'; sh.style.zIndex=cv.style.zIndex-1;
+}
+
+/* ---------- behaviours ---------- */
+let anim=null; // {fx,fy,tx,ty,t0,dur,done}
+function walkTo(tx,ty,view,done){ st.mode='walk'; st.seatScale=null; st.view=view; if(view==='side') st.face=tx>=st.x?1:-1;
+  const dist=Math.hypot((tx-st.x)*3.9,(ty-st.y)*8.44); anim={fx:st.x,fy:st.y,tx,ty,t0:performance.now(),dur:Math.max(500,dist*11),done}; }
+function stop(){ anim=null; st.mode='idle'; }
+function sitOn(k,view,face){ const f=FUR[k], p=seatPoint(f);
+  const goView='side', approachX=p.x+(view==='side'?(face>0?-6:6):0);
+  walkTo(approachX, p.y+ (view==='front'?6:5), 'side', ()=>{ st.x=p.x; st.y=p.y; st.seatScale=f.y; st.lift=f.lift||0; st.view=view; st.face=face; st.mode=view==='front'?'sitF':'sitS'; layout(); }); }
+let walkLoop=null;
+const ACT={
+  walkF(){ st.view='front'; st.seatScale=null; const y0=st.mode.startsWith('sit')?72:st.y; st.x=Math.max(20,Math.min(80,st.x)); st.y=y0;
+    const leg=()=>walkTo(st.x, st.y<74?80:68,'front',leg); leg(); },
+  walkS(){ st.seatScale=null; const leg=()=>walkTo(st.x<50?78:22, Math.max(68,Math.min(80,st.y)),'side',leg); if(st.mode.startsWith('sit')) st.y=74; leg(); },
+  sitF(){ showRoom(); sitOn('sofaF','front',1); },
+  sitS(){ showRoom(); sitOn('sofaS','side',1); },
+  bench(){ showYard(); st.x=20; st.y=74; sitOn('bench','side',1); },
+  wave(){ st.wave=2.6; },
+  head(){ st.head=(st.head+1)%HEADS.length; }
+};
+function showRoom(){ if(st.place==='room') return; st.place='room'; document.getElementById('bg').src='ra/o_room_empty.webp'; benchS.style.display='none'; sofaF.style.display=''; sofaS.style.display=''; st.x=50; st.y=74; }
+function showYard(){ if(st.place==='yard') return; st.place='yard'; document.getElementById('bg').src='ra/yard_grass_day.webp'; benchS.style.display=''; sofaF.style.display='none'; sofaS.style.display='none'; }
+document.getElementById('hud').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; anim=null;
+  if(b.dataset.a!=='wave'&&b.dataset.a!=='head') st.mode='idle';
+  ACT[b.dataset.a](); document.querySelectorAll('#hud button').forEach(x=>x.classList.toggle('on',x===b&&/walk/.test(b.dataset.a))); });
+
+let last=performance.now();
+function tick(now){ const dt=Math.min(.05,(now-last)/1000); last=now; st.t+=dt; if(st.wave>0) st.wave-=dt;
+  if(anim){ const u=Math.min(1,(now-anim.t0)/anim.dur); st.x=anim.fx+(anim.tx-anim.fx)*u; st.y=anim.fy+(anim.ty-anim.fy)*u; if(u>=1){ const d=anim.done; anim=null; st.mode='idle'; if(d) d(); } }
+  layout(); draw(); requestAnimationFrame(tick); }
+
+window.__rig={st,ACT,FUR,seatPoint,IM};
+Promise.all([...Object.keys(PART),...HEADS,...Object.values(SIDE)].map(load)).then(()=>{ placeFur(); st.x=50; st.y=74; requestAnimationFrame(tick); window.__rigReady=1; });
+const benchS=document.getElementById('benchS'), sofaF=document.getElementById('sofaF'), sofaS=document.getElementById('sofaS');
+</script>
+</body></html>
