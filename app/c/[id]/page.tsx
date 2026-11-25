@@ -8,6 +8,7 @@ import { getSession } from '@/lib/auth'
 import { loadPublic, normalizeQrId, qrOwner } from '@/lib/public-page'
 import { requestInfo } from '@/lib/request'
 import { createAdminClient } from '@/lib/supabase/admin'
+import { PEAPOD_TEST_IDS } from '@/lib/peapod-test'
 
 export const dynamic = 'force-dynamic'
 
@@ -32,6 +33,8 @@ export default async function QrPage({ params }: { params: Promise<{ id: string 
   const id = normalizeQrId(raw)
   if (!id) return <NotFound />
   if (raw !== id) redirect(`/c/${id}`)
+  // 2차 실물 테스트 케이스는 새 PeaPod 흐름(환영 → 가입 → 코드 → 방 배정)으로 보낸다
+  if (PEAPOD_TEST_IDS.has(id)) redirect(`/peapod/index.html?c=${id}`)
 
   const [res, session, owner, req] = await Promise.all([loadPublic(id), getSession(), qrOwner(id), requestInfo()])
   const isOwner = !!session.user && owner?.owner_id === session.user.id
