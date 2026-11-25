@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { after } from 'next/server'
 import { PageView } from '@/components/PageView'
@@ -11,6 +12,9 @@ import { createAdminClient } from '@/lib/supabase/admin'
 import { PEAPOD_TEST_IDS } from '@/lib/peapod-test'
 
 export const dynamic = 'force-dynamic'
+
+// PeaPod 로 쓰는 주소들. knock-snowy 는 DNS 연결 전 확인용.
+const PP_HOSTS = new Set(['peapod.kr', 'www.peapod.kr', 'knock-snowy.vercel.app'])
 
 export const metadata: Metadata = {
   title: 'knock',
@@ -31,10 +35,16 @@ function Shell({ line, children }: { line: 'bang' | 'dot'; children: React.React
 export default async function QrPage({ params }: { params: Promise<{ id: string }> }) {
   const { id: raw } = await params
   const id = normalizeQrId(raw)
-  if (!id) return <NotFound />
+  if (!id) {
+    const h = ((await headers()).get('host') ?? '').toLowerCase()
+    if (PP_HOSTS.has(h)) redirect('/room?c=ZZZZZZ')
+    return <NotFound />
+  }
   if (raw !== id) redirect(`/c/${id}`)
-  // 2차 실물 테스트 케이스는 새 PeaPod 흐름(환영 → 가입 → 코드 → 방 배정)으로 보낸다
-  if (PEAPOD_TEST_IDS.has(id)) redirect(`/peapod/index.html?c=${id}`)
+  // PeaPod 주소(peapod.kr)로 찍힌 QR과 2차 실물 테스트 케이스는 PeaPod 방 앱(/room)이 맡는다.
+  // 방 앱이 서버(/api/pp/boot)에 물어서 새 케이스 / 주인 있는 방 / 잠긴 방 / 분실 신고를 가른다.
+  const host = ((await headers()).get('host') ?? '').toLowerCase()
+  if (PP_HOSTS.has(host) || PEAPOD_TEST_IDS.has(id)) redirect(`/room?c=${id}`)
 
   const [res, session, owner, req] = await Promise.all([loadPublic(id), getSession(), qrOwner(id), requestInfo()])
   const isOwner = !!session.user && owner?.owner_id === session.user.id
