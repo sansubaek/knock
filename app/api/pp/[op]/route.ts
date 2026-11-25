@@ -54,14 +54,17 @@ export async function GET(req: NextRequest, { params }: Ctx) {
     let knocks = 0
     let found: { t: string; c: string; at: number }[] = []
     if (ids.length) {
-      const since = kstDayStart()
+      // 내가 등록한 뒤의 것만 센다 (등록 전에 찍힌 것, 예전 주인이 받은 말은 빼고)
+      const firstClaim = mine.map((m) => m.code_used_at ?? '').filter(Boolean).sort()[0] ?? new Date().toISOString()
+      const day = kstDayStart()
+      const since = day > firstClaim ? day : firstClaim
       const [sc, lm] = await Promise.all([
         db.from('scan_logs').select('id', { count: 'exact', head: true }).in('qr_id', ids).eq('is_owner', false).gte('scanned_at', since),
         db
           .from('lost_messages')
           .select('qr_id, message, created_at')
           .in('qr_id', ids)
-          .gte('created_at', new Date(Date.now() - 14 * 86400e3).toISOString())
+          .gte('created_at', new Date(Math.max(Date.now() - 14 * 86400e3, Date.parse(firstClaim))).toISOString())
           .order('created_at', { ascending: false })
           .limit(5),
       ])
@@ -278,7 +281,12 @@ export async function POST(req: NextRequest, { params }: Ctx) {
   if (op === 'delete') {
     if (!(await hit(`ppd:${rl}`, 5, 3600))) return NO('잠시 뒤에 다시 해 주세요.', 429)
     // 등록한 케이스는 주인 없는 상태로 돌려서, 카드의 코드로 다시 등록할 수 있게 한다
-    await db.from('qr_codes').update({ status: 'issued', owner_id: null, page_id: null, code_used_at: null, lost_mode: false }).eq('owner_id', user.id)
+    const { data: owned } = await db.from('qr_codes').select('id').eq('owner_id', user.id)
+    const ownedIds = (owned ?? []).map((r) => r.id as string)
+    if (ownedIds.length) {
+      await db.from('lost_messages').delete().in('qr_id', ownedIds)
+      await db.from('qr_codes').update({ status: 'issued', owner_id: null, page_id: null, code_used_at: null, lost_mode: false }).in('id', ownedIds)
+    }
     try {
       const { data: files } = await db.storage.from('page-media').list(user.id, { limit: 1000 })
       if (files && files.length) await db.storage.from('page-media').remove(files.map((f) => `${user.id}/${f.name}`))
