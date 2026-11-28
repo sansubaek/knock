@@ -28,6 +28,8 @@ const TEST_THEME: Record<string, string> = {
   WSFRSU: 'doodle',
   U2J6JT: 'door',
   C8KT6P: 'door',
+  Y6ZCN9: 'doodle',
+  BQ5H2G: 'doodle',
 }
 
 export function ppId(raw: unknown) {
